@@ -31,6 +31,11 @@
 | スコア | NVD（CVSS）、FIRST EPSS | 深刻度・悪用可能性 |
 | ニュース | Security NEXT、BleepingComputer、The Hacker News 等のRSS | 事件（漏洩・停止など） |
 
+**情報源を追加・変更したら、クラウド環境（claude.ai/code の環境 `Default`）のネットワーク許可リストも更新すること。**
+クラウド環境は Custom（許可ドメインのみ＋既定のパッケージ管理系）で運用しており、未許可のホストは 403 で拒否される。
+現在の許可ドメイン：`www.cisa.gov` `services.nvd.nist.gov` `api.first.org` `www.jpcert.or.jp` `www.ipa.go.jp`
+`www.security-next.com` `piyolog.hatenadiary.jp` `www.bleepingcomputer.com` `feeds.feedburner.com` `www.securityweek.com`
+
 収集範囲は直近48時間（前日分の取りこぼし防止）。過去に掲載済みのものは続報として既存項目に紐付ける。
 
 ## 優先度の判断基準
@@ -76,7 +81,13 @@
    - 既定は connector 方式（claude.ai の Slack コネクタをルーティンに追加し、Claudeが投稿）。APIキー等の秘密情報が不要なため
    - webhook 方式は環境変数 `SLACK_WEBHOOK_URL` のみから読み、送信先を hooks.slack.com に限定
    - 有効化手順：Slackコネクタ連携 → ルーティンに接続を追加 → `enabled: true`・`slack_channel`・`page_url` を設定
-8. [ ] GitHub push → Pages → ルーティン作成 → 試運転
+8. [x] GitHub push → Pages → ルーティン作成 → 試運転（2026-10-22 成功）
+   - リポジトリ：https://github.com/p-upsecnews/news_pickup （公開ページ：https://p-upsecnews.github.io/news_pickup/ ）
+   - ルーティン：「セキュリティニュース朝刊」 https://claude.ai/code/routines/trig_01TFMphgCNX9TyxL1KZKaAgH
+     - 毎日 01:00 UTC（10:00 JST）、Sonnet 5.5、ツールは Bash/Read/Write/Edit/Glob/Grep のみ、MCPコネクタなし
+     - 作成時に既存のコネクタ（Google Calendar 等）が自動付与されたため外した。設定変更時は再付与されていないか確認する
+   - クラウドのルーティンは main へ直接 push できる（ブランチ制限なし）
+   - ローカルから main へ push する場合は、先に `git pull` してルーティンのコミットを取り込むこと
 
 ## 決定事項
 - 公開リポジトリ＋GitHub Pages で公開する
