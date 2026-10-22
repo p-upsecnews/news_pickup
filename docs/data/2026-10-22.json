@@ -1,6 +1,6 @@
 {
   "date": "2026-10-22",
-  "generated_at": "2026-10-22T12:15:00+09:00",
+  "generated_at": "2026-10-22T14:50:31+09:00",
   "window_hours": 48,
   "headline": "PHP2ShellとPlex2Shellが悪用されている。PAN-OSの認証バイパスを狙うランサム攻撃、国内VPS「お名前.com デスクトップクラウド」の大規模侵害、FortiSIEMのPoC公開も要確認。GitLabにはCVSS 10.0の認証不要RCEがある。",
   "items": [
@@ -646,22 +646,22 @@
     {
       "name": "NVD",
       "ok": true,
-      "count": 82
+      "count": 83
     },
     {
       "name": "JPCERT/CC",
       "ok": true,
-      "count": 0
+      "count": 1
     },
     {
       "name": "IPA",
       "ok": true,
-      "count": 2
+      "count": 3
     },
     {
       "name": "Security NEXT",
       "ok": true,
-      "count": 18
+      "count": 17
     },
     {
       "name": "piyolog",
@@ -684,13 +684,38 @@
       "count": 10
     },
     {
+      "name": "JVN",
+      "ok": true,
+      "count": 6
+    },
+    {
+      "name": "ITmedia",
+      "ok": true,
+      "count": 12
+    },
+    {
+      "name": "AWS Health",
+      "ok": true,
+      "count": 0
+    },
+    {
+      "name": "Cloudflare Status",
+      "ok": true,
+      "count": 0
+    },
+    {
+      "name": "GitHub Status",
+      "ok": true,
+      "count": 1
+    },
+    {
       "name": "EPSS",
       "ok": true,
       "count": 79
     }
   ],
   "stats": {
-    "items": 168,
-    "clusters": 139
+    "items": 189,
+    "clusters": 152
   }
 }
