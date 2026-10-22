@@ -75,6 +75,8 @@
 6. [x] 表示ページ（`docs/index.html` が `docs/data/index.json` と `<日付>.json` を読む静的ページ）
    - レポートは `python -m publisher.validate docs/data/<日付>.json` で検証してから公開する
    - 検証では形式・件数上限・URLスキームに加え、**出典URLがその日の候補データに実在するか**を照合する（AIのURL取り違え対策。試作時に実際に発生した）
+   - 「キーワード一覧 → タップで詳細」の2段構成。読む時間がなくても上部の一覧だけで話題を把握できることを優先する
+     - 各項目の `keyword`（最大16文字、製品名・攻撃の通称）と `target`（最大10文字、影響範囲）を一覧に使う。2026-10-22以降は必須
    - ページはレポート内の文字列を textContent でのみ描画する（外部記事由来の文字列をHTMLとして解釈しない）
    - ローカル確認：`python -m http.server 8765 --directory docs`
 7. [x] 通知モジュール（無効状態。`publisher/notify.py`、設定は `config/notify.json`）

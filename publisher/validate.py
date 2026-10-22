@@ -19,7 +19,9 @@ KINDS = {"vulnerability", "incident", "outage", "other"}
 DATE_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
 CVE_RE = re.compile(r"^CVE-\d{4}-\d{4,7}$")
 URL_RE = re.compile(r"^https?://[^\s\"'<>]+$")
-TEXT_MAX = {"headline": 200, "title": 80, "what": 200, "who": 200, "action": 200}
+TEXT_MAX = {"headline": 200, "keyword": 16, "target": 10, "title": 80, "what": 200, "who": 200, "action": 200}
+# keyword / target を導入した日。これより前のレポートには項目がないため必須にしない
+KEYWORD_SINCE = "2026-10-22"
 
 
 def _check_text(errors, where, value, key, required=True):
@@ -54,6 +56,8 @@ def validate(report, urls=None):
         return errors + ["items が配列ではありません"]
 
     counts = {k: 0 for k in LEVELS}
+    need_keyword = str(report.get("date", "")) >= KEYWORD_SINCE
+    keywords = set()
     for n, it in enumerate(items):
         where = f"items[{n}]"
         level = it.get("level")
@@ -63,6 +67,13 @@ def validate(report, urls=None):
             counts[level] += 1
         if it.get("kind") not in KINDS:
             errors.append(f"{where}: kind が不正です（{it.get('kind')}）")
+        for key in ("keyword", "target"):
+            _check_text(errors, where, it.get(key), key, required=need_keyword)
+        kw = it.get("keyword")
+        if kw:
+            if kw in keywords:
+                errors.append(f"{where}: keyword が他の項目と重複しています（{kw}）")
+            keywords.add(kw)
         for key in ("title", "what", "who", "action"):
             # ⚪ は見出しと概要だけでよい
             _check_text(errors, where, it.get(key), key, required=(key in ("title", "what") or level != "other"))
