@@ -1,9 +1,9 @@
 [
  {
   "date": "2026-10-22",
-  "headline": "PHPの「PHP2Shell」とPlex Media Serverの「Plex2Shell」で悪用が進行中。GitLabの認証不要RCEや、国内VPS「お名前.com デスクトップクラウド」で最大約2.7万台が侵害された件も要確認。",
+  "headline": "PHP2ShellとPlex2Shellが悪用されている。PAN-OSの認証バイパスを狙うランサム攻撃、国内VPS「お名前.com デスクトップクラウド」の大規模侵害、FortiSIEMのPoC公開も要確認。GitLabにはCVSS 10.0の認証不要RCEがある。",
   "critical": 5,
   "notable": 10,
-  "other": 14
+  "other": 13
  }
 ]
