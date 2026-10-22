@@ -1,0 +1,25 @@
+{
+  "_comment": "収集対象の情報源。feed の category は jp_alert（公的機関の注意喚起）または news。exclude_title_patterns はタイトルの除外正規表現",
+  "kev": {
+    "name": "CISA KEV",
+    "url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json"
+  },
+  "nvd": {
+    "name": "NVD",
+    "url": "https://services.nvd.nist.gov/rest/json/cves/2.0",
+    "severity": "CRITICAL",
+    "max_cve_lookups": 15
+  },
+  "epss": {
+    "url": "https://api.first.org/data/v1/epss"
+  },
+  "feeds": [
+    {"name": "JPCERT/CC", "category": "jp_alert", "lang": "ja", "url": "https://www.jpcert.or.jp/rss/jpcert.rdf", "exclude_title_patterns": ["^Weekly Report:"]},
+    {"name": "IPA", "category": "jp_alert", "lang": "ja", "url": "https://www.ipa.go.jp/security/alert-rss.rdf"},
+    {"name": "Security NEXT", "category": "news", "lang": "ja", "url": "https://www.security-next.com/feed"},
+    {"name": "piyolog", "category": "news", "lang": "ja", "url": "https://piyolog.hatenadiary.jp/rss"},
+    {"name": "BleepingComputer", "category": "news", "lang": "en", "url": "https://www.bleepingcomputer.com/feed/"},
+    {"name": "The Hacker News", "category": "news", "lang": "en", "url": "https://feeds.feedburner.com/TheHackersNews"},
+    {"name": "SecurityWeek", "category": "news", "lang": "en", "url": "https://www.securityweek.com/feed/"}
+  ]
+}

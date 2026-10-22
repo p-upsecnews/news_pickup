@@ -1,0 +1,354 @@
+{
+  "date": "2026-10-22",
+  "generated_at": "2026-10-22T11:40:00+09:00",
+  "window_hours": 48,
+  "headline": "PHPの「PHP2Shell」とPlex Media Serverの「Plex2Shell」で悪用が進行中。GitLabの認証不要RCEや、国内VPS「お名前.com デスクトップクラウド」で最大約2.7万台が侵害された件も要確認。",
+  "items": [
+    {
+      "level": "critical",
+      "kind": "vulnerability",
+      "title": "PHPに深刻なRCE脆弱性2件「PHP2Shell」、修正前から悪用の試みを観測",
+      "what": "PHPにリモートコード実行の脆弱性が2件見つかり緊急の修正版が公開された。米CISAも即時適用を勧告している。",
+      "who": "PHPでWebアプリケーションを公開しているサーバ全般。",
+      "action": "PHPを修正版へ更新する。すぐ更新できない場合はインターネットからの公開停止を検討する。",
+      "cves": ["CVE-2026-109618", "CVE-2026-109619"],
+      "tags": ["悪用確認済み"],
+      "is_update": false,
+      "sources": [
+        {"name": "Security NEXT", "url": "https://www.security-next.com/191766"},
+        {"name": "SecurityWeek", "url": "https://www.securityweek.com/php2shell-patches-land-as-first-exploitation-attempts-hit-sensors/"},
+        {"name": "piyolog", "url": "https://piyolog.hatenadiary.jp/entry/2026/10/21/174516"}
+      ]
+    },
+    {
+      "level": "critical",
+      "kind": "vulnerability",
+      "title": "Plex Media Serverの脆弱性4件を連鎖させる「Plex2Shell」攻撃、CISAがKEVに追加",
+      "what": "Plex Media Serverの複数の脆弱性を組み合わせてサーバを乗っ取る攻撃が確認され、CISAが悪用済み脆弱性として登録した。",
+      "who": "Plex Media Serverをインターネットに公開している利用者。",
+      "action": "Plex Media Serverを最新版に更新し、外部公開の要否を見直す。",
+      "cves": ["CVE-2026-96652", "CVE-2026-96654", "CVE-2026-96655", "CVE-2026-96656"],
+      "tags": ["KEV", "悪用確認済み"],
+      "is_update": false,
+      "sources": [
+        {"name": "Security NEXT", "url": "https://www.security-next.com/191709"},
+        {"name": "BleepingComputer", "url": "https://www.bleepingcomputer.com/news/security/cisa-hackers-chain-plex-flaws-in-plex2shell-attacks-to-breach-servers/"}
+      ]
+    },
+    {
+      "level": "critical",
+      "kind": "vulnerability",
+      "title": "Palo Alto Networks PAN-OSの認証回避脆弱性、ランサムウェア集団がMFA回避に悪用",
+      "what": "修正済みのPAN-OS／Prisma Accessの認証回避脆弱性が、QilinやINCなどのランサムウェア集団に引き続き悪用されている。",
+      "who": "PAN-OSおよびPrisma Accessを利用している組織（VPN・境界装置）。",
+      "action": "修正版の適用状況を確認し、未適用なら直ちに適用。侵害の痕跡も点検する。",
+      "cves": ["CVE-2026-0257"],
+      "tags": ["KEV", "悪用確認済み", "ランサムウェア"],
+      "is_update": false,
+      "sources": [
+        {"name": "The Hacker News", "url": "https://thehackernews.com/2026/10/qilin-and-inc-ransomware-groups-exploit.html"}
+      ]
+    },
+    {
+      "level": "critical",
+      "kind": "vulnerability",
+      "title": "GitLabに認証不要でコード実行できる脆弱性（CVSS 10.0）、2014年以降の全版が対象",
+      "what": "セルフマネージド版GitLabで、ログインなしにサーバ上でコードを実行できる脆弱性が修正された。旧ブランチにも修正が提供されている。",
+      "who": "セルフマネージド版GitLabを運用している組織（GitLab.comは対象外の見込み）。",
+      "action": "提供された修正版へ速やかに更新する。外部公開中のインスタンスを優先する。",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {"name": "Security NEXT", "url": "https://www.security-next.com/191760"},
+        {"name": "The Hacker News", "url": "https://thehackernews.com/2026/10/critical-gitlab-flaw-cvss-100-could.html"}
+      ]
+    },
+    {
+      "level": "critical",
+      "kind": "incident",
+      "title": "「お名前.com デスクトップクラウド」の基盤が侵害、最大約2.7万台の顧客サーバにマルウェア",
+      "what": "国内VPSサービスの基盤に攻撃者が侵入し、最大26,739件の顧客サーバにマルウェアが仕込まれた。",
+      "who": "同サービスを利用している企業・個人。客先で利用していないかも確認が必要。",
+      "action": "利用有無を確認し、利用中ならサービス提供元の案内に従ってサーバの点検・再構築と認証情報の変更を行う。",
+      "cves": [],
+      "tags": ["国内", "サプライチェーン"],
+      "is_update": false,
+      "sources": [
+        {"name": "BleepingComputer", "url": "https://www.bleepingcomputer.com/news/security/japans-onamae-desktop-cloud-hacked-up-to-27-000-servers-affected/"}
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "incident",
+      "title": "PythonパッケージLiteLLMがサプライチェーン攻撃で改ざん、認証情報窃取とバックドア",
+      "what": "AI開発で広く使われるLiteLLMの特定バージョンに、認証情報を盗むコードとバックドアが仕込まれた。",
+      "who": "LiteLLMを導入している開発環境・サーバ・CI。",
+      "action": "導入バージョンを確認し、該当する場合は除去したうえで、その環境の認証情報・APIキーを全て再発行する。",
+      "cves": [],
+      "tags": ["サプライチェーン"],
+      "is_update": false,
+      "sources": [
+        {"name": "The Hacker News", "url": "https://thehackernews.com/2026/10/litellm-compromised-in-supply-chain.html"}
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "vulnerability",
+      "title": "国産WAF「SiteGuard Server Edition」のOSコマンドインジェクション、悪用を確認",
+      "what": "SiteGuard Server EditionにOSコマンドを実行される脆弱性があり、CISAが悪用済み脆弱性に登録した。",
+      "who": "SiteGuard Server Editionを導入しているWebサーバ（国内で利用が多い）。",
+      "action": "提供元の情報を確認し、修正版へ更新する。",
+      "cves": ["CVE-2026-106931"],
+      "tags": ["KEV", "悪用確認済み", "国内"],
+      "is_update": false,
+      "sources": [
+        {"name": "NVD", "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-106931"},
+        {"name": "Security NEXT", "url": "https://www.security-next.com/191709"}
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "vulnerability",
+      "title": "Fortinet FortiSIEMの認証不要RCE脆弱性、実証コードが公開",
+      "what": "修正済みのFortiSIEMの深刻な脆弱性について、実証コード（PoC）が公開された。",
+      "who": "FortiSIEMを運用している組織。",
+      "action": "修正版の適用を確認する。PoC公開で悪用が始まりやすいため優先度を上げる。",
+      "cves": ["CVE-2026-106173"],
+      "tags": ["PoC公開"],
+      "is_update": false,
+      "sources": [
+        {"name": "The Hacker News", "url": "https://thehackernews.com/2026/10/critical-fortisiem-flaw-gets-public.html"}
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "vulnerability",
+      "title": "Siemens Software CenterのDLL読み込み脆弱性、ClickFix攻撃で悪用",
+      "what": "Siemens Software CenterのDLLサイドローディングの脆弱性が、利用者を騙してコマンドを実行させるClickFix攻撃に使われた。",
+      "who": "Siemens Software Centerを使っているWindows端末。",
+      "action": "修正版に更新する。",
+      "cves": ["CVE-2026-110936"],
+      "tags": ["KEV", "悪用確認済み"],
+      "is_update": false,
+      "sources": [
+        {"name": "The Hacker News", "url": "https://thehackernews.com/2026/10/clickfix-attackers-exploit-siemens.html"}
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "incident",
+      "title": "WordPressプラグイン開発元が侵害、盗まれたUpdraftCentralの鍵でサイトにバックドア",
+      "what": "UpdraftPlusの開発元が侵害され、UpdraftCentralの接続用の鍵を使ってWordPressサイトにバックドアが設置された。",
+      "who": "UpdraftCentral／UpdraftVault／UpdraftCloneを利用しているWordPressサイト。",
+      "action": "連携の鍵を再発行し、管理者アカウントや不審なファイルの有無を確認する。",
+      "cves": [],
+      "tags": ["サプライチェーン"],
+      "is_update": false,
+      "sources": [
+        {"name": "BleepingComputer", "url": "https://www.bleepingcomputer.com/news/security/stolen-updraftcentral-keys-used-to-backdoor-wordpress-sites/"}
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "incident",
+      "title": "認証局eMudhraの中間CA証明書8件の秘密鍵が漏えい、主要ブラウザやGoが失効対応",
+      "what": "eMudhraの中間CAの秘密鍵が復元可能な状態だったことが判明し、Mozilla・Google・Apple・Goが該当証明書を拒否する更新を出した。",
+      "who": "eMudhra発行の証明書を使うサイト、および証明書検証を行う全ソフトウェア。",
+      "action": "ブラウザ・Go等を更新する。自社サイトでeMudhra発行の証明書を使っていれば再発行する。",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {"name": "BleepingComputer", "url": "https://www.bleepingcomputer.com/news/security/mozilla-google-apple-block-compromised-emudhra-ca-certificates/"},
+        {"name": "The Hacker News", "url": "https://thehackernews.com/2026/10/eight-emudhra-ca-keys-compromised.html"}
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "vulnerability",
+      "title": "Oracle四半期定例パッチで1295件を修正、Java（JRE）も対象",
+      "what": "Oracleが定例パッチを公開し、深刻なものを含む多数の脆弱性を修正した。IPAもJavaの更新を呼びかけている。",
+      "who": "Oracle製品およびJava（JRE/JDK）を利用している環境。",
+      "action": "Javaと利用中のOracle製品について、該当する修正の適用を計画する。",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {"name": "IPA", "url": "https://www.ipa.go.jp/security/security-alert/2026/1021-jre.html"},
+        {"name": "Security NEXT", "url": "https://www.security-next.com/191734"}
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "vulnerability",
+      "title": "Webサーバ「nginx」に複数の脆弱性、うち3件はクリティカル評価",
+      "what": "nginxに複数の脆弱性が見つかり、一部は最も深刻なレベルと評価されている。",
+      "who": "nginxを利用しているWebサーバ・リバースプロキシ。",
+      "action": "提供元の情報を確認し、修正版への更新を計画する。",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {"name": "Security NEXT", "url": "https://www.security-next.com/191645"}
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "incident",
+      "title": "NECの委託先がサイバー攻撃を受け、複数の顧客でシステム障害と情報流出",
+      "what": "NECのシステム開発・保守の委託先が攻撃され、複数の顧客のシステムで障害や情報流出が発生した。",
+      "who": "NECおよびその委託先にシステム開発・保守を依頼している組織。",
+      "action": "関係する場合は、NECからの連絡内容と自社システムへの影響を確認する。",
+      "cves": [],
+      "tags": ["国内", "情報漏洩", "サービス停止", "サプライチェーン"],
+      "is_update": false,
+      "sources": [
+        {"name": "Security NEXT", "url": "https://www.security-next.com/191694"}
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "incident",
+      "title": "ノーコードWeb制作サービス「Studio」に不正アクセス、顧客情報流出の可能性",
+      "what": "Studioの機能の脆弱性を突かれ、クラウド環境のデータが外部から取得できる状態になっていた。",
+      "who": "Studioでサイトを制作・運用している利用者。",
+      "action": "利用している場合は、Studioの公表内容を確認し、関連する認証情報を変更する。",
+      "cves": [],
+      "tags": ["国内", "情報漏洩"],
+      "is_update": false,
+      "sources": [
+        {"name": "piyolog", "url": "https://piyolog.hatenadiary.jp/entry/2026/10/20/204342"}
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "vulnerability",
+      "title": "Chrome 156公開、脆弱性353件を修正しClickFix対策も追加",
+      "what": "Chrome 156で多数の脆弱性（うちクリティカル6件）が修正され、不審なコマンドのコピーを警告する機能も追加された。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [{"name": "Security NEXT", "url": "https://www.security-next.com/191702"}]
+    },
+    {
+      "level": "other",
+      "kind": "incident",
+      "title": "OVHcloudのCLIツールのリリース5件が改ざん、秘密情報を盗むマルウェアに",
+      "what": "開発者のGitHubアカウントが乗っ取られ、配布ファイルが差し替えられた。",
+      "who": "", "action": "", "cves": [], "tags": ["サプライチェーン"], "is_update": false,
+      "sources": [{"name": "The Hacker News", "url": "https://thehackernews.com/2026/10/hackers-hijack-five-ovhcloud-cli.html"}]
+    },
+    {
+      "level": "other",
+      "kind": "incident",
+      "title": "開発プラットフォームZeaburが2度目の侵害を受けサービス終了へ",
+      "what": "平文で保存されていた内部の認証情報が悪用され、300万件超の環境変数などが盗まれた。",
+      "who": "", "action": "", "cves": [], "tags": ["情報漏洩", "サービス停止"], "is_update": false,
+      "sources": [{"name": "BleepingComputer", "url": "https://www.bleepingcomputer.com/news/security/zeabur-shutting-down-after-second-security-breach-in-two-months/"}]
+    },
+    {
+      "level": "other",
+      "kind": "incident",
+      "title": "ConnectWiseがセキュリティ事案で認証情報をリセット、クラウドバックアップは停止中",
+      "what": "ConnectWiseのクラウドバックアップサービスがセキュリティ事案の影響で停止している。",
+      "who": "", "action": "", "cves": [], "tags": ["サービス停止"], "is_update": false,
+      "sources": [{"name": "The Hacker News", "url": "https://thehackernews.com/2026/10/connectwise-resets-credentials-as-cloud.html"}]
+    },
+    {
+      "level": "other",
+      "kind": "incident",
+      "title": "SafePayランサムウェア、2024年以降に重要インフラ600組織以上を侵害",
+      "what": "CISAがSafePayの被害規模と手口について注意喚起を出した。",
+      "who": "", "action": "", "cves": [], "tags": ["ランサムウェア"], "is_update": false,
+      "sources": [{"name": "BleepingComputer", "url": "https://www.bleepingcomputer.com/news/security/cisa-and-fbi-safepay-ransomware-has-hit-over-600-critical-infrastructure-organizations/"}]
+    },
+    {
+      "level": "other",
+      "kind": "incident",
+      "title": "「ふるさとチョイス」に不正アクセス、会員情報が流出",
+      "what": "ふるさと納税サイトへの不正アクセスにより会員情報が流出した。",
+      "who": "", "action": "", "cves": [], "tags": ["国内", "情報漏洩"], "is_update": false,
+      "sources": [{"name": "Security NEXT", "url": "https://www.security-next.com/191714"}]
+    },
+    {
+      "level": "other",
+      "kind": "incident",
+      "title": "ヤマト運輸の代金後払いサービスで個人情報が流出",
+      "what": "代金後払いサービスに関する個人情報の流出が公表された。",
+      "who": "", "action": "", "cves": [], "tags": ["国内", "情報漏洩"], "is_update": false,
+      "sources": [{"name": "Security NEXT", "url": "https://www.security-next.com/191595"}]
+    },
+    {
+      "level": "other",
+      "kind": "incident",
+      "title": "岩井コスモ証券で個人情報流出、意図しない売買も判明",
+      "what": "顧客の個人情報の流出と、顧客が意図しない売買が行われたことが公表された。",
+      "who": "", "action": "", "cves": [], "tags": ["国内", "情報漏洩"], "is_update": false,
+      "sources": [{"name": "Security NEXT", "url": "https://www.security-next.com/191717"}]
+    },
+    {
+      "level": "other",
+      "kind": "incident",
+      "title": "ユミルリンクの複数システムに不正アクセス、個人情報が流出",
+      "what": "メール配信などを手がけるユミルリンクで複数のシステムが不正アクセスを受けた。",
+      "who": "", "action": "", "cves": [], "tags": ["国内", "情報漏洩"], "is_update": false,
+      "sources": [{"name": "Security NEXT", "url": "https://www.security-next.com/191652"}]
+    },
+    {
+      "level": "other",
+      "kind": "vulnerability",
+      "title": "Claude Agent SDKに引数注入の脆弱性、修正版を公開",
+      "what": "AIエージェント開発用SDKに引数注入の脆弱性が見つかり修正された。",
+      "who": "", "action": "", "cves": [], "tags": [], "is_update": false,
+      "sources": [{"name": "Security NEXT", "url": "https://www.security-next.com/191686"}]
+    },
+    {
+      "level": "other",
+      "kind": "vulnerability",
+      "title": "Roundcube Webmailにセキュリティ更新、複数の脆弱性を修正",
+      "what": "Webメール「Roundcube」の複数の脆弱性を修正する更新が公開された。",
+      "who": "", "action": "", "cves": [], "tags": [], "is_update": false,
+      "sources": [{"name": "Security NEXT", "url": "https://www.security-next.com/191672"}]
+    },
+    {
+      "level": "other",
+      "kind": "incident",
+      "title": "Torの出口リレー300台以上が乗っ取られ、SSH接続の傍受に悪用",
+      "what": "攻撃者が多数のTor出口リレーを支配し、通過するSSH接続を狙っていた。",
+      "who": "", "action": "", "cves": [], "tags": [], "is_update": false,
+      "sources": [{"name": "The Hacker News", "url": "https://thehackernews.com/2026/10/attackers-hijacked-over-300-tor-exit.html"}]
+    },
+    {
+      "level": "other",
+      "kind": "outage",
+      "title": "Windowsの10月更新によるVPN不具合、実際には修正されていなかったとMicrosoft",
+      "what": "Windows更新後に起きているVPN接続の問題が、10月の更新でも解消していないことが分かった。",
+      "who": "", "action": "", "cves": [], "tags": [], "is_update": false,
+      "sources": [{"name": "BleepingComputer", "url": "https://www.bleepingcomputer.com/news/microsoft/microsoft-didnt-actually-fix-vpn-issues-caused-by-windows-updates/"}]
+    },
+    {
+      "level": "other",
+      "kind": "incident",
+      "title": "ロシアのAPT28がNATO加盟国の造船企業に侵入",
+      "what": "国家支援型の攻撃グループが新しいマルウェアを使ってNATO加盟国の組織を攻撃した。",
+      "who": "", "action": "", "cves": [], "tags": [], "is_update": false,
+      "sources": [{"name": "The Hacker News", "url": "https://thehackernews.com/2026/10/russian-apt28-breaches-nato-naval.html"}]
+    }
+  ],
+  "source_status": [
+    {"name": "CISA KEV", "ok": true, "count": 6},
+    {"name": "NVD", "ok": true, "count": 82},
+    {"name": "JPCERT/CC", "ok": true, "count": 0},
+    {"name": "IPA", "ok": true, "count": 2},
+    {"name": "Security NEXT", "ok": true, "count": 19},
+    {"name": "piyolog", "ok": true, "count": 4},
+    {"name": "BleepingComputer", "ok": true, "count": 15},
+    {"name": "The Hacker News", "ok": true, "count": 30},
+    {"name": "SecurityWeek", "ok": true, "count": 10},
+    {"name": "EPSS", "ok": true, "count": 79}
+  ],
+  "stats": {"items": 168, "clusters": 140}
+}

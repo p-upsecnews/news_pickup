@@ -1,0 +1,10 @@
+# 収集した候補データ（元記事の要約を含むため公開リポジトリにコミットしない）
+data/candidates/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# Claude Code のローカル設定（個人環境用）
+.claude/

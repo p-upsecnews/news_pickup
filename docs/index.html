@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>セキュリティニュース</title>
+<style>
+  :root {
+    --bg: #f6f7f9; --card: #ffffff; --text: #1d2228; --muted: #5d6773; --line: #e2e6eb;
+    --crit: #c62828; --crit-bg: #fdecec; --note: #a86800; --note-bg: #fff6e0; --other: #6b7480;
+    --chip: #eef1f4; --link: #0b5cad;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #121417; --card: #1b1f24; --text: #e6e9ed; --muted: #9aa4af; --line: #2c3239;
+      --crit: #ff6b6b; --crit-bg: #3a1d1f; --note: #f2b84b; --note-bg: #3a2f17; --other: #8c96a1;
+      --chip: #262c33; --link: #6db3ff;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--text);
+    font: 15px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Sans", "Noto Sans JP", "Yu Gothic UI", sans-serif;
+  }
+  main { max-width: 760px; margin: 0 auto; padding: 16px 16px 48px; }
+  header { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+  h1 { font-size: 18px; margin: 0; }
+  select { font: inherit; padding: 4px 8px; border-radius: 8px; border: 1px solid var(--line); background: var(--card); color: var(--text); }
+  .headline { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; margin: 14px 0 6px; }
+  .summary { color: var(--muted); font-size: 13px; margin-bottom: 8px; }
+  h2 { font-size: 15px; margin: 22px 0 8px; display: flex; align-items: center; gap: 6px; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; margin-bottom: 10px; }
+  .card.critical { border-left: 5px solid var(--crit); }
+  .card.notable { border-left: 5px solid var(--note); }
+  .card h3 { font-size: 15px; margin: 0 0 6px; line-height: 1.5; }
+  .badge { display: inline-block; font-size: 11px; padding: 1px 6px; border-radius: 6px; margin-right: 6px; vertical-align: 1px; }
+  .badge.update { background: var(--note-bg); color: var(--note); }
+  dl { margin: 0; display: grid; grid-template-columns: auto 1fr; gap: 2px 10px; }
+  dt { color: var(--muted); font-size: 13px; white-space: nowrap; }
+  dd { margin: 0; }
+  .meta { margin-top: 8px; display: flex; flex-wrap: wrap; gap: 6px; font-size: 12px; }
+  .chip { background: var(--chip); border-radius: 6px; padding: 1px 7px; }
+  .chip.hot { background: var(--crit-bg); color: var(--crit); }
+  .links { margin-top: 6px; font-size: 13px; display: flex; flex-wrap: wrap; gap: 4px 12px; }
+  a { color: var(--link); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .cve { font-family: ui-monospace, Consolas, monospace; font-size: 12px; }
+  details { margin-top: 18px; }
+  summary { cursor: pointer; font-weight: 600; }
+  .other-list { list-style: none; padding: 0; margin: 8px 0 0; }
+  .other-list li { border-bottom: 1px solid var(--line); padding: 8px 2px; }
+  .other-list .what { color: var(--muted); font-size: 13px; }
+  .empty { color: var(--muted); font-size: 14px; padding: 4px 2px; }
+  footer { margin-top: 28px; color: var(--muted); font-size: 12px; }
+  .ng { color: var(--crit); }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>🛡 セキュリティニュース</h1>
+    <select id="date" aria-label="日付を選択"></select>
+  </header>
+  <div id="report"><p class="empty">読み込み中…</p></div>
+  <footer id="footer"></footer>
+</main>
+<script>
+// 表示はすべて textContent で行い、レポート内の文字列をHTMLとして解釈しない
+const el = (tag, cls, text) => {
+  const e = document.createElement(tag);
+  if (cls) e.className = cls;
+  if (text != null) e.textContent = text;
+  return e;
+};
+const safeUrl = u => /^https?:\/\//.test(u || "") ? u : null;
+const HOT_TAGS = new Set(["KEV", "悪用確認済み", "PoC公開", "ランサムウェア"]);
+const LEVELS = [
+  ["critical", "🔴 緊急", "今日中に影響確認・対応"],
+  ["notable", "🟡 注目", "把握しておくべき"],
+];
+
+async function getJson(path) {
+  const r = await fetch(path, { cache: "no-cache" });
+  if (!r.ok) throw new Error(`${path}: ${r.status}`);
+  return r.json();
+}
+
+function renderLinks(item) {
+  const box = el("div", "links");
+  (item.sources || []).forEach(s => {
+    const url = safeUrl(s.url);
+    if (!url) return;
+    const a = el("a", null, s.name + " ↗");
+    a.href = url; a.target = "_blank"; a.rel = "noopener noreferrer";
+    box.append(a);
+  });
+  return box;
+}
+
+function renderCard(item) {
+  const card = el("article", "card " + item.level);
+  const h = el("h3");
+  if (item.is_update) h.append(el("span", "badge update", "続報"));
+  h.append(document.createTextNode(item.title));
+  card.append(h);
+  const dl = el("dl");
+  [["何が", item.what], ["影響", item.who], ["対応", item.action]].forEach(([k, v]) => {
+    if (!v) return;
+    dl.append(el("dt", null, k), el("dd", null, v));
+  });
+  card.append(dl);
+  const meta = el("div", "meta");
+  (item.tags || []).forEach(t => meta.append(el("span", "chip" + (HOT_TAGS.has(t) ? " hot" : ""), t)));
+  (item.cves || []).forEach(c => {
+    const a = el("a", "chip cve", c);
+    a.href = "https://nvd.nist.gov/vuln/detail/" + encodeURIComponent(c);
+    a.target = "_blank"; a.rel = "noopener noreferrer";
+    meta.append(a);
+  });
+  if (meta.childNodes.length) card.append(meta);
+  card.append(renderLinks(item));
+  return card;
+}
+
+function renderReport(rep) {
+  const root = document.getElementById("report");
+  root.replaceChildren();
+  root.append(el("div", "headline", rep.headline));
+  const items = rep.items || [];
+  const count = lv => items.filter(i => i.level === lv).length;
+  root.append(el("div", "summary",
+    `🔴 ${count("critical")}件　🟡 ${count("notable")}件　⚪ ${count("other")}件` +
+    (rep.stats ? `　（${rep.stats.items}件の記事から選別）` : "")));
+
+  LEVELS.forEach(([lv, label, desc]) => {
+    const h = el("h2", null, label);
+    h.append(el("span", "summary", "— " + desc));
+    root.append(h);
+    const list = items.filter(i => i.level === lv);
+    if (!list.length) root.append(el("p", "empty", "該当なし"));
+    list.forEach(i => root.append(renderCard(i)));
+  });
+
+  const others = items.filter(i => i.level === "other");
+  if (others.length) {
+    const d = el("details");
+    d.append(el("summary", null, `⚪ その他（${others.length}件）`));
+    const ul = el("ul", "other-list");
+    others.forEach(i => {
+      const li = el("li");
+      li.append(el("div", null, i.title), el("div", "what", i.what), renderLinks(i));
+      ul.append(li);
+    });
+    d.append(ul);
+    root.append(d);
+  }
+
+  const f = document.getElementById("footer");
+  f.replaceChildren();
+  if (rep.generated_at) f.append(el("div", null, "生成: " + new Date(rep.generated_at).toLocaleString("ja-JP")));
+  const ng = (rep.source_status || []).filter(s => !s.ok);
+  if (ng.length) f.append(el("div", "ng", "取得失敗: " + ng.map(s => s.name).join("、")));
+  f.append(el("div", null, "要約はAIによる自動生成です。対応判断の前に必ず元記事を確認してください。"));
+}
+
+async function load(date) {
+  try {
+    renderReport(await getJson(`data/${date}.json`));
+  } catch (e) {
+    document.getElementById("report").replaceChildren(el("p", "empty", "レポートを読み込めませんでした（" + e.message + "）"));
+  }
+}
+
+(async () => {
+  const sel = document.getElementById("date");
+  let index = [];
+  try { index = await getJson("data/index.json"); } catch (e) { /* 目次がない場合は下で表示 */ }
+  if (!index.length) {
+    document.getElementById("report").replaceChildren(el("p", "empty", "まだレポートがありません。"));
+    return;
+  }
+  index.forEach(d => {
+    const o = el("option", null, `${d.date}　🔴${d.critical} 🟡${d.notable}`);
+    o.value = d.date;
+    sel.append(o);
+  });
+  // URLの #YYYY-MM-DD で日付を指定できる（共有用）
+  const want = location.hash.slice(1);
+  sel.value = index.some(d => d.date === want) ? want : index[0].date;
+  sel.addEventListener("change", () => { location.hash = sel.value; load(sel.value); });
+  load(sel.value);
+})();
+</script>
+</body>
+</html>

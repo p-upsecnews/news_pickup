@@ -1,0 +1,8 @@
+{
+  "_comment": "🔴通知の設定。enabled を true にするまで通知しない。mode: connector（claude.ai の Slack コネクタでClaudeが投稿）/ webhook（環境変数 SLACK_WEBHOOK_URL へ送信）。秘密情報はここに書かない",
+  "enabled": false,
+  "mode": "connector",
+  "levels": ["critical"],
+  "page_url": "",
+  "slack_channel": ""
+}
