@@ -19,21 +19,27 @@
     }
   }
   * { box-sizing: border-box; }
+  html { font-size: 16px; }
+  /* PCでは文字を大きくし、横幅を広く使う */
+  @media (min-width: 900px) { html { font-size: 17px; } }
+  @media (min-width: 1400px) { html { font-size: 18px; } }
   body {
     margin: 0; background: var(--bg); color: var(--text);
-    font: 15px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Sans", "Noto Sans JP", "Yu Gothic UI", sans-serif;
+    font: 1rem/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Sans", "Noto Sans JP", "Yu Gothic UI", sans-serif;
   }
-  main { max-width: 760px; margin: 0 auto; padding: 16px 16px 48px; }
+  main { max-width: 1400px; margin: 0 auto; padding: 16px 16px 48px; }
+  @media (min-width: 900px) { main { padding: 24px 32px 64px; } }
   header { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
-  h1 { font-size: 18px; margin: 0; }
-  h2 { font-size: 13px; color: var(--muted); font-weight: 600; margin: 20px 0 8px; }
-  select { font: inherit; padding: 4px 8px; border-radius: 8px; border: 1px solid var(--line); background: var(--card); color: var(--text); }
+  h1 { font-size: 1.25rem; margin: 0; }
+  h2 { font-size: .85rem; color: var(--muted); font-weight: 600; margin: 20px 0 8px; }
+  select { font: inherit; font-size: .9rem; padding: 4px 8px; border-radius: 8px; border: 1px solid var(--line); background: var(--card); color: var(--text); }
   button { font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; text-align: left; }
-  .headline { font-size: 14px; color: var(--muted); margin: 12px 0 0; }
-  .counts { font-size: 13px; color: var(--muted); margin-top: 4px; }
+  .headline { color: var(--muted); margin: 12px 0 0; max-width: 70em; }
+  .counts { font-size: .85rem; color: var(--muted); margin-top: 4px; }
 
-  /* ---- 今日の話題（キーワード一覧） ---- */
-  .board { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 8px; }
+  /* ---- キーワード一覧 ---- */
+  .board { display: grid; grid-template-columns: repeat(auto-fill, minmax(165px, 1fr)); gap: 8px; }
+  @media (min-width: 900px) { .board { grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 10px; } }
   .tile {
     display: flex; gap: 8px; align-items: flex-start; width: 100%;
     background: var(--card); border: 1px solid var(--line); border-left: 4px solid var(--other);
@@ -42,45 +48,51 @@
   .tile:hover { background: var(--hover); }
   .tile.critical { border-left-color: var(--crit); }
   .tile.notable { border-left-color: var(--note); }
-  .tile .icon { font-size: 18px; line-height: 1.2; }
-  .tile .kw { font-weight: 700; font-size: 15px; line-height: 1.3; word-break: break-word; }
-  .tile .sub { font-size: 12px; color: var(--muted); line-height: 1.4; margin-top: 2px; }
-  .tile.critical .hot { color: var(--crit); }
-  .others { font-size: 13px; color: var(--muted); margin-top: 10px; line-height: 1.9; }
+  .tile .icon { font-size: 1.15rem; line-height: 1.2; }
+  .tile .kw { font-weight: 700; font-size: 1rem; line-height: 1.3; word-break: break-word; }
+  .tile .sub { font-size: .78rem; color: var(--muted); line-height: 1.4; margin-top: 2px; }
+  .hot { color: var(--crit); }
+  .others { font-size: .85rem; color: var(--muted); margin-top: 10px; line-height: 1.9; }
   .others button { color: var(--text); border-bottom: 1px dotted var(--muted); }
 
   /* ---- 詳細（1行に折りたたみ） ---- */
   .list { background: var(--card); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
-  details { border-top: 1px solid var(--line); }
-  details:first-child { border-top: 0; }
-  summary {
-    list-style: none; cursor: pointer; display: flex; align-items: center; gap: 8px;
-    padding: 10px 12px; min-height: 44px;
-  }
+  .list > details { border-top: 1px solid var(--line); }
+  .list > details:first-child { border-top: 0; }
+  summary { list-style: none; cursor: pointer; }
   summary::-webkit-details-marker { display: none; }
-  summary:hover { background: var(--hover); }
-  summary::after { content: "▾"; color: var(--muted); margin-left: auto; padding-left: 6px; transition: transform .15s; }
-  details[open] summary::after { transform: rotate(180deg); }
-  .pill { font-size: 11px; padding: 1px 7px; border-radius: 6px; white-space: nowrap; background: var(--chip); color: var(--muted); }
+  .item > summary { display: flex; align-items: center; gap: 8px; padding: 10px 12px; min-height: 44px; }
+  .item > summary:hover { background: var(--hover); }
+  .item > summary::after { content: "▾"; color: var(--muted); margin-left: auto; padding-left: 6px; transition: transform .15s; }
+  .item[open] > summary::after { transform: rotate(180deg); }
+  .pill { font-size: .7rem; padding: 1px 7px; border-radius: 6px; white-space: nowrap; background: var(--chip); color: var(--muted); }
   .pill.critical { background: var(--crit-bg); color: var(--crit); }
-  .pill.notable { background: var(--note-bg); color: var(--note); }
-  .pill.update { background: var(--note-bg); color: var(--note); }
+  .pill.notable, .pill.update { background: var(--note-bg); color: var(--note); }
   .s-kw { font-weight: 700; white-space: nowrap; }
-  .s-title { color: var(--muted); font-size: 13px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; min-width: 0; flex: 1; }
-  .body { padding: 2px 14px 14px; }
+  .s-title { color: var(--muted); font-size: .85rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; min-width: 0; flex: 1; }
+  .body { padding: 2px 14px 14px; max-width: 60em; }
   .body .title { font-weight: 600; margin: 0 0 6px; }
-  dl { margin: 0; display: grid; grid-template-columns: auto 1fr; gap: 2px 10px; font-size: 14px; }
-  dt { color: var(--muted); font-size: 13px; white-space: nowrap; }
+  dl { margin: 0; display: grid; grid-template-columns: auto 1fr; gap: 2px 12px; font-size: .92rem; }
+  dt { color: var(--muted); font-size: .85rem; white-space: nowrap; }
   dd { margin: 0; }
-  .meta { margin-top: 8px; display: flex; flex-wrap: wrap; gap: 6px; font-size: 12px; }
+  .meta { margin-top: 8px; display: flex; flex-wrap: wrap; gap: 6px; font-size: .78rem; }
   .chip { background: var(--chip); border-radius: 6px; padding: 1px 7px; }
   .chip.hot { background: var(--crit-bg); color: var(--crit); }
   .cve { font-family: ui-monospace, Consolas, monospace; }
-  .links { margin-top: 8px; font-size: 13px; display: flex; flex-wrap: wrap; gap: 4px 14px; }
+  .links { margin-top: 8px; font-size: .85rem; display: flex; flex-wrap: wrap; gap: 4px 14px; }
   a { color: var(--link); text-decoration: none; }
   a:hover { text-decoration: underline; }
-  .empty { color: var(--muted); font-size: 14px; padding: 4px 2px; }
-  footer { margin-top: 28px; color: var(--muted); font-size: 12px; }
+  .empty { color: var(--muted); font-size: .9rem; padding: 4px 2px; }
+
+  /* ---- 過去の日 ---- */
+  .day { margin-top: 40px; padding-top: 4px; border-top: 2px solid var(--line); }
+  .day-title { font-size: 1.05rem; font-weight: 700; margin: 12px 0 0; }
+  .day .headline { font-size: .9rem; }
+  .day-more { margin-top: 10px; }
+  .day-more > summary { font-size: .85rem; color: var(--link); padding: 4px 0; }
+  .day-more[open] > summary { margin-bottom: 4px; }
+
+  footer { margin-top: 32px; color: var(--muted); font-size: .78rem; }
   .ng { color: var(--crit); }
   @keyframes flash { from { background: var(--note-bg); } to { background: transparent; } }
   details.flash { animation: flash 1.2s ease-out; }
@@ -93,10 +105,12 @@
     <select id="date" aria-label="日付を選択"></select>
   </header>
   <div id="report"><p class="empty">読み込み中…</p></div>
+  <div id="past"></div>
   <footer id="footer"></footer>
 </main>
 <script>
 // 表示はすべて textContent で行い、レポート内の文字列をHTMLとして解釈しない
+const PAST_DAYS = 7;  // 選択日の下に続けて表示する過去の日数
 const el = (tag, cls, text) => {
   const e = document.createElement(tag);
   if (cls) e.className = cls;
@@ -113,7 +127,9 @@ const LEVEL_LABEL = { critical: "緊急", notable: "注目", other: "参考" };
 
 // keyword/target がない古いレポート向けに見出しで代用する
 const keywordOf = it => it.keyword || (it.title.length > 16 ? it.title.slice(0, 15) + "…" : it.title);
-const hotOf = it => { const h = HOT_SHORT.find(([t]) => (it.tags || []).includes(t)); return h ? h[1] : null; };
+const hotOf = it => (HOT_SHORT.find(([t]) => (it.tags || []).includes(t)) || [])[0] || null;
+const dayLabel = date => new Date(date + "T00:00:00+09:00")
+  .toLocaleDateString("ja-JP", { month: "numeric", day: "numeric", weekday: "short", timeZone: "Asia/Tokyo" });
 
 async function getJson(path) {
   const r = await fetch(path, { cache: "no-cache" });
@@ -133,11 +149,11 @@ function renderLinks(item) {
   return box;
 }
 
-// 一覧のタイルや「ほか」をタップしたら、その項目を開いてスクロールする
+// タイルや「ほか」をタップしたら、その項目（と外側の折りたたみ）を開いてスクロールする
 function jumpTo(id) {
   const d = document.getElementById(id);
   if (!d) return;
-  d.open = true;
+  for (let p = d; p; p = p.parentElement) if (p.tagName === "DETAILS") p.open = true;
   d.scrollIntoView({ behavior: "smooth", block: "start" });
   d.classList.remove("flash"); void d.offsetWidth; d.classList.add("flash");
 }
@@ -148,23 +164,25 @@ function renderTile(item, id) {
   b.append(el("span", "icon", KIND_ICON[item.kind] || KIND_ICON.other));
   const box = el("div");
   box.append(el("div", "kw", keywordOf(item)));
-  const sub = el("div", "sub");
   const parts = [];
   if (item.is_update) parts.push(["続報", "hot"]);
   if (item.target) parts.push([item.target, ""]);
   const hot = hotOf(item);
-  if (hot) parts.push([hot, HOT_TAGS.has((HOT_SHORT.find(h => h[1] === hot) || [])[0]) ? "hot" : ""]);
-  parts.forEach(([t, cls], i) => {
-    if (i) sub.append(document.createTextNode("・"));
-    sub.append(el("span", cls, t));
-  });
-  if (parts.length) box.append(sub);
+  if (hot) parts.push([HOT_SHORT.find(h => h[0] === hot)[1], HOT_TAGS.has(hot) ? "hot" : ""]);
+  if (parts.length) {
+    const sub = el("div", "sub");
+    parts.forEach(([t, cls], i) => {
+      if (i) sub.append(document.createTextNode("・"));
+      sub.append(el("span", cls, t));
+    });
+    box.append(sub);
+  }
   b.append(box);
   return b;
 }
 
 function renderDetail(item, id) {
-  const d = el("details");
+  const d = el("details", "item");
   d.id = id;
   const s = el("summary");
   s.append(el("span", "pill " + item.level, LEVEL_LABEL[item.level] || ""));
@@ -195,27 +213,29 @@ function renderDetail(item, id) {
   return d;
 }
 
-function renderReport(rep) {
-  const root = document.getElementById("report");
-  root.replaceChildren();
-  const items = (rep.items || []).map((it, i) => ({ it, id: "item-" + i }));
+// 1日分を描画する。main=true は選択日（詳細を常に表示）、false は過去の日（詳細は折りたたみ）
+function renderDay(rep, main) {
+  const frag = el("section", main ? null : "day");
+  const prefix = "d" + rep.date.replaceAll("-", "") + "-";
+  const items = (rep.items || []).map((it, i) => ({ it, id: prefix + i }));
   const by = lv => items.filter(x => x.it.level === lv);
   const crit = by("critical"), note = by("notable"), other = by("other");
 
-  root.append(el("p", "headline", rep.headline));
-  root.append(el("div", "counts",
+  if (!main) frag.append(el("p", "day-title", dayLabel(rep.date)));
+  frag.append(el("p", "headline", rep.headline));
+  frag.append(el("div", "counts",
     `🔴 緊急 ${crit.length}　🟡 注目 ${note.length}　⚪ 参考 ${other.length}` +
     (rep.stats ? `（${rep.stats.items}件の記事から選別）` : "")));
 
-  // 今日の話題：緊急と注目をキーワードで一覧
-  root.append(el("h2", null, "今日の話題（タップで詳細）"));
+  if (main) frag.append(el("h2", null, "今日の話題（タップで詳細）"));
   const top = crit.concat(note);
   if (top.length) {
     const board = el("div", "board");
+    if (!main) board.style.marginTop = "10px";
     top.forEach(x => board.append(renderTile(x.it, x.id)));
-    root.append(board);
+    frag.append(board);
   } else {
-    root.append(el("p", "empty", "緊急・注目の話題はありません"));
+    frag.append(el("p", "empty", "緊急・注目の話題はありません"));
   }
   if (other.length) {
     const o = el("div", "others");
@@ -226,32 +246,53 @@ function renderReport(rep) {
       b.addEventListener("click", () => jumpTo(x.id));
       o.append(b);
     });
-    root.append(o);
+    frag.append(o);
   }
 
   // 詳細：区分ごとに1行で並べ、タップで開く
+  const lists = el("div");
   [["🔴 緊急", crit], ["🟡 注目", note], ["⚪ 参考", other]].forEach(([label, list]) => {
     if (!list.length) return;
-    root.append(el("h2", null, label));
+    lists.append(el("h2", null, label));
     const box = el("div", "list");
     list.forEach(x => box.append(renderDetail(x.it, x.id)));
-    root.append(box);
+    lists.append(box);
   });
+  if (main) {
+    frag.append(lists);
+  } else {
+    const more = el("details", "day-more");
+    more.append(el("summary", null, `この日の詳細を開く（${items.length}件）`));
+    more.append(lists);
+    frag.append(more);
+  }
+  return frag;
+}
 
+async function load(date, index) {
+  const report = document.getElementById("report");
+  const past = document.getElementById("past");
   const f = document.getElementById("footer");
+  past.replaceChildren();
   f.replaceChildren();
+  let rep;
+  try {
+    rep = await getJson(`data/${date}.json`);
+  } catch (e) {
+    report.replaceChildren(el("p", "empty", "レポートを読み込めませんでした（" + e.message + "）"));
+    return;
+  }
+  report.replaceChildren(renderDay(rep, true));
+
   if (rep.generated_at) f.append(el("div", null, "生成: " + new Date(rep.generated_at).toLocaleString("ja-JP")));
   const ng = (rep.source_status || []).filter(s => !s.ok);
   if (ng.length) f.append(el("div", "ng", "取得失敗: " + ng.map(s => s.name).join("、")));
   f.append(el("div", null, "要約はAIによる自動生成です。対応判断の前に必ず元記事を確認してください。"));
-}
 
-async function load(date) {
-  try {
-    renderReport(await getJson(`data/${date}.json`));
-  } catch (e) {
-    document.getElementById("report").replaceChildren(el("p", "empty", "レポートを読み込めませんでした（" + e.message + "）"));
-  }
+  // 選択日より前の日を、新しい順に下へ続けて表示する（読み込めない日は飛ばす）
+  const older = index.filter(d => d.date < date).slice(0, PAST_DAYS);
+  const reps = await Promise.all(older.map(d => getJson(`data/${d.date}.json`).catch(() => null)));
+  reps.filter(Boolean).forEach(r => past.append(renderDay(r, false)));
 }
 
 (async () => {
@@ -270,8 +311,8 @@ async function load(date) {
   // URLの #YYYY-MM-DD で日付を指定できる（共有用）
   const want = location.hash.slice(1);
   sel.value = index.some(d => d.date === want) ? want : index[0].date;
-  sel.addEventListener("change", () => { location.hash = sel.value; load(sel.value); });
-  load(sel.value);
+  sel.addEventListener("change", () => { location.hash = sel.value; load(sel.value, index); });
+  load(sel.value, index);
 })();
 </script>
 </body>

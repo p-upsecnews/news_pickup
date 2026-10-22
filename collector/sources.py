@@ -5,7 +5,7 @@ import re
 import time
 import urllib.parse
 import xml.etree.ElementTree as ET
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from email.utils import parsedate_to_datetime
 
 from .http_util import fetch, fetch_json
@@ -90,6 +90,10 @@ def fetch_feed(conf, since):
     entries = [el for el in root.iter() if _local(el.tag) in ("item", "entry")]
     # 週次まとめなど、既報の再掲で重複が増える項目は除外する
     excludes = [re.compile(p) for p in conf.get("exclude_title_patterns", [])]
+    # 障害情報フィードの「定期メンテナンス予告」など、本文側でしか判別できない項目の除外
+    summary_excludes = [re.compile(p) for p in conf.get("exclude_summary_patterns", [])]
+    # メンテナンス予告などで未来の日付が入っている項目は対象外（1時間の時計ずれは許容）
+    future_limit = datetime.now(timezone.utc) + timedelta(hours=1)
     items = []
     for el in entries:
         title = clean_text(_child_text(el, "title"))
@@ -99,7 +103,9 @@ def fetch_feed(conf, since):
         if not title or not url or any(p.search(title) for p in excludes):
             continue
         # 日付不明のものは判断できないため除外する
-        if published is None or published < since:
+        if published is None or published < since or published > future_limit:
+            continue
+        if any(p.search(summary) for p in summary_excludes):
             continue
         items.append(make_item(conf["name"], conf["category"], conf["lang"], title, url, published, summary))
     return items

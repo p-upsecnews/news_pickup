@@ -20,6 +20,8 @@ W = {
     "in_kev": 40,           # CISA KEV 掲載（悪用確認済み）
     "kev_ransomware": 10,   # KEV でランサムウェアでの悪用が既知
     "jp_alert": 20,         # JPCERT/CC・IPA の注意喚起
+    "jp_vuln": 10,          # JVN の国内向け脆弱性情報（件数が多いため注意喚起より軽く）
+    "outage": 10,           # クラウド事業者の障害情報（公式発表があること自体が根拠）
     "per_extra_source": 10, # 2媒体目以降、1媒体ごと
     "extra_source_cap": 40,
     "cvss_critical": 15,    # CVSS 9.0 以上
@@ -28,6 +30,7 @@ W = {
     "epss_mid": 10,         # EPSS 0.1 以上
     "exploited_word": 15,   # 本文に「悪用」「ゼロデイ」等の記述
     "incident_word": 10,    # 漏洩・不正アクセス・ランサム・停止等の事件
+    "large_scale": 15,      # 被害規模が1万（件・人・台など）以上と書かれている
     "nvd_only": -15,        # NVD だけに出ている（報道されていない）脆弱性
 }
 
@@ -39,6 +42,15 @@ INCIDENT_RE = re.compile(
     r"breach|leak|hack(ed|ers)?\b|ransomware|outage|stolen|compromis|backdoor|supply chain|"
     r"流出|漏洩|漏えい|不正アクセス|ランサム|サイバー攻撃|障害|停止|侵害|紛失",
     re.IGNORECASE)
+
+# 被害規模の記述（例：「最大約420万件」「3.2 million records」「27,000 servers」）
+# 1つの媒体しか報じない国内の大型流出が埋もれないよう、規模そのものを加点する
+LARGE_SCALE_RE = re.compile(
+    r"\d+(?:\.\d+)?\s*(?:万|億)\s*(?:件|人|台|社|アカウント|ユーザー)|"
+    r"(?<![$€¥£\d.])\d+(?:\.\d+)?\s*(?:million|billion)\b(?!\s*(?:seed|funding|series|round|valuation))|"
+    r"\b(?:\d{2,3}(?:,\d{3})+|\d(?:,\d{3}){2,})\s*(?:customers|users|records|accounts|servers|sites|organizations|orgs|devices)\b",
+    re.IGNORECASE)
+
 
 # 同一事案判定から除外する一般的な語（媒体間で頻出し誤統合の原因になる）
 STOPWORDS = set("""
@@ -152,6 +164,10 @@ def score_cluster(members, cve_info):
         breakdown["kev_ransomware"] = W["kev_ransomware"]
     if "jp_alert" in cats:
         breakdown["jp_alert"] = W["jp_alert"]
+    if "jp_vuln" in cats:
+        breakdown["jp_vuln"] = W["jp_vuln"]
+    if "outage" in cats:
+        breakdown["outage"] = W["outage"]
     if len(sources) > 1:
         breakdown["multi_source"] = min((len(sources) - 1) * W["per_extra_source"], W["extra_source_cap"])
     cvss = max([i.get("cvss") or 0 for i in infos] + [it["meta"].get("cvss") or 0 for it in members])
@@ -168,11 +184,13 @@ def score_cluster(members, cve_info):
         breakdown["exploited_word"] = W["exploited_word"]
     if INCIDENT_RE.search(text):
         breakdown["incident_word"] = W["incident_word"]
+    if LARGE_SCALE_RE.search(text):
+        breakdown["large_scale"] = W["large_scale"]
     if cats == {"nvd"}:
         breakdown["nvd_only"] = W["nvd_only"]
 
     # 代表タイトル：報道 → 注意喚起 → KEV → NVD の順で、媒体の多い言語を優先せず最初のもの
-    order = {"news": 0, "jp_alert": 1, "kev": 2, "nvd": 3}
+    order = {"news": 0, "jp_alert": 1, "jp_vuln": 2, "outage": 3, "kev": 4, "nvd": 5}
     rep = sorted(members, key=lambda it: (order.get(it["category"], 9), it["published"] or ""))[0]
     return {
         "score": sum(breakdown.values()),
@@ -190,18 +208,23 @@ def score_cluster(members, cve_info):
     }
 
 
-def run(data, top, nvd_only_max=5):
+def run(data, top, nvd_only_max=5, outage_only_max=3):
     clusters = [score_cluster(m, data["cve_info"]) for m in cluster(data["items"])]
     clusters.sort(key=lambda c: (-c["score"], -len(c["sources"]), -(c["max_epss"] or 0), c["title"]))
     for i, c in enumerate(clusters, 1):
         c["cluster_id"] = f"c{i:03d}"
-    # NVD 単独（未報道）の事案は無名製品が大半のため、EPSS の高い順に数件だけ残す
-    picked, rest, nvd_only = [], [], 0
+    # 単一種別だけの事案は数が多くなりがちなので、種別ごとに候補へ入れる数を制限する
+    # - NVD 単独（未報道）：無名製品が大半
+    # - 障害情報単独（報道なし）：小規模な遅延・一部機能の不具合が大半
+    caps = {"nvd": nvd_only_max, "outage": outage_only_max}
+    used = {k: 0 for k in caps}
+    picked, rest = [], []
     for c in clusters:
-        is_nvd_only = c["categories"] == ["nvd"]
-        if len(picked) < top and (not is_nvd_only or nvd_only < nvd_only_max):
+        only = c["categories"][0] if len(c["categories"]) == 1 and c["categories"][0] in caps else None
+        if len(picked) < top and (only is None or used[only] < caps[only]):
             picked.append(c)
-            nvd_only += is_nvd_only
+            if only:
+                used[only] += 1
         else:
             rest.append(c)
     return {
@@ -235,12 +258,13 @@ def main():
     p.add_argument("--out", help="出力JSON（省略時は入力名.scored.json）")
     p.add_argument("--top", type=int, default=30, help="残す事案数")
     p.add_argument("--nvd-only-max", type=int, default=5, help="未報道のNVD単独事案を残す上限")
+    p.add_argument("--outage-only-max", type=int, default=3, help="未報道の障害情報単独事案を残す上限")
     args = p.parse_args()
 
     src = args.src or latest_candidates()
     with open(src, encoding="utf-8") as f:
         data = json.load(f)
-    result = run(data, args.top, args.nvd_only_max)
+    result = run(data, args.top, args.nvd_only_max, args.outage_only_max)
     out = args.out or src[:-5] + ".scored.json"
     with open(out, "w", encoding="utf-8") as f:
         json.dump(result, f, ensure_ascii=False, indent=1)

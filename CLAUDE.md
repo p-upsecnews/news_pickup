@@ -35,6 +35,14 @@
 クラウド環境は Custom（許可ドメインのみ＋既定のパッケージ管理系）で運用しており、未許可のホストは 403 で拒否される。
 現在の許可ドメイン：`www.cisa.gov` `services.nvd.nist.gov` `api.first.org` `www.jpcert.or.jp` `www.ipa.go.jp`
 `www.security-next.com` `piyolog.hatenadiary.jp` `www.bleepingcomputer.com` `feeds.feedburner.com` `www.securityweek.com`
+`jvn.jp` `rss.itmedia.co.jp` `status.aws.amazon.com` `www.cloudflarestatus.com` `www.githubstatus.com`
+
+追加情報源（2026-10-22）と、その理由：
+- JVN（jp_vuln）：国産製品の脆弱性はKEVに載るまで拾えなかった
+- ITmedia（news）：国内の大型漏洩（数百万件規模）がSecurity NEXTだけでは漏れていた
+- AWS / Cloudflare / GitHub の障害情報（outage）：攻撃ではないサービス停止はセキュリティ媒体に載りにくい。
+  定期メンテ予告・未来日付・「正常稼働」通知は除外し、報道のない障害単独の事案は候補に3件まで
+- Microsoft 365 / Azure の障害フィードは中身がほぼ空だったため見送り
 
 収集範囲は直近48時間（前日分の取りこぼし防止）。過去に掲載済みのものは続報として既存項目に紐付ける。
 
@@ -75,6 +83,7 @@
 6. [x] 表示ページ（`docs/index.html` が `docs/data/index.json` と `<日付>.json` を読む静的ページ）
    - レポートは `python -m publisher.validate docs/data/<日付>.json` で検証してから公開する
    - 検証では形式・件数上限・URLスキームに加え、**出典URLがその日の候補データに実在するか**を照合する（AIのURL取り違え対策。試作時に実際に発生した）
+   - 選択日の下に過去7日分を続けて表示（過去の日はキーワード一覧のみ、詳細は折りたたみ）。PCでは最大幅1400px・文字17〜18px
    - 「キーワード一覧 → タップで詳細」の2段構成。読む時間がなくても上部の一覧だけで話題を把握できることを優先する
      - 各項目の `keyword`（最大16文字、製品名・攻撃の通称）と `target`（最大10文字、影響範囲）を一覧に使う。2026-10-22以降は必須
    - ページはレポート内の文字列を textContent でのみ描画する（外部記事由来の文字列をHTMLとして解釈しない）

@@ -1,5 +1,5 @@
 {
-  "_comment": "収集対象の情報源。feed の category は jp_alert（公的機関の注意喚起）または news。exclude_title_patterns はタイトルの除外正規表現",
+  "_comment": "収集対象の情報源。feed の category は jp_alert（公的機関の注意喚起）/ jp_vuln（国内の脆弱性情報）/ news / outage（サービス障害）。exclude_title_patterns・exclude_summary_patterns はタイトル・本文の除外正規表現。追加したらクラウド環境の許可ドメインにも追加すること",
   "kev": {
     "name": "CISA KEV",
     "url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json"
@@ -20,6 +20,14 @@
     {"name": "piyolog", "category": "news", "lang": "ja", "url": "https://piyolog.hatenadiary.jp/rss"},
     {"name": "BleepingComputer", "category": "news", "lang": "en", "url": "https://www.bleepingcomputer.com/feed/"},
     {"name": "The Hacker News", "category": "news", "lang": "en", "url": "https://feeds.feedburner.com/TheHackersNews"},
-    {"name": "SecurityWeek", "category": "news", "lang": "en", "url": "https://www.securityweek.com/feed/"}
+    {"name": "SecurityWeek", "category": "news", "lang": "en", "url": "https://www.securityweek.com/feed/"},
+    {"name": "JVN", "category": "jp_vuln", "lang": "ja", "url": "https://jvn.jp/rss/jvn.rdf"},
+    {"name": "ITmedia", "category": "news", "lang": "ja", "url": "https://rss.itmedia.co.jp/rss/2.0/news_security.xml"},
+    {"name": "AWS Health", "category": "outage", "lang": "en", "url": "https://status.aws.amazon.com/rss/all.rss",
+     "exclude_title_patterns": ["^Service is operating normally", "^Informational message"]},
+    {"name": "Cloudflare Status", "category": "outage", "lang": "en", "url": "https://www.cloudflarestatus.com/history.rss",
+     "exclude_title_patterns": ["\\([A-Z]{3}\\) on \\d{4}-\\d{2}-\\d{2}$"], "exclude_summary_patterns": ["Scheduled - ", "scheduled maintenance"]},
+    {"name": "GitHub Status", "category": "outage", "lang": "en", "url": "https://www.githubstatus.com/history.rss",
+     "exclude_summary_patterns": ["Scheduled - ", "scheduled maintenance"]}
   ]
 }
