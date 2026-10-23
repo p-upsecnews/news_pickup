@@ -1,5 +1,12 @@
 [
  {
+  "date": "2026-10-23",
+  "headline": "PHP2Shellは修正前から悪用されていたことが判明、Arista VeloCloudのゼロデイ悪用も確認された。カプコン約1177万件など国内の大型漏洩が続く。",
+  "critical": 2,
+  "notable": 6,
+  "other": 6
+ },
+ {
   "date": "2026-10-22",
   "headline": "PHP2ShellとPlex2Shellが悪用されている。PAN-OSの認証バイパスを狙うランサム攻撃、国内VPS「お名前.com デスクトップクラウド」の大規模侵害、FortiSIEMのPoC公開も要確認。GitLabにはCVSS 10.0の認証不要RCEがある。",
   "critical": 5,

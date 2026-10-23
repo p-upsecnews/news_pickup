@@ -1,0 +1,398 @@
+{
+ "date": "2026-10-23",
+ "generated_at": "2026-10-23T10:07:53+09:00",
+ "window_hours": 48,
+ "headline": "PHP2Shellは修正前から悪用されていたことが判明、Arista VeloCloudのゼロデイ悪用も確認された。カプコン約1177万件など国内の大型漏洩が続く。",
+ "items": [
+  {
+   "level": "critical",
+   "kind": "vulnerability",
+   "keyword": "PHP2Shell",
+   "target": "Webサーバ",
+   "title": "PHP2Shellは修正版公開の4日前から攻撃が始まっていたとAmazonが報告",
+   "what": "Amazonの脅威分析チームが、PHPの深刻な脆弱性「PHP2Shell」への攻撃が修正版の公開より4日前に始まっていたと明らかにした。",
+   "who": "PHPでWebアプリを動かす全サーバ。公開前から悪用されていたため侵害済みの可能性もある。",
+   "action": "修正版へ更新し、更新前のアクセスログや不審なファイルがないか確認する。",
+   "cves": [
+    "CVE-2026-109618",
+    "CVE-2026-109619"
+   ],
+   "tags": [
+    "悪用確認済み",
+    "国内"
+   ],
+   "is_update": true,
+   "sources": [
+    {
+     "name": "BleepingComputer",
+     "url": "https://www.bleepingcomputer.com/news/security/amazon-says-php2shell-exploitation-began-4-days-before-patches/"
+    },
+    {
+     "name": "Security NEXT",
+     "url": "https://www.security-next.com/191773"
+    }
+   ]
+  },
+  {
+   "level": "critical",
+   "kind": "vulnerability",
+   "keyword": "VeloCloud",
+   "target": "SD-WAN管理",
+   "title": "Arista VeloCloud Orchestratorのゼロデイが悪用中、読み取り専用アカウントから管理者権限へ",
+   "what": "Arista VeloCloud OrchestratorにSQLインジェクションのゼロデイがあり、実際に攻撃されている。修正版が公開された。",
+   "who": "オンプレ版VeloCloud Orchestrator（SD-WAN管理基盤）の利用者。ログインできれば誰でも最上位権限を得られる。",
+   "action": "修正版へ更新し、管理画面を外部に公開していないか確認、不審な権限昇格がないか点検する。",
+   "cves": [],
+   "tags": [
+    "悪用確認済み"
+   ],
+   "is_update": false,
+   "sources": [
+    {
+     "name": "BleepingComputer",
+     "url": "https://www.bleepingcomputer.com/news/security/arista-patches-new-velocloud-orchestrator-zero-day-exploited-in-attacks/"
+    },
+    {
+     "name": "The Hacker News",
+     "url": "https://thehackernews.com/2026/10/arista-warns-of-critical-velocloud-sql.html"
+    }
+   ]
+  },
+  {
+   "level": "notable",
+   "kind": "vulnerability",
+   "keyword": "KSMBD",
+   "target": "Linux",
+   "title": "Linux KSMBDにCVSS 9.0のRCE 2件、修正前にMLで公開",
+   "what": "Linux カーネル内蔵SMBサーバKSMBDに、リモートコード実行の脆弱性2件が修正前に公開メーリングリストで明らかになった。うち1件は認証前に突かれうる。",
+   "who": "KSMBDでSMB共有を提供するLinuxサーバ。",
+   "action": "KSMBDを使っていないか確認し、不要なら無効化、SMBポートを外部へ公開しない。カーネルの修正版を待つ。",
+   "cves": [],
+   "tags": [
+    "PoC公開"
+   ],
+   "is_update": false,
+   "sources": [
+    {
+     "name": "The Hacker News",
+     "url": "https://thehackernews.com/2026/10/two-cvss-90-linux-ksmbd-rce-flaws.html"
+    }
+   ]
+  },
+  {
+   "level": "notable",
+   "kind": "vulnerability",
+   "keyword": "Node.js",
+   "target": "開発基盤",
+   "title": "Node.jsのBrotli展開処理にRCEの恐れ、サポート中の全系統が対象",
+   "what": "Node.jsがセキュリティ更新を公開。同梱のBrotli展開処理のバグでリモートコード実行の恐れがあるなど10件を修正した。",
+   "who": "Node.js 22.x/24.x/26.xを使うサーバやビルド環境。",
+   "action": "各系統の最新版へ更新する。",
+   "cves": [],
+   "tags": [],
+   "is_update": false,
+   "sources": [
+    {
+     "name": "Security NEXT",
+     "url": "https://www.security-next.com/191807"
+    },
+    {
+     "name": "The Hacker News",
+     "url": "https://thehackernews.com/2026/10/nodejs-brotli-decoder-bug-could-allow.html"
+    }
+   ]
+  },
+  {
+   "level": "notable",
+   "kind": "incident",
+   "keyword": "Capcom",
+   "target": "ゲーム",
+   "title": "カプコンで不正アクセス、最大約1177万件のアカウント情報が漏えい",
+   "what": "カプコンが不正アクセスにより約1177万件のアカウント情報が漏えいしたと公表した。",
+   "who": "カプコンのサービス利用者。",
+   "action": "同一パスワードを使い回しているサービスがあれば変更し、不審なメールに注意する。",
+   "cves": [],
+   "tags": [
+    "情報漏洩",
+    "国内"
+   ],
+   "is_update": false,
+   "sources": [
+    {
+     "name": "BleepingComputer",
+     "url": "https://www.bleepingcomputer.com/news/security/capcom-confirms-data-breach-affecting-117-million-accounts/"
+    },
+    {
+     "name": "ITmedia",
+     "url": "https://www.itmedia.co.jp/news/article/2610/22/2000002523/"
+    }
+   ]
+  },
+  {
+   "level": "notable",
+   "kind": "incident",
+   "keyword": "コミックシーモア",
+   "target": "電子書籍",
+   "title": "コミックシーモアの流出は最大約420万件、侵入経路は遮断済み",
+   "what": "メールアドレスや生年月日など最大約420万件が流出した。不正アクセスの経路は特定・遮断済みという。",
+   "who": "コミックシーモア会員。",
+   "action": "会員はパスワード変更と、なりすましメールへの警戒を。",
+   "cves": [],
+   "tags": [
+    "情報漏洩",
+    "国内"
+   ],
+   "is_update": false,
+   "sources": [
+    {
+     "name": "ITmedia",
+     "url": "https://www.itmedia.co.jp/news/article/2610/22/2000002500/"
+    }
+   ]
+  },
+  {
+   "level": "notable",
+   "kind": "incident",
+   "keyword": "カーセンサー",
+   "target": "中古車",
+   "title": "「カーセンサー」などに不正アクセス、最大371万件の個人情報漏えいか",
+   "what": "リクルート運営のカーセンサーnetや店舗向けC-MATCHが攻撃を受け、問い合わせ客の氏名・住所などが漏れた可能性がある。",
+   "who": "カーセンサー経由で問い合わせた利用者、取引のある中古車販売店。",
+   "action": "利用者は不審な連絡に注意。関係企業は公式発表を確認する。",
+   "cves": [],
+   "tags": [
+    "情報漏洩",
+    "国内"
+   ],
+   "is_update": false,
+   "sources": [
+    {
+     "name": "ITmedia",
+     "url": "https://www.itmedia.co.jp/news/article/2610/21/2000002456/"
+    }
+   ]
+  },
+  {
+   "level": "notable",
+   "kind": "incident",
+   "keyword": "ConnectWise",
+   "target": "サプライチェーン",
+   "title": "Microsoft、ConnectWiseへの攻撃は中国系Storm-0940によるAI自動化攻撃と発表",
+   "what": "中国系Storm-0940がAI侵入テストツールARTEXで攻撃を自動化し、ConnectWise経由で顧客のMicrosoft 365に侵入した。管理者権限奪取まで3時間未満の例もある。",
+   "who": "ConnectWiseを使うMSPとその顧客のMicrosoft 365環境。",
+   "action": "管理者権限の監視と条件付きアクセスを見直し、ConnectWise関連の認証情報をリセットする。",
+   "cves": [],
+   "tags": [
+    "サプライチェーン"
+   ],
+   "is_update": false,
+   "sources": [
+    {
+     "name": "ITmedia",
+     "url": "https://www.itmedia.co.jp/news/article/2610/23/2000002531/"
+    },
+    {
+     "name": "The Hacker News",
+     "url": "https://thehackernews.com/2026/10/china-linked-hackers-use-artex-ai.html"
+    }
+   ]
+  },
+  {
+   "level": "other",
+   "kind": "incident",
+   "keyword": "Railway",
+   "target": "開発基盤",
+   "title": "PaaSのRailwayで侵害の恐れ、顧客に秘密情報のローテーションを要請",
+   "what": "Railwayが、侵入者が顧客のシークレットにアクセスした可能性があるとして認証情報の更新を促した。",
+   "who": "",
+   "action": "",
+   "cves": [],
+   "tags": [
+    "情報漏洩"
+   ],
+   "is_update": false,
+   "sources": [
+    {
+     "name": "BleepingComputer",
+     "url": "https://www.bleepingcomputer.com/news/security/railway-warns-devs-to-rotate-secrets-after-potential-breach/"
+    }
+   ]
+  },
+  {
+   "level": "other",
+   "kind": "vulnerability",
+   "keyword": "Cisco",
+   "target": "ビデオ会議",
+   "title": "Ciscoが34件の脆弱性を修正、ビデオ会議製品にも深刻な問題",
+   "what": "Ciscoが複数製品の脆弱性34件を修正した。",
+   "who": "",
+   "action": "",
+   "cves": [],
+   "tags": [],
+   "is_update": false,
+   "sources": [
+    {
+     "name": "Security NEXT",
+     "url": "https://www.security-next.com/191795"
+    }
+   ]
+  },
+  {
+   "level": "other",
+   "kind": "vulnerability",
+   "keyword": "HPE Aruba",
+   "target": "無線LAN",
+   "title": "HPE無線LAN向けOSにクリティカル33件を含む多数の脆弱性",
+   "what": "HPEの無線LAN向けOSで多数の脆弱性が公表され、クリティカルが33件ある。",
+   "who": "",
+   "action": "",
+   "cves": [],
+   "tags": [],
+   "is_update": false,
+   "sources": [
+    {
+     "name": "Security NEXT",
+     "url": "https://www.security-next.com/191821"
+    }
+   ]
+  },
+  {
+   "level": "other",
+   "kind": "incident",
+   "keyword": "Vasilek",
+   "target": "ロシア医療",
+   "title": "VMware Toolsに隠されたバックドア「Vasilek」、露医療機関に2年間潜伏",
+   "what": "親ベラルーシのハクティビストが、ロシアの医療機関に約2年間侵入していたとSolarが報告した。",
+   "who": "",
+   "action": "",
+   "cves": [],
+   "tags": [],
+   "is_update": false,
+   "sources": [
+    {
+     "name": "The Hacker News",
+     "url": "https://thehackernews.com/2026/10/hackers-hid-vasilek-backdoor-in-vmware.html"
+    }
+   ]
+  },
+  {
+   "level": "other",
+   "kind": "other",
+   "keyword": "Tor出口中継",
+   "target": "匿名網",
+   "title": "Tor出口リレー300超が乗っ取られSSH通信を傍受",
+   "what": "攻撃者が300超のTor出口リレーを乗っ取り、SSH接続の傍受を試みていた。",
+   "who": "",
+   "action": "",
+   "cves": [],
+   "tags": [],
+   "is_update": false,
+   "sources": [
+    {
+     "name": "The Hacker News",
+     "url": "https://thehackernews.com/2026/10/attackers-hijacked-over-300-tor-exit.html"
+    }
+   ]
+  },
+  {
+   "level": "other",
+   "kind": "other",
+   "keyword": "INTERPOL",
+   "target": "国際捜査",
+   "title": "INTERPOLがアフリカ中心に約1.1万のサイバー犯罪網を摘発",
+   "what": "1,462人を逮捕し、10,909のネットワークを停止させた。",
+   "who": "",
+   "action": "",
+   "cves": [],
+   "tags": [],
+   "is_update": false,
+   "sources": [
+    {
+     "name": "The Hacker News",
+     "url": "https://thehackernews.com/2026/10/interpol-arrests-1462-suspects-disrupts.html"
+    }
+   ]
+  }
+ ],
+ "source_status": [
+  {
+   "name": "CISA KEV",
+   "ok": true,
+   "count": 0
+  },
+  {
+   "name": "NVD",
+   "ok": true,
+   "count": 19
+  },
+  {
+   "name": "JPCERT/CC",
+   "ok": true,
+   "count": 1
+  },
+  {
+   "name": "IPA",
+   "ok": true,
+   "count": 1
+  },
+  {
+   "name": "Security NEXT",
+   "ok": true,
+   "count": 18
+  },
+  {
+   "name": "piyolog",
+   "ok": true,
+   "count": 6
+  },
+  {
+   "name": "BleepingComputer",
+   "ok": true,
+   "count": 15
+  },
+  {
+   "name": "The Hacker News",
+   "ok": true,
+   "count": 30
+  },
+  {
+   "name": "SecurityWeek",
+   "ok": true,
+   "count": 10
+  },
+  {
+   "name": "JVN",
+   "ok": true,
+   "count": 3
+  },
+  {
+   "name": "ITmedia",
+   "ok": true,
+   "count": 15
+  },
+  {
+   "name": "AWS Health",
+   "ok": true,
+   "count": 0
+  },
+  {
+   "name": "Cloudflare Status",
+   "ok": true,
+   "count": 0
+  },
+  {
+   "name": "GitHub Status",
+   "ok": true,
+   "count": 3
+  },
+  {
+   "name": "EPSS",
+   "ok": true,
+   "count": 13
+  }
+ ],
+ "stats": {
+  "items": 121,
+  "clusters": 86
+ }
+}
