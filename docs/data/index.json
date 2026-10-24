@@ -1,5 +1,12 @@
 [
  {
+  "date": "2026-10-24",
+  "headline": "PHP2Shellに新たな未修正RCEが判明しMirai系の攻撃も加わった。AristaのVeloCloudゼロデイはKEVに追加。FortiGate/GlobalProtectなど境界機器の大規模侵害やLiteLLM汚染の原因判明も要確認。",
+  "critical": 2,
+  "notable": 4,
+  "other": 7
+ },
+ {
   "date": "2026-10-23",
   "headline": "PHP2Shellは修正前から悪用されていたことが判明、Arista VeloCloudのゼロデイ悪用も確認された。カプコン約1177万件など国内の大型漏洩が続く。",
   "critical": 2,

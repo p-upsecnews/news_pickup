@@ -1,0 +1,386 @@
+{
+  "date": "2026-10-24",
+  "generated_at": "2026-10-24T10:10:00+09:00",
+  "window_hours": 48,
+  "headline": "PHP2Shellに新たな未修正RCEが判明しMirai系の攻撃も加わった。AristaのVeloCloudゼロデイはKEVに追加。FortiGate/GlobalProtectなど境界機器の大規模侵害やLiteLLM汚染の原因判明も要確認。",
+  "items": [
+    {
+      "level": "critical",
+      "kind": "vulnerability",
+      "keyword": "PHP2Shell",
+      "target": "Webサーバ",
+      "title": "PHP2Shellにマルウェアbot参入、さらに未修正の別RCE（CVE-2026-115560）も判明",
+      "what": "PHP2Shellの攻撃にMiraiボットネット運営者が加わり、ASLR回避の攻撃コードも出てきた。別に、特殊な設定で動くアプリに影響する未修正のRCEも公表された。",
+      "who": "PHPでWebアプリを動かす全サーバ。新たな未修正の問題は非標準設定のアプリのみが対象。",
+      "action": "PHPを緊急修正版に更新する。新しい問題には、PHPチームが案内する緩和策（該当機能の無効化）を適用し、JPCERT/CCの注意喚起も確認する。",
+      "cves": [
+        "CVE-2026-109618",
+        "CVE-2026-109619",
+        "CVE-2026-115560"
+      ],
+      "tags": [
+        "悪用確認済み",
+        "PoC公開",
+        "国内"
+      ],
+      "is_update": true,
+      "sources": [
+        {
+          "name": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/urgent-php-warns-of-another-unpatched.html"
+        },
+        {
+          "name": "SecurityWeek",
+          "url": "https://www.securityweek.com/mirai-botnet-operators-join-php2shell-attacks-as-aslr-bypass-exploits-emerge/"
+        },
+        {
+          "name": "JVN",
+          "url": "https://jvn.jp/vu/JVNVU99905564/"
+        }
+      ]
+    },
+    {
+      "level": "critical",
+      "kind": "vulnerability",
+      "keyword": "VeloCloud",
+      "target": "SD-WAN管理",
+      "title": "Arista VeloCloud OrchestratorのSQLインジェクションがKEVに追加、4か月で3件目のゼロデイ",
+      "what": "Arista VeloCloud Orchestrator（オンプレ版）のSQLインジェクションが実際に悪用され、CISAがKEVに掲載した。同製品のゼロデイ悪用は4か月で3件目。",
+      "who": "VeloCloud SD-WANをオンプレのOrchestratorで管理している組織。",
+      "action": "Aristaの修正版を適用し、管理画面を外部に公開していないか確認する。",
+      "cves": [
+        "CVE-2026-114625"
+      ],
+      "tags": [
+        "KEV",
+        "悪用確認済み"
+      ],
+      "is_update": true,
+      "sources": [
+        {
+          "name": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/arista-patches-new-velocloud-orchestrator-zero-day-exploited-in-attacks/"
+        },
+        {
+          "name": "CISA KEV",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-114625"
+        },
+        {
+          "name": "SecurityWeek",
+          "url": "https://www.securityweek.com/attackers-exploit-third-velocloud-orchestrator-zero-day-in-four-months/"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "incident",
+      "keyword": "FW/VPN侵害",
+      "target": "VPN機器",
+      "title": "FortiGateやGlobalProtectなど境界機器への大規模侵害、認証情報7万件超が流出",
+      "what": "公開されたFortinet FortiGateやPalo Alto GlobalProtectなどの境界機器を狙う大規模な攻撃が判明し、7万件超の認証情報が窃取されていた。",
+      "who": "FortiGate・GlobalProtectなどをインターネットに公開している組織。",
+      "action": "機器のファームウェアを更新し、VPN・管理用アカウントのパスワードを変更して、不審なログインがないか確認する。",
+      "cves": [],
+      "tags": [
+        "情報漏洩"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/hackers-breach-enterprise-firewalls-and.html"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "vulnerability",
+      "keyword": "Collabora",
+      "target": "Nextcloud",
+      "title": "Collabora Online（Nextcloud内蔵のCODEサーバ）のOSコマンドインジェクションがKEVに追加",
+      "what": "Nextcloud上で動く内蔵CODEサーバにリモートからコードを実行できる欠陥があり、CISAが悪用確認済みとしてKEVに追加した。",
+      "who": "Nextcloudに内蔵のCollabora Online CODEサーバを使っている環境。",
+      "action": "Collaboraの修正版に更新する。すぐに更新できない場合は内蔵CODEサーバの利用停止を検討する。",
+      "cves": [
+        "CVE-2026-110447"
+      ],
+      "tags": [
+        "KEV",
+        "悪用確認済み"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "CISA KEV",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-110447"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "incident",
+      "keyword": "LiteLLM",
+      "target": "Python環境",
+      "title": "LiteLLM汚染の原因は盗まれたGitHubトークンの可能性、PyPIとDockerに悪意あるビルド",
+      "what": "LiteLLMの配布が侵害され、窃取型マルウェア入りの1.107.0がPyPIとDockerに公開された。開発側はGitHubトークンの漏えいが原因とみている。",
+      "who": "1.107.0を導入・取得したLiteLLM利用者（AIゲートウェイ運用者）。",
+      "action": "該当版を使っていたら削除し、環境内の認証情報・APIキー・環境変数をすべて入れ替える。",
+      "cves": [],
+      "tags": [
+        "サプライチェーン"
+      ],
+      "is_update": true,
+      "sources": [
+        {
+          "name": "Security NEXT",
+          "url": "https://www.security-next.com/191830"
+        },
+        {
+          "name": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/litellm-suspects-github-token-leak-in.html"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "incident",
+      "keyword": "国内不正アクセス",
+      "target": "国内組織",
+      "title": "JPCERT/CC、相次ぐ国内組織への不正アクセスで注意喚起を更新",
+      "what": "国内組織で不正アクセスが相次いでいるとしてJPCERT/CCが注意喚起を更新した。",
+      "who": "国内の企業・組織、特にVPN機器や委託先を経由する環境。",
+      "action": "注意喚起の内容を確認し、外部公開機器の更新と認証情報の見直し、ログの確認を行う。",
+      "cves": [],
+      "tags": [
+        "国内"
+      ],
+      "is_update": true,
+      "sources": [
+        {
+          "name": "JPCERT/CC",
+          "url": "https://www.jpcert.or.jp/at/2026/at260030.html"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "incident",
+      "keyword": "Quest Diag.",
+      "target": "医療",
+      "title": "米Quest Diagnostics、検査関連システムの不正アクセスで患者記録が流出",
+      "what": "米大手検査会社が、検査管理システムへの不正アクセスにより一部患者の記録が流出したと規制当局に届け出た。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [
+        "情報漏洩"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/quest-diagnostics-confirms-data-breach-exposed-patient-records/"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "vulnerability",
+      "keyword": "Pillow",
+      "target": "Python環境",
+      "title": "Pythonの画像ライブラリPillowにEPS処理経由のコード実行の欠陥",
+      "what": "PillowがEPS画像をGhostscriptに渡す際にファイル名を検証せず、OSコマンドを実行される恐れがある。",
+      "who": "",
+      "action": "",
+      "cves": [
+        "CVE-2026-112900"
+      ],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/critical-flaw-in-pythons-popular-pillow.html"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "vulnerability",
+      "keyword": "Tomcat",
+      "target": "Webサーバ",
+      "title": "Apache Tomcatに脆弱性8件、クリティカル評価のものを含む",
+      "what": "Apache Tomcatの脆弱性8件が公表され、うち1件はクリティカルと評価された。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "Security NEXT",
+          "url": "https://www.security-next.com/191877"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "vulnerability",
+      "keyword": "Splunk",
+      "target": "ログ基盤",
+      "title": "Splunk Enterpriseに複数の脆弱性、修正版を公開",
+      "what": "Splunk Enterpriseの複数の脆弱性に対し修正版が公開された。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "Security NEXT",
+          "url": "https://www.security-next.com/191852"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "vulnerability",
+      "keyword": "Ruby/GitLab",
+      "target": "開発基盤",
+      "title": "RubyがGitLabの重大RCE4件の原因だった正規表現の欠陥3件を修正",
+      "what": "Rubyの正規表現エンジンの欠陥3件が、GitLabで見つかった重大なRCE4件の原因だったとして修正された。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/ruby-fixes-three-regex-engine-bugs.html"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "vulnerability",
+      "keyword": "QPACK",
+      "target": "HTTP/3",
+      "title": "HTTP/3のQPACKの欠陥でサーバ停止や最大4000倍のメモリ増幅の恐れ",
+      "what": "HTTP/3のヘッダ圧縮QPACKの実装に欠陥があり、細工した通信でサーバを停止させられる。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/new-qpack-flaws-can-crash-http3-servers.html"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "incident",
+      "keyword": "AI攻撃基盤",
+      "target": "ランサム",
+      "title": "ランサムウェア関係者のAI侵入基盤が露出、攻撃手口が判明",
+      "what": "公開状態だった攻撃者の基盤から、AIエージェントを使った侵入手口が分かった。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [
+        "ランサムウェア"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/exposed-infrastructure-reveals-how.html"
+        }
+      ]
+    }
+  ],
+  "source_status": [
+    {
+      "name": "CISA KEV",
+      "ok": true,
+      "count": 2
+    },
+    {
+      "name": "NVD",
+      "ok": true,
+      "count": 9
+    },
+    {
+      "name": "JPCERT/CC",
+      "ok": true,
+      "count": 2
+    },
+    {
+      "name": "IPA",
+      "ok": true,
+      "count": 0
+    },
+    {
+      "name": "Security NEXT",
+      "ok": true,
+      "count": 17
+    },
+    {
+      "name": "piyolog",
+      "ok": true,
+      "count": 5
+    },
+    {
+      "name": "BleepingComputer",
+      "ok": true,
+      "count": 15
+    },
+    {
+      "name": "The Hacker News",
+      "ok": true,
+      "count": 24
+    },
+    {
+      "name": "SecurityWeek",
+      "ok": true,
+      "count": 10
+    },
+    {
+      "name": "JVN",
+      "ok": true,
+      "count": 4
+    },
+    {
+      "name": "ITmedia",
+      "ok": true,
+      "count": 15
+    },
+    {
+      "name": "AWS Health",
+      "ok": true,
+      "count": 0
+    },
+    {
+      "name": "Cloudflare Status",
+      "ok": true,
+      "count": 1
+    },
+    {
+      "name": "GitHub Status",
+      "ok": true,
+      "count": 5
+    },
+    {
+      "name": "EPSS",
+      "ok": true,
+      "count": 18
+    }
+  ],
+  "stats": {
+    "items": 109,
+    "clusters": 82
+  }
+}
