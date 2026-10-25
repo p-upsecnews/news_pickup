@@ -1,0 +1,398 @@
+{
+  "date": "2026-10-25",
+  "generated_at": "2026-10-25T10:10:00+09:00",
+  "window_hours": 48,
+  "headline": "PHP2Shellにbot参入とASLR回避の報告が出て警戒継続。GMOデスクトップクラウド侵害やデジタル庁・デジタルアーツの漏えいなど国内の事案、LiteLLM汚染の原因判明にも注意。全情報源の取得に成功。",
+  "items": [
+    {
+      "level": "critical",
+      "kind": "vulnerability",
+      "keyword": "PHP2Shell",
+      "target": "Webサーバ",
+      "title": "PHP2Shellに便乗しMirai系botが攻撃、ASLR回避のエクスプロイトも登場",
+      "what": "PHPの深刻なRCE「PHP2Shell」に対し、Mirai系botネットの運用者が攻撃に加わり、保護機構ASLRを回避する手法も報告された。現時点で侵害成功の確認はないが、別の未修正RCE（CVE-2026-115560）も公表されている。",
+      "who": "PHPでWebアプリを動かしているすべてのサーバ。",
+      "action": "緊急修正版へ更新し、未修正の別RCEにはPHP公式の緩和策を適用する。公開サーバのログで不審なリクエストを確認する。",
+      "cves": [
+        "CVE-2026-109618",
+        "CVE-2026-109619",
+        "CVE-2026-115560"
+      ],
+      "tags": [
+        "悪用確認済み",
+        "PoC公開",
+        "国内"
+      ],
+      "is_update": true,
+      "sources": [
+        {
+          "name": "SecurityWeek",
+          "url": "https://www.securityweek.com/mirai-botnet-operators-join-php2shell-attacks-as-aslr-bypass-exploits-emerge/"
+        },
+        {
+          "name": "JVN",
+          "url": "https://jvn.jp/vu/JVNVU99905564/"
+        },
+        {
+          "name": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/php-shares-mitigation-for-new-and-unpatched-rce-vulnerability/"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "incident",
+      "keyword": "お名前.com DC",
+      "target": "国内VPS",
+      "title": "GMOの「お名前.com デスクトップクラウド」が侵害、利用者の金融口座で不正操作",
+      "what": "GMOインターネットの仮想デスクトップサービスが第三者に侵害され、利用者の金融機関口座で不正操作が報告された。内部データが盗まれた恐れもある。",
+      "who": "同サービスの利用者（特に金融取引に利用している企業・個人）。",
+      "action": "利用中なら事業者の案内に従い、パスワード変更と取引口座の入出金履歴の確認を行う。",
+      "cves": [],
+      "tags": [
+        "国内",
+        "情報漏洩"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "Security NEXT",
+          "url": "https://www.security-next.com/191883"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "incident",
+      "keyword": "LiteLLM",
+      "target": "Python環境",
+      "title": "LiteLLM汚染の原因は公開されたマスターキーと判明、PyPI・Dockerに悪意あるビルド",
+      "what": "生成AI向けOSSのLiteLLMで、誤って公開されたマスターキーなどが悪用され、PyPIとDockerに悪意あるパッケージが配布された。",
+      "who": "LiteLLMを導入・自動更新しているAI基盤の開発・運用環境。",
+      "action": "該当期間に取得したバージョンを確認し、該当すれば認証情報を全て再発行する。",
+      "cves": [],
+      "tags": [
+        "サプライチェーン"
+      ],
+      "is_update": true,
+      "sources": [
+        {
+          "name": "Security NEXT",
+          "url": "https://www.security-next.com/191830"
+        },
+        {
+          "name": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/leaked-litellm-master-key-let-attackers.html"
+        },
+        {
+          "name": "SecurityWeek",
+          "url": "https://www.securityweek.com/litellm-compromised-in-fresh-supply-chain-attack/"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "incident",
+      "keyword": "デジタル庁",
+      "target": "行政",
+      "title": "デジタル庁の問い合わせ最大1万3千件が漏えいか、Web制作ツール「Studio」への不正アクセス",
+      "what": "デジタル庁は、Web制作サービス「Studio」への不正アクセスにより、サイトの問い合わせフォームに入力された氏名・メールアドレス等が最大1万3323件漏えいした可能性があると発表した。",
+      "who": "同庁サイトに問い合わせた人。Studioを使うWebサイトの運営者。",
+      "action": "Studioを使う自社・客先サイトのフォーム保存データを確認し、事業者の案内に従う。",
+      "cves": [],
+      "tags": [
+        "国内",
+        "情報漏洩"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "ITmedia",
+          "url": "https://www.itmedia.co.jp/news/article/2610/23/2000002543/"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "incident",
+      "keyword": "デジタルアーツ",
+      "target": "国内ベンダ",
+      "title": "デジタルアーツが不正アクセス被害、クラウド・社内環境から利用者情報流出の恐れ",
+      "what": "フィルタリング製品を提供するデジタルアーツが、クラウドや社内環境への第三者の侵入を公表した。1年以上前の痕跡もあり、一部利用者の情報が流出した可能性がある。",
+      "who": "同社製品の利用者。",
+      "action": "同社の案内を確認し、連携用の認証情報やAPIキーがあれば再発行を検討する。",
+      "cves": [],
+      "tags": [
+        "国内",
+        "情報漏洩"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "Security NEXT",
+          "url": "https://www.security-next.com/191844"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "vulnerability",
+      "keyword": "Node2Shell",
+      "target": "開発基盤",
+      "title": "Node.jsでBrotliデータ経由のRCEを実証「Node2Shell」、Bunや各種Python環境も影響",
+      "what": "GoogleのBrotli展開処理のメモリ破壊の欠陥を突き、公式ビルドのNode.jsで任意コードを実行できることが実証された。",
+      "who": "Brotliを展開するNode.js、Bun、Pythonのbrotli系ライブラリを使う全アプリ。",
+      "action": "Node.jsと関連ライブラリの修正版へ更新し、外部入力のBrotli展開を洗い出す。",
+      "cves": [
+        "CVE-2026-111497"
+      ],
+      "tags": [
+        "PoC公開"
+      ],
+      "is_update": true,
+      "sources": [
+        {
+          "name": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/researchers-demonstrate-node2shell-rce.html"
+        },
+        {
+          "name": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/brotli-decoder-flaw-behind-nodejs-rce.html"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "incident",
+      "keyword": "BlackX",
+      "target": "Windows",
+      "title": "UEFIブートキット「BlackX」が失効未適用のWindowsでSecure Bootを回避",
+      "what": "中央アジアの外交機関への諜報攻撃で、既知のBaton Drop欠陥を使いSecure Bootを回避するブートキットが使われた。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/blackx-uefi-bootkit-exploits-baton-drop-flaw-to-bypass-secure-boot/"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "vulnerability",
+      "keyword": "Popcorn Time",
+      "target": "PCアプリ",
+      "title": "放置されたPopcorn Time派生アプリに更新機構のRCE、研究者が遠隔で無効化",
+      "what": "放棄されたアプリの更新機構の欠陥で数百万台がRCEの危険にあったが、研究者が更新を配信して無効化した。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/abandoned-popcorn-time-app-exposed-millions-of-device-to-rce-attacks/"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "incident",
+      "keyword": "Quest Diag.",
+      "target": "米医療",
+      "title": "米Quest Diagnosticsの注文管理基盤に不正アクセス、患者記録が流出",
+      "what": "Quanum Lab Services Managerへの不正アクセスで一部の患者記録が露出したと規制当局に報告された。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/quest-diagnostics-confirms-data-breach-exposed-patient-records/"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "vulnerability",
+      "keyword": "HPE AOS",
+      "target": "ネットワーク",
+      "title": "HPEのAOSに最高深刻度のRCE・認証バイパスが8件、修正版公開",
+      "what": "HPEがAOSの最高深刻度のRCEと認証回避の脆弱性8件を修正した。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/hpe-patches-eight-max-severity-rce-and-auth-bypass-aos-flaws/"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "vulnerability",
+      "keyword": "Atlassian",
+      "target": "開発基盤",
+      "title": "Atlassian、Data Center/Serverの75件の脆弱性を修正",
+      "what": "サードパーティ部品を含む75件の脆弱性が修正された。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "SecurityWeek",
+          "url": "https://www.securityweek.com/atlassian-patches-75-third-party-flaws-in-data-center-and-server-products/"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "vulnerability",
+      "keyword": "Mitsubishi",
+      "target": "制御機器",
+      "title": "三菱電機のGENESIS64等SCADA製品に複数の脆弱性",
+      "what": "GENESIS、ICONICS Suite等の複数製品に脆弱性がありJVNが公開した。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "JVN",
+          "url": "https://jvn.jp/vu/JVNVU93251594/"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "vulnerability",
+      "keyword": "プリザンター",
+      "target": "業務アプリ",
+      "title": "ローコード基盤「プリザンター」のLDAP認証に不備",
+      "what": "LDAP認証に認証不備の脆弱性が見つかった。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "JVN",
+          "url": "https://jvn.jp/jp/JVN82312317/"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "other",
+      "keyword": "APIキー露出",
+      "target": "調査研究",
+      "title": "1000万のWebサイト調査で大量の有効なAPIキーが露出",
+      "what": "米スタンフォード大などの調査で、Web上に有効なAPIキーが多数露出していることが分かった。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "ITmedia",
+          "url": "https://www.itmedia.co.jp/news/article/2610/23/2000002515/"
+        }
+      ]
+    }
+  ],
+  "source_status": [
+    {
+      "name": "CISA KEV",
+      "ok": true,
+      "count": 2
+    },
+    {
+      "name": "NVD",
+      "ok": true,
+      "count": 2
+    },
+    {
+      "name": "JPCERT/CC",
+      "ok": true,
+      "count": 1
+    },
+    {
+      "name": "IPA",
+      "ok": true,
+      "count": 0
+    },
+    {
+      "name": "Security NEXT",
+      "ok": true,
+      "count": 8
+    },
+    {
+      "name": "piyolog",
+      "ok": true,
+      "count": 0
+    },
+    {
+      "name": "BleepingComputer",
+      "ok": true,
+      "count": 8
+    },
+    {
+      "name": "The Hacker News",
+      "ok": true,
+      "count": 15
+    },
+    {
+      "name": "SecurityWeek",
+      "ok": true,
+      "count": 9
+    },
+    {
+      "name": "JVN",
+      "ok": true,
+      "count": 4
+    },
+    {
+      "name": "ITmedia",
+      "ok": true,
+      "count": 4
+    },
+    {
+      "name": "AWS Health",
+      "ok": true,
+      "count": 0
+    },
+    {
+      "name": "Cloudflare Status",
+      "ok": true,
+      "count": 2
+    },
+    {
+      "name": "GitHub Status",
+      "ok": true,
+      "count": 4
+    },
+    {
+      "name": "EPSS",
+      "ok": true,
+      "count": 7
+    }
+  ],
+  "stats": {
+    "items": 59,
+    "clusters": 49
+  }
+}

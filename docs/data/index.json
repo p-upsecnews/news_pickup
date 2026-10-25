@@ -1,5 +1,12 @@
 [
  {
+  "date": "2026-10-25",
+  "headline": "PHP2Shellにbot参入とASLR回避の報告が出て警戒継続。GMOデスクトップクラウド侵害やデジタル庁・デジタルアーツの漏えいなど国内の事案、LiteLLM汚染の原因判明にも注意。全情報源の取得に成功。",
+  "critical": 1,
+  "notable": 5,
+  "other": 8
+ },
+ {
   "date": "2026-10-24",
   "headline": "PHP2Shellに新たな未修正RCEが判明しMirai系の攻撃も加わった。AristaのVeloCloudゼロデイはKEVに追加。FortiGate/GlobalProtectなど境界機器の大規模侵害やLiteLLM汚染の原因判明も要確認。",
   "critical": 2,
