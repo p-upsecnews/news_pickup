@@ -1,0 +1,196 @@
+{
+  "date": "2026-10-26",
+  "generated_at": "2026-10-26T10:10:00+09:00",
+  "window_hours": 48,
+  "headline": "新規の大型事案は少なく、PHP2Shellは欧州政府機関への攻撃やAIを使った侵害後活動が報告され警戒継続。前日までの国内漏洩やVeloCloud等のKEV事案は進展なしのため再掲せず。全情報源の取得に成功。",
+  "items": [
+    {
+      "level": "critical",
+      "kind": "vulnerability",
+      "keyword": "PHP2Shell",
+      "target": "Webサーバ",
+      "title": "PHP2Shell悪用が欧州政府機関に波及、AI基盤を使った侵害後の活動も確認",
+      "what": "PHP2Shellの悪用後にエージェント型AIを使って活動する攻撃者が確認され、欧州の政府機関では侵入から約2時間で認証情報にまで到達された。",
+      "who": "PHPでWebアプリケーションを動かしているサーバ全般（CVE-2026-109618/109619）。",
+      "action": "修正版へ更新し、更新できない公開サーバは隔離を検討。侵害の痕跡（不審なWebシェル・認証情報の持ち出し）も確認する。",
+      "cves": [
+        "CVE-2026-109618",
+        "CVE-2026-109619"
+      ],
+      "tags": [
+        "悪用確認済み",
+        "PoC公開"
+      ],
+      "is_update": true,
+      "sources": [
+        {
+          "name": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/php2shell-exploitation-hits-government.html"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "vulnerability",
+      "keyword": "Siemens",
+      "target": "産業制御",
+      "title": "Siemens製品に対する10月分の定例アドバイザリが公開（JVN）",
+      "what": "Siemensが各製品向けの脆弱性アドバイザリを公表し、JVNが日本語で案内している。",
+      "who": "Siemensの産業制御・ネットワーク製品を利用する工場・インフラ事業者。",
+      "action": "JVNの一覧で自社・客先の該当製品を確認し、修正版や緩和策を適用する。",
+      "cves": [],
+      "tags": [
+        "国内"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "JVN",
+          "url": "https://jvn.jp/vu/JVNVU90141693/"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "vulnerability",
+      "keyword": "Tailscale SSH",
+      "target": "VPN/SSH",
+      "title": "Tailscale SSHに未修正の欠陥、侵害済み端末から他サーバのroot奪取の恐れ",
+      "what": "ポート転送を許可した設定では、1台の侵害端末から到達可能な他サーバでroot権限を得られると研究者が報告した。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/unpatched-tailscale-ssh-flaws-could-let.html"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "incident",
+      "keyword": "AGENTS.md",
+      "target": "AI開発",
+      "title": "ダウンロードフォルダ内の悪意あるAGENTS.mdでAIコーディングエージェントが乗っ取られる",
+      "what": "顧客環境で見つかった悪意ある指示ファイルにより、AIエージェントが不正なnpmパッケージを導入させられた。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [
+        "サプライチェーン"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/ai-coding-agents-hijacked-using-agentsmd-file-in-downloads-folder/"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "vulnerability",
+      "keyword": "Prime Mover",
+      "target": "WordPress",
+      "title": "WordPressプラグイン「Prime Mover」に認証不要のオブジェクト注入（CVSS 9.8）",
+      "what": "バックアップ・移行プラグインのバージョン2.2.1以前に、認証なしで悪用できるPHPオブジェクト注入の欠陥が見つかった。",
+      "who": "",
+      "action": "",
+      "cves": [
+        "CVE-2026-115806"
+      ],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "NVD",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115806"
+        }
+      ]
+    }
+  ],
+  "source_status": [
+    {
+      "name": "CISA KEV",
+      "ok": true,
+      "count": 0
+    },
+    {
+      "name": "NVD",
+      "ok": true,
+      "count": 3
+    },
+    {
+      "name": "JPCERT/CC",
+      "ok": true,
+      "count": 0
+    },
+    {
+      "name": "IPA",
+      "ok": true,
+      "count": 0
+    },
+    {
+      "name": "Security NEXT",
+      "ok": true,
+      "count": 2
+    },
+    {
+      "name": "piyolog",
+      "ok": true,
+      "count": 0
+    },
+    {
+      "name": "BleepingComputer",
+      "ok": true,
+      "count": 2
+    },
+    {
+      "name": "The Hacker News",
+      "ok": true,
+      "count": 8
+    },
+    {
+      "name": "SecurityWeek",
+      "ok": true,
+      "count": 1
+    },
+    {
+      "name": "JVN",
+      "ok": true,
+      "count": 1
+    },
+    {
+      "name": "ITmedia",
+      "ok": true,
+      "count": 0
+    },
+    {
+      "name": "AWS Health",
+      "ok": true,
+      "count": 0
+    },
+    {
+      "name": "Cloudflare Status",
+      "ok": true,
+      "count": 0
+    },
+    {
+      "name": "GitHub Status",
+      "ok": true,
+      "count": 0
+    },
+    {
+      "name": "EPSS",
+      "ok": true,
+      "count": 6
+    }
+  ],
+  "stats": {
+    "items": 17,
+    "clusters": 17
+  }
+}
