@@ -1,0 +1,431 @@
+{
+  "date": "2026-10-27",
+  "generated_at": "2026-10-27T10:05:00+09:00",
+  "window_hours": 48,
+  "headline": "PHP2Shellは米当局が悪用を確認しKEVに掲載、実際のシェル奪取も観測され警戒継続。佐川急便は最大5323万件の流出可能性。Brotli欠陥（HTTP2Shell）の緊急パッチも続く。全情報源の取得に成功。",
+  "items": [
+    {
+      "level": "critical",
+      "kind": "vulnerability",
+      "keyword": "PHP2Shell",
+      "target": "Webサーバ",
+      "title": "PHP2Shell、CISAが悪用を確認しKEV掲載。ハニーポットでは実際にシェル奪取も",
+      "what": "PHPの認証不要RCE 2件（CVE-2026-109618/109619）がCISAのKEVに載り、実際にシェルを奪取する攻撃が観測された。Windows版PHPに同梱のBrotliの別欠陥（CVE-2026-111497）も修正された。",
+      "who": "PHPでWebアプリを動かす全サーバ。Siemens・Schneider・ABBなど産業系ベンダー製品の一部にも影響が確認されている。",
+      "action": "修正版PHPへ更新し、Windows版は再構築されたパッケージに入れ替える。更新できない場合は公開範囲の制限を検討し、ログで不審なシェルの有無を確認する。",
+      "cves": [
+        "CVE-2026-109618",
+        "CVE-2026-109619",
+        "CVE-2026-111497"
+      ],
+      "tags": [
+        "KEV",
+        "悪用確認済み",
+        "国内"
+      ],
+      "is_update": true,
+      "sources": [
+        {
+          "name": "Security NEXT",
+          "url": "https://www.security-next.com/191976"
+        },
+        {
+          "name": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/php2shell-security-flaws-now-sucessfully-exploited-in-the-wild/"
+        },
+        {
+          "name": "SecurityWeek",
+          "url": "https://www.securityweek.com/php2shell-exploitation-moves-from-probes-to-working-shells/"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "vulnerability",
+      "keyword": "HTTP2Shell",
+      "target": "圧縮ライブラリ",
+      "title": "Brotliの重大欠陥「HTTP2Shell」でMicrosoftが定例外の.NETパッチを公開",
+      "what": "Google製Brotliデコーダの欠陥（CVE-2026-111497、通称Node2Shell等）に対し、Microsoftが.NETの定例外更新を出し、Node.jsやPythonパッケージでも修正が広がっている。",
+      "who": ".NET、Node.js、Python環境など、Brotliを内包・利用するアプリや開発環境。",
+      "action": ".NETおよび利用中のランタイム・パッケージを最新版に更新し、Brotliを同梱する製品の対応状況を確認する。",
+      "cves": [
+        "CVE-2026-111497"
+      ],
+      "tags": [
+        "サプライチェーン"
+      ],
+      "is_update": true,
+      "sources": [
+        {
+          "name": "Security NEXT",
+          "url": "https://www.security-next.com/191931"
+        },
+        {
+          "name": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/microsoft/microsoft-releases-emergency-net-patches-for-critical-brotli-flaw/"
+        },
+        {
+          "name": "JVN",
+          "url": "https://jvn.jp/vu/JVNVU97400824/"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "incident",
+      "keyword": "佐川急便",
+      "target": "国内物流",
+      "title": "佐川急便の荷物問い合わせサービス侵害、流出は最大で延べ約5323万件",
+      "what": "佐川急便は、荷物問い合わせサービスの侵害で最大延べ約5323万件の個人情報が流出した可能性があると調査結果を公表した。",
+      "who": "同サービスを利用した荷主・受取人など、広範な個人。",
+      "action": "自社・客先で不審な配送通知や詐欺メールが増える可能性を周知し、注意喚起する。",
+      "cves": [],
+      "tags": [
+        "国内",
+        "情報漏洩"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "Security NEXT",
+          "url": "https://www.security-next.com/191906"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "vulnerability",
+      "keyword": "iOS 27.2",
+      "target": "iPhone",
+      "title": "Apple、iOS 27.2を公開。旧OS向けには悪用された脆弱性の修正も",
+      "what": "Appleがセキュリティ更新を公開し、旧バージョン向けには実際に悪用された脆弱性への対処も含まれる。",
+      "who": "iPhone・iPadの利用者。古いOSのまま使っている端末も含む。",
+      "action": "端末を最新版に更新する。最新OSに上げられない端末は旧OS向け更新を適用する。",
+      "cves": [],
+      "tags": [
+        "悪用確認済み"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "Security NEXT",
+          "url": "https://www.security-next.com/191972"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "incident",
+      "keyword": "Gheist",
+      "target": "開発基盤",
+      "title": "盗まれたGitHubトークンでActionsログ経由の秘密情報窃取、Gheistが非公開リポジトリに成功",
+      "what": "盗んだGitHubトークンで悪意あるワークフローを仕込み、リポジトリのシークレットをActionsログに出力させて盗む自動攻撃が確認された。",
+      "who": "GitHub（Enterprise含む）の非公開リポジトリとCI/CDのシークレット。",
+      "action": "トークンの権限を見直し、不審なワークフロー・削除されたActions実行を確認する。疑わしければシークレットを再発行する。",
+      "cves": [],
+      "tags": [
+        "サプライチェーン"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/gheist-uses-stolen-github-tokens-to.html"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "incident",
+      "keyword": "M365 トークン窃取",
+      "target": "クラウド認証",
+      "title": "Microsoft 365でトークン再利用攻撃、79組織の97アカウントが侵害",
+      "what": "中間者型の中継でサインインセッションを奪い、盗んだトークンを再利用してメールアカウントに侵入する攻撃が79組織で確認された。",
+      "who": "Microsoft 365利用組織。MFAを設定していても被害に遭いうる。",
+      "action": "不審なサインイン・メール転送ルールを確認し、フィッシング耐性のある認証やトークン保護（条件付きアクセス）を検討する。",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/microsoft-365-token-replay-attacks.html"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "incident",
+      "keyword": "ラクス",
+      "target": "国内SaaS",
+      "title": "ラクス子会社のメール配信「ブラストメール」が侵害され契約者情報が流出",
+      "what": "ラクスライトクラウドが提供するメール配信システムが侵害され、契約者に関する情報が流出した。",
+      "who": "ブラストメールの契約者。",
+      "action": "利用している場合は公表内容を確認し、不審メールに注意する。",
+      "cves": [],
+      "tags": [
+        "国内",
+        "情報漏洩"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "Security NEXT",
+          "url": "https://www.security-next.com/191846"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "incident",
+      "keyword": "Genesys",
+      "target": "コンタクトセンター",
+      "title": "Genesysの社内システムが侵害され顧客データが流出",
+      "what": "Genesysの社内システムへの侵入で顧客データが流出した。クラウド製品自体は影響なしとされる。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "SecurityWeek",
+          "url": "https://www.securityweek.com/genesys-hack-exposes-customer-data-from-internal-systems/"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "incident",
+      "keyword": "DreamHost",
+      "target": "ホスティング",
+      "title": "DreamHostがインシデントでメール・FTPのパスワードを強制リセット",
+      "what": "DreamHostが継続中のインシデントを受けてメールやFTPのパスワードを強制リセットしている。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/dreamhost-forces-email-ftp-sftp-password-resets-in-ongoing-incident/"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "incident",
+      "keyword": "Magento感染",
+      "target": "ECサイト",
+      "title": "Magento中心に953のオンラインストアがJavaScriptに感染",
+      "what": "検知を回避するJavaScriptが2025年7月から続く攻撃で953店舗に仕込まれた。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/hackers-infect-953-online-stores-with.html"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "incident",
+      "keyword": "Teams詐欺",
+      "target": "Teams",
+      "title": "Teams経由のIT サポート偽装でマルウェア・ランサム感染",
+      "what": "IT担当を装うTeams経由のソーシャルエンジニアリングが数百件で繰り返されている。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/attackers-use-microsoft-teams-it.html"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "incident",
+      "keyword": "コペンハーゲン大",
+      "target": "海外大学",
+      "title": "コペンハーゲン大学のテスト環境が侵害、52.5万人分の情報が流出",
+      "what": "大学のテスト環境に保存された個人データ52.5万人分に侵害があった。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/university-of-copenhagen-data-breach-exposes-data-of-525-000-people/"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "vulnerability",
+      "keyword": "Tailscale SSH",
+      "target": "VPN/SSH",
+      "title": "Tailscale SSHに未修正の欠陥、侵害端末から他サーバのroot奪取の恐れ",
+      "what": "侵害された1台から到達可能な他サーバでroot権限を得られる欠陥が公開され、未修正。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/unpatched-tailscale-ssh-flaws-could-let.html"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "vulnerability",
+      "keyword": "Wasmtime",
+      "target": "実行基盤",
+      "title": "Wasmtimeに重大欠陥2件、悪意あるWasmがサンドボックスを脱出し得る",
+      "what": "WebAssembly実行環境Wasmtimeで、サンドボックス脱出につながる重大な欠陥が2件見つかった。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/two-critical-wasmtime-flaws-could-let.html"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "vulnerability",
+      "keyword": "Siemens",
+      "target": "産業制御",
+      "title": "Siemens製品に対する10月分アドバイザリ（JVN）",
+      "what": "Siemensが各製品向けのアドバイザリを公表した。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "JVN",
+          "url": "https://jvn.jp/vu/JVNVU90141693/"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "incident",
+      "keyword": "AGENTS.md",
+      "target": "AIエージェント",
+      "title": "悪意あるAGENTS.mdでAIコーディングエージェントが不正パッケージを導入",
+      "what": "ダウンロードフォルダ内の指示ファイルでAIエージェントが悪意あるnpmパッケージを入れさせられた。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/malicious-file-in-downloads-folder.html"
+        }
+      ]
+    }
+  ],
+  "source_status": [
+    {
+      "name": "CISA KEV",
+      "ok": true,
+      "count": 2
+    },
+    {
+      "name": "NVD",
+      "ok": true,
+      "count": 10
+    },
+    {
+      "name": "JPCERT/CC",
+      "ok": true,
+      "count": 2
+    },
+    {
+      "name": "IPA",
+      "ok": true,
+      "count": 0
+    },
+    {
+      "name": "Security NEXT",
+      "ok": true,
+      "count": 12
+    },
+    {
+      "name": "piyolog",
+      "ok": true,
+      "count": 0
+    },
+    {
+      "name": "BleepingComputer",
+      "ok": true,
+      "count": 11
+    },
+    {
+      "name": "The Hacker News",
+      "ok": true,
+      "count": 13
+    },
+    {
+      "name": "SecurityWeek",
+      "ok": true,
+      "count": 10
+    },
+    {
+      "name": "JVN",
+      "ok": true,
+      "count": 4
+    },
+    {
+      "name": "ITmedia",
+      "ok": true,
+      "count": 2
+    },
+    {
+      "name": "AWS Health",
+      "ok": true,
+      "count": 0
+    },
+    {
+      "name": "Cloudflare Status",
+      "ok": true,
+      "count": 0
+    },
+    {
+      "name": "GitHub Status",
+      "ok": true,
+      "count": 1
+    },
+    {
+      "name": "EPSS",
+      "ok": true,
+      "count": 6
+    }
+  ],
+  "stats": {
+    "items": 67,
+    "clusters": 52
+  }
+}
