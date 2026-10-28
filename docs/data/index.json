@@ -1,5 +1,12 @@
 [
  {
+  "date": "2026-10-28",
+  "headline": "BrotliのHTTP2ShellがKEVに入り悪用が確認され、PHP・.NET等への波及に要注意。GMOのVPS侵害はランサム攻撃予告に発展し、利用者に警戒が呼びかけられている。",
+  "critical": 2,
+  "notable": 7,
+  "other": 8
+ },
+ {
   "date": "2026-10-27",
   "headline": "PHP2Shellは米当局が悪用を確認しKEVに掲載、実際のシェル奪取も観測され警戒継続。佐川急便は最大5323万件の流出可能性。Brotli欠陥（HTTP2Shell）の緊急パッチも続く。全情報源の取得に成功。",
   "critical": 1,

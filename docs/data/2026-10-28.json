@@ -1,0 +1,482 @@
+{
+  "date": "2026-10-28",
+  "generated_at": "2026-10-28T10:10:00+09:00",
+  "window_hours": 48,
+  "headline": "BrotliのHTTP2ShellがKEVに入り悪用が確認され、PHP・.NET等への波及に要注意。GMOのVPS侵害はランサム攻撃予告に発展し、利用者に警戒が呼びかけられている。",
+  "items": [
+    {
+      "level": "critical",
+      "kind": "vulnerability",
+      "keyword": "HTTP2Shell",
+      "target": "Webサーバ",
+      "title": "Brotliの境界外書込「HTTP2Shell」がKEV入り、PHP・.NET・PowerShellなど広範に影響",
+      "what": "圧縮ライブラリBrotliの重大な脆弱性が実際に悪用されているとして米CISAがKEVに追加し、JPCERT/CCも注意喚起を出した。",
+      "who": "Brotliを組み込むPHP(Windows版)、.NET、PowerShell、Node.jsなど多くの製品・開発環境。",
+      "action": "各製品の修正版(PHP Windows版の再ビルド、Microsoftの定例外更新等)を適用し、Brotliを同梱する自社製品の有無も確認する。",
+      "cves": [
+        "CVE-2026-111497"
+      ],
+      "tags": [
+        "KEV",
+        "悪用確認済み"
+      ],
+      "is_update": true,
+      "sources": [
+        {
+          "name": "Security NEXT",
+          "url": "https://www.security-next.com/192044"
+        },
+        {
+          "name": "JPCERT/CC",
+          "url": "https://www.jpcert.or.jp/at/2026/at260034.html"
+        },
+        {
+          "name": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/php-issues-second-windows-security.html"
+        }
+      ]
+    },
+    {
+      "level": "critical",
+      "kind": "incident",
+      "keyword": "お名前.com DC",
+      "target": "国内VPS",
+      "title": "GMOのVPSへの侵害でランサム攻撃予告、利用者にPCのシャットダウンを要請",
+      "what": "GMOインターネットグループの「お名前.com デスクトップクラウド」への不正アクセスを巡り、攻撃者が身代金を要求し情報公開や攻撃を予告している。",
+      "who": "同サービスの利用者(FX自動売買用VPSなど)。",
+      "action": "公式の案内に従い、攻撃者が公開したと称する情報にはアクセスせず、必要に応じて接続の遮断・パスワード変更を行う。",
+      "cves": [],
+      "tags": [
+        "ランサムウェア",
+        "国内",
+        "情報漏洩"
+      ],
+      "is_update": true,
+      "sources": [
+        {
+          "name": "Security NEXT",
+          "url": "https://www.security-next.com/191999"
+        },
+        {
+          "name": "ITmedia",
+          "url": "https://www.itmedia.co.jp/news/article/2610/27/2000002640/"
+        },
+        {
+          "name": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/japans-gmo-urges-customers-to-shut-down-pcs-amid-ransomware-threat/"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "vulnerability",
+      "keyword": "Magento",
+      "target": "ECサイト",
+      "title": "Adobe Commerce/Magentoの任意ファイルアップロード脆弱性が悪用中、KEVに追加",
+      "what": "Adobe CommerceとMagentoのファイルアップロードの欠陥が悪用されているとして米当局が注意喚起した。",
+      "who": "Adobe Commerce/Magentoを使うECサイト運営者。",
+      "action": "最新パッチを適用し、不審なファイルやスキミングスクリプトの有無を点検する。",
+      "cves": [
+        "CVE-2026-48356"
+      ],
+      "tags": [
+        "KEV",
+        "悪用確認済み"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "Security NEXT",
+          "url": "https://www.security-next.com/192044"
+        },
+        {
+          "name": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/hackers-infect-953-online-stores-with.html"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "vulnerability",
+      "keyword": "iOS 27.2",
+      "target": "iPhone/Mac",
+      "title": "Apple、悪用済みCoreGraphics脆弱性の修正を旧iPhone・iPadにも提供",
+      "what": "悪用が確認されたCoreGraphicsのゼロデイ修正が旧OS向けにバックポートされた。27.2では約290件の脆弱性も修正された。",
+      "who": "旧バージョンのiOS/iPadOSを使い続けている端末。",
+      "action": "対象端末をアップデートする。",
+      "cves": [
+        "CVE-2026-86950"
+      ],
+      "tags": [
+        "KEV",
+        "悪用確認済み"
+      ],
+      "is_update": true,
+      "sources": [
+        {
+          "name": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/apple/apple-backports-coregraphics-zero-day-patches-to-older-iphones/"
+        },
+        {
+          "name": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/apple-backports-fix-for-exploited.html"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "vulnerability",
+      "keyword": "Chrome",
+      "target": "PCブラウザ",
+      "title": "Chromeで脆弱性52件を修正、4件が「クリティカル」",
+      "what": "GoogleがChromeの更新で52件の脆弱性を修正し、うち4件が最高の深刻度だった。",
+      "who": "Chromeおよび同系ブラウザの利用者。",
+      "action": "Chromeを最新版に更新し、再起動する。",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "Security NEXT",
+          "url": "https://www.security-next.com/192058"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "incident",
+      "keyword": "ユミルリンク",
+      "target": "メール配信",
+      "title": "ユミルリンクのメール配信サービス攻撃で、顧客49システムの情報流出を確認",
+      "what": "同社のメール配信サービスへのサイバー攻撃で、顧客が使う49システムで情報流出と横展開が確認された。",
+      "who": "同社メール配信サービスの顧客企業と、その宛先の個人。",
+      "action": "利用中の場合は同社の案内を確認し、認証情報の変更と影響範囲の確認を行う。",
+      "cves": [],
+      "tags": [
+        "国内",
+        "情報漏洩"
+      ],
+      "is_update": true,
+      "sources": [
+        {
+          "name": "Security NEXT",
+          "url": "https://www.security-next.com/192029"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "incident",
+      "keyword": "UNM Health",
+      "target": "医療",
+      "title": "米ニューメキシコ大病院がランサム攻撃で停止、手術や診療に影響",
+      "what": "大学医療機関がサイバー攻撃を受け、システム停止により診療・手術に支障が出ている。",
+      "who": "同病院の患者と関係者。",
+      "action": "日本の関係先への直接影響は見られず、医療機関はバックアップとネットワーク分離を点検しておく。",
+      "cves": [],
+      "tags": [
+        "ランサムウェア",
+        "サービス停止"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/unm-health-ransomware-attack-disrupts-patient-care-surgeries/"
+        },
+        {
+          "name": "SecurityWeek",
+          "url": "https://www.securityweek.com/cybersecurity-issue-forces-a-major-new-mexico-hospital-to-divert-patients-and-close-clinics/"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "incident",
+      "keyword": "Convertr",
+      "target": "決済スキミング",
+      "title": "分析スクリプトConvertrが改ざんされ、カード情報を窃取",
+      "what": "ECプラットフォームConvertrの共有分析スクリプトがスキミング集団に侵害され、決済カード情報が盗まれた。",
+      "who": "当該スクリプトを読み込むECサイトの利用者・運営者。",
+      "action": "外部スクリプトの読み込み元を棚卸しし、改ざん検知(SRI等)を導入する。",
+      "cves": [],
+      "tags": [
+        "サプライチェーン",
+        "情報漏洩"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/hackers-hijack-convertr-analytics-script-to-steal-payment-card-data/"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "incident",
+      "keyword": "ENGIE",
+      "target": "エネルギー",
+      "title": "仏エネルギー大手ENGIEが顧客データの漏洩を公表",
+      "what": "欧州大手のエネルギー企業が、攻撃者に顧客情報へアクセスされたことを認めた。",
+      "who": "同社の顧客。",
+      "action": "日本の客先に直接影響する情報はないが、取引先であれば注意喚起に留意する。",
+      "cves": [],
+      "tags": [
+        "情報漏洩"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/energy-giant-engie-discloses-data-breach-affecting-customers/"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "vulnerability",
+      "keyword": "Tailworm",
+      "target": "VPN/SSH",
+      "title": "Tailscaleに複数のSSH脆弱性「Tailworm」、修正を急ぐ",
+      "what": "Tailscaleに権限昇格などを含む約10件の脆弱性が見つかり、修正版が急ぎ公開された。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [],
+      "is_update": true,
+      "sources": [
+        {
+          "name": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/tailscale-warns-of-serious-ssh-flaws-allowing-root-privilege-escalation/"
+        },
+        {
+          "name": "SecurityWeek",
+          "url": "https://www.securityweek.com/tailscale-rushes-patches-after-uncoordinated-disclosure-of-tailworm-flaws/"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "incident",
+      "keyword": "DreamHost",
+      "target": "ホスティング",
+      "title": "DreamHostが障害を受けメール・FTPのパスワードを強制リセット",
+      "what": "原因不明のインシデントによりメールとFTP/SFTPの利用者のパスワードが強制リセットされた。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [
+        "サービス停止"
+      ],
+      "is_update": true,
+      "sources": [
+        {
+          "name": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/dreamhost-forces-email-ftp-sftp-password-resets-in-ongoing-incident/"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "incident",
+      "keyword": "Keystone",
+      "target": "暗号資産",
+      "title": "Keystoneが検証鍵の流出で約1.9万台のウォレットを破棄へ",
+      "what": "同社サイトが侵害されウォレットの真正性検証鍵が盗まれたため、約18,835台を破棄するとした。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/keystone-to-destroy-18835-hardware.html"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "incident",
+      "keyword": "Dahua",
+      "target": "IPカメラ",
+      "title": "Dahua製IPカメラがP2P経由の弱点を突かれ乗っ取られる",
+      "what": "ウクライナCERTが、認証の弱点とP2P機能を悪用した不正遠隔アクセスを警告した。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/attackers-hijack-dahua-ip-cameras-in.html"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "incident",
+      "keyword": "Teams詐欺",
+      "target": "M365",
+      "title": "Teams上のIT担当なりすまし詐欺でマルウェアやランサムを展開",
+      "what": "Teamsでヘルプデスクを装って接触し、遠隔操作ツール経由でマルウェアを入れる手口が繰り返し確認されている。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [
+        "ランサムウェア"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/attackers-use-microsoft-teams-it.html"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "incident",
+      "keyword": "コペンハーゲン大",
+      "target": "教育",
+      "title": "コペンハーゲン大学のテスト環境が侵害され52.5万人の情報が流出",
+      "what": "大学のテスト環境に不正アクセスがあり、約52.5万人分のデータが漏れた。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [
+        "情報漏洩"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/university-of-copenhagen-data-breach-exposes-data-of-525-000-people/"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "other",
+      "keyword": "eMudhra証明書",
+      "target": "証明書",
+      "title": "MicrosoftがeMudhra関連証明書の信頼を削除する臨時更新を公開",
+      "what": "侵害された発行元に関連する証明書を無効化する定例外のWindows更新が出た。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/microsoft/microsoft-releases-windows-oob-updates-to-distrust-emudhra-certificates/"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "incident",
+      "keyword": "Denver Health",
+      "target": "医療",
+      "title": "委託先の鍵漏洩で米保険加入者23.8万人の情報が危険にさらされた",
+      "what": "SquareMLのアクセスキー漏洩により、個人・健康情報のDBにアクセス可能な状態だった。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [
+        "情報漏洩"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "SecurityWeek",
+          "url": "https://www.securityweek.com/vendor-key-leak-puts-data-of-238000-denver-health-plan-members-at-risk/"
+        }
+      ]
+    }
+  ],
+  "source_status": [
+    {
+      "name": "CISA KEV",
+      "ok": true,
+      "count": 4
+    },
+    {
+      "name": "NVD",
+      "ok": true,
+      "count": 21
+    },
+    {
+      "name": "JPCERT/CC",
+      "ok": true,
+      "count": 2
+    },
+    {
+      "name": "IPA",
+      "ok": true,
+      "count": 1
+    },
+    {
+      "name": "Security NEXT",
+      "ok": true,
+      "count": 18
+    },
+    {
+      "name": "piyolog",
+      "ok": true,
+      "count": 1
+    },
+    {
+      "name": "BleepingComputer",
+      "ok": true,
+      "count": 15
+    },
+    {
+      "name": "The Hacker News",
+      "ok": true,
+      "count": 21
+    },
+    {
+      "name": "SecurityWeek",
+      "ok": true,
+      "count": 10
+    },
+    {
+      "name": "JVN",
+      "ok": true,
+      "count": 9
+    },
+    {
+      "name": "ITmedia",
+      "ok": true,
+      "count": 6
+    },
+    {
+      "name": "AWS Health",
+      "ok": true,
+      "count": 0
+    },
+    {
+      "name": "Cloudflare Status",
+      "ok": true,
+      "count": 0
+    },
+    {
+      "name": "GitHub Status",
+      "ok": true,
+      "count": 1
+    },
+    {
+      "name": "EPSS",
+      "ok": true,
+      "count": 15
+    }
+  ],
+  "stats": {
+    "items": 109,
+    "clusters": 80
+  }
+}
