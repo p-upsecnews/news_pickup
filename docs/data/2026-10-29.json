@@ -1,0 +1,663 @@
+{
+ "date": "2026-10-29",
+ "generated_at": "2026-10-29T10:10:00+09:00",
+ "window_hours": 48,
+ "headline": "PHP2Shellは中国系グループによるFW乗っ取りやBrotli(Node2Shell)のKEV追加へ拡大し、PeopleSoftもShinyHuntersの悪用が判明。国内ではGMOの侵害が継続、Sony NetComでも250万件が流出した。",
+ "items": [
+  {
+   "level": "critical",
+   "kind": "vulnerability",
+   "keyword": "PHP2Shell",
+   "target": "Webサーバ",
+   "title": "PHP2Shell、中国系グループがFWを乗っ取り。25台侵害・政府系組織も被害",
+   "what": "PHPの認証不要RCE脆弱性が悪用され、Linuxカーネルの脆弱性と連鎖してファイアウォールのroot権限まで奪う攻撃が確認された。",
+   "who": "PHPでWebアプリを動かすサーバと、PHPを内包するPAN-OS等のネットワーク機器。",
+   "action": "PHPを修正版に更新し、PAN-OS等は提供元の修正版を順次適用する。公開サーバのログとroot権限の不審な操作を確認する。",
+   "cves": [
+    "CVE-2026-109618",
+    "CVE-2026-109619"
+   ],
+   "tags": [
+    "KEV",
+    "悪用確認済み",
+    "PoC公開",
+    "国内"
+   ],
+   "is_update": true,
+   "sources": [
+    {
+     "name": "The Hacker News",
+     "url": "https://thehackernews.com/2026/10/php2shell-attack-roots-25-servers.html"
+    },
+    {
+     "name": "SecurityWeek",
+     "url": "https://www.securityweek.com/china-linked-hackers-exploit-php2shell-to-root-firewalls/"
+    },
+    {
+     "name": "JVN",
+     "url": "https://jvn.jp/vu/JVNVU99905564/"
+    }
+   ]
+  },
+  {
+   "level": "critical",
+   "kind": "vulnerability",
+   "keyword": "Node2Shell",
+   "target": "圧縮ライブラリ",
+   "title": "CISAがBrotli脆弱性「Node2Shell」の悪用を警告、KEVに追加",
+   "what": "圧縮ライブラリBrotliの重大な脆弱性が実際に悪用され、CISAがKEVに追加した。ハニーポットでも攻撃試行が観測されている。",
+   "who": "Brotliを同梱するNode.js系アプリやPHP、PowerShellなど広範な製品。",
+   "action": "各製品のBrotli更新版（Windows版PHP、PowerShell等）を適用し、Brotliを使う公開サービスを洗い出す。",
+   "cves": [],
+   "tags": [
+    "KEV",
+    "悪用確認済み"
+   ],
+   "is_update": false,
+   "sources": [
+    {
+     "name": "BleepingComputer",
+     "url": "https://www.bleepingcomputer.com/news/security/cisa-warns-of-hackers-now-exploiting-critical-node2shell-flaw/"
+    },
+    {
+     "name": "Security NEXT",
+     "url": "https://www.security-next.com/192044"
+    },
+    {
+     "name": "Security NEXT",
+     "url": "https://www.security-next.com/191985"
+    }
+   ]
+  },
+  {
+   "level": "critical",
+   "kind": "vulnerability",
+   "keyword": "PeopleSoft",
+   "target": "Oracle ERP",
+   "title": "Oracle PeopleSoftのゼロデイは3つの欠陥の連鎖。ShinyHuntersが5月から悪用",
+   "what": "ShinyHuntersが5月から悪用してきたPeopleSoftの重大な脆弱性が、実は3つの欠陥の連鎖だったと判明した。KEV掲載済み。",
+   "who": "Oracle PeopleSoftを利用する企業・大学・自治体。",
+   "action": "Oracleの修正を適用し、5月以降の不審なアクセスや情報流出の痕跡を調査する。",
+   "cves": [
+    "CVE-2026-35273"
+   ],
+   "tags": [
+    "KEV",
+    "悪用確認済み"
+   ],
+   "is_update": false,
+   "sources": [
+    {
+     "name": "The Hacker News",
+     "url": "https://thehackernews.com/2026/10/shinyhunters-exploited-oracle.html"
+    }
+   ]
+  },
+  {
+   "level": "critical",
+   "kind": "incident",
+   "keyword": "お名前.com DC",
+   "target": "国内VPS",
+   "title": "GMO「お名前.com デスクトップクラウド」侵害、攻撃者が身代金要求・情報公開を予告",
+   "what": "GMOのFX自動売買用VPSが侵害され、攻撃者がランサム攻撃や情報公開を予告。GMOは利用者に接続遮断やPC停止を呼びかけ、懸賞金も設定した。",
+   "who": "同サービスの利用者（主にFX自動売買を行う個人・事業者）。",
+   "action": "公式案内に従い接続を遮断し、攻撃者が公開したと称する情報にはアクセスしない。パスワードと認証情報を変更する。",
+   "cves": [],
+   "tags": [
+    "国内",
+    "ランサムウェア",
+    "情報漏洩"
+   ],
+   "is_update": true,
+   "sources": [
+    {
+     "name": "Security NEXT",
+     "url": "https://www.security-next.com/191999"
+    },
+    {
+     "name": "ITmedia",
+     "url": "https://www.itmedia.co.jp/news/article/2610/27/2000002640/"
+    },
+    {
+     "name": "BleepingComputer",
+     "url": "https://www.bleepingcomputer.com/news/security/japans-gmo-urges-customers-to-shut-down-pcs-amid-ransomware-threat/"
+    }
+   ]
+  },
+  {
+   "level": "notable",
+   "kind": "vulnerability",
+   "keyword": "Oracle EBS",
+   "target": "Oracle ERP",
+   "title": "Oracle E-Business Suiteの認証不要SQLiに探索スキャンが開始",
+   "what": "最近パッチが公開されたEBSの重大な脆弱性（認証不要のSQLインジェクションからRCE）を狙うスキャンが始まった。悪用成功は未確認。",
+   "who": "Oracle E-Business Suiteを運用する企業。",
+   "action": "最新パッチを適用し、外部に公開されたEBSがないか確認する。",
+   "cves": [
+    "CVE-2026-101767"
+   ],
+   "tags": [
+    "悪用確認済み"
+   ],
+   "is_update": false,
+   "sources": [
+    {
+     "name": "SecurityWeek",
+     "url": "https://www.securityweek.com/hackers-start-probing-fresh-oracle-ebs-vulnerability/"
+    },
+    {
+     "name": "BleepingComputer",
+     "url": "https://www.bleepingcomputer.com/news/security/hackers-now-scanning-systems-for-recently-patched-oracle-flaw/"
+    }
+   ]
+  },
+  {
+   "level": "notable",
+   "kind": "vulnerability",
+   "keyword": "Cisco ASA/FTD",
+   "target": "FW",
+   "title": "Cisco ASA・FTDのDoS脆弱性、すでに悪用を確認",
+   "what": "Cisco Secure Firewall ASA/FTDにサービス拒否の脆弱性があり、すでに悪用されている。",
+   "who": "ASA・FTDを利用する企業のファイアウォール。",
+   "action": "Ciscoの修正版へ更新する。",
+   "cves": [],
+   "tags": [
+    "悪用確認済み"
+   ],
+   "is_update": false,
+   "sources": [
+    {
+     "name": "Security NEXT",
+     "url": "https://www.security-next.com/192131"
+    }
+   ]
+  },
+  {
+   "level": "notable",
+   "kind": "vulnerability",
+   "keyword": "Linux/ESX",
+   "target": "OS・仮想基盤",
+   "title": "LinuxカーネルとVMware ESXの脆弱性悪用を米当局が確認、PHP2Shellとの連鎖も懸念",
+   "what": "CISAがLinuxカーネルとVMware ESXの脆弱性の悪用を確認。カーネル側はPHP2Shellとの組み合わせ攻撃が懸念されている。",
+   "who": "Linuxサーバ、VMware ESX環境。",
+   "action": "カーネルとESXの更新を適用する。",
+   "cves": [
+    "CVE-2026-41709"
+   ],
+   "tags": [
+    "KEV",
+    "悪用確認済み"
+   ],
+   "is_update": false,
+   "sources": [
+    {
+     "name": "Security NEXT",
+     "url": "https://www.security-next.com/192136"
+    }
+   ]
+  },
+  {
+   "level": "notable",
+   "kind": "vulnerability",
+   "keyword": "iOS CoreGraphics",
+   "target": "iPhone",
+   "title": "Apple、悪用された脆弱性の修正を旧型iPhone/iPadにも提供",
+   "what": "実際に攻撃で悪用されたCoreGraphicsの脆弱性の修正が、古い機種向けにも提供された。",
+   "who": "更新が止まっていた旧型iPhone・iPad。",
+   "action": "OSを最新にする。",
+   "cves": [
+    "CVE-2026-86950"
+   ],
+   "tags": [
+    "悪用確認済み"
+   ],
+   "is_update": false,
+   "sources": [
+    {
+     "name": "The Hacker News",
+     "url": "https://thehackernews.com/2026/10/apple-backports-fix-for-exploited.html"
+    }
+   ]
+  },
+  {
+   "level": "notable",
+   "kind": "vulnerability",
+   "keyword": "Sophos UTM",
+   "target": "FW",
+   "title": "Sophos UTMに深刻なRCE。EOL製品で手動パッチが必要",
+   "what": "EOLのSophos UTMに深刻なRCE脆弱性が見つかり、手動でのパッチ適用が必要。",
+   "who": "Sophos UTMの利用者。",
+   "action": "手動パッチを適用し、後継製品への移行を計画する。",
+   "cves": [],
+   "tags": [],
+   "is_update": false,
+   "sources": [
+    {
+     "name": "Security NEXT",
+     "url": "https://www.security-next.com/192142"
+    }
+   ]
+  },
+  {
+   "level": "notable",
+   "kind": "vulnerability",
+   "keyword": "Chrome 156",
+   "target": "PCブラウザ",
+   "title": "Chrome 156が脆弱性52件を修正、4件が緊急。Firefox 159も167件修正",
+   "what": "Chrome 156で52件（うち4件が重大）、Firefox 159で167件の脆弱性が修正された。",
+   "who": "ChromeおよびFirefoxの利用者。",
+   "action": "ブラウザを最新版に更新する。",
+   "cves": [],
+   "tags": [],
+   "is_update": false,
+   "sources": [
+    {
+     "name": "Security NEXT",
+     "url": "https://www.security-next.com/192058"
+    },
+    {
+     "name": "SecurityWeek",
+     "url": "https://www.securityweek.com/chrome-and-firefox-updates-patch-over-200-vulnerabilities/"
+    }
+   ]
+  },
+  {
+   "level": "notable",
+   "kind": "incident",
+   "keyword": "Sony NetCom",
+   "target": "ISP",
+   "title": "Sony Network Communications、顧客情報約250万件が流出",
+   "what": "ソニーのISP子会社で約250万件の顧客記録が漏洩する事案が発生した。",
+   "who": "同社サービス（So-net等）の顧客。",
+   "action": "公式案内を確認し、不審なメールに注意する。",
+   "cves": [],
+   "tags": [
+    "国内",
+    "情報漏洩"
+   ],
+   "is_update": false,
+   "sources": [
+    {
+     "name": "BleepingComputer",
+     "url": "https://www.bleepingcomputer.com/news/security/sony-isp-subsidiary-data-breach-exposes-25-million-customer-records/"
+    },
+    {
+     "name": "Security NEXT",
+     "url": "https://www.security-next.com/192075"
+    }
+   ]
+  },
+  {
+   "level": "notable",
+   "kind": "incident",
+   "keyword": "ユミルリンク",
+   "target": "メール配信",
+   "title": "ユミルリンクの攻撃、49システムで情報流出と横展開を確認",
+   "what": "メール配信サービスへの攻撃で、顧客の49システムで情報流出が確認された。",
+   "who": "同社メール配信サービスを使う事業者とその顧客。",
+   "action": "同社の案内を確認し、自社の影響範囲を調べる。",
+   "cves": [],
+   "tags": [
+    "国内",
+    "情報漏洩"
+   ],
+   "is_update": true,
+   "sources": [
+    {
+     "name": "Security NEXT",
+     "url": "https://www.security-next.com/192029"
+    },
+    {
+     "name": "piyolog",
+     "url": "https://piyolog.hatenadiary.jp/entry/2026/10/27/133851"
+    }
+   ]
+  },
+  {
+   "level": "notable",
+   "kind": "vulnerability",
+   "keyword": "Adobe Campaign",
+   "target": "マーケ基盤",
+   "title": "Adobe Campaign Classicなど4製品に脆弱性、重大なコード実行も",
+   "what": "Campaign Classicに重大なコード実行の欠陥など、Adobe 4製品の脆弱性が修正された。",
+   "who": "Adobe Campaign Classic、Connect等の利用者。",
+   "action": "修正版へ更新する。",
+   "cves": [
+    "CVE-2026-104351"
+   ],
+   "tags": [],
+   "is_update": false,
+   "sources": [
+    {
+     "name": "Security NEXT",
+     "url": "https://www.security-next.com/192042"
+    },
+    {
+     "name": "The Hacker News",
+     "url": "https://thehackernews.com/2026/10/adobe-fixes-8-critical-campaign-classic.html"
+    }
+   ]
+  },
+  {
+   "level": "notable",
+   "kind": "incident",
+   "keyword": "Volt Typhoon",
+   "target": "国家攻撃",
+   "title": "Volt Typhoon、秘匿ネットワーク「Silent Train」で4件のゼロデイ攻撃を隠蔽",
+   "what": "中国系Volt Typhoonが回転式の中継網を使い、ゼロデイ攻撃を隠していた。",
+   "who": "重要インフラ・通信事業者。",
+   "action": "ネットワーク機器の更新とログ監視を強化する。",
+   "cves": [],
+   "tags": [],
+   "is_update": false,
+   "sources": [
+    {
+     "name": "BleepingComputer",
+     "url": "https://www.bleepingcomputer.com/news/security/volt-typhoon-hides-zero-day-attacks-using-silent-train-framework/"
+    },
+    {
+     "name": "The Hacker News",
+     "url": "https://thehackernews.com/2026/10/volt-typhoon-used-covert-silent-train.html"
+    }
+   ]
+  },
+  {
+   "level": "other",
+   "kind": "vulnerability",
+   "keyword": "VMware VCF",
+   "target": "仮想基盤",
+   "title": "VMware Cloud Foundationに深刻な脆弱性、修正パッチを準備中",
+   "what": "重大な脆弱性が公表され、修正パッチは準備中。",
+   "who": "",
+   "action": "",
+   "cves": [],
+   "tags": [],
+   "is_update": false,
+   "sources": [
+    {
+     "name": "Security NEXT",
+     "url": "https://www.security-next.com/192095"
+    }
+   ]
+  },
+  {
+   "level": "other",
+   "kind": "incident",
+   "keyword": "楽天トラベル",
+   "target": "予約サイト",
+   "title": "複数予約サイトの侵害で顧客情報が流出か",
+   "what": "楽天トラベル関連の複数予約サイトで侵害があり、顧客情報が流出した可能性。",
+   "who": "",
+   "action": "",
+   "cves": [],
+   "tags": [],
+   "is_update": false,
+   "sources": [
+    {
+     "name": "Security NEXT",
+     "url": "https://www.security-next.com/191989"
+    }
+   ]
+  },
+  {
+   "level": "other",
+   "kind": "incident",
+   "keyword": "Keystone",
+   "target": "暗号資産",
+   "title": "Keystone、検証キー窃取で1.8万台のハードウェアウォレットを破棄へ",
+   "what": "Webサイト侵害で機器の真正性検証キーが盗まれ、約1.9万台を破棄する。",
+   "who": "",
+   "action": "",
+   "cves": [],
+   "tags": [],
+   "is_update": false,
+   "sources": [
+    {
+     "name": "The Hacker News",
+     "url": "https://thehackernews.com/2026/10/keystone-to-destroy-18835-hardware.html"
+    }
+   ]
+  },
+  {
+   "level": "other",
+   "kind": "incident",
+   "keyword": "eMudhra証明書",
+   "target": "証明書",
+   "title": "Microsoft、侵害されたeMudhra証明書を無効化する緊急更新",
+   "what": "eMudhraの証明書が侵害され、Windowsの臨時更新で信頼を取り消した。",
+   "who": "",
+   "action": "",
+   "cves": [],
+   "tags": [],
+   "is_update": false,
+   "sources": [
+    {
+     "name": "BleepingComputer",
+     "url": "https://www.bleepingcomputer.com/news/microsoft/microsoft-releases-windows-oob-updates-to-distrust-emudhra-certificates/"
+    }
+   ]
+  },
+  {
+   "level": "other",
+   "kind": "incident",
+   "keyword": "UNM Health",
+   "target": "医療",
+   "title": "米UNM Healthがランサム攻撃、手術など診療に影響",
+   "what": "ランサムウェア攻撃で患者ケアや手術に支障が出た。",
+   "who": "",
+   "action": "",
+   "cves": [],
+   "tags": [],
+   "is_update": false,
+   "sources": [
+    {
+     "name": "BleepingComputer",
+     "url": "https://www.bleepingcomputer.com/news/security/unm-health-ransomware-attack-disrupts-patient-care-surgeries/"
+    }
+   ]
+  },
+  {
+   "level": "other",
+   "kind": "incident",
+   "keyword": "Convertr",
+   "target": "EC",
+   "title": "分析スクリプトが改ざんされカード情報窃取（Convertr）",
+   "what": "ECで共有される分析スクリプトが侵害され、決済カード情報が盗まれた。",
+   "who": "",
+   "action": "",
+   "cves": [],
+   "tags": [],
+   "is_update": false,
+   "sources": [
+    {
+     "name": "BleepingComputer",
+     "url": "https://www.bleepingcomputer.com/news/security/hackers-hijack-convertr-analytics-script-to-steal-payment-card-data/"
+    }
+   ]
+  },
+  {
+   "level": "other",
+   "kind": "vulnerability",
+   "keyword": "GoAhead",
+   "target": "組込機器",
+   "title": "GoAhead WebサーバのTLS欠陥、失効証明書を受け入れ",
+   "what": "数億台規模の機器に使われるGoAheadでTLS検証の欠陥が見つかった。",
+   "who": "",
+   "action": "",
+   "cves": [],
+   "tags": [],
+   "is_update": false,
+   "sources": [
+    {
+     "name": "SecurityWeek",
+     "url": "https://www.securityweek.com/tls-flaws-found-in-goahead-web-server-used-in-hundreds-of-millions-of-devices/"
+    },
+    {
+     "name": "The Hacker News",
+     "url": "https://thehackernews.com/2026/10/goahead-tls-flaws-allow-revoked-client.html"
+    }
+   ]
+  },
+  {
+   "level": "other",
+   "kind": "vulnerability",
+   "keyword": "Yamaha機器",
+   "target": "ネットワーク",
+   "title": "ヤマハ製NWR100やYMS-VPN8などに脆弱性（JVN）",
+   "what": "ヤマハ製のルータ・VPN関連製品と管理ソフトに脆弱性が公表された。",
+   "who": "",
+   "action": "",
+   "cves": [],
+   "tags": [],
+   "is_update": false,
+   "sources": [
+    {
+     "name": "JVN",
+     "url": "https://jvn.jp/vu/JVNVU91027179/"
+    },
+    {
+     "name": "JVN",
+     "url": "https://jvn.jp/jp/JVN30675482/"
+    }
+   ]
+  },
+  {
+   "level": "other",
+   "kind": "incident",
+   "keyword": "Dahua",
+   "target": "IPカメラ",
+   "title": "ウクライナでDahua製IPカメラが乗っ取られる（CERT-UA）",
+   "what": "P2Pアクセスと認証の弱さを突いた遠隔アクセスが確認された。",
+   "who": "",
+   "action": "",
+   "cves": [],
+   "tags": [],
+   "is_update": false,
+   "sources": [
+    {
+     "name": "The Hacker News",
+     "url": "https://thehackernews.com/2026/10/attackers-hijack-dahua-ip-cameras-in.html"
+    }
+   ]
+  },
+  {
+   "level": "other",
+   "kind": "incident",
+   "keyword": "Virtualine",
+   "target": "犯罪基盤",
+   "title": "防弾ホスティング「Virtualine」を当局が摘発",
+   "what": "ランサムウェア等に使われた防弾ホスティングが押収された。",
+   "who": "",
+   "action": "",
+   "cves": [],
+   "tags": [],
+   "is_update": false,
+   "sources": [
+    {
+     "name": "BleepingComputer",
+     "url": "https://www.bleepingcomputer.com/news/security/police-seize-virtualine-bulletproof-service-tied-to-ransowmare-cybercrime/"
+    }
+   ]
+  },
+  {
+   "level": "other",
+   "kind": "vulnerability",
+   "keyword": "Tailscale SSH",
+   "target": "VPN",
+   "title": "Tailscale SSHの欠陥修正、侵害端末から他サーバへ権限昇格の恐れ",
+   "what": "侵害された端末から他サーバのroot権限を得られる欠陥が修正された。",
+   "who": "",
+   "action": "",
+   "cves": [],
+   "tags": [],
+   "is_update": false,
+   "sources": [
+    {
+     "name": "The Hacker News",
+     "url": "https://thehackernews.com/2026/10/tailscale-patches-ssh-flaws-that-could.html"
+    }
+   ]
+  }
+ ],
+ "source_status": [
+  {
+   "name": "CISA KEV",
+   "ok": true,
+   "count": 4
+  },
+  {
+   "name": "NVD",
+   "ok": true,
+   "count": 15
+  },
+  {
+   "name": "JPCERT/CC",
+   "ok": true,
+   "count": 0
+  },
+  {
+   "name": "IPA",
+   "ok": true,
+   "count": 0
+  },
+  {
+   "name": "Security NEXT",
+   "ok": true,
+   "count": 18
+  },
+  {
+   "name": "piyolog",
+   "ok": true,
+   "count": 3
+  },
+  {
+   "name": "BleepingComputer",
+   "ok": true,
+   "count": 15
+  },
+  {
+   "name": "The Hacker News",
+   "ok": true,
+   "count": 26
+  },
+  {
+   "name": "SecurityWeek",
+   "ok": true,
+   "count": 10
+  },
+  {
+   "name": "JVN",
+   "ok": true,
+   "count": 10
+  },
+  {
+   "name": "ITmedia",
+   "ok": true,
+   "count": 6
+  },
+  {
+   "name": "AWS Health",
+   "ok": true,
+   "count": 0
+  },
+  {
+   "name": "Cloudflare Status",
+   "ok": true,
+   "count": 0
+  },
+  {
+   "name": "GitHub Status",
+   "ok": true,
+   "count": 1
+  },
+  {
+   "name": "EPSS",
+   "ok": true,
+   "count": 20
+  }
+ ],
+ "stats": {
+  "items": 108,
+  "clusters": 83
+ }
+}

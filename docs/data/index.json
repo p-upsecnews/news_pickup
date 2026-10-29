@@ -1,5 +1,12 @@
 [
  {
+  "date": "2026-10-29",
+  "headline": "PHP2Shellは中国系グループによるFW乗っ取りやBrotli(Node2Shell)のKEV追加へ拡大し、PeopleSoftもShinyHuntersの悪用が判明。国内ではGMOの侵害が継続、Sony NetComでも250万件が流出した。",
+  "critical": 4,
+  "notable": 10,
+  "other": 11
+ },
+ {
   "date": "2026-10-28",
   "headline": "BrotliのHTTP2ShellがKEVに入り悪用が確認され、PHP・.NET等への波及に要注意。GMOのVPS侵害はランサム攻撃予告に発展し、利用者に警戒が呼びかけられている。",
   "critical": 2,
