@@ -1,0 +1,573 @@
+{
+  "date": "2026-10-30",
+  "generated_at": "2026-10-30T10:10:00+09:00",
+  "window_hours": 48,
+  "headline": "PHP2Shellは攻撃が拡大しLinuxカーネルとの連鎖もKEVに追加、GitLab(CVSS10)、Cisco SD-WAN、Adobe Commerceでも悪用が確認された。国内ではJAL・ANAの予約情報がAmadeus経由で漏えいした。",
+  "items": [
+    {
+      "level": "critical",
+      "kind": "vulnerability",
+      "keyword": "PHP2Shell",
+      "target": "Webサーバ",
+      "title": "PHP2Shell続報：PAN-OSの管理画面への攻撃とLinuxカーネル脆弱性の連鎖をCISAが警告",
+      "what": "PHP2Shellの悪用がPalo Alto Networksの管理画面で確認され、CISAは連鎖に使われるLinuxカーネルの権限昇格(Fragnesia)もKEVに追加した。",
+      "who": "インターネットに管理画面を公開しているPAN-OS機器と、修正前のPHPおよびLinuxカーネルを使うサーバ。",
+      "action": "PHPとカーネルを修正版へ更新し、管理画面をインターネットに公開していないか確認する。",
+      "cves": [
+        "CVE-2026-109618",
+        "CVE-2026-109619",
+        "CVE-2026-46300"
+      ],
+      "tags": [
+        "KEV",
+        "悪用確認済み",
+        "国内"
+      ],
+      "is_update": true,
+      "sources": [
+        {
+          "name": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/cisa-warns-of-fragnesia-linux-flaw-chained-in-php2shell-attacks/"
+        },
+        {
+          "name": "JPCERT/CC",
+          "url": "https://www.jpcert.or.jp/at/2026/at260033.html"
+        },
+        {
+          "name": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/attackers-exploit-php2shell-flaws-in.html"
+        }
+      ]
+    },
+    {
+      "level": "critical",
+      "kind": "vulnerability",
+      "keyword": "GitLab",
+      "target": "開発基盤",
+      "title": "GitLabに認証不要でコード実行されるCVSS 10.0の脆弱性、KEV掲載・Alpineが攻撃を受ける",
+      "what": "GitLabのCI設定の正規表現検証の不備により認証なしでサーバ上のコード実行が可能で、悪用が確認されCISAがKEVに追加した。",
+      "who": "セルフホストのGitLab CE/EEを運用している組織。",
+      "action": "修正版へ更新し、更新できない場合は外部からのアクセスを制限する。",
+      "cves": [
+        "CVE-2026-97229"
+      ],
+      "tags": [
+        "KEV",
+        "悪用確認済み"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "Security NEXT",
+          "url": "https://www.security-next.com/192196"
+        },
+        {
+          "name": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/attacker-tried-to-exploit-alpine-linuxs.html"
+        }
+      ]
+    },
+    {
+      "level": "critical",
+      "kind": "vulnerability",
+      "keyword": "Cisco SD-WAN",
+      "target": "SD-WAN機器",
+      "title": "Cisco SD-WANの認証回避を悪用、APTがマルウェア「KeyDrift」を設置",
+      "what": "Catalyst SD-WAN Controllerの認証回避(CVE-2026-20127)を悪用し、攻撃グループUAT-11473が独自のマルウェアを設置していた。",
+      "who": "Cisco Catalyst SD-WANを運用している組織。",
+      "action": "修正版へ更新し、管理系の通信やログに侵害の痕跡がないか確認する。",
+      "cves": [
+        "CVE-2026-20127"
+      ],
+      "tags": [
+        "KEV",
+        "悪用確認済み"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/hackers-exploit-cisco-sd-wan-flaw-to-deploy-custom-keydrift-malware/"
+        },
+        {
+          "name": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/hackers-exploited-cisco-sd-wan-flaw-to.html"
+        }
+      ]
+    },
+    {
+      "level": "critical",
+      "kind": "vulnerability",
+      "keyword": "Adobe Commerce",
+      "target": "ECサイト",
+      "title": "Adobe Commerce/Magentoの脆弱性「PolyShell」で数百店舗が侵害",
+      "what": "Adobe CommerceとMagentoの脆弱性が悪用され数百のECサイトが侵害されており、CISAがKEVに追加した。",
+      "who": "Adobe Commerce/Magentoでネットショップを運用している事業者と委託先。",
+      "action": "最新パッチを適用し、不審なファイルの設置がないか確認する。",
+      "cves": [
+        "CVE-2026-111497"
+      ],
+      "tags": [
+        "KEV",
+        "悪用確認済み"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/adobe-commerce-polyshell-attacks-breach.html"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "incident",
+      "keyword": "Amadeus",
+      "target": "航空",
+      "title": "JALとANAの予約情報に不正アクセス、旅客システム委託先Amadeus経由",
+      "what": "Amadeusの旅客サービスシステムへの不正アクセスで、JALは約9万2000人分、ANAは一部顧客の予約情報が参照された。",
+      "who": "JALやANAの利用者と、同システムを使う航空会社。",
+      "action": "不審なメールや電話に注意し、各社の案内を確認する。",
+      "cves": [],
+      "tags": [
+        "国内",
+        "情報漏洩"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "ITmedia",
+          "url": "https://www.itmedia.co.jp/news/article/2610/29/2000002722/"
+        },
+        {
+          "name": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/japan-airlines-suffers-third-party-data-breach-exposing-passenger-info/"
+        },
+        {
+          "name": "piyolog",
+          "url": "https://piyolog.hatenadiary.jp/entry/2026/10/28/214917"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "incident",
+      "keyword": "Binance",
+      "target": "暗号資産",
+      "title": "Binanceが最大58億ドル規模の盗難の可能性を調査",
+      "what": "暗号資産取引所Binanceが最大58億ドル相当の資産流出の可能性を調査中と報じられた。",
+      "who": "Binanceの利用者と暗号資産市場。",
+      "action": "利用者は公式発表を確認し、フィッシングに注意する。",
+      "cves": [],
+      "tags": [
+        "情報漏洩"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/binance-probes-potential-58-billion-crypto-theft-hack/"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "vulnerability",
+      "keyword": "Linuxカーネル",
+      "target": "Linux",
+      "title": "LinuxカーネルのTCPに認証不要でroot奪取可能なCVSS 9.8の脆弱性",
+      "what": "カーネルのTCP処理の欠陥(CVE-2026-98432)で、遠隔の未認証攻撃者がrootでコマンドを実行できる実証コードが作られた。悪用は未確認。",
+      "who": "Ubuntu、RHELなど各種Linuxディストリビューションのサーバ。",
+      "action": "各ディストリビューションの修正カーネルを適用する。",
+      "cves": [
+        "CVE-2026-98432"
+      ],
+      "tags": [
+        "PoC公開"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/linux-kernel-tcp-flaw-with-98-cvss.html"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "vulnerability",
+      "keyword": "Oracle EBS",
+      "target": "業務基幹",
+      "title": "Oracle E-Business Suiteの重大RCEに対する探索が開始",
+      "what": "パッチ公開直後のOracle E-Business SuiteのRCE(CVE-2026-101767)を狙う探索が観測された。",
+      "who": "Oracle E-Business Suiteを利用している企業。",
+      "action": "最新パッチを適用し、外部公開を見直す。",
+      "cves": [
+        "CVE-2026-101767"
+      ],
+      "tags": [],
+      "is_update": true,
+      "sources": [
+        {
+          "name": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/hackers-target-critical-oracle-e.html"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "incident",
+      "keyword": "ベネフィット・ワン",
+      "target": "国内委託先",
+      "title": "ベネフィット・ワンの委託先に不正アクセス、セゾン会員約2.9万人分が漏えい",
+      "what": "優待サービス「トク買」の委託先システムへの不正アクセスで会員2万9465人分の個人情報が漏えいした。カード情報は含まない。",
+      "who": "クレディセゾン会員で「トク買」を利用した人。",
+      "action": "該当者は届く案内を確認し、不審な連絡に注意する。",
+      "cves": [],
+      "tags": [
+        "国内",
+        "情報漏洩"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "ITmedia",
+          "url": "https://www.itmedia.co.jp/news/article/2610/29/2000002707/"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "outage",
+      "keyword": "松屋",
+      "target": "国内Web",
+      "title": "松屋の公式アプリとWebが不正アクセス検知で停止",
+      "what": "不正アクセスを検知し、モバイルオーダーや弁当予約を含むアプリとWebサイトが停止した。",
+      "who": "松屋のアプリ・Web利用者。",
+      "action": "利用者は復旧と公式発表を待つ。",
+      "cves": [],
+      "tags": [
+        "国内",
+        "サービス停止"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "ITmedia",
+          "url": "https://www.itmedia.co.jp/news/article/2610/29/2000002714/"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "vulnerability",
+      "keyword": "WatchGuard",
+      "target": "FW機器",
+      "title": "WatchGuard Fireware OSに複数の脆弱性、うち7件がクリティカル",
+      "what": "Fireware OSに複数の脆弱性が見つかり、7件が深刻度クリティカルとされる。",
+      "who": "WatchGuardのファイアウォールを運用している組織。",
+      "action": "修正版へ更新する。",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "Security NEXT",
+          "url": "https://www.security-next.com/192102"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "incident",
+      "keyword": "Polymarket",
+      "target": "暗号資産",
+      "title": "Polymarketが暗号資産を抜く不正スクリプトの侵害で取引を停止",
+      "what": "サイトに仕込まれた不正スクリプトで資産が抜かれ、取引が停止し約250万ドルが追跡された。",
+      "who": "Polymarketの利用者。",
+      "action": "利用者は接続したウォレットの承認設定を見直す。",
+      "cves": [],
+      "tags": [
+        "情報漏洩"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/polymarket-halts-trading-after-crypto-draining-script-breach-25m-traced/"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "vulnerability",
+      "keyword": "UEFI脆弱性",
+      "target": "サーバ",
+      "title": "ネットワークブート時にSecure Boot前にコード実行できる16年前のUEFI脆弱性",
+      "what": "ネットワークブート時にSecure Boot前にコード実行できる16年前のUEFI脆弱性",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/critical-16-year-old-uefi-flaw-can-run.html"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "vulnerability",
+      "keyword": "Telegram",
+      "target": "Android",
+      "title": "TelegramのAndroid版に通話応答時にコード実行される脆弱性",
+      "what": "TelegramのAndroid版に通話応答時にコード実行される脆弱性",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/telegram-android-flaw-lets-attackers.html"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "incident",
+      "keyword": "GMO",
+      "target": "国内クラウド",
+      "title": "GMOがFX取引クラウド侵害の犯人に100万ドルの懸賞金",
+      "what": "GMOがFX取引クラウド侵害の犯人に100万ドルの懸賞金",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/japans-gmo-offers-1-million-bounty-to.html"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "incident",
+      "keyword": "Hugging Face",
+      "target": "AI基盤",
+      "title": "Hugging Faceを悪用したGPU暗号資産マイニングのマルウェアが再来",
+      "what": "Hugging Faceを悪用したGPU暗号資産マイニングのマルウェアが再来",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/hugging-face-malware-campaign-returns-to-hijack-gpus-for-crypto-mining/"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "vulnerability",
+      "keyword": "Yamaha機器",
+      "target": "ネットワーク",
+      "title": "ヤマハ製NWR100、YMS-VPN8、LAN Monitorに脆弱性",
+      "what": "ヤマハ製NWR100、YMS-VPN8、LAN Monitorに脆弱性",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "JVN",
+          "url": "https://jvn.jp/vu/JVNVU91027179/"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "vulnerability",
+      "keyword": "Struts 2",
+      "target": "Java",
+      "title": "Apache Struts 2のRESTプラグインにパラメータ制限の回避脆弱性",
+      "what": "Apache Struts 2のRESTプラグインにパラメータ制限の回避脆弱性",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "JVN",
+          "url": "https://jvn.jp/jp/JVN82782759/"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "vulnerability",
+      "keyword": "Firefox 159",
+      "target": "ブラウザ",
+      "title": "Firefox 159が公開、脆弱性167件を修正",
+      "what": "Firefox 159が公開、脆弱性167件を修正",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "Security NEXT",
+          "url": "https://www.security-next.com/192099"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "incident",
+      "keyword": "富士急ハイランド",
+      "target": "国内",
+      "title": "富士急ハイランドの会員サイトとアプリにパスワードリスト攻撃",
+      "what": "富士急ハイランドの会員サイトとアプリにパスワードリスト攻撃",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "Security NEXT",
+          "url": "https://www.security-next.com/192167"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "incident",
+      "keyword": "ギフティ",
+      "target": "国内",
+      "title": "不正アクセスでギフティの電子ギフトが不正発行",
+      "what": "不正アクセスでギフティの電子ギフトが不正発行",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "Security NEXT",
+          "url": "https://www.security-next.com/191987"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "incident",
+      "keyword": "Gitee",
+      "target": "開発基盤",
+      "title": "Giteeの公開リポジトリに有効なクラウド/AI認証情報が約2.6万件",
+      "what": "Giteeの公開リポジトリに有効なクラウド/AI認証情報が約2.6万件",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/26400-valid-cloud-and-ai-credentials.html"
+        }
+      ]
+    }
+  ],
+  "source_status": [
+    {
+      "name": "CISA KEV",
+      "ok": true,
+      "count": 4
+    },
+    {
+      "name": "NVD",
+      "ok": true,
+      "count": 7
+    },
+    {
+      "name": "JPCERT/CC",
+      "ok": true,
+      "count": 1
+    },
+    {
+      "name": "IPA",
+      "ok": true,
+      "count": 0
+    },
+    {
+      "name": "Security NEXT",
+      "ok": true,
+      "count": 17
+    },
+    {
+      "name": "piyolog",
+      "ok": true,
+      "count": 3
+    },
+    {
+      "name": "BleepingComputer",
+      "ok": true,
+      "count": 15
+    },
+    {
+      "name": "The Hacker News",
+      "ok": true,
+      "count": 29
+    },
+    {
+      "name": "SecurityWeek",
+      "ok": true,
+      "count": 10
+    },
+    {
+      "name": "JVN",
+      "ok": true,
+      "count": 6
+    },
+    {
+      "name": "ITmedia",
+      "ok": true,
+      "count": 7
+    },
+    {
+      "name": "AWS Health",
+      "ok": true,
+      "count": 0
+    },
+    {
+      "name": "Cloudflare Status",
+      "ok": true,
+      "count": 0
+    },
+    {
+      "name": "GitHub Status",
+      "ok": true,
+      "count": 2
+    },
+    {
+      "name": "EPSS",
+      "ok": true,
+      "count": 15
+    }
+  ],
+  "stats": {
+    "items": 101,
+    "clusters": 82
+  }
+}

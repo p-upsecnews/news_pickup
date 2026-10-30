@@ -1,5 +1,12 @@
 [
  {
+  "date": "2026-10-30",
+  "headline": "PHP2Shellは攻撃が拡大しLinuxカーネルとの連鎖もKEVに追加、GitLab(CVSS10)、Cisco SD-WAN、Adobe Commerceでも悪用が確認された。国内ではJAL・ANAの予約情報がAmadeus経由で漏えいした。",
+  "critical": 4,
+  "notable": 8,
+  "other": 10
+ },
+ {
   "date": "2026-10-29",
   "headline": "PHP2Shellは中国系グループによるFW乗っ取りやBrotli(Node2Shell)のKEV追加へ拡大し、PeopleSoftもShinyHuntersの悪用が判明。国内ではGMOの侵害が継続、Sony NetComでも250万件が流出した。",
   "critical": 4,
