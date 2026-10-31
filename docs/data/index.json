@@ -1,5 +1,12 @@
 [
  {
+  "date": "2026-10-31",
+  "headline": "Ivanti Connect Secureの連鎖攻撃、WordPress本体への大量攻撃、Cursor経由で改ざんされたClaude Code拡張の3件が緊急。続報としてBinanceの流出原因や松屋の約238万件漏えいも判明した。",
+  "critical": 3,
+  "notable": 6,
+  "other": 5
+ },
+ {
   "date": "2026-10-30",
   "headline": "PHP2Shellは攻撃が拡大しLinuxカーネルとの連鎖もKEVに追加、GitLab(CVSS10)、Cisco SD-WAN、Adobe Commerceでも悪用が確認された。国内ではJAL・ANAの予約情報がAmadeus経由で漏えいした。",
   "critical": 4,

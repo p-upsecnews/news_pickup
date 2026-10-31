@@ -1,0 +1,423 @@
+{
+ "date": "2026-10-31",
+ "generated_at": "2026-10-31T10:10:00+09:00",
+ "window_hours": 48,
+ "headline": "Ivanti Connect Secureの連鎖攻撃、WordPress本体への大量攻撃、Cursor経由で改ざんされたClaude Code拡張の3件が緊急。続報としてBinanceの流出原因や松屋の約238万件漏えいも判明した。",
+ "items": [
+  {
+   "level": "critical",
+   "kind": "vulnerability",
+   "keyword": "Ivanti ICS",
+   "target": "VPN機器",
+   "title": "Ivanti Connect Secureに追加の脆弱性2件、3件連鎖の攻撃を確認",
+   "what": "Ivanti Connect Secureで悪用済みの脆弱性に加え、攻撃に使われた別の脆弱性2件が判明し、3件を組み合わせた攻撃が発生している。CISAもKEVに追加した。",
+   "who": "Ivanti Connect Secure（SSL-VPN）を運用している組織。",
+   "action": "新たに公開された修正版へ更新し、侵害の痕跡がないか確認する。",
+   "cves": [
+    "CVE-2026-104935",
+    "CVE-2026-111357",
+    "CVE-2026-118527"
+   ],
+   "tags": [
+    "KEV",
+    "悪用確認済み"
+   ],
+   "is_update": false,
+   "sources": [
+    {
+     "name": "Security NEXT",
+     "url": "https://www.security-next.com/192205"
+    }
+   ]
+  },
+  {
+   "level": "critical",
+   "kind": "vulnerability",
+   "keyword": "WordPress Core",
+   "target": "WordPress",
+   "title": "WordPress本体のRCE脆弱性に24時間で約6.3万件の攻撃試行",
+   "what": "パッチ公開直後のWordPress本体の深刻な脆弱性に対し、わずか24時間で約6万3千件の攻撃が観測された。",
+   "who": "WordPress本体を未更新のまま公開しているサイト。",
+   "action": "WordPressを最新版へ更新し、自動更新が有効か確認する。",
+   "cves": [],
+   "tags": [
+    "悪用確認済み"
+   ],
+   "is_update": false,
+   "sources": [
+    {
+     "name": "The Hacker News",
+     "url": "https://thehackernews.com/2026/10/wordpress-rce-flaw-draws-nearly-63000.html"
+    }
+   ]
+  },
+  {
+   "level": "critical",
+   "kind": "incident",
+   "keyword": "Claude Code拡張",
+   "target": "開発基盤",
+   "title": "CursorのMarketplaceで公式Claude Code拡張が改ざん、SSHバックドアを設置",
+   "what": "公式Claude Code拡張の悪意あるバージョンがCursorの拡張マーケットで約11時間配布され、SSHバックドアが仕込まれた。",
+   "who": "当該期間にCursorで拡張を導入・更新した開発者の端末。",
+   "action": "該当期間に導入した場合は拡張を削除し、SSH鍵と authorized_keys を確認して鍵を再発行する。",
+   "cves": [],
+   "tags": [
+    "サプライチェーン"
+   ],
+   "is_update": false,
+   "sources": [
+    {
+     "name": "BleepingComputer",
+     "url": "https://www.bleepingcomputer.com/news/security/malicious-claude-code-extension-on-cursor-planted-ssh-backdoors/"
+    },
+    {
+     "name": "The Hacker News",
+     "url": "https://thehackernews.com/2026/10/official-claude-code-vs-code-extension.html"
+    }
+   ]
+  },
+  {
+   "level": "notable",
+   "kind": "vulnerability",
+   "keyword": "Drupal Commerce",
+   "target": "ECサイト",
+   "title": "Drupal Commerce Coreの認可回避が悪用、注文の監査を推奨",
+   "what": "Drupal Commerce Coreに「highly critical」の認可回避があり、実際の攻撃が確認された。",
+   "who": "Drupal Commerce Coreでオンラインストアを運営する事業者。",
+   "action": "修正版へ更新し、不審な注文や管理操作がないか監査する。",
+   "cves": [
+    "CVE-2026-118539"
+   ],
+   "tags": [
+    "悪用確認済み"
+   ],
+   "is_update": false,
+   "sources": [
+    {
+     "name": "SecurityWeek",
+     "url": "https://www.securityweek.com/drupal-commerce-core-vulnerability-exploited-against-online-stores/"
+    },
+    {
+     "name": "BleepingComputer",
+     "url": "https://www.bleepingcomputer.com/news/security/drupal-warns-of-critical-commerce-core-flaw-exploited-in-attacks/"
+    },
+    {
+     "name": "The Hacker News",
+     "url": "https://thehackernews.com/2026/10/hackers-actively-exploit-highly.html"
+    }
+   ]
+  },
+  {
+   "level": "notable",
+   "kind": "incident",
+   "keyword": "Binance",
+   "target": "暗号資産",
+   "title": "Binanceの不正流出、開発者PCの侵害が原因と説明、北朝鮮関与の指摘も",
+   "what": "被害は約63億ドル規模とされ、Binanceは開発運用担当者のPC侵害が起点と説明。北朝鮮のTraderTraitorとの類似も指摘されている。",
+   "who": "Binanceの利用者と暗号資産業界。",
+   "action": "利用者は公式発表を確認し、フィッシングに注意する。事業者は開発者端末の防御を見直す。",
+   "cves": [],
+   "tags": [
+    "情報漏洩"
+   ],
+   "is_update": true,
+   "sources": [
+    {
+     "name": "BleepingComputer",
+     "url": "https://www.bleepingcomputer.com/news/security/binance-links-63-billion-crypto-theft-to-compromised-devops-laptop/"
+    },
+    {
+     "name": "SecurityWeek",
+     "url": "https://www.securityweek.com/6-billion-binance-hack-bears-hallmarks-of-north-koreas-tradertraitor/"
+    },
+    {
+     "name": "ITmedia",
+     "url": "https://www.itmedia.co.jp/news/article/2610/30/2000002749/"
+    }
+   ]
+  },
+  {
+   "level": "notable",
+   "kind": "incident",
+   "keyword": "松屋",
+   "target": "アプリ/Web",
+   "title": "松屋アプリの不正アクセスで約238万件の個人情報が漏えい",
+   "what": "公式アプリの管理システムが侵害され、会員の個人情報約238万件が漏えいした。停止中の補償も予定されている。",
+   "who": "松屋アプリの会員。",
+   "action": "会員は不審なメールに注意し、同じパスワードを使い回している場合は変更する。",
+   "cves": [],
+   "tags": [
+    "国内",
+    "情報漏洩"
+   ],
+   "is_update": true,
+   "sources": [
+    {
+     "name": "ITmedia",
+     "url": "https://www.itmedia.co.jp/news/article/2610/30/2000002753/"
+    },
+    {
+     "name": "Security NEXT",
+     "url": "https://www.security-next.com/192210"
+    }
+   ]
+  },
+  {
+   "level": "notable",
+   "kind": "vulnerability",
+   "keyword": "PHP2Shell",
+   "target": "Webサーバ",
+   "title": "PHP2Shell続報、汎用的なRCEは当面困難との分析も他脆弱性との連鎖に警戒",
+   "what": "攻撃に障壁があり汎用的な悪用は当面困難との分析が出たが、Palo Alto機器への攻撃など他の脆弱性との連鎖は確認されている。公開環境は2260万件超とされる。",
+   "who": "PHPを使うWebサーバ全般、とくにPAN-OS管理画面を公開している環境。",
+   "action": "PHPの修正版へ更新し、管理画面をインターネットに公開しない。",
+   "cves": [
+    "CVE-2026-109618",
+    "CVE-2026-109619"
+   ],
+   "tags": [
+    "悪用確認済み",
+    "国内"
+   ],
+   "is_update": true,
+   "sources": [
+    {
+     "name": "Security NEXT",
+     "url": "https://www.security-next.com/192097"
+    },
+    {
+     "name": "SecurityWeek",
+     "url": "https://www.securityweek.com/php2shell-attacks-root-palo-alto-firewalls-but-fail-against-wordpress/"
+    },
+    {
+     "name": "JPCERT/CC",
+     "url": "https://www.jpcert.or.jp/at/2026/at260033.html"
+    }
+   ]
+  },
+  {
+   "level": "notable",
+   "kind": "vulnerability",
+   "keyword": "MPTCP",
+   "target": "Linux",
+   "title": "LinuxカーネルのMPTCPに遠隔root奪取が可能な重大脆弱性",
+   "what": "MPTCPの重大な欠陥により、未認証の攻撃者が遠隔からroot権限を奪えることを示す攻撃コードが作られた。",
+   "who": "MPTCPを有効にしたLinuxサーバ。",
+   "action": "ディストリビューションのカーネル更新を適用し、不要ならMPTCPを無効にする。",
+   "cves": [],
+   "tags": [
+    "PoC公開"
+   ],
+   "is_update": false,
+   "sources": [
+    {
+     "name": "BleepingComputer",
+     "url": "https://www.bleepingcomputer.com/news/security/critical-linux-kernel-flaw-allows-remote-root-attacks-on-mptcp-servers/"
+    }
+   ]
+  },
+  {
+   "level": "notable",
+   "kind": "vulnerability",
+   "keyword": "TeamViewer",
+   "target": "リモート操作",
+   "title": "TeamViewerの欠陥で、接続先の遠隔PCからサポート担当者の端末が攻撃される",
+   "what": "接続先の悪意あるホストが、操作する側のサポート担当者の端末を乗っ取れる脆弱性が見つかった。",
+   "who": "TeamViewerでリモートサポートを行う担当者。",
+   "action": "TeamViewerを最新版へ更新する。",
+   "cves": [],
+   "tags": [],
+   "is_update": false,
+   "sources": [
+    {
+     "name": "The Hacker News",
+     "url": "https://thehackernews.com/2026/10/teamviewer-flaw-lets-remote-computers.html"
+    },
+    {
+     "name": "SecurityWeek",
+     "url": "https://www.securityweek.com/teamviewer-flaw-could-let-malicious-hosts-take-over-support-technicians-machines/"
+    }
+   ]
+  },
+  {
+   "level": "other",
+   "kind": "incident",
+   "keyword": "Trezor",
+   "target": "暗号資産",
+   "title": "Trezorが正規販売店経由のウォレットにハードウェア改ざんの疑いを警告",
+   "what": "CryptoBilis経由で販売された一部のTrezorウォレットに盗難目的の部品が仕込まれた疑いがあるとして警告した。",
+   "who": "",
+   "action": "",
+   "cves": [],
+   "tags": [],
+   "is_update": false,
+   "sources": [
+    {
+     "name": "BleepingComputer",
+     "url": "https://www.bleepingcomputer.com/news/security/trezor-warns-of-suspected-crypto-theft-implant-in-hardware-wallet/"
+    },
+    {
+     "name": "The Hacker News",
+     "url": "https://thehackernews.com/2026/10/trezor-warns-of-suspected-hardware.html"
+    }
+   ]
+  },
+  {
+   "level": "other",
+   "kind": "vulnerability",
+   "keyword": "ServiceNow",
+   "target": "SaaS",
+   "title": "ServiceNowにクリティカル脆弱性、修正版公開",
+   "what": "ServiceNowにクリティカルな脆弱性が見つかり、修正版が公開された。",
+   "who": "",
+   "action": "",
+   "cves": [],
+   "tags": [],
+   "is_update": false,
+   "sources": [
+    {
+     "name": "Security NEXT",
+     "url": "https://www.security-next.com/192231"
+    }
+   ]
+  },
+  {
+   "level": "other",
+   "kind": "vulnerability",
+   "keyword": "Chrome",
+   "target": "PCブラウザ",
+   "title": "Chromeが脆弱性21件を修正、クリティカルも含む",
+   "what": "Chromeの更新で脆弱性21件が修正され、うちクリティカルのものも含まれる。",
+   "who": "",
+   "action": "",
+   "cves": [],
+   "tags": [],
+   "is_update": false,
+   "sources": [
+    {
+     "name": "Security NEXT",
+     "url": "https://www.security-next.com/192200"
+    }
+   ]
+  },
+  {
+   "level": "other",
+   "kind": "incident",
+   "keyword": "Hugging Face",
+   "target": "AI基盤",
+   "title": "Hugging Faceを悪用したGPUマイニングのマルウェアが再来",
+   "what": "Hugging Faceを悪用してGPUを乗っ取り暗号資産を掘るマルウェアのキャンペーンが再び確認された。",
+   "who": "",
+   "action": "",
+   "cves": [],
+   "tags": [],
+   "is_update": false,
+   "sources": [
+    {
+     "name": "BleepingComputer",
+     "url": "https://www.bleepingcomputer.com/news/security/hugging-face-malware-campaign-returns-to-hijack-gpus-for-crypto-mining/"
+    }
+   ]
+  },
+  {
+   "level": "other",
+   "kind": "incident",
+   "keyword": "コドモン",
+   "target": "国内SaaS",
+   "title": "PHP脆弱性でいち早くサービスを停止したコドモンの判断の舞台裏",
+   "what": "PHP脆弱性の公表を受けてサービスを停止したコドモンの経営判断が報じられた。",
+   "who": "",
+   "action": "",
+   "cves": [],
+   "tags": [],
+   "is_update": false,
+   "sources": [
+    {
+     "name": "ITmedia",
+     "url": "https://www.itmedia.co.jp/news/article/2610/30/2000002720/"
+    }
+   ]
+  }
+ ],
+ "source_status": [
+  {
+   "name": "CISA KEV",
+   "ok": true,
+   "count": 4
+  },
+  {
+   "name": "NVD",
+   "ok": true,
+   "count": 5
+  },
+  {
+   "name": "JPCERT/CC",
+   "ok": true,
+   "count": 1
+  },
+  {
+   "name": "IPA",
+   "ok": true,
+   "count": 0
+  },
+  {
+   "name": "Security NEXT",
+   "ok": true,
+   "count": 14
+  },
+  {
+   "name": "piyolog",
+   "ok": true,
+   "count": 3
+  },
+  {
+   "name": "BleepingComputer",
+   "ok": true,
+   "count": 15
+  },
+  {
+   "name": "The Hacker News",
+   "ok": true,
+   "count": 24
+  },
+  {
+   "name": "SecurityWeek",
+   "ok": true,
+   "count": 10
+  },
+  {
+   "name": "JVN",
+   "ok": true,
+   "count": 3
+  },
+  {
+   "name": "ITmedia",
+   "ok": true,
+   "count": 11
+  },
+  {
+   "name": "AWS Health",
+   "ok": true,
+   "count": 1
+  },
+  {
+   "name": "Cloudflare Status",
+   "ok": true,
+   "count": 0
+  },
+  {
+   "name": "GitHub Status",
+   "ok": true,
+   "count": 4
+  },
+  {
+   "name": "EPSS",
+   "ok": true,
+   "count": 13
+  }
+ ],
+ "stats": {
+  "items": 95,
+  "clusters": 78
+ }
+}
