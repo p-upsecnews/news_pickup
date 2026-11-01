@@ -1,5 +1,12 @@
 [
  {
+  "date": "2026-11-01",
+  "headline": "GitLabの悪用がKEV入りし、PHP2ShellはPalo Alto製FWの侵害にまで拡大、WordPress本体にも大量の攻撃が続く。Binanceの流出は開発者PC侵害が起点と判明。全情報源の取得に成功。",
+  "critical": 3,
+  "notable": 5,
+  "other": 6
+ },
+ {
   "date": "2026-10-31",
   "headline": "Ivanti Connect Secureの連鎖攻撃、WordPress本体への大量攻撃、Cursor経由で改ざんされたClaude Code拡張の3件が緊急。続報としてBinanceの流出原因や松屋の約238万件漏えいも判明した。",
   "critical": 3,

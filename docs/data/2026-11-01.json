@@ -1,0 +1,414 @@
+{
+  "date": "2026-11-01",
+  "generated_at": "2026-11-01T10:05:00+09:00",
+  "window_hours": 48,
+  "headline": "GitLabの悪用がKEV入りし、PHP2ShellはPalo Alto製FWの侵害にまで拡大、WordPress本体にも大量の攻撃が続く。Binanceの流出は開発者PC侵害が起点と判明。全情報源の取得に成功。",
+  "items": [
+    {
+      "level": "critical",
+      "kind": "vulnerability",
+      "keyword": "GitLab",
+      "target": "開発基盤",
+      "title": "GitLabの最大深刻度RCE、CISAがKEVに追加　Alpine Linuxへの攻撃も確認",
+      "what": "GitLabの認証不要でコード実行できる脆弱性（CVSS 10.0）が実際に悪用され、CISAが悪用確認済みとして登録した。原因はRuby側の問題で、修正版も公開済み。",
+      "who": "自社運用（セルフホスト）のGitLabを使うすべての組織。",
+      "action": "修正版へ更新し、更新前に侵害された形跡（不審なプロセス・アカウント）がないか確認する。",
+      "cves": [
+        "CVE-2026-97229"
+      ],
+      "tags": [
+        "KEV",
+        "悪用確認済み"
+      ],
+      "is_update": true,
+      "sources": [
+        {
+          "name": "Security NEXT",
+          "url": "https://www.security-next.com/192222"
+        },
+        {
+          "name": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/hackers-now-exploiting-max-severity-gitlab-flaw-in-attacks/"
+        },
+        {
+          "name": "SecurityWeek",
+          "url": "https://www.securityweek.com/max-severity-gitlab-vulnerability-exploited-against-alpine-linux/"
+        }
+      ]
+    },
+    {
+      "level": "critical",
+      "kind": "vulnerability",
+      "keyword": "PHP2Shell",
+      "target": "Webサーバ",
+      "title": "PHP2Shell攻撃でPalo Alto製FWが侵害、露出インスタンスは2260万規模",
+      "what": "PHPの重大な脆弱性への攻撃が1週間以上続き、Palo Alto製ファイアウォールの乗っ取り（root化）が観測された。一方WordPressへの攻撃は成功していないとされる。",
+      "who": "PHP製アプリや、PHPを内部で使う管理画面を持つネットワーク機器の利用者。",
+      "action": "PHPと対象機器を修正版へ更新し、管理画面をインターネットに公開していないか確認する。",
+      "cves": [],
+      "tags": [
+        "悪用確認済み"
+      ],
+      "is_update": true,
+      "sources": [
+        {
+          "name": "SecurityWeek",
+          "url": "https://www.securityweek.com/php2shell-attacks-root-palo-alto-firewalls-but-fail-against-wordpress/"
+        },
+        {
+          "name": "ITmedia",
+          "url": "https://www.itmedia.co.jp/news/article/2610/30/2000002720/"
+        }
+      ]
+    },
+    {
+      "level": "critical",
+      "kind": "vulnerability",
+      "keyword": "WordPress Core",
+      "target": "WordPress",
+      "title": "WordPress本体のRCE、公開後24時間で約6.3万件の攻撃試行",
+      "what": "WordPress本体の認証不要の競合状態によるコード実行の脆弱性に対し、パッチ公開直後から大量の攻撃が観測されている。",
+      "who": "WordPressを運用するサイト全般。自動更新を止めている環境は特に注意。",
+      "action": "最新版へ更新し、更新できないサイトはWAFなどで一時的に防御する。",
+      "cves": [],
+      "tags": [
+        "悪用確認済み"
+      ],
+      "is_update": true,
+      "sources": [
+        {
+          "name": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/wordpress-rce-flaw-draws-nearly-63000.html"
+        },
+        {
+          "name": "SecurityWeek",
+          "url": "https://www.securityweek.com/fresh-wordpress-vulnerability-in-attackers-crosshairs/"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "vulnerability",
+      "keyword": "Ivanti ICS",
+      "target": "VPN機器",
+      "title": "Ivanti Connect Secureの3件の欠陥が連鎖、認証なしでroot権限取得",
+      "what": "3件の脆弱性を組み合わせて認証なしにroot権限を奪う攻撃が確認され、いずれもCISAのKEVに掲載された。",
+      "who": "Ivanti Connect Secure（VPN）を運用する組織。",
+      "action": "公式の修正版へ更新し、侵害有無の確認ツールで点検する。",
+      "cves": [
+        "CVE-2026-104935",
+        "CVE-2026-111357",
+        "CVE-2026-118527"
+      ],
+      "tags": [
+        "KEV",
+        "悪用確認済み"
+      ],
+      "is_update": true,
+      "sources": [
+        {
+          "name": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/attackers-chain-three-ivanti-connect.html"
+        },
+        {
+          "name": "CISA KEV",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-118527"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "incident",
+      "keyword": "Binance",
+      "target": "暗号資産",
+      "title": "Binance約60億ドル流出、開発担当者のPC侵害が起点　北朝鮮系の関与指摘",
+      "what": "流出はDevOps担当者のPCが侵害されたことが原因とされ、調査会社は北朝鮮系グループ「TraderTraitor」の関与を指摘している。凍結と資金洗浄が並行して進む。",
+      "who": "Binanceの利用者と、暗号資産・開発運用の端末管理を行う事業者。",
+      "action": "開発者端末の防御（EDR・権限の最小化）と、秘密鍵や署名権限の運用を見直す。",
+      "cves": [],
+      "tags": [
+        "サプライチェーン"
+      ],
+      "is_update": true,
+      "sources": [
+        {
+          "name": "ITmedia",
+          "url": "https://www.itmedia.co.jp/news/article/2610/31/2000002775/"
+        },
+        {
+          "name": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/binance-links-63-billion-crypto-theft-to-compromised-devops-laptop/"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "incident",
+      "keyword": "Chainalysis",
+      "target": "金融",
+      "title": "Chainalysis、AIによる攻撃手法で内部ツールに侵入され顧客の本人確認情報が露出",
+      "what": "ブロックチェーン分析大手が、攻撃者に「エージェント型」手法で内部システムへ侵入され、一部顧客の本人確認データが露出したと公表した。",
+      "who": "Chainalysisの顧客。",
+      "action": "同社からの通知を確認し、提出済みの本人確認情報の悪用（なりすまし）に警戒する。",
+      "cves": [],
+      "tags": [
+        "情報漏洩"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/chainalysis-confirms-intrusion-into.html"
+        },
+        {
+          "name": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/chainalysis-discloses-data-breach-from-offensive-agentic-techniques/"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "incident",
+      "keyword": "Northflank",
+      "target": "クラウド基盤",
+      "title": "Northflankが不正アクセスを受け、顧客のAI APIキーが悪用される",
+      "what": "クラウドのホスティング基盤で侵害が起き、保存されていた顧客のAI用APIキーが不正利用された。同社は全認証情報の再発行を求めている。",
+      "who": "Northflank上に認証情報・シークレットを保存している利用者。",
+      "action": "保存済みのAPIキーやシークレットをすべてローテーションし、利用履歴・請求を確認する。",
+      "cves": [],
+      "tags": [
+        "情報漏洩",
+        "サプライチェーン"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/northflank-security-breach-leads-to-abuse-of-customers-ai-api-keys/"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "vulnerability",
+      "keyword": "SMS of Death",
+      "target": "Android",
+      "title": "Androidの「SMS of Death」脆弱性のPoCが公開、未更新端末を遠隔でクラッシュ",
+      "what": "修正済みのAndroidの脆弱性について概念実証コードが公開され、SMSを送るだけで未更新の端末を落とせる状態になった。",
+      "who": "セキュリティパッチ未適用のAndroid端末。",
+      "action": "最新のセキュリティアップデートを適用する。更新できない古い端末は交換を検討する。",
+      "cves": [
+        "CVE-2026-58882"
+      ],
+      "tags": [
+        "PoC公開"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/new-android-sms-of-death-exploit-can-remotely-crash-unpatched-phones/"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "incident",
+      "keyword": "Cloudflare DDoS",
+      "target": "DDoS",
+      "title": "Cloudflare、第3四半期のL3/L4 DDoS攻撃は1820万件で前期比38%増",
+      "what": "Cloudflareの統計で、ネットワーク層のDDoS攻撃が1時間あたり約8,200件に達した。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/cloudflare-reports-182-million-network.html"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "incident",
+      "keyword": "ARTEX",
+      "target": "国家支援攻撃",
+      "title": "中国系攻撃者がAI製ペネトレーションツール「ARTEX」で200超の組織を標的に",
+      "what": "Go製のAI型侵入テストツールが国家支援の攻撃に使われ、世界の200超の組織が標的になったという。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/chinese-hackers-use-ai-powered-artex-to.html"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "vulnerability",
+      "keyword": "ChatGPT共有リンク",
+      "target": "生成AI",
+      "title": "ChatGPTの共有リンクから攻撃者のコードが実行され、非公開チャットが読まれ得た問題",
+      "what": "共有リンク経由で攻撃者のコードが利用者のセッションで動き、非公開の会話を読み取られ得る問題が報告された。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/a-shared-chatgpt-link-could-run.html"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "other",
+      "keyword": "GMOブロッキング",
+      "target": "国内通信",
+      "title": "総務省、GMO関連の攻撃者サイトのブロッキングを通信各社に要請と報道",
+      "what": "総務省が通信各社に、攻撃者サイトへの接続遮断（ブロッキング）を要請したと報じられた。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [
+        "国内"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "ITmedia",
+          "url": "https://www.itmedia.co.jp/news/article/2610/30/2000002765/"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "vulnerability",
+      "keyword": "三菱電機",
+      "target": "産業機器",
+      "title": "三菱電機製の複数製品に複数の脆弱性（JVN）",
+      "what": "三菱電機製の複数製品に複数の脆弱性が公表された。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [
+        "国内"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "JVN",
+          "url": "https://jvn.jp/vu/JVNVU93251594/"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "other",
+      "keyword": "Ray-Ban盗み見",
+      "target": "スマホ",
+      "title": "Meta Ray-Banで向かいの席から指の動きを撮影し、スマホのパスワードを推測する攻撃",
+      "what": "スマートグラスで撮影した指の動きから、スマホのパスワードを割り出せる研究が発表された。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "ITmedia",
+          "url": "https://www.itmedia.co.jp/news/article/2610/30/2000002684/"
+        }
+      ]
+    }
+  ],
+  "source_status": [
+    {
+      "name": "CISA KEV",
+      "ok": true,
+      "count": 2
+    },
+    {
+      "name": "NVD",
+      "ok": true,
+      "count": 12
+    },
+    {
+      "name": "JPCERT/CC",
+      "ok": true,
+      "count": 0
+    },
+    {
+      "name": "IPA",
+      "ok": true,
+      "count": 0
+    },
+    {
+      "name": "Security NEXT",
+      "ok": true,
+      "count": 6
+    },
+    {
+      "name": "piyolog",
+      "ok": true,
+      "count": 2
+    },
+    {
+      "name": "BleepingComputer",
+      "ok": true,
+      "count": 13
+    },
+    {
+      "name": "The Hacker News",
+      "ok": true,
+      "count": 14
+    },
+    {
+      "name": "SecurityWeek",
+      "ok": true,
+      "count": 10
+    },
+    {
+      "name": "JVN",
+      "ok": true,
+      "count": 1
+    },
+    {
+      "name": "ITmedia",
+      "ok": true,
+      "count": 6
+    },
+    {
+      "name": "AWS Health",
+      "ok": true,
+      "count": 0
+    },
+    {
+      "name": "Cloudflare Status",
+      "ok": true,
+      "count": 0
+    },
+    {
+      "name": "GitHub Status",
+      "ok": true,
+      "count": 3
+    },
+    {
+      "name": "EPSS",
+      "ok": true,
+      "count": 16
+    }
+  ],
+  "stats": {
+    "items": 69,
+    "clusters": 59
+  }
+}
