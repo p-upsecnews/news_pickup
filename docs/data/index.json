@@ -1,5 +1,12 @@
 [
  {
+  "date": "2026-11-02",
+  "headline": "本日は🔴の新規事案なし。FBIがBinance流出を北朝鮮系TraderTraitorの犯行と発表、PolymarketでのJavaScript改ざん被害とLXDのCVSS 10.0の欠陥が新たに判明。Ivanti Connect SecureやGitLabの悪用は前日からの継続。全情報源の取得に成功。",
+  "critical": 0,
+  "notable": 3,
+  "other": 3
+ },
+ {
   "date": "2026-11-01",
   "headline": "GitLabの悪用がKEV入りし、PHP2ShellはPalo Alto製FWの侵害にまで拡大、WordPress本体にも大量の攻撃が続く。Binanceの流出は開発者PC侵害が起点と判明。全情報源の取得に成功。",
   "critical": 3,

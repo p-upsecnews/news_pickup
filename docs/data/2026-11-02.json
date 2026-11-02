@@ -1,0 +1,224 @@
+{
+  "date": "2026-11-02",
+  "generated_at": "2026-11-02T10:05:00+09:00",
+  "window_hours": 48,
+  "headline": "本日は🔴の新規事案なし。FBIがBinance流出を北朝鮮系TraderTraitorの犯行と発表、PolymarketでのJavaScript改ざん被害とLXDのCVSS 10.0の欠陥が新たに判明。Ivanti Connect SecureやGitLabの悪用は前日からの継続。全情報源の取得に成功。",
+  "items": [
+    {
+      "level": "notable",
+      "kind": "incident",
+      "keyword": "Binance",
+      "target": "暗号資産",
+      "title": "FBIがBinance約60億ドル流出を北朝鮮「TraderTraitor」の犯行と公式発表",
+      "what": "FBIなどが、史上最大級の暗号資産流出を北朝鮮系グループの犯行と断定し、民間事業者に資金洗浄の阻止を要請した。Binance Japanは日本の顧客資産に影響はないとしている。",
+      "who": "暗号資産取引所・金融系事業者と、開発者端末を扱う組織。",
+      "action": "送金・出金の監視を強化し、開発者端末の防御と署名権限の運用を見直す。",
+      "cves": [],
+      "tags": [
+        "情報漏洩",
+        "国内"
+      ],
+      "is_update": true,
+      "sources": [
+        {
+          "name": "ITmedia",
+          "url": "https://www.itmedia.co.jp/news/article/2611/02/2000002778/"
+        },
+        {
+          "name": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/fbi-links-63-billion-binance-crypto-heist-to-north-korean-hackers/"
+        },
+        {
+          "name": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/fbi-links-north-koreas-tradertraitor-to.html"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "incident",
+      "keyword": "Polymarket",
+      "target": "Webサイト",
+      "title": "Polymarketで外部スクリプトが改ざんされ、約270万ドルが不正移動",
+      "what": "サイトが読み込んでいた外部の速度計測スクリプトが悪意あるコードに差し替わり、ログイン中の利用者の資産が攻撃者に移された。同社は影響を受けた726ウォレットへ返金する。",
+      "who": "外部JavaScriptを読み込むWebサービスの運営者と利用者。",
+      "action": "外部スクリプトの読み込み元を棚卸しし、SRIやCSPで改ざんを検知・制限する。",
+      "cves": [],
+      "tags": [
+        "サプライチェーン"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/hackers-steal-about-27-million-from.html"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "vulnerability",
+      "keyword": "LXD",
+      "target": "仮想基盤",
+      "title": "LXD・MicroCloudにCVSS 10.0の欠陥、秘密鍵なしで信頼済みクライアントになりすまし",
+      "what": "CanonicalのLXDとMicroCloudで、信頼済みクライアントの公開証明書さえあれば秘密鍵なしで認証を通過できる欠陥が見つかった。悪用の報告は確認できていない。",
+      "who": "HTTPS APIをネットワークに公開しているLXD・MicroCloud環境。",
+      "action": "修正版へ更新し、APIの公開範囲を必要最小限に絞る。",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/critical-lxd-and-microcloud-flaw-cvss.html"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "other",
+      "keyword": "NetamLoader",
+      "target": "Windows 10",
+      "title": "NetamLoader、アジアの政府機関のWindows 10を.NETインジェクションで狙う",
+      "what": "研究者が、アジアの政府系組織を狙う巧妙な感染チェーンとマルウェアNetamLoaderを報告した。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/netamloader-malware-targets-government.html"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "vulnerability",
+      "keyword": "Siemens",
+      "target": "産業制御",
+      "title": "Siemens製品のアドバイザリ（2026年10月分）をJVNが公開",
+      "what": "Siemensが各製品向けの月例アドバイザリを公表し、JVNが日本語で案内した。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "JVN",
+          "url": "https://jvn.jp/vu/JVNVU90141693/"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "vulnerability",
+      "keyword": "WAVLINK等",
+      "target": "ルータ",
+      "title": "WAVLINK・D-Link製ルータにCVSS 9.3級の脆弱性が複数登録",
+      "what": "WAVLINKやD-Linkのルータ系製品でCVSS 9.3のコマンド実行等の脆弱性がNVDに登録された。",
+      "who": "",
+      "action": "",
+      "cves": [
+        "CVE-2026-120195",
+        "CVE-2026-120198",
+        "CVE-2026-120189"
+      ],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "NVD",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-120195"
+        },
+        {
+          "name": "NVD",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-120189"
+        }
+      ]
+    }
+  ],
+  "source_status": [
+    {
+      "name": "CISA KEV",
+      "ok": true,
+      "count": 0
+    },
+    {
+      "name": "NVD",
+      "ok": true,
+      "count": 26
+    },
+    {
+      "name": "JPCERT/CC",
+      "ok": true,
+      "count": 0
+    },
+    {
+      "name": "IPA",
+      "ok": true,
+      "count": 0
+    },
+    {
+      "name": "Security NEXT",
+      "ok": true,
+      "count": 2
+    },
+    {
+      "name": "piyolog",
+      "ok": true,
+      "count": 0
+    },
+    {
+      "name": "BleepingComputer",
+      "ok": true,
+      "count": 8
+    },
+    {
+      "name": "The Hacker News",
+      "ok": true,
+      "count": 8
+    },
+    {
+      "name": "SecurityWeek",
+      "ok": true,
+      "count": 2
+    },
+    {
+      "name": "JVN",
+      "ok": true,
+      "count": 1
+    },
+    {
+      "name": "ITmedia",
+      "ok": true,
+      "count": 2
+    },
+    {
+      "name": "AWS Health",
+      "ok": true,
+      "count": 0
+    },
+    {
+      "name": "Cloudflare Status",
+      "ok": true,
+      "count": 0
+    },
+    {
+      "name": "GitHub Status",
+      "ok": true,
+      "count": 0
+    },
+    {
+      "name": "EPSS",
+      "ok": true,
+      "count": 15
+    }
+  ],
+  "stats": {
+    "items": 49,
+    "clusters": 46
+  }
+}
