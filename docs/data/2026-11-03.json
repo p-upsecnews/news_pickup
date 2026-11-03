@@ -1,0 +1,541 @@
+{
+  "date": "2026-11-03",
+  "generated_at": "2026-11-03T10:05:00+09:00",
+  "window_hours": 48,
+  "headline": "🔴はIvanti Connect Secureの追加ゼロデイ（KEV入り）、Synology NASを狙うC3RB3Rランサム、未対応GitLabへの攻撃継続の3件。PHP2ShellはQNAPが修正版を順次提供。外務省の侵害など国内の事案も。全情報源の取得に成功。",
+  "items": [
+    {
+      "level": "critical",
+      "kind": "vulnerability",
+      "keyword": "Ivanti ICS",
+      "target": "VPN機器",
+      "title": "Ivanti Connect Secureの追加2件がKEV入り、3件連鎖のゼロデイ攻撃が継続",
+      "what": "Ivanti Connect Secureの脆弱性2件が新たに修正され、CISAがKEVに追加した。10月初めから複数の欠陥を連鎖させた攻撃が確認されている。",
+      "who": "Ivanti Connect Secure（ICS）をインターネットに公開している組織。",
+      "action": "最新の修正版へ更新し、侵害の痕跡（不審なログイン・設定変更）を確認する。",
+      "cves": [
+        "CVE-2026-111357",
+        "CVE-2026-118527"
+      ],
+      "tags": [
+        "KEV",
+        "悪用確認済み"
+      ],
+      "is_update": true,
+      "sources": [
+        {
+          "name": "Security NEXT",
+          "url": "https://www.security-next.com/192266"
+        },
+        {
+          "name": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/ivanti-patches-two-more-connect-secure-zero-days-chained-in-attacks/"
+        },
+        {
+          "name": "SecurityWeek",
+          "url": "https://www.securityweek.com/ivanti-patches-two-more-zero-days-exploited-in-connect-secure-attack-chain/"
+        }
+      ]
+    },
+    {
+      "level": "critical",
+      "kind": "incident",
+      "keyword": "C3RB3R",
+      "target": "NAS",
+      "title": "Synology、NASを狙うランサムウェア「C3RB3R」の攻撃急増を警告",
+      "what": "SynologyがNAS製品を狙うランサムウェア「C3RB3R」による攻撃の増加を確認し、直ちに更新するよう呼びかけた。",
+      "who": "Synology製NASの利用者（特に外部公開している環境）。",
+      "action": "NASのOS・パッケージを最新化し、外部公開を止め、バックアップを隔離して保管する。",
+      "cves": [],
+      "tags": [
+        "ランサムウェア",
+        "悪用確認済み"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/synology-warns-customers-of-ongoing-c3rb3r-ransomware-attacks/"
+        }
+      ]
+    },
+    {
+      "level": "critical",
+      "kind": "vulnerability",
+      "keyword": "GitLab",
+      "target": "開発基盤",
+      "title": "公開GitLab 1,000台超が最大深刻度RCEに未対応のまま、攻撃が継続",
+      "what": "悪用が続く最大深刻度のGitLabのRCEに未対応のサーバが1,000台以上残っている。Alpine Linuxは攻撃を受け開発用GitLabを再構築した。",
+      "who": "自社運用（セルフホスト）のGitLabを公開している組織。",
+      "action": "修正版へ更新し、未更新だった期間は不審なアカウント・トークン・CI設定を確認する。",
+      "cves": [],
+      "tags": [
+        "悪用確認済み",
+        "KEV"
+      ],
+      "is_update": true,
+      "sources": [
+        {
+          "name": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/over-1-000-gitlab-servers-vulnerable-to-code-execution-attacks/"
+        },
+        {
+          "name": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/alpine-linux-rebuilds-gitlab-after-attempted-rce-attack/"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "vulnerability",
+      "keyword": "PHP2Shell",
+      "target": "Webサーバ",
+      "title": "QNAP、PHP2Shell対応の修正版を順次提供、NDR向けは準備中",
+      "what": "PHPの深刻な脆弱性「PHP2Shell」に対し、QNAPが自社OS・アプリ向けの修正版を順次公開している。NDR向けは未提供。",
+      "who": "QNAP製品の利用者。",
+      "action": "提供済みの修正版を適用し、未提供の製品は外部公開を避ける。IPAの注意喚起も参照する。",
+      "cves": [
+        "CVE-2026-109618",
+        "CVE-2026-109619"
+      ],
+      "tags": [
+        "KEV",
+        "悪用確認済み",
+        "国内"
+      ],
+      "is_update": true,
+      "sources": [
+        {
+          "name": "Security NEXT",
+          "url": "https://www.security-next.com/192277"
+        },
+        {
+          "name": "IPA",
+          "url": "https://www.ipa.go.jp/security/security-alert/2026/alert20261022.html"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "incident",
+      "keyword": "外務省",
+      "target": "国内官公庁",
+      "title": "外務省のネットワークが侵害され、個人情報が流出した可能性",
+      "what": "外務省は、ネットワークが侵害され扱っていた個人情報が流出した可能性があると公表した。",
+      "who": "外務省のネットワーク上で個人情報を扱われた関係者。",
+      "action": "詳細発表を注視し、案内があれば不審な連絡に注意する。",
+      "cves": [],
+      "tags": [
+        "国内",
+        "情報漏洩"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "Security NEXT",
+          "url": "https://www.security-next.com/192256"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "incident",
+      "keyword": "XCPE",
+      "target": "Android TV",
+      "title": "GoogleがAndroid TVボックス130万台のボットネットXCPEを摘発",
+      "what": "Googleが主導し、130万台超のAndroid TVボックスからなるボットネットを停止した。メーカーが意図的にバックドアを仕込んだとしている。",
+      "who": "Videostrong製など廉価なAndroid TVボックスの利用者。",
+      "action": "該当機器の利用を止めるか、ネットワークから隔離して買い替える。",
+      "cves": [],
+      "tags": [
+        "サプライチェーン"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/google-disrupts-million-device-xcpe-android-malware-botnet-bans-tv-box-maker/"
+        },
+        {
+          "name": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/google-disrupts-13-million-device.html"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "incident",
+      "keyword": "Cursor拡張",
+      "target": "開発環境",
+      "title": "Cursorの拡張配信で悪意あるClaude Code拡張が配布されるサプライチェーン攻撃",
+      "what": "Cursorの拡張配信経由で悪意ある拡張が配られ、環境調査やリバースSSHトンネルの作成を試みた。",
+      "who": "Cursorで拡張機能を導入している開発者。",
+      "action": "該当拡張の有無を確認し、導入済みなら削除して認証情報を更新する。",
+      "cves": [],
+      "tags": [
+        "サプライチェーン"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "SecurityWeek",
+          "url": "https://www.securityweek.com/malicious-claude-code-extension-served-in-cursor-supply-chain-attack/"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "incident",
+      "keyword": "Florida教育省",
+      "target": "米教育機関",
+      "title": "フロリダ州の学費支援サイトで侵害、490万人の個人情報に影響の恐れ",
+      "what": "フロリダ州教育省の学費支援サイトが侵害され、社会保障番号などが漏洩した可能性がある。",
+      "who": "同サイトを利用した約490万人。",
+      "action": "（国内対応は不要）報道の続報を把握する。",
+      "cves": [],
+      "tags": [
+        "情報漏洩"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "SecurityWeek",
+          "url": "https://www.securityweek.com/florida-student-aid-website-hack-puts-data-of-4-9-million-people-at-risk/"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "incident",
+      "keyword": "冷凍設備攻撃",
+      "target": "欧州小売",
+      "title": "欧州のスーパーで冷凍・冷却設備が遠隔操作され、複数チェーンに影響",
+      "what": "攻撃者が冷凍庫や冷却設備の温度設定を遠隔で変更し、複数国の店舗運営に支障が出た。",
+      "who": "欧州の複数スーパーチェーン。",
+      "action": "遠隔管理される設備の外部公開と認証を見直す。",
+      "cves": [],
+      "tags": [
+        "サービス停止"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/hackers-disrupt-refrigeration-systems-at-european-supermarkets/"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "incident",
+      "keyword": "アイリスプラザ",
+      "target": "国内EC",
+      "title": "アイリスオーヤマの通販サイトがサイバー攻撃を受ける",
+      "what": "アイリスオーヤマの通販サイト「アイリスプラザ」が攻撃を受け、同社が詳細を調査している。",
+      "who": "同サイトの利用者。",
+      "action": "続報を確認し、案内があればパスワード変更などを行う。",
+      "cves": [],
+      "tags": [
+        "国内",
+        "情報漏洩"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "Security NEXT",
+          "url": "https://www.security-next.com/192208"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "incident",
+      "keyword": "BTCPay",
+      "target": "決済基盤",
+      "title": "BTCPay Serverの旧版でホットウォレットの暗号資産が盗まれる",
+      "what": "旧バージョンのBTCPay Serverが狙われ、最新版への更新が呼びかけられた。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/btcpay-server-warns-of-hot-wallet-thefts-targeting-outdated-instances/"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "outage",
+      "keyword": "Sageworks",
+      "target": "金融SaaS",
+      "title": "金融SaaS「Sageworks」が不審な活動で一時停止",
+      "what": "Abrigoの与信管理アプリが停止し、借り手向け機能以外は復旧した。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/fintech-platform-sageworks-taken-offline-after-suspected-cyberattack/"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "incident",
+      "keyword": "Chainalysis",
+      "target": "暗号資産",
+      "title": "Chainalysisが漏洩を公表、AI駆使の攻撃で内部ツールに侵入",
+      "what": "攻撃者がエージェント型の手法で社内システムへ侵入した。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "SecurityWeek",
+          "url": "https://www.securityweek.com/chainalysis-discloses-data-breach-following-ai-driven-cyberattack/"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "incident",
+      "keyword": "Revolve",
+      "target": "米EC",
+      "title": "米Revolveの漏洩、少なくとも18万人に影響",
+      "what": "通販基盤が侵害され、個人情報とカード情報が盗まれた。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "SecurityWeek",
+          "url": "https://www.securityweek.com/revolve-data-breach-impacts-at-least-180000-people/"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "vulnerability",
+      "keyword": "Langflow",
+      "target": "AI基盤",
+      "title": "Langflowに認証不要でコード実行される重大な欠陥",
+      "what": "未認証の攻撃者がサーバ上でコードを実行できる欠陥が公表された。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/critical-langflow-flaws-could-let.html"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "vulnerability",
+      "keyword": "pgAdmin 4",
+      "target": "DB管理",
+      "title": "pgAdmin 4に複数の脆弱性、2件はクリティカル",
+      "what": "DB管理ツールの複数の欠陥が修正された。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "Security NEXT",
+          "url": "https://www.security-next.com/192279"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "vulnerability",
+      "keyword": "WordPress 7.1.4",
+      "target": "WordPress",
+      "title": "WordPress 7.1.4で更新時RCEなどを修正",
+      "what": "更新時のRCEや複数のXSSが修正された。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "Security NEXT",
+          "url": "https://www.security-next.com/192262"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "incident",
+      "keyword": "グッドスマイル",
+      "target": "国内EC",
+      "title": "グッドスマイルカンパニーのECで会員情報流出の可能性",
+      "what": "ECサイトへの不正アクセスで会員情報が流出した可能性がある。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "Security NEXT",
+          "url": "https://www.security-next.com/191996"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "other",
+      "keyword": "ニコニコレンタカー",
+      "target": "国内",
+      "title": "ニコニコレンタカー、免許証画像の事前登録を廃止",
+      "what": "攻撃増加を受け、保存していた画像を全て削除した。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "ITmedia",
+          "url": "https://www.itmedia.co.jp/news/article/2611/02/2000002786/"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "incident",
+      "keyword": "VOLTA",
+      "target": "マルウェア",
+      "title": "情報窃取型「VOLTA」がAIで被害者の資産価値を判定",
+      "what": "Windows向けの新種のinfostealerが複数のAIを使い被害者を選別する。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/new-volta-infostealer-uses-claude.html"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "incident",
+      "keyword": "ARTEX",
+      "target": "AI攻撃",
+      "title": "中国系攻撃者がARTEXで14か国200超の組織を攻撃",
+      "what": "AIペンテスト用フレームワークが自動化攻撃に使われた。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/chinese-hackers-use-artex-ai-in-automated-attacks-against-200-orgs/"
+        }
+      ]
+    }
+  ],
+  "source_status": [
+    {
+      "name": "CISA KEV",
+      "ok": true,
+      "count": 0
+    },
+    {
+      "name": "NVD",
+      "ok": true,
+      "count": 17
+    },
+    {
+      "name": "JPCERT/CC",
+      "ok": true,
+      "count": 0
+    },
+    {
+      "name": "IPA",
+      "ok": true,
+      "count": 1
+    },
+    {
+      "name": "Security NEXT",
+      "ok": true,
+      "count": 9
+    },
+    {
+      "name": "piyolog",
+      "ok": true,
+      "count": 0
+    },
+    {
+      "name": "BleepingComputer",
+      "ok": true,
+      "count": 13
+    },
+    {
+      "name": "The Hacker News",
+      "ok": true,
+      "count": 12
+    },
+    {
+      "name": "SecurityWeek",
+      "ok": true,
+      "count": 10
+    },
+    {
+      "name": "JVN",
+      "ok": true,
+      "count": 2
+    },
+    {
+      "name": "ITmedia",
+      "ok": true,
+      "count": 2
+    },
+    {
+      "name": "AWS Health",
+      "ok": true,
+      "count": 0
+    },
+    {
+      "name": "Cloudflare Status",
+      "ok": true,
+      "count": 0
+    },
+    {
+      "name": "GitHub Status",
+      "ok": true,
+      "count": 1
+    },
+    {
+      "name": "EPSS",
+      "ok": true,
+      "count": 10
+    }
+  ],
+  "stats": {
+    "items": 67,
+    "clusters": 59
+  }
+}

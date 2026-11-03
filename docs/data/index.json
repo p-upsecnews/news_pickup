@@ -1,5 +1,12 @@
 [
  {
+  "date": "2026-11-03",
+  "headline": "🔴はIvanti Connect Secureの追加ゼロデイ（KEV入り）、Synology NASを狙うC3RB3Rランサム、未対応GitLabへの攻撃継続の3件。PHP2ShellはQNAPが修正版を順次提供。外務省の侵害など国内の事案も。全情報源の取得に成功。",
+  "critical": 3,
+  "notable": 7,
+  "other": 11
+ },
+ {
   "date": "2026-11-02",
   "headline": "本日は🔴の新規事案なし。FBIがBinance流出を北朝鮮系TraderTraitorの犯行と発表、PolymarketでのJavaScript改ざん被害とLXDのCVSS 10.0の欠陥が新たに判明。Ivanti Connect SecureやGitLabの悪用は前日からの継続。全情報源の取得に成功。",
   "critical": 0,
