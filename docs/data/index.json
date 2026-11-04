@@ -1,5 +1,12 @@
 [
  {
+  "date": "2026-11-04",
+  "headline": "WordPress更新機能のRCE（KEV）、Siemens IoT2050、Synology NASへのランサム、cPGuard更新基盤の乗っ取りと、悪用や供給網の話が重なる日。国内ではアソビュー1582万件・7NOWの委託先経由の漏えいが目立つ。",
+  "critical": 4,
+  "notable": 10,
+  "other": 15
+ },
+ {
   "date": "2026-11-03",
   "headline": "🔴はIvanti Connect Secureの追加ゼロデイ（KEV入り）、Synology NASを狙うC3RB3Rランサム、未対応GitLabへの攻撃継続の3件。PHP2ShellはQNAPが修正版を順次提供。外務省の侵害など国内の事案も。全情報源の取得に成功。",
   "critical": 3,

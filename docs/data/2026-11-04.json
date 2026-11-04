@@ -1,0 +1,700 @@
+{
+  "date": "2026-11-04",
+  "generated_at": "2026-11-04T10:10:00+09:00",
+  "window_hours": 48,
+  "headline": "WordPress更新機能のRCE（KEV）、Siemens IoT2050、Synology NASへのランサム、cPGuard更新基盤の乗っ取りと、悪用や供給網の話が重なる日。国内ではアソビュー1582万件・7NOWの委託先経由の漏えいが目立つ。",
+  "items": [
+    {
+      "level": "critical",
+      "kind": "vulnerability",
+      "keyword": "WordPress 7.1.4",
+      "target": "WordPress",
+      "title": "WordPress更新機能のRCE脆弱性が悪用確認、CISAがKEVに追加",
+      "what": "WordPressの更新処理の競合状態を突き、認証なしでサーバ上のコード実行が可能になる脆弱性が実際に悪用されている。",
+      "who": "WordPress本体を運用するサイト全般（自動更新を含む）。",
+      "action": "7.1.4へ更新し、更新実行中の不審なアクセスや改ざんの有無を確認する。",
+      "cves": [
+        "CVE-2026-119977"
+      ],
+      "tags": [
+        "KEV",
+        "悪用確認済み"
+      ],
+      "is_update": true,
+      "sources": [
+        {
+          "name": "Security NEXT",
+          "url": "https://www.security-next.com/192310"
+        },
+        {
+          "name": "Security NEXT",
+          "url": "https://www.security-next.com/192262"
+        },
+        {
+          "name": "CISA KEV",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-119977"
+        }
+      ]
+    },
+    {
+      "level": "critical",
+      "kind": "vulnerability",
+      "keyword": "Siemens IoT2050",
+      "target": "産業機器",
+      "title": "Siemens SIMATIC IoT2050にCVSS10.0の認証欠落、実際に悪用されバックドア設置",
+      "what": "認証なしでコマンドを実行できる最高深刻度の脆弱性が悪用され、遠隔操作用のバックドアが仕掛けられている。",
+      "who": "SIMATIC IoT2050 Advancedを使う工場・インフラ事業者。",
+      "action": "最新ファームへ更新し、ネットワークからの到達性を制限して侵害の痕跡を確認する。",
+      "cves": [
+        "CVE-2026-58115"
+      ],
+      "tags": [
+        "悪用確認済み"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/attackers-exploit-critical-siemens.html"
+        }
+      ]
+    },
+    {
+      "level": "critical",
+      "kind": "incident",
+      "keyword": "Synology DSM",
+      "target": "NAS",
+      "title": "Synology NASの修正済みDSM脆弱性を狙うランサムウェア攻撃",
+      "what": "Synologyは、2025年末に修正した脆弱性を悪用したランサムウェア攻撃を確認し、更新を呼びかけている。",
+      "who": "DSMを古いまま運用しているSynology NAS（特に外部公開しているもの）。",
+      "action": "DSMを最新版へ更新し、外部公開を止めてバックアップの隔離状態を確認する。",
+      "cves": [],
+      "tags": [
+        "悪用確認済み",
+        "ランサムウェア"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/synology-nas-devices-targeted-in.html"
+        }
+      ]
+    },
+    {
+      "level": "critical",
+      "kind": "incident",
+      "keyword": "cPGuard",
+      "target": "サーバ管理",
+      "title": "Webセキュリティ製品cPGuardの更新基盤が乗っ取られバックドア配布",
+      "what": "cPGuardの自動更新の仕組みが侵害され、バックドアと情報窃取スクリプトが利用者のサーバに配布された。",
+      "who": "cPGuardを導入しているLinuxのWebホスティング環境。",
+      "action": "更新履歴を確認して感染の痕跡を調べ、該当サーバの認証情報（パスワードハッシュ含む）を入れ替える。",
+      "cves": [],
+      "tags": [
+        "サプライチェーン",
+        "情報漏洩"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/hackers-hijack-cpguard-autoupdate-to-deploy-backdoor-steal-data/"
+        },
+        {
+          "name": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/cpguard-update-channel-hijacked-to.html"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "incident",
+      "keyword": "アソビュー",
+      "target": "会員情報",
+      "title": "アソビューで会員情報1582万件が流出、メール委託先アララへの不正アクセス",
+      "what": "レジャー予約サービスの会員情報が、メール配信委託先への不正アクセスで大量に流出した。",
+      "who": "アソビュー会員。委託先のアララを使う他の事業者にも波及し得る。",
+      "action": "委託先がアララの場合は影響有無を確認し、会員向けの不審メールに注意を促す。",
+      "cves": [],
+      "tags": [
+        "国内",
+        "情報漏洩"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "ITmedia",
+          "url": "https://www.itmedia.co.jp/news/article/2611/04/2000002854/"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "incident",
+      "keyword": "7NOW/ピックゴー",
+      "target": "配送委託先",
+      "title": "セブン-イレブン「7NOW」の利用者16万件超が漏えい、配達委託先に不正アクセス",
+      "what": "配送プラットフォーム「ピックゴー」が不正アクセスを受け、7NOWの利用者情報が流出した。出前館でも約800件が影響を受けた。",
+      "who": "7NOW・出前館の利用者と、ピックゴーを使う事業者。",
+      "action": "委託先の管理状況を点検し、利用者には不審な連絡への警戒を促す。",
+      "cves": [],
+      "tags": [
+        "国内",
+        "情報漏洩"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "ITmedia",
+          "url": "https://www.itmedia.co.jp/news/article/2611/04/2000002852/"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "vulnerability",
+      "keyword": "Barracuda ESG",
+      "target": "メールGW",
+      "title": "Barracuda ESGに深刻な脆弱性2件、連鎖するとroot権限を奪取可能",
+      "what": "認証回避とコマンド実行の2つの脆弱性を連鎖させると、認証なしでroot権限を取得される恐れがある。",
+      "who": "Barracuda Email Security Gatewayの利用者。",
+      "action": "修正版を適用し、管理画面を外部に公開していないか確認する。",
+      "cves": [
+        "CVE-2026-116606"
+      ],
+      "tags": [
+        "国内"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "Security NEXT",
+          "url": "https://www.security-next.com/192322"
+        },
+        {
+          "name": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/barracuda-warns-of-critical-flaws-allowing-root-access-to-devices/"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "vulnerability",
+      "keyword": "Node-RED",
+      "target": "開発基盤",
+      "title": "Node-REDの重大な脆弱性を狙う攻撃、Linuxボットやwebshellを設置",
+      "what": "同一IPから複数の攻撃が確認され、Linux向けボットやwebshellが設置されている。",
+      "who": "インターネットに公開しているNode-REDの環境。",
+      "action": "最新版へ更新し、外部公開と認証設定を見直す。",
+      "cves": [],
+      "tags": [
+        "悪用確認済み"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "SecurityWeek",
+          "url": "https://www.securityweek.com/critical-node-red-flaw-exploited-in-attacks/"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "vulnerability",
+      "keyword": "Linux TCP RCE",
+      "target": "Linux",
+      "title": "LinuxカーネルのTCP処理にCVSS9.8のRCE、Red Hatは修正版を提供",
+      "what": "IPv4 TCP処理のuse-after-freeにより遠隔からコード実行される恐れがある。UbuntuはまだテストチャネルのみでRHELは修正済み。",
+      "who": "RHEL 8/9/10およびUbuntu LTSのサーバ。",
+      "action": "RHELは修正カーネルを適用。Ubuntuは修正の提供状況を確認する。",
+      "cves": [
+        "CVE-2026-98432"
+      ],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/red-hat-patches-98-rated-linux-tcp-rce.html"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "vulnerability",
+      "keyword": "Chrome 157",
+      "target": "PCブラウザ",
+      "title": "Chrome 157で脆弱性213件を修正、うちクリティカルが7件",
+      "what": "大量の脆弱性を修正する大型更新が公開された。",
+      "who": "Chromeおよび同系統のブラウザ利用者。",
+      "action": "Chromeを157へ更新して再起動する。",
+      "cves": [],
+      "tags": [
+        "国内"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "Security NEXT",
+          "url": "https://www.security-next.com/192316"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "vulnerability",
+      "keyword": "SonicWall GMS",
+      "target": "管理製品",
+      "title": "SonicWall GMSに深刻な脆弱性、修正版は未提供",
+      "what": "管理製品に深刻な脆弱性が見つかったが、修正版はまだ提供されていない。",
+      "who": "SonicWall GMSの利用者。",
+      "action": "公開範囲を絞るなどメーカー案内の緩和策を適用し、修正版の公開を待つ。",
+      "cves": [],
+      "tags": [
+        "国内"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "Security NEXT",
+          "url": "https://www.security-next.com/192328"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "incident",
+      "keyword": "GMOペイメント",
+      "target": "決済",
+      "title": "GMOペイメントの決済支援システムで不正行為、Vプリカ69件漏えい",
+      "what": "不正なユーザーによる行為で、Vプリカ番号などが漏えいした。3件はセキュリティコードも含む。",
+      "who": "Vプリカの利用者。",
+      "action": "利用者は利用明細を確認し、不審な利用があればカード会社へ連絡する。",
+      "cves": [],
+      "tags": [
+        "国内",
+        "情報漏洩"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "ITmedia",
+          "url": "https://www.itmedia.co.jp/news/article/2611/04/2000002850/"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "incident",
+      "keyword": "Frontline",
+      "target": "教育",
+      "title": "教育系ソフトFrontline Educationで130万人超の情報流出",
+      "what": "第三者製ソフトの欠陥を突かれ、学区の職員や生徒の個人情報が盗まれた。",
+      "who": "米国の学区関係者。",
+      "action": "同社サービスの利用有無を確認する。",
+      "cves": [],
+      "tags": [
+        "情報漏洩"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "SecurityWeek",
+          "url": "https://www.securityweek.com/frontline-education-data-breach-impacts-over-1-3-million/"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "vulnerability",
+      "keyword": "BTCPay",
+      "target": "暗号資産",
+      "title": "BTCPay Serverの旧版でホットウォレットから暗号資産が窃取",
+      "what": "古いバージョンを狙った攻撃でBitcoinなどが引き出されている。",
+      "who": "旧版のBTCPay Server運用者。",
+      "action": "最新版へ更新する。",
+      "cves": [],
+      "tags": [
+        "悪用確認済み"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/btcpay-server-warns-of-hot-wallet-thefts-targeting-outdated-instances/"
+        },
+        {
+          "name": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/hackers-exploit-btcpay-server-flaw-to.html"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "incident",
+      "keyword": "CryptoPayment",
+      "target": "WordPress",
+      "title": "WordPress用CryptoPayment Gatewayの未修正脆弱性（CVSS10）を狙う攻撃",
+      "what": "未修正のプラグインに対し、ウォレット認証情報の窃取を狙う攻撃が試みられている。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/attackers-target-unpatched.html"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "incident",
+      "keyword": "Florida教育省",
+      "target": "教育",
+      "title": "フロリダ州の学生支援サイトで490万人分の情報が危険にさらされる",
+      "what": "社会保障番号などが漏れた可能性がある。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "SecurityWeek",
+          "url": "https://www.securityweek.com/florida-student-aid-website-hack-puts-data-of-4-9-million-people-at-risk/"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "incident",
+      "keyword": "Chainstack",
+      "target": "ブロックチェーン",
+      "title": "Chainstackが本番環境への侵入を公表、パスワードハッシュが流出",
+      "what": "AI活用の大規模攻撃の一環と見られる侵入で顧客データが漏れた。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/chainstack-reports-production-systems.html"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "incident",
+      "keyword": "Harvard",
+      "target": "大学",
+      "title": "ハーバード大学の同窓会系システム侵害で85万件のアカウント情報が流出",
+      "what": "2025年11月の侵害で盗まれたデータが確認された。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/harvard-university-data-breach-exposed-info-of-851-000-accounts/"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "incident",
+      "keyword": "Langflow",
+      "target": "AI基盤",
+      "title": "Langflowに認証不要でコード実行される重大な脆弱性",
+      "what": "サーバ上で任意コードを実行される恐れがある。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/critical-langflow-flaws-could-let.html"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "incident",
+      "keyword": "pgAdmin 4",
+      "target": "DB管理",
+      "title": "pgAdmin 4に複数の脆弱性、2件はクリティカル",
+      "what": "更新版が公開されている。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "Security NEXT",
+          "url": "https://www.security-next.com/192279"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "incident",
+      "keyword": "LLMjacking",
+      "target": "クラウド",
+      "title": "LLMjacking攻撃で最大100万ドルのクラウド課金被害",
+      "what": "LLMの利用権限を乗っ取られ高額請求が発生する。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/google-llmjacking-attacks-rack-up-1-million-in-cloud-ai-charges/"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "incident",
+      "keyword": "ARTEX",
+      "target": "AI攻撃",
+      "title": "AI侵入テスト基盤ARTEXで200組織を攻撃、WorkOSも被害",
+      "what": "中国系攻撃者が自動化された攻撃を展開した。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/chinese-hackers-use-artex-ai-in-automated-attacks-against-200-orgs/"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "incident",
+      "keyword": "冷凍設備攻撃",
+      "target": "小売",
+      "title": "欧州のスーパー100店超で冷凍設備への攻撃が再発",
+      "what": "店舗が食品を廃棄する事態になっている。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "SecurityWeek",
+          "url": "https://www.securityweek.com/over-100-european-stores-hit-as-supermarket-fridge-attacks-resume/"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "incident",
+      "keyword": "Sageworks",
+      "target": "金融SaaS",
+      "title": "Abrigoのリスク管理アプリSageworksが不審な活動でオフライン化",
+      "what": "借り手向け機能を除き復旧した。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/fintech-platform-sageworks-taken-offline-after-suspected-cyberattack/"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "incident",
+      "keyword": "Android 11月",
+      "target": "スマホ",
+      "title": "Android 2026年11月の更新で200件超の脆弱性を修正",
+      "what": "月例更新が公開された。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "SecurityWeek",
+          "url": "https://www.securityweek.com/androids-november-2026-updates-patch-over-200-vulnerabilities/"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "incident",
+      "keyword": "外務省",
+      "target": "官公庁",
+      "title": "外務省のネットワークで侵害、個人情報流出の可能性",
+      "what": "詳細を調査中。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "Security NEXT",
+          "url": "https://www.security-next.com/192256"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "incident",
+      "keyword": "Cloudflare Pages",
+      "target": "CDN",
+      "title": "Cloudflare WorkersとPagesでビルドエラー",
+      "what": "約4時間で復旧した。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "Cloudflare Status",
+          "url": "https://www.cloudflarestatus.com/incidents/nbyxn84kvb6o"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "incident",
+      "keyword": "GitHub障害",
+      "target": "開発基盤",
+      "title": "GitHubのAPI・Git・Copilotで障害",
+      "what": "短時間で復旧した。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "GitHub Status",
+          "url": "https://www.githubstatus.com/incidents/rxlj89wpk7px"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "incident",
+      "keyword": "VOLTA",
+      "target": "マルウェア",
+      "title": "AIで被害者の資産価値を判定する新型情報窃取型VOLTA",
+      "what": "窃取データをLLMで価値順に並べ替える。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/new-volta-infostealer-uses-claude.html"
+        }
+      ]
+    }
+  ],
+  "source_status": [
+    {
+      "name": "CISA KEV",
+      "ok": true,
+      "count": 1
+    },
+    {
+      "name": "NVD",
+      "ok": true,
+      "count": 9
+    },
+    {
+      "name": "JPCERT/CC",
+      "ok": true,
+      "count": 0
+    },
+    {
+      "name": "IPA",
+      "ok": true,
+      "count": 0
+    },
+    {
+      "name": "Security NEXT",
+      "ok": true,
+      "count": 11
+    },
+    {
+      "name": "piyolog",
+      "ok": true,
+      "count": 0
+    },
+    {
+      "name": "BleepingComputer",
+      "ok": true,
+      "count": 15
+    },
+    {
+      "name": "The Hacker News",
+      "ok": true,
+      "count": 22
+    },
+    {
+      "name": "SecurityWeek",
+      "ok": true,
+      "count": 10
+    },
+    {
+      "name": "JVN",
+      "ok": true,
+      "count": 1
+    },
+    {
+      "name": "ITmedia",
+      "ok": true,
+      "count": 4
+    },
+    {
+      "name": "AWS Health",
+      "ok": true,
+      "count": 0
+    },
+    {
+      "name": "Cloudflare Status",
+      "ok": true,
+      "count": 1
+    },
+    {
+      "name": "GitHub Status",
+      "ok": true,
+      "count": 3
+    },
+    {
+      "name": "EPSS",
+      "ok": true,
+      "count": 12
+    }
+  ],
+  "stats": {
+    "items": 77,
+    "clusters": 69
+  }
+}
