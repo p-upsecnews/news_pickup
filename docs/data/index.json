@@ -1,5 +1,12 @@
 [
  {
+  "date": "2026-11-05",
+  "headline": "アララ経由の漏えいが3000万件規模に広がり、国内企業の委託先管理が焦点に。APT29系によるiOS/Androidへの水飲み場攻撃とZyxelスイッチのゼロデイ悪用も。全情報源の取得に成功。",
+  "critical": 2,
+  "notable": 7,
+  "other": 8
+ },
+ {
   "date": "2026-11-04",
   "headline": "WordPress更新機能のRCE（KEV）、Siemens IoT2050、Synology NASへのランサム、cPGuard更新基盤の乗っ取りと、悪用や供給網の話が重なる日。国内ではアソビュー1582万件・7NOWの委託先経由の漏えいが目立つ。",
   "critical": 4,

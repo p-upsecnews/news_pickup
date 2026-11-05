@@ -1,0 +1,444 @@
+{
+  "date": "2026-11-05",
+  "generated_at": "2026-11-05T10:10:00+09:00",
+  "window_hours": 48,
+  "headline": "アララ経由の漏えいが3000万件規模に広がり、国内企業の委託先管理が焦点に。APT29系によるiOS/Androidへの水飲み場攻撃とZyxelスイッチのゼロデイ悪用も。全情報源の取得に成功。",
+  "items": [
+    {
+      "level": "critical",
+      "kind": "incident",
+      "keyword": "アララ委託先",
+      "target": "国内メール配信",
+      "title": "アララのメール配信基盤が侵害、アソビュー・ビックカメラ等で計3000万件規模のメアド流出",
+      "what": "メール配信サービス「アララ メッセージ」がWebサーバの脆弱性を突かれ、委託元各社の会員・メルマガ登録者のメールアドレス等が流出した。アソビュー約1582万件、ビックカメラ・コジマ・ソフマップ約1490万件など被害が拡大している。",
+      "who": "アララのサービスを使う国内企業と、その会員・メルマガ登録者。同種のメール配信委託先（ユミルリンク等）も別件で侵害されている。",
+      "action": "自社や客先がメール配信を外部委託している場合、委託先の利用有無と流出範囲を確認し、フィッシングメールへの注意喚起を準備する。",
+      "cves": [],
+      "tags": [
+        "国内",
+        "情報漏洩",
+        "サプライチェーン"
+      ],
+      "is_update": true,
+      "sources": [
+        {
+          "name": "ITmedia",
+          "url": "https://www.itmedia.co.jp/news/article/2611/04/2000002866/"
+        },
+        {
+          "name": "piyolog",
+          "url": "https://piyolog.hatenadiary.jp/entry/2026/11/05/015717"
+        }
+      ]
+    },
+    {
+      "level": "critical",
+      "kind": "incident",
+      "keyword": "APT29 水飲み場",
+      "target": "スマホ",
+      "title": "APT29系がウェブ解析スクリプトを改ざん、iOS・Androidへの水飲み場攻撃を展開",
+      "what": "ロシア系APT29が関与するとみられる攻撃で、Plerdy SEO Trackerなどの改ざんサイトや偽サイトを閲覧した端末に既知の脆弱性（n-day）の攻撃コードが配信された。",
+      "who": "改ざんされたサイトを閲覧するiOS・Androidユーザー（OS更新を怠っている端末）。",
+      "action": "iOS/Androidを最新版に更新し、業務端末のOS更新状況を確認する。自社サイトで当該解析スクリプトを使っていないか点検する。",
+      "cves": [],
+      "tags": [
+        "悪用確認済み",
+        "サプライチェーン"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/apt29-linked-hackers-hijack-web.html"
+        },
+        {
+          "name": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/hackers-use-n-day-exploits-in-zero-click-attacks-on-ios-android-devices/"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "vulnerability",
+      "keyword": "Zyxel GS1900",
+      "target": "スイッチ",
+      "title": "Zyxel GS1900スイッチのゼロデイが悪用され、約1000台が侵害",
+      "what": "Zyxel GS1900シリーズにゼロデイ脆弱性があり、世界で約1000台が侵害されて設定ファイルや認証情報が盗まれた。修正版が公開された。",
+      "who": "Zyxel GS1900シリーズのスイッチを使う組織。",
+      "action": "修正ファームウェアに更新し、管理画面の外部公開を止め、認証情報の変更を検討する。",
+      "cves": [],
+      "tags": [
+        "悪用確認済み"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/zyxel-fixes-zero-day-exploited-to-hack-nearly-1-000-network-switches/"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "vulnerability",
+      "keyword": "Apple PAC回避",
+      "target": "Apple製品",
+      "title": "AppleのCVE-2024-27834（PAC回避）がKEVに追加",
+      "what": "iOS/macOS等のポインタ認証を回避できる脆弱性が、悪用確認済みとしてCISA KEVに追加された。",
+      "who": "10.5より前のApple製品（iOS、iPadOS、macOS、Safari等）。",
+      "action": "古い端末・OSがないか確認し、最新版へ更新する。",
+      "cves": [
+        "CVE-2024-27834"
+      ],
+      "tags": [
+        "KEV",
+        "悪用確認済み"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "CISA KEV",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-27834"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "incident",
+      "keyword": "DreamHost",
+      "target": "ホスティング",
+      "title": "DreamHostでFile Manager経由の侵害、FTP認証情報とwebmailセッションが流出",
+      "what": "DreamHostのFile Managerに約2か月間不正アクセスがあり、顧客のFTP/SFTPのIDとパスワード等が盗まれた。",
+      "who": "DreamHostを利用するサイト運営者。",
+      "action": "FTP/SFTPパスワードを変更し、サイトに不審なファイルがないか確認する。",
+      "cves": [],
+      "tags": [
+        "情報漏洩"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/dreamhost-confirms-data-breach-exposed-ftp-logins-and-webmail-sessions/"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "incident",
+      "keyword": "Binance",
+      "target": "暗号資産",
+      "title": "Binance、約64億ドル窃取の原因は偽の面接と細工された課題と公表",
+      "what": "北朝鮮系攻撃者が偽の採用面接でエンジニアにマルウェアを入れさせ、AIツールの悪用も絡めてウォレット基盤に侵入したと報告された。",
+      "who": "開発者を狙う標的型の手口。暗号資産に限らず開発者を抱える企業。",
+      "action": "採用担当・開発者向けに、コーディング課題の実行を安全な環境に限るよう周知する。",
+      "cves": [],
+      "tags": [
+        "情報漏洩"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/binance-says-fake-job-interview-led-to-63-billion-crypto-heist/"
+        },
+        {
+          "name": "SecurityWeek",
+          "url": "https://www.securityweek.com/rigged-coding-assignment-abused-ai-tool-opened-path-to-6-billion-binance-heist/"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "incident",
+      "keyword": "Arkea委託先",
+      "target": "金融",
+      "title": "仏銀行Credit Mutuel Arkeaが委託先経由で侵入され、最大1億ユーロ規模の不正送金",
+      "what": "フランスの銀行グループが外部委託先のシステム経由で攻撃を受け、銀行自身の口座から不正送金された。顧客資産への直接被害はないとされる。",
+      "who": "同行と、同種の委託先を使う金融機関。",
+      "action": "委託先経由のアクセス権限と監視体制を見直す。",
+      "cves": [],
+      "tags": [
+        "サプライチェーン"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "ITmedia",
+          "url": "https://www.itmedia.co.jp/news/article/2611/05/2000002891/"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "vulnerability",
+      "keyword": "Android RCE",
+      "target": "Android",
+      "title": "Android 11月パッチで、操作不要で悪用可能な重大RCEを修正",
+      "what": "Googleが、ユーザー操作なしでリモートコード実行につながる重大なAndroidの脆弱性を修正した。",
+      "who": "Android端末の利用者。",
+      "action": "11月のセキュリティパッチを適用する。",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/google-patches-critical-android-flaw.html"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "vulnerability",
+      "keyword": "APT root昇格",
+      "target": "Linux",
+      "title": "Debian/UbuntuのAPTに、中間者攻撃でパッケージを差し替えroot実行される欠陥",
+      "what": "APTの欠陥により、通信経路上の攻撃者が検証済みパッケージを差し替え、root権限でコードを実行できる。",
+      "who": "DebianやUbuntuを使うサーバ・コンテナ環境。",
+      "action": "配布元の修正パッケージを確認して更新し、信頼できない回線でのaptを避ける。",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/debian-and-ubuntu-apt-flaw-lets-mitm.html"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "incident",
+      "keyword": "Chainstack",
+      "target": "ブロックチェーン",
+      "title": "Chainstackの本番基盤が侵害され、顧客情報とパスワードハッシュが流出",
+      "what": "AIを使った大規模攻撃キャンペーンの一環として本番環境の一部に侵入された。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/chainstack-reports-production-systems.html"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "incident",
+      "keyword": "クラブツーリズム",
+      "target": "国内旅行",
+      "title": "クラブツーリズムで会員の個人情報が流出した可能性",
+      "what": "ネット登録会員の個人情報が流出した可能性があると公表された。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "Security NEXT",
+          "url": "https://www.security-next.com/192254"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "incident",
+      "keyword": "冷却設備攻撃",
+      "target": "医療",
+      "title": "仏血液センターの冷蔵設備にサイバー攻撃、温度設定を不正変更",
+      "what": "血液製剤への被害は回避されたと報じられた。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "ITmedia",
+          "url": "https://www.itmedia.co.jp/news/article/2611/05/2000002891/"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "vulnerability",
+      "keyword": "CryptoPayment",
+      "target": "WordPress",
+      "title": "WordPressのCryptoPayment Gatewayに最大深刻度の未修正欠陥、攻撃の試み",
+      "what": "ウォレット資格情報が露出し得る脆弱性を狙う攻撃が観測された。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/attackers-target-unpatched.html"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "incident",
+      "keyword": "LLMjacking",
+      "target": "クラウドAI",
+      "title": "GoogleがLLMjackingによる最大100万ドル規模の不正課金を警告",
+      "what": "企業のLLMアクセスが乗っ取られ、クラウド課金が不正に発生している。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/google-llmjacking-attacks-rack-up-1-million-in-cloud-ai-charges/"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "incident",
+      "keyword": "Gorbag WinRAR",
+      "target": "ロシア系攻撃",
+      "title": "ロシア系Gorbagが「WinRAR」の脆弱性でウクライナ等へ情報窃取マルウェアを配布",
+      "what": "WinRARの既知の欠陥を悪用した攻撃が観測された。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/russia-aligned-gorbag-hackers-exploit.html"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "vulnerability",
+      "keyword": "Rails ImgMagick",
+      "target": "Rails",
+      "title": "Railsに、細工したImageMagick画像でサーバにファイルを書き込める重大な欠陥",
+      "what": "アップロード処理を悪用してサーバ上にファイルを書き込める。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/critical-rails-flaw-lets-attackers.html"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "vulnerability",
+      "keyword": "Hinemos",
+      "target": "国産運用管理",
+      "title": "Hinemosに不適切な権限割り当ての脆弱性（JVN）",
+      "what": "NTTデータ先端技術のHinemosに権限設定の不備がある。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "JVN",
+          "url": "https://jvn.jp/jp/JVN46901199/"
+        }
+      ]
+    }
+  ],
+  "source_status": [
+    {
+      "name": "CISA KEV",
+      "ok": true,
+      "count": 2
+    },
+    {
+      "name": "NVD",
+      "ok": true,
+      "count": 19
+    },
+    {
+      "name": "JPCERT/CC",
+      "ok": true,
+      "count": 0
+    },
+    {
+      "name": "IPA",
+      "ok": true,
+      "count": 0
+    },
+    {
+      "name": "Security NEXT",
+      "ok": true,
+      "count": 8
+    },
+    {
+      "name": "piyolog",
+      "ok": true,
+      "count": 4
+    },
+    {
+      "name": "BleepingComputer",
+      "ok": true,
+      "count": 15
+    },
+    {
+      "name": "The Hacker News",
+      "ok": true,
+      "count": 25
+    },
+    {
+      "name": "SecurityWeek",
+      "ok": true,
+      "count": 10
+    },
+    {
+      "name": "JVN",
+      "ok": true,
+      "count": 7
+    },
+    {
+      "name": "ITmedia",
+      "ok": true,
+      "count": 8
+    },
+    {
+      "name": "AWS Health",
+      "ok": true,
+      "count": 0
+    },
+    {
+      "name": "Cloudflare Status",
+      "ok": true,
+      "count": 1
+    },
+    {
+      "name": "GitHub Status",
+      "ok": true,
+      "count": 6
+    },
+    {
+      "name": "EPSS",
+      "ok": true,
+      "count": 19
+    }
+  ],
+  "stats": {
+    "items": 105,
+    "clusters": 89
+  }
+}
