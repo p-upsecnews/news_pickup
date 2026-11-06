@@ -1,0 +1,574 @@
+{
+  "date": "2026-11-06",
+  "generated_at": "2026-11-06T10:15:00+09:00",
+  "window_hours": 48,
+  "headline": "国内ではメール配信サービスCuenoteの不正アクセスとアララ事案の被害拡大、ビックカメラの約1490万件漏えいに注意。脆弱性ではWordPress本体の悪用確認とZyxelスイッチのゼロデイが要確認。",
+  "items": [
+    {
+      "level": "critical",
+      "kind": "incident",
+      "keyword": "Cuenote",
+      "target": "メール配信",
+      "title": "ユミルリンクのメール配信サービス「Cuenote」に不正アクセス、顧客情報流出の恐れ",
+      "what": "メール配信サービスCuenoteが不正アクセスを受け、利用企業の情報が流出した可能性があると公表された。",
+      "who": "Cuenoteを使って顧客へメールを配信している企業と、そのメール受信者。",
+      "action": "自社がCuenote利用か確認し、提供元の案内に従って影響範囲の確認とパスワード変更、フィッシングへの注意喚起を行う。",
+      "cves": [],
+      "tags": [
+        "国内",
+        "情報漏洩",
+        "サプライチェーン"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "piyolog",
+          "url": "https://piyolog.hatenadiary.jp/entry/2026/11/04/191450"
+        }
+      ]
+    },
+    {
+      "level": "critical",
+      "kind": "vulnerability",
+      "keyword": "WordPress本体",
+      "target": "CMS",
+      "title": "WordPress本体の脆弱性がアップグレード時に悪用されているとCISAが確認",
+      "what": "WordPress本体の脆弱性がソフトウェア更新の過程で悪用されていることがCISAにより確認され、KEVに追加された。",
+      "who": "WordPressで運営しているサイト全般。",
+      "action": "最新版へ更新し、改ざんや不審な管理者アカウントがないか確認する。",
+      "cves": [
+        "CVE-2026-119977"
+      ],
+      "tags": [
+        "KEV",
+        "悪用確認済み"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/cisa-confirms-hackers-exploiting.html"
+        }
+      ]
+    },
+    {
+      "level": "critical",
+      "kind": "vulnerability",
+      "keyword": "Zyxel GS1900",
+      "target": "スイッチ",
+      "title": "Zyxel GS1900スイッチのゼロデイが約1000台で悪用、修正版でも防げない事例",
+      "what": "Zyxelのスイッチが約1000台侵害され、既知の修正済み欠陥ではなくゼロデイが悪用されていたと判明。修正を適用しても防げない報告もある。",
+      "who": "Zyxel GS1900シリーズなどのネットワークスイッチ利用者。",
+      "action": "管理画面を外部に公開しない設定にし、ベンダー情報を確認して最新ファームを適用、侵害の痕跡を点検する。",
+      "cves": [
+        "CVE-2026-107441"
+      ],
+      "tags": [
+        "悪用確認済み"
+      ],
+      "is_update": true,
+      "sources": [
+        {
+          "name": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/zyxel-fixes-zero-day-exploited-to-hack-nearly-1-000-network-switches/"
+        },
+        {
+          "name": "SecurityWeek",
+          "url": "https://www.securityweek.com/zyxel-switch-hacks-blamed-on-patched-flaw-actually-exploited-a-zero-day/"
+        },
+        {
+          "name": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/zyxel-gs1900-patch-fails-to-block-zero.html"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "incident",
+      "keyword": "アララ委託先",
+      "target": "メール配信",
+      "title": "アララへの不正アクセス、モスやワークマン、IIJmioなど流出発表が相次ぐ",
+      "what": "アララ メッセージ経由の漏洩で、発表する利用企業が増えている。",
+      "who": "同サービス経由で顧客情報を預けていた企業とその顧客。",
+      "action": "自社や取引先の利用有無を確認し、フィッシングメールに注意する。",
+      "cves": [],
+      "tags": [
+        "国内",
+        "情報漏洩",
+        "サプライチェーン"
+      ],
+      "is_update": true,
+      "sources": [
+        {
+          "name": "ITmedia",
+          "url": "https://www.itmedia.co.jp/news/article/2611/05/2000002907/"
+        },
+        {
+          "name": "piyolog",
+          "url": "https://piyolog.hatenadiary.jp/entry/2026/11/05/015717"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "vulnerability",
+      "keyword": "Apple KEV",
+      "target": "iOS/macOS",
+      "title": "Apple製品の旧脆弱性が悪用され情報窃取マルウェアが配布、米当局が注意喚起",
+      "what": "修正済みのApple製品の脆弱性が悪用され、情報窃取型マルウェアが配布されているとしてCISAがKEVに追加した。",
+      "who": "更新していないiPhone、Macなどのユーザー。",
+      "action": "最新のOSに更新する。",
+      "cves": [
+        "CVE-2024-27834"
+      ],
+      "tags": [
+        "KEV",
+        "悪用確認済み"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "Security NEXT",
+          "url": "https://www.security-next.com/192378"
+        },
+        {
+          "name": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/hackers-exploit-patched-apple-flaw-to.html"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "incident",
+      "keyword": "ビックカメラ",
+      "target": "小売",
+      "title": "ビックカメラG、委託先への不正アクセスで最大約1490万件のメールアドレス漏えいの恐れ",
+      "what": "委託先への不正アクセスにより、メールアドレスなど約1490万件が漏えいした可能性がある。",
+      "who": "同社の会員・顧客。",
+      "action": "不審なメールに注意し、公式の案内を確認する。",
+      "cves": [],
+      "tags": [
+        "国内",
+        "情報漏洩"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "ITmedia",
+          "url": "https://www.itmedia.co.jp/news/article/2611/04/2000002866/"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "incident",
+      "keyword": "DigiCert",
+      "target": "認証局",
+      "title": "DigiCertで情報漏洩、顧客情報や本人確認書類が流出",
+      "what": "証明書発行大手DigiCertで顧客情報や本人確認書類が流出したと報じられた。",
+      "who": "DigiCertの顧客、特に証明書申請時に書類を提出した組織。",
+      "action": "公式発表を確認し、アカウントの認証情報を見直す。",
+      "cves": [],
+      "tags": [
+        "情報漏洩"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/digicert-data-breach-exposes-customer-information-identity-documents/"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "outage",
+      "keyword": "docomo緊急",
+      "target": "通信",
+      "title": "「My docomo」「ドコモオンラインショップ」が不正アクセスの可能性で緊急メンテ",
+      "what": "不正アクセスの可能性により、両サービスが緊急メンテナンスで停止した。",
+      "who": "ドコモの契約者。",
+      "action": "公式の案内を確認し、再開後はパスワードを見直す。",
+      "cves": [],
+      "tags": [
+        "国内",
+        "サービス停止"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "ITmedia",
+          "url": "https://www.itmedia.co.jp/news/article/2611/05/2000002902/"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "vulnerability",
+      "keyword": "OpenSSH",
+      "target": "Linux",
+      "title": "OpenSSHの欠陥でパスワード無効のアカウントにログインされる恐れ、緊急修正",
+      "what": "長いパスワードにより、Alpine Linuxなどでパスワード認証を回避できる欠陥が見つかり、緊急修正が出た。",
+      "who": "OpenSSHを使うLinuxサーバ（特にAlpine系）。",
+      "action": "修正版へ更新する。",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/openssh-issues-emergency-fix-for-flaw.html"
+        },
+        {
+          "name": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/openssh-flaw-lets-attackers-log-into-password-disabled-linux-accounts/"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "vulnerability",
+      "keyword": "APT(Debian)",
+      "target": "Linux",
+      "title": "Debian/UbuntuのAPTに中間者でパッケージを差し替えられる欠陥",
+      "what": "中間者攻撃者が検証済みパッケージを差し替え、root権限でコードを実行できる欠陥。",
+      "who": "Debian、Ubuntuを使うサーバ・開発環境。",
+      "action": "修正版のaptへ更新する。",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/debian-and-ubuntu-apt-flaw-lets-mitm.html"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "vulnerability",
+      "keyword": "Rails",
+      "target": "Webフレームワーク",
+      "title": "Ruby on Railsに重大な欠陥、細工した画像でサーバにファイルを書き込まれる恐れ",
+      "what": "ImageMagick経由のアップロードで任意のサーバファイルを書き込める欠陥があり、21件の脆弱性を修正する更新も公開。",
+      "who": "Railsアプリの運営者。",
+      "action": "最新版へ更新する。",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "Security NEXT",
+          "url": "https://www.security-next.com/192381"
+        },
+        {
+          "name": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/critical-rails-flaw-lets-attackers.html"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "vulnerability",
+      "keyword": "Apache OFBiz",
+      "target": "ERP",
+      "title": "Apache OFBizにRCE脆弱性、修正版を公開",
+      "what": "Apache OFBizにリモートコード実行の脆弱性が見つかり、修正版が公開された。",
+      "who": "OFBizを使うシステム。",
+      "action": "修正版へ更新する。",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "Security NEXT",
+          "url": "https://www.security-next.com/192441"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "vulnerability",
+      "keyword": "Xen",
+      "target": "仮想化",
+      "title": "Xenの欠陥で悪意あるVMが他VMのメモリを読み書き可能",
+      "what": "Xenの欠陥で悪意あるVMが他VMのメモリを読み書き可能。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/xen-hypervisor-flaws-let-one-malicious.html"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "vulnerability",
+      "keyword": "HPE管理製品",
+      "target": "ネットワーク",
+      "title": "HPEのネットワーク管理製品に複数脆弱性、重大3件",
+      "what": "HPEのネットワーク管理製品に複数脆弱性、重大3件。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "Security NEXT",
+          "url": "https://www.security-next.com/192402"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "vulnerability",
+      "keyword": "WatchGuard MFA",
+      "target": "認証",
+      "title": "WatchGuardの多要素認証製品に重大な脆弱性",
+      "what": "WatchGuardの多要素認証製品に重大な脆弱性。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "Security NEXT",
+          "url": "https://www.security-next.com/192434"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "incident",
+      "keyword": "NIKKE",
+      "target": "ゲーム",
+      "title": "「NIKKE」PCランチャー経由でRATや情報窃取マルウェアが配布",
+      "what": "「NIKKE」PCランチャー経由でRATや情報窃取マルウェアが配布。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [
+        "サプライチェーン"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "piyolog",
+          "url": "https://piyolog.hatenadiary.jp/entry/2026/11/05/133509"
+        },
+        {
+          "name": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/nikke-pc-game-launcher-hacked-to-spread-remote-access-data-stealing-malware/"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "incident",
+      "keyword": "mSecure",
+      "target": "パスワード管理",
+      "title": "パスワード管理のmSecureが侵害され、リセット警告",
+      "what": "パスワード管理のmSecureが侵害され、リセット警告。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [
+        "情報漏洩"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/msecure-password-manager-hack-prompts-password-reset-warnings/"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "incident",
+      "keyword": "CWP",
+      "target": "Webサーバ",
+      "title": "Control Web Panelの改ざん版でLinuxサーバにバックドア",
+      "what": "Control Web Panelの改ざん版でLinuxサーバにバックドア。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/hackers-backdoor-linux-servers-using-trojanized-cwp-web-server/"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "incident",
+      "keyword": "GMOペイメント",
+      "target": "決済",
+      "title": "GMOペイメントの決済支援システムで不正行為、Vプリカ69件漏えい",
+      "what": "GMOペイメントの決済支援システムで不正行為、Vプリカ69件漏えい。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [
+        "国内",
+        "情報漏洩"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "ITmedia",
+          "url": "https://www.itmedia.co.jp/news/article/2611/04/2000002850/"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "incident",
+      "keyword": "外務省",
+      "target": "官公庁",
+      "title": "外務省の外部接続ネットワークへの不正アクセス",
+      "what": "外務省の外部接続ネットワークへの不正アクセス。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [
+        "国内"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "piyolog",
+          "url": "https://piyolog.hatenadiary.jp/entry/2026/11/04/132901"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "vulnerability",
+      "keyword": "Dameware",
+      "target": "遠隔サポート",
+      "title": "SolarWinds Dameware に複数の脆弱性",
+      "what": "SolarWinds Dameware に複数の脆弱性。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "Security NEXT",
+          "url": "https://www.security-next.com/192398"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "vulnerability",
+      "keyword": "Firefox 159.0.1",
+      "target": "PCブラウザ",
+      "title": "Firefoxのレイアウト処理の脆弱性を159.0.1で修正",
+      "what": "Firefoxのレイアウト処理の脆弱性を159.0.1で修正。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "Security NEXT",
+          "url": "https://www.security-next.com/192437"
+        }
+      ]
+    }
+  ],
+  "source_status": [
+    {
+      "name": "CISA KEV",
+      "ok": true,
+      "count": 1
+    },
+    {
+      "name": "NVD",
+      "ok": true,
+      "count": 22
+    },
+    {
+      "name": "JPCERT/CC",
+      "ok": true,
+      "count": 0
+    },
+    {
+      "name": "IPA",
+      "ok": true,
+      "count": 0
+    },
+    {
+      "name": "Security NEXT",
+      "ok": true,
+      "count": 16
+    },
+    {
+      "name": "piyolog",
+      "ok": true,
+      "count": 5
+    },
+    {
+      "name": "BleepingComputer",
+      "ok": true,
+      "count": 15
+    },
+    {
+      "name": "The Hacker News",
+      "ok": true,
+      "count": 21
+    },
+    {
+      "name": "SecurityWeek",
+      "ok": true,
+      "count": 10
+    },
+    {
+      "name": "JVN",
+      "ok": true,
+      "count": 9
+    },
+    {
+      "name": "ITmedia",
+      "ok": true,
+      "count": 9
+    },
+    {
+      "name": "AWS Health",
+      "ok": true,
+      "count": 0
+    },
+    {
+      "name": "Cloudflare Status",
+      "ok": true,
+      "count": 3
+    },
+    {
+      "name": "GitHub Status",
+      "ok": true,
+      "count": 6
+    },
+    {
+      "name": "EPSS",
+      "ok": true,
+      "count": 28
+    }
+  ],
+  "stats": {
+    "items": 117,
+    "clusters": 107
+  }
+}
