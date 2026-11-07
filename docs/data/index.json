@@ -1,5 +1,12 @@
 [
  {
+  "date": "2026-11-07",
+  "headline": "OpenSSH「SSHole」の悪用とSonicWall SSL-VPNのMFA回避（KEV）が緊急。国内ではドコモの不正アクセスやセガ系・信金の長期障害が続く。全情報源を取得できた。",
+  "critical": 3,
+  "notable": 8,
+  "other": 8
+ },
+ {
   "date": "2026-11-06",
   "headline": "国内ではメール配信サービスCuenoteの不正アクセスとアララ事案の被害拡大、ビックカメラの約1490万件漏えいに注意。脆弱性ではWordPress本体の悪用確認とZyxelスイッチのゼロデイが要確認。",
   "critical": 3,

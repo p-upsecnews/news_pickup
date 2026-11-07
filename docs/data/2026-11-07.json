@@ -1,0 +1,519 @@
+{
+ "date": "2026-11-07",
+ "generated_at": "2026-11-07T10:20:00+09:00",
+ "window_hours": 48,
+ "headline": "OpenSSH「SSHole」の悪用とSonicWall SSL-VPNのMFA回避（KEV）が緊急。国内ではドコモの不正アクセスやセガ系・信金の長期障害が続く。全情報源を取得できた。",
+ "items": [
+  {
+   "level": "critical",
+   "kind": "vulnerability",
+   "keyword": "OpenSSH SSHole",
+   "target": "Linux SSH",
+   "title": "OpenSSH「SSHole」の認証回避、公開直後から悪用の試みを観測",
+   "what": "OpenSSHにパスワード認証を回避できる脆弱性が見つかり、公開から数時間で悪用の試みが確認された。",
+   "who": "musl libc上でPAMなしでsshdを動かすLinux（Alpine等）で、SSHポートに到達できる環境。",
+   "action": "OpenSSH 10.6p2以降へ更新し、更新まではSSHの接続元を制限する。",
+   "cves": [
+    "CVE-2026-123158"
+   ],
+   "tags": [
+    "悪用確認済み"
+   ],
+   "is_update": true,
+   "sources": [
+    {
+     "name": "The Hacker News",
+     "url": "https://thehackernews.com/2026/11/hackers-exploited-openssh-sshole-flaw.html"
+    },
+    {
+     "name": "piyolog",
+     "url": "https://piyolog.hatenadiary.jp/entry/2026/11/06/120149"
+    },
+    {
+     "name": "BleepingComputer",
+     "url": "https://www.bleepingcomputer.com/news/security/openssh-flaw-lets-attackers-log-into-password-disabled-linux-accounts/"
+    }
+   ]
+  },
+  {
+   "level": "critical",
+   "kind": "vulnerability",
+   "keyword": "SonicWall SSLVPN",
+   "target": "VPN機器",
+   "title": "SonicWall SonicOSのSSL-VPNでSAML/MFA回避、悪用確認でKEV掲載",
+   "what": "SonicOSのSSL-VPNに多要素認証を回避できる欠陥があり、攻撃での悪用が確認されCISAのKEVに追加された。",
+   "who": "SAML認証でSSL-VPNを使っているSonicWallファイアウォール。",
+   "action": "修正版へ更新し、VPNのログイン履歴に不審なものがないか確認する。",
+   "cves": [
+    "CVE-2026-19868"
+   ],
+   "tags": [
+    "KEV",
+    "悪用確認済み"
+   ],
+   "is_update": false,
+   "sources": [
+    {
+     "name": "BleepingComputer",
+     "url": "https://www.bleepingcomputer.com/news/security/sonicwall-warns-of-new-ssl-vpn-mfa-bypass-flaw-exploited-in-attacks/"
+    },
+    {
+     "name": "CISA KEV",
+     "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19868"
+    }
+   ]
+  },
+  {
+   "level": "critical",
+   "kind": "incident",
+   "keyword": "ドコモ不正アクセス",
+   "target": "通信",
+   "title": "My docomo・ドコモオンラインショップが不正アクセスで個人情報流出、緊急メンテ中",
+   "what": "NTTドコモが2サービスへの不正アクセスと顧客情報の流出を公表し、緊急メンテナンスで停止している。",
+   "who": "My docomoとドコモオンラインショップの利用者。",
+   "action": "利用者はパスワード変更と不審な通知・勧誘への注意、再開後の公式案内の確認を行う。",
+   "cves": [],
+   "tags": [
+    "国内",
+    "情報漏洩",
+    "サービス停止"
+   ],
+   "is_update": false,
+   "sources": [
+    {
+     "name": "Security NEXT",
+     "url": "https://www.security-next.com/192453"
+    },
+    {
+     "name": "ITmedia",
+     "url": "https://www.itmedia.co.jp/news/article/2611/05/2000002902/"
+    }
+   ]
+  },
+  {
+   "level": "notable",
+   "kind": "incident",
+   "keyword": "Chainalysis",
+   "target": "暗号資産",
+   "title": "Chainalysisが侵害で全顧客の認証情報とトークン流出を公表",
+   "what": "AIエージェントによる攻撃で、全利用者の氏名・パスワードハッシュ・有効なトークンが流出したと発表された。",
+   "who": "Chainalysisの製品を使う企業・捜査機関。",
+   "action": "利用中ならパスワードとAPIトークンを再発行する。",
+   "cves": [],
+   "tags": [
+    "情報漏洩"
+   ],
+   "is_update": false,
+   "sources": [
+    {
+     "name": "BleepingComputer",
+     "url": "https://www.bleepingcomputer.com/news/security/chainalysis-says-breach-exposed-credentials-for-all-customers/"
+    },
+    {
+     "name": "The Hacker News",
+     "url": "https://thehackernews.com/2026/11/chainalysis-breach-exposes-all-users.html"
+    }
+   ]
+  },
+  {
+   "level": "notable",
+   "kind": "vulnerability",
+   "keyword": "Barracuda ESG",
+   "target": "メールGW",
+   "title": "Barracuda Email Security Gatewayの連鎖攻撃手順が公開、認証不要でroot",
+   "what": "2件の脆弱性を連鎖させるとログインなしでroot権限のコマンド実行が可能で、詳細が公開された。",
+   "who": "Barracuda Email Security Gatewayの利用組織。",
+   "action": "月曜公開のパッチが適用済みか確認し、未適用なら直ちに更新する。",
+   "cves": [
+    "CVE-2026-116606"
+   ],
+   "tags": [
+    "PoC公開"
+   ],
+   "is_update": true,
+   "sources": [
+    {
+     "name": "The Hacker News",
+     "url": "https://thehackernews.com/2026/11/experts-demonstrate-barracuda-email.html"
+    }
+   ]
+  },
+  {
+   "level": "notable",
+   "kind": "vulnerability",
+   "keyword": "Zyxel GS1900",
+   "target": "スイッチ",
+   "title": "Zyxel GS1900の既存パッチでは悪用を防げず、新ファームが公開",
+   "what": "悪用中の欠陥に対する以前の修正が不十分で、認証なしでコマンド実行できる状態が残っていた。",
+   "who": "Zyxel GS1900シリーズ10機種。",
+   "action": "新しいファームウェアに更新し、管理画面を外部に公開しない。",
+   "cves": [],
+   "tags": [
+    "悪用確認済み"
+   ],
+   "is_update": true,
+   "sources": [
+    {
+     "name": "The Hacker News",
+     "url": "https://thehackernews.com/2026/11/zyxel-gs1900-patch-fails-to-block-zero.html"
+    }
+   ]
+  },
+  {
+   "level": "notable",
+   "kind": "incident",
+   "keyword": "セガ系障害",
+   "target": "ゲーセン",
+   "title": "セガ系アミューズメント施設のシステム障害が長期化、原因は不正アクセス",
+   "what": "ゲームセンターのシステム障害が続き、原因が不正アクセスと判明、復旧のめどが立っていない。",
+   "who": "セガ系ゲームセンターの利用者・運営店舗。",
+   "action": "利用者は公式の告知を確認する。関連事業者は同種システムの不正アクセス兆候を点検する。",
+   "cves": [],
+   "tags": [
+    "国内",
+    "サービス停止"
+   ],
+   "is_update": false,
+   "sources": [
+    {
+     "name": "ITmedia",
+     "url": "https://www.itmedia.co.jp/news/article/2611/06/2000002941/"
+    }
+   ]
+  },
+  {
+   "level": "notable",
+   "kind": "outage",
+   "keyword": "信金共同システム",
+   "target": "金融",
+   "title": "128信金に影響か、共同システム障害でATM・振込が利用不可",
+   "what": "複数の信用金庫で共同システムの障害によりATM利用や振込ができず、再開のめどが立っていない。",
+   "who": "共同システムを使う信用金庫の利用者。",
+   "action": "利用者は金融機関の告知を確認し、取引の期日に注意する。",
+   "cves": [],
+   "tags": [
+    "国内",
+    "サービス停止"
+   ],
+   "is_update": false,
+   "sources": [
+    {
+     "name": "ITmedia",
+     "url": "https://www.itmedia.co.jp/news/article/2611/06/2000002971/"
+    }
+   ]
+  },
+  {
+   "level": "notable",
+   "kind": "incident",
+   "keyword": "冷凍設備攻撃",
+   "target": "制御系",
+   "title": "FBIとCISAが冷凍・コールドチェーン監視システムへの攻撃に注意喚起",
+   "what": "産業用冷凍設備やコールドチェーン監視が世界で攻撃されており、食品の劣化や火災の恐れがある。",
+   "who": "食品・物流・医薬の冷凍設備を運用する事業者。",
+   "action": "制御機器をインターネットから切り離し、既定パスワードを変更する。",
+   "cves": [],
+   "tags": [
+    "悪用確認済み"
+   ],
+   "is_update": false,
+   "sources": [
+    {
+     "name": "BleepingComputer",
+     "url": "https://www.bleepingcomputer.com/news/security/fbi-cisa-warn-of-cyberattacks-targeting-refrigeration-systems/"
+    }
+   ]
+  },
+  {
+   "level": "notable",
+   "kind": "incident",
+   "keyword": "Plex2Shell",
+   "target": "NAS",
+   "title": "QNAP NASがPlex2Shell攻撃で侵害されていると発表",
+   "what": "QNAPが、NASがPlex関連の攻撃で侵入されていると公表した。",
+   "who": "Plexを動かしているQNAP NAS。",
+   "action": "Plexとファームを更新し、NASを外部公開しない。",
+   "cves": [],
+   "tags": [
+    "悪用確認済み"
+   ],
+   "is_update": false,
+   "sources": [
+    {
+     "name": "BleepingComputer",
+     "url": "https://www.bleepingcomputer.com/news/security/qnap-says-hackers-breaching-nas-devices-in-plex2shell-attacks/"
+    }
+   ]
+  },
+  {
+   "level": "notable",
+   "kind": "incident",
+   "keyword": "アララ委託先",
+   "target": "国内EC",
+   "title": "アララ経由の顧客情報流出、モスやワークマン、IIJmioなど公表相次ぐ",
+   "what": "アララへの不正アクセスにより、取引先企業から顧客情報流出の発表が続いている。",
+   "who": "アララのサービスを使う企業とその顧客。",
+   "action": "委託先を利用する企業は影響範囲を確認し、顧客は各社の案内を確認する。",
+   "cves": [],
+   "tags": [
+    "国内",
+    "情報漏洩"
+   ],
+   "is_update": true,
+   "sources": [
+    {
+     "name": "ITmedia",
+     "url": "https://www.itmedia.co.jp/news/article/2611/05/2000002907/"
+    }
+   ]
+  },
+  {
+   "level": "other",
+   "kind": "vulnerability",
+   "keyword": "Apple KEV",
+   "target": "Apple OS",
+   "title": "Apple OSの認証欠陥がKEVに追加、情報窃取マルウェアに悪用",
+   "what": "CVE-2024-27834がKEVに追加された。（修正済み）",
+   "who": "",
+   "action": "",
+   "cves": [
+    "CVE-2024-27834"
+   ],
+   "tags": [
+    "KEV"
+   ],
+   "is_update": false,
+   "sources": [
+    {
+     "name": "The Hacker News",
+     "url": "https://thehackernews.com/2026/11/hackers-exploit-patched-apple-flaw-to.html"
+    }
+   ]
+  },
+  {
+   "level": "other",
+   "kind": "vulnerability",
+   "keyword": "D-Link DGS-3130",
+   "target": "スイッチ",
+   "title": "D-Link DGS-3130に未修正のゼロデイ複数、緩和策を案内",
+   "what": "未修正の脆弱性に対し緩和策が示された。",
+   "who": "",
+   "action": "",
+   "cves": [],
+   "tags": [],
+   "is_update": false,
+   "sources": [
+    {
+     "name": "BleepingComputer",
+     "url": "https://www.bleepingcomputer.com/news/security/d-link-warns-of-multiple-zero-days-in-dgs-3130-series-switches/"
+    }
+   ]
+  },
+  {
+   "level": "other",
+   "kind": "vulnerability",
+   "keyword": "WordPress更新",
+   "target": "WordPress",
+   "title": "悪用中のWordPress修正の更新中に、一時的に攻撃を受ける恐れ",
+   "what": "修正を適用する更新過程で旧コードが使われ、タイミング次第でコード実行されうる。",
+   "who": "",
+   "action": "",
+   "cves": [],
+   "tags": [],
+   "is_update": false,
+   "sources": [
+    {
+     "name": "The Hacker News",
+     "url": "https://thehackernews.com/2026/11/installing-fix-for-exploited-wordpress.html"
+    }
+   ]
+  },
+  {
+   "level": "other",
+   "kind": "incident",
+   "keyword": "CWPバックドア",
+   "target": "ホスティング",
+   "title": "Control Web Panelのサーバに、ログに残らないバックドア",
+   "what": "Webサーバにコマンドを実行するバックドアが仕込まれていた。",
+   "who": "",
+   "action": "",
+   "cves": [],
+   "tags": [],
+   "is_update": false,
+   "sources": [
+    {
+     "name": "The Hacker News",
+     "url": "https://thehackernews.com/2026/11/hackers-hide-linux-backdoor-in-control.html"
+    }
+   ]
+  },
+  {
+   "level": "other",
+   "kind": "incident",
+   "keyword": "DigiCert",
+   "target": "証明書",
+   "title": "DigiCertで法人顧客の連絡先情報が漏洩",
+   "what": "内部システムにアカウントが作られ、氏名や連絡先が閲覧された。",
+   "who": "",
+   "action": "",
+   "cves": [],
+   "tags": [
+    "情報漏洩"
+   ],
+   "is_update": true,
+   "sources": [
+    {
+     "name": "SecurityWeek",
+     "url": "https://www.securityweek.com/digicert-data-breach-impacts-business-customer-information/"
+    }
+   ]
+  },
+  {
+   "level": "other",
+   "kind": "incident",
+   "keyword": "ノジマ",
+   "target": "国内EC",
+   "title": "ノジマオンラインの会員情報が流出",
+   "what": "会員管理システムから個人情報が流出した。",
+   "who": "",
+   "action": "",
+   "cves": [],
+   "tags": [
+    "国内",
+    "情報漏洩"
+   ],
+   "is_update": false,
+   "sources": [
+    {
+     "name": "Security NEXT",
+     "url": "https://www.security-next.com/192339"
+    }
+   ]
+  },
+  {
+   "level": "other",
+   "kind": "vulnerability",
+   "keyword": "OFBiz・HPE他",
+   "target": "企業製品",
+   "title": "Apache OFBizやHPE管理製品、WatchGuard MFAに深刻な脆弱性",
+   "what": "複数製品で修正版が公開された。",
+   "who": "",
+   "action": "",
+   "cves": [],
+   "tags": [],
+   "is_update": false,
+   "sources": [
+    {
+     "name": "Security NEXT",
+     "url": "https://www.security-next.com/192441"
+    },
+    {
+     "name": "Security NEXT",
+     "url": "https://www.security-next.com/192402"
+    }
+   ]
+  },
+  {
+   "level": "other",
+   "kind": "other",
+   "keyword": "日本の緊急対策",
+   "target": "政策",
+   "title": "政府がサイバー攻撃の相次ぎを受け緊急対策パッケージを発表",
+   "what": "国内での不正アクセス多発を受けた政策発表。",
+   "who": "",
+   "action": "",
+   "cves": [],
+   "tags": [
+    "国内"
+   ],
+   "is_update": false,
+   "sources": [
+    {
+     "name": "SecurityWeek",
+     "url": "https://www.securityweek.com/japan-announces-emergency-cybersecurity-package-following-a-wave-of-attacks/"
+    }
+   ]
+  }
+ ],
+ "source_status": [
+  {
+   "name": "CISA KEV",
+   "ok": true,
+   "count": 1
+  },
+  {
+   "name": "NVD",
+   "ok": true,
+   "count": 10
+  },
+  {
+   "name": "JPCERT/CC",
+   "ok": true,
+   "count": 0
+  },
+  {
+   "name": "IPA",
+   "ok": true,
+   "count": 0
+  },
+  {
+   "name": "Security NEXT",
+   "ok": true,
+   "count": 17
+  },
+  {
+   "name": "piyolog",
+   "ok": true,
+   "count": 2
+  },
+  {
+   "name": "BleepingComputer",
+   "ok": true,
+   "count": 15
+  },
+  {
+   "name": "The Hacker News",
+   "ok": true,
+   "count": 19
+  },
+  {
+   "name": "SecurityWeek",
+   "ok": true,
+   "count": 10
+  },
+  {
+   "name": "JVN",
+   "ok": true,
+   "count": 3
+  },
+  {
+   "name": "ITmedia",
+   "ok": true,
+   "count": 5
+  },
+  {
+   "name": "AWS Health",
+   "ok": true,
+   "count": 3
+  },
+  {
+   "name": "Cloudflare Status",
+   "ok": true,
+   "count": 5
+  },
+  {
+   "name": "GitHub Status",
+   "ok": true,
+   "count": 2
+  },
+  {
+   "name": "EPSS",
+   "ok": true,
+   "count": 13
+  }
+ ],
+ "stats": {
+  "items": 92,
+  "clusters": 81
+ }
+}
