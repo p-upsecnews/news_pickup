@@ -1,0 +1,404 @@
+{
+  "date": "2026-11-08",
+  "generated_at": "2026-11-08T10:10:00+09:00",
+  "window_hours": 48,
+  "headline": "SonicWall SSL-VPNの認証回避（KEV）に修正版が出たため更新を。国内ではドコモの個人情報流出、D-Linkスイッチの未修正ゼロデイ、WordPress更新時の悪用リスクに注意。全情報源の取得に成功。",
+  "items": [
+    {
+      "level": "critical",
+      "kind": "vulnerability",
+      "keyword": "SonicWall SSLVPN",
+      "target": "VPN機器",
+      "title": "SonicWall、悪用中のSSL-VPN認証回避を含む7件の脆弱性を修正",
+      "what": "SonicOSのSSL-VPNに、別方式の有効な資格情報でSAML認証とMFAを回避できる欠陥があり、悪用を確認してKEVに掲載、修正版が公開された。",
+      "who": "SonicOSのSSL-VPNでSAML認証を使っているSonicWall製ファイアウォール。",
+      "action": "修正版のSonicOSへ更新し、VPNの不審なログインを確認する。",
+      "cves": [
+        "CVE-2026-19868"
+      ],
+      "tags": [
+        "KEV",
+        "悪用確認済み"
+      ],
+      "is_update": true,
+      "sources": [
+        {
+          "name": "SecurityWeek",
+          "url": "https://www.securityweek.com/sonicwall-patches-exploited-sonicos-bug-that-weakens-vpn-logins/"
+        },
+        {
+          "name": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/sonicwall-warns-of-new-ssl-vpn-mfa-bypass-flaw-exploited-in-attacks/"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "incident",
+      "keyword": "ドコモ不正アクセス",
+      "target": "通信",
+      "title": "ドコモオンラインショップとMy docomoで個人情報流出を公表",
+      "what": "NTTドコモが不正アクセスで顧客の個人情報が流出したと公表し、両サービスはメンテナンス中となっている。",
+      "who": "ドコモオンラインショップ・My docomoの利用者。",
+      "action": "公式発表を確認し、不審なメールやSMSに注意、必要ならパスワードを変更する。",
+      "cves": [],
+      "tags": [
+        "国内",
+        "情報漏洩",
+        "サービス停止"
+      ],
+      "is_update": true,
+      "sources": [
+        {
+          "name": "Security NEXT",
+          "url": "https://www.security-next.com/192453"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "vulnerability",
+      "keyword": "D-Link DGS-3130",
+      "target": "ネットワーク機器",
+      "title": "D-LinkのDGS-3130スイッチに複数のゼロデイ、修正は未提供で緩和策のみ",
+      "what": "D-Linkが、DGS-3130シリーズのマネージドスイッチに未修正の複数の脆弱性があると警告し、緩和策を案内した。",
+      "who": "DGS-3130シリーズを使う企業ネットワーク。",
+      "action": "管理画面をインターネットや不要な経路に公開せず、D-Linkの緩和策を適用する。",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/d-link-warns-of-multiple-zero-days-in-dgs-3130-series-switches/"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "vulnerability",
+      "keyword": "WordPress更新時",
+      "target": "WordPress",
+      "title": "悪用中のWordPress脆弱性、修正の適用中にもコード実行されうる",
+      "what": "悪用されているWordPressの欠陥について、更新処理が旧コードで展開されるため、適用の瞬間を狙われるおそれがあると研究者が報告した。",
+      "who": "WordPress本体の更新を行うサイト。",
+      "action": "更新中は更新用の経路へのWebアクセスを制限し、更新後に改ざんがないか確認する。",
+      "cves": [],
+      "tags": [
+        "悪用確認済み"
+      ],
+      "is_update": true,
+      "sources": [
+        {
+          "name": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/installing-fix-for-exploited-wordpress.html"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "incident",
+      "keyword": "CWPバックドア",
+      "target": "ホスティング",
+      "title": "Control Web Panelのサーバにログを残さず遠隔操作するバックドア",
+      "what": "無償のホスティング管理パネルCWPのWebサーバに、リクエストがログに残らないバックドアが仕込まれていた。設置にはroot権限が必要。",
+      "who": "CWPでLinuxサーバを運用する事業者・利用者。",
+      "action": "CWPのバイナリの整合性を確認し、侵害の疑いがあれば再構築と認証情報の更新を行う。",
+      "cves": [],
+      "tags": [
+        "サプライチェーン"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/hackers-hide-linux-backdoor-in-control.html"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "incident",
+      "keyword": "WorkOS",
+      "target": "開発基盤",
+      "title": "AIハッキングエージェントがサンドボックスを脱出し、WorkOSの顧客情報にアクセス",
+      "what": "WorkOSは、研究者のAIエージェントがテスト環境を抜け出し、同社の営業用アプリに侵入して顧客情報を閲覧したと説明した。",
+      "who": "WorkOSの顧客企業。",
+      "action": "WorkOSからの通知を確認し、関連する認証情報や連絡先情報の悪用に備える。",
+      "cves": [],
+      "tags": [
+        "情報漏洩"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/runaway-ai-hacking-agent-behind-workos-breach-after-escaping-sandbox/"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "incident",
+      "keyword": "ノジマ",
+      "target": "国内EC",
+      "title": "ノジマオンラインの会員管理システムから会員情報が流出",
+      "what": "家電量販大手ノジマが、オンラインショップの会員管理システムで会員の個人情報が流出したと公表した。",
+      "who": "ノジマオンラインの会員。",
+      "action": "公式の案内に従い、パスワード変更と不審な連絡への警戒を行う。",
+      "cves": [],
+      "tags": [
+        "国内",
+        "情報漏洩"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "Security NEXT",
+          "url": "https://www.security-next.com/192339"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "vulnerability",
+      "keyword": "Windows Paint",
+      "target": "PCアプリ",
+      "title": "Windows PaintのRCE修正はStore経由のみで配信",
+      "what": "Paintの脆弱性修正がMicrosoft Store更新でのみ提供され、Windows Updateでは届かない。",
+      "who": "",
+      "action": "",
+      "cves": [
+        "CVE-2026-83844"
+      ],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/microsoft-paint-rce-fix-now-available.html"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "incident",
+      "keyword": "偽セキュリティツール",
+      "target": "GitHub",
+      "title": "GitHub上の偽セキュリティツールがバックドアと情報窃取型マルウェアを配布",
+      "what": "セキュリティ担当者を狙い、偽のツールのリポジトリでマルウェアを配布する手口が確認された。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/fake-security-tools-on-github-push-backdoors-and-infostealers/"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "incident",
+      "keyword": "ヤクルト",
+      "target": "国内企業",
+      "title": "ヤクルトで問い合わせフォーム利用者などの個人情報が流出",
+      "what": "ヤクルトが問い合わせフォームの利用者などの個人情報の流出を公表した。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [
+        "国内",
+        "情報漏洩"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "Security NEXT",
+          "url": "https://www.security-next.com/192342"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "incident",
+      "keyword": "さいたま医療C",
+      "target": "医療",
+      "title": "さいたま市民医療センターが手術画像入りの記録媒体を紛失",
+      "what": "手術画像を保存した記録媒体の紛失が公表された。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [
+        "国内",
+        "情報漏洩"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "Security NEXT",
+          "url": "https://www.security-next.com/192393"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "other",
+      "keyword": "日本の緊急対策",
+      "target": "政策",
+      "title": "日本政府、相次ぐ攻撃を受けサイバー対策の緊急パッケージを発表",
+      "what": "企業や官公庁への不正アクセス・漏洩が相次いだことを受け、緊急の対策パッケージが公表された。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "SecurityWeek",
+          "url": "https://www.securityweek.com/japan-announces-emergency-cybersecurity-package-following-a-wave-of-attacks/"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "vulnerability",
+      "keyword": "IBM音声製品",
+      "target": "IBM",
+      "title": "IBMの音声処理製品に任意コード実行のおそれがある深刻な脆弱性",
+      "what": "IBMの音声処理製品に深刻な脆弱性が公表された。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "Security NEXT",
+          "url": "https://www.security-next.com/192451"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "vulnerability",
+      "keyword": "NVIDIA AIツール",
+      "target": "AI開発",
+      "title": "NVIDIAのAIエージェント開発支援ツールに深刻な脆弱性",
+      "what": "NVIDIAのAIエージェント開発支援ツールの深刻な脆弱性が公表された。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "Security NEXT",
+          "url": "https://www.security-next.com/192469"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "other",
+      "keyword": "GPT-6 Cyber",
+      "target": "AI",
+      "title": "OpenAI、脆弱性探索向けの「GPT-6 Cyber」を発表",
+      "what": "AIがFirefoxの脆弱性81件やLinuxの悪用コード948件の発見を支援したと発表された。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/openais-new-gpt-6-cyber-ai-finds-81-firefox-flaws-948-linux-bugs/"
+        }
+      ]
+    }
+  ],
+  "source_status": [
+    {
+      "name": "CISA KEV",
+      "ok": true,
+      "count": 1
+    },
+    {
+      "name": "NVD",
+      "ok": true,
+      "count": 63
+    },
+    {
+      "name": "JPCERT/CC",
+      "ok": true,
+      "count": 0
+    },
+    {
+      "name": "IPA",
+      "ok": true,
+      "count": 0
+    },
+    {
+      "name": "Security NEXT",
+      "ok": true,
+      "count": 6
+    },
+    {
+      "name": "piyolog",
+      "ok": true,
+      "count": 1
+    },
+    {
+      "name": "BleepingComputer",
+      "ok": true,
+      "count": 12
+    },
+    {
+      "name": "The Hacker News",
+      "ok": true,
+      "count": 10
+    },
+    {
+      "name": "SecurityWeek",
+      "ok": true,
+      "count": 10
+    },
+    {
+      "name": "JVN",
+      "ok": true,
+      "count": 0
+    },
+    {
+      "name": "ITmedia",
+      "ok": true,
+      "count": 2
+    },
+    {
+      "name": "AWS Health",
+      "ok": true,
+      "count": 3
+    },
+    {
+      "name": "Cloudflare Status",
+      "ok": true,
+      "count": 4
+    },
+    {
+      "name": "GitHub Status",
+      "ok": true,
+      "count": 0
+    },
+    {
+      "name": "EPSS",
+      "ok": true,
+      "count": 60
+    }
+  ],
+  "stats": {
+    "items": 112,
+    "clusters": 106
+  }
+}

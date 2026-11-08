@@ -1,5 +1,12 @@
 [
  {
+  "date": "2026-11-08",
+  "headline": "SonicWall SSL-VPNの認証回避（KEV）に修正版が出たため更新を。国内ではドコモの個人情報流出、D-Linkスイッチの未修正ゼロデイ、WordPress更新時の悪用リスクに注意。全情報源の取得に成功。",
+  "critical": 1,
+  "notable": 6,
+  "other": 8
+ },
+ {
   "date": "2026-11-07",
   "headline": "OpenSSH「SSHole」の悪用とSonicWall SSL-VPNのMFA回避（KEV）が緊急。国内ではドコモの不正アクセスやセガ系・信金の長期障害が続く。全情報源を取得できた。",
   "critical": 3,
