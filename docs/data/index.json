@@ -1,5 +1,12 @@
 [
  {
+  "date": "2026-11-09",
+  "headline": "新規の緊急案件なし。アイリスオーヤマの最大770万人分の流出、ドコモ不正アクセスの続報、IBM API Connectの深刻な脆弱性に注目。先週のSonicWall SSL-VPN認証回避（KEV）は未対応なら引き続き優先。全情報源の取得に成功。",
+  "critical": 0,
+  "notable": 4,
+  "other": 3
+ },
+ {
   "date": "2026-11-08",
   "headline": "SonicWall SSL-VPNの認証回避（KEV）に修正版が出たため更新を。国内ではドコモの個人情報流出、D-Linkスイッチの未修正ゼロデイ、WordPress更新時の悪用リスクに注意。全情報源の取得に成功。",
   "critical": 1,

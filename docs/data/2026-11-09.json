@@ -1,0 +1,246 @@
+{
+  "date": "2026-11-09",
+  "generated_at": "2026-11-09T10:20:00+09:00",
+  "window_hours": 48,
+  "headline": "新規の緊急案件なし。アイリスオーヤマの最大770万人分の流出、ドコモ不正アクセスの続報、IBM API Connectの深刻な脆弱性に注目。先週のSonicWall SSL-VPN認証回避（KEV）は未対応なら引き続き優先。全情報源の取得に成功。",
+  "items": [
+    {
+      "level": "notable",
+      "kind": "incident",
+      "keyword": "アイリスオーヤマ",
+      "target": "EC・顧客情報",
+      "title": "アイリスオーヤマ、委託先クラウドへの不正アクセスで最大770万人分の情報流出の恐れ",
+      "what": "同社が利用する外部クラウドサービスへの不正アクセスにより、通販サイト運営に関わる約770万人分の個人情報が漏れた可能性が公表された。",
+      "who": "同社の通販サイト（アイリスプラザ）などの利用者。",
+      "action": "利用者は不審なメール・SMSに注意し、同社の案内に従ってパスワードを変更する。自社は委託先クラウドの権限・ログを点検する。",
+      "cves": [],
+      "tags": [
+        "国内",
+        "情報漏洩"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/iris-ohyama-data-cloud-breach-exposes-info-of-77-million-customers/"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "incident",
+      "keyword": "ドコモ不正アクセス",
+      "target": "通信・EC",
+      "title": "ドコモオンラインショップ/My docomo不正アクセス、経緯の続報",
+      "what": "11月4日の異常な大量アクセスの検知から、経路遮断後の再開、再停止、顧客情報の流出確認までの時系列が整理された。",
+      "who": "ドコモオンラインショップ・My docomoの利用者。",
+      "action": "利用者はドコモの公表に沿ってパスワード変更と不審連絡への警戒を行う。",
+      "cves": [],
+      "tags": [
+        "国内",
+        "情報漏洩",
+        "サービス停止"
+      ],
+      "is_update": true,
+      "sources": [
+        {
+          "name": "piyolog",
+          "url": "https://piyolog.hatenadiary.jp/entry/2026/11/09/090504"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "vulnerability",
+      "keyword": "IBM API Connect",
+      "target": "APIゲートウェイ",
+      "title": "IBM API Connectに深刻なRCE系脆弱性が複数（CVSS 9.8〜9.9）",
+      "what": "IBM API Connectでコマンドインジェクションやパストラバーサルにより任意コード実行に至る脆弱性が複数公開された。",
+      "who": "API Connect 10.0.8.0〜10.0.8.12 および 12.1.0.0〜12.1.1.2 を使う組織。",
+      "action": "IBMの修正情報を確認して該当バージョンを更新し、管理画面を外部に公開していないか確認する。",
+      "cves": [
+        "CVE-2026-17402",
+        "CVE-2026-17408",
+        "CVE-2026-17340",
+        "CVE-2026-17147"
+      ],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "NVD",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17402"
+        },
+        {
+          "name": "NVD",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17408"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "incident",
+      "keyword": "Arkéa銀行",
+      "target": "金融",
+      "title": "仏Crédit Mutuel Arkéa、委託先経由の攻撃で最大約1.3億ドルの不正取引",
+      "what": "フランスの協同組合銀行が委託事業者を経由したサイバー攻撃を受け、不正送金が試みられ一部システムを停止した。",
+      "who": "同行および同種のサービスプロバイダを使う金融機関。",
+      "action": "委託先経由の送金・管理系の権限と監視を見直す。",
+      "cves": [],
+      "tags": [
+        "サプライチェーン"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/hackers-pull-off-133-million-french-bank-heist-via-service-provider/"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "incident",
+      "keyword": "Claude Code設定",
+      "target": "開発環境",
+      "title": "Claude Codeの許可設定ファイル経由で秘密情報が公開リポジトリに多数露出",
+      "what": "コマンド承認時に保存される設定ファイルに、パスワードやAPIキーが含まれたまま公開GitHubへ1,122件コミットされていたとApiiroが報告した。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [
+        "情報漏洩"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/claude-codes-dont-ask-again-file.html"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "other",
+      "keyword": "標的型詐欺メール",
+      "target": "フィッシング",
+      "title": "漏洩相次ぎ、個人に合わせた詐欺メール増加の懸念",
+      "what": "9月末から続く企業への不正アクセスで漏れた情報を悪用した、個別化フィッシングへの警戒が高まっている。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [
+        "国内"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "ITmedia",
+          "url": "https://www.itmedia.co.jp/news/article/2611/09/2000002926/"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "vulnerability",
+      "keyword": "Siemens 11月",
+      "target": "産業制御",
+      "title": "Siemens製品の定例アップデート（2026年11月）",
+      "what": "Siemensが各製品向けのセキュリティアドバイザリを公表した。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [
+        "国内"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "JVN",
+          "url": "https://jvn.jp/vu/JVNVU98354779/"
+        }
+      ]
+    }
+  ],
+  "source_status": [
+    {
+      "name": "CISA KEV",
+      "ok": true,
+      "count": 0
+    },
+    {
+      "name": "NVD",
+      "ok": true,
+      "count": 72
+    },
+    {
+      "name": "JPCERT/CC",
+      "ok": true,
+      "count": 0
+    },
+    {
+      "name": "IPA",
+      "ok": true,
+      "count": 0
+    },
+    {
+      "name": "Security NEXT",
+      "ok": true,
+      "count": 2
+    },
+    {
+      "name": "piyolog",
+      "ok": true,
+      "count": 1
+    },
+    {
+      "name": "BleepingComputer",
+      "ok": true,
+      "count": 3
+    },
+    {
+      "name": "The Hacker News",
+      "ok": true,
+      "count": 1
+    },
+    {
+      "name": "SecurityWeek",
+      "ok": true,
+      "count": 2
+    },
+    {
+      "name": "JVN",
+      "ok": true,
+      "count": 1
+    },
+    {
+      "name": "ITmedia",
+      "ok": true,
+      "count": 1
+    },
+    {
+      "name": "AWS Health",
+      "ok": true,
+      "count": 0
+    },
+    {
+      "name": "Cloudflare Status",
+      "ok": true,
+      "count": 2
+    },
+    {
+      "name": "GitHub Status",
+      "ok": true,
+      "count": 1
+    },
+    {
+      "name": "EPSS",
+      "ok": true,
+      "count": 61
+    }
+  ],
+  "stats": {
+    "items": 86,
+    "clusters": 85
+  }
+}
