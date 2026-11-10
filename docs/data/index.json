@@ -1,5 +1,12 @@
 [
  {
+  "date": "2026-11-10",
+  "headline": "OpenSSH「SSHole」とSonicOSのKEV追加が続報で、N-ableがN-centralを停止する事態に。無印良品の漏えい拡大やQubole経由のAWS侵害も発生。取得失敗の情報源なし。",
+  "critical": 3,
+  "notable": 9,
+  "other": 10
+ },
+ {
   "date": "2026-11-09",
   "headline": "新規の緊急案件なし。アイリスオーヤマの最大770万人分の流出、ドコモ不正アクセスの続報、IBM API Connectの深刻な脆弱性に注目。先週のSonicWall SSL-VPN認証回避（KEV）は未対応なら引き続き優先。全情報源の取得に成功。",
   "critical": 0,
