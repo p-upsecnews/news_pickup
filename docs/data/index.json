@@ -1,5 +1,12 @@
 [
  {
+  "date": "2026-11-11",
+  "headline": "Outlookの悪用ゼロデイを含むMS定例パッチとBarracuda ESGの悪用開始が今日の優先事項。国内ではニトリの最大3,760万件流出の可能性が大きな話題。全情報源の取得に成功。",
+  "critical": 2,
+  "notable": 7,
+  "other": 6
+ },
+ {
   "date": "2026-11-10",
   "headline": "OpenSSH「SSHole」とSonicOSのKEV追加が続報で、N-ableがN-centralを停止する事態に。無印良品の漏えい拡大やQubole経由のAWS侵害も発生。取得失敗の情報源なし。",
   "critical": 3,

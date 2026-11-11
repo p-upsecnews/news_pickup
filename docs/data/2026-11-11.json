@@ -1,0 +1,433 @@
+{
+  "date": "2026-11-11",
+  "generated_at": "2026-11-11T10:20:00+09:00",
+  "window_hours": 48,
+  "headline": "Outlookの悪用ゼロデイを含むMS定例パッチとBarracuda ESGの悪用開始が今日の優先事項。国内ではニトリの最大3,760万件流出の可能性が大きな話題。全情報源の取得に成功。",
+  "items": [
+    {
+      "level": "critical",
+      "kind": "vulnerability",
+      "keyword": "Outlook ゼロデイ",
+      "target": "メールクライアント",
+      "title": "11月のMS定例パッチで悪用中のOutlookゼロデイを修正、修正数は過去最多級",
+      "what": "Microsoftが11月の定例更新で非常に多数の脆弱性を修正し、そのうちOutlookの1件（CVE-2026-124194）は既に悪用が確認されKEVにも追加された。",
+      "who": "Outlookを利用するWindows／Microsoft 365環境の利用者全般。",
+      "action": "11月の月例更新を優先してOutlookに適用し、KEV掲載分は期限内の適用を確認する。",
+      "cves": [
+        "CVE-2026-124194"
+      ],
+      "tags": [
+        "KEV",
+        "悪用確認済み"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "SecurityWeek",
+          "url": "https://www.securityweek.com/exploited-outlook-zero-day-among-1094-flaws-patched-by-microsoft/"
+        },
+        {
+          "name": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/microsoft/microsoft-november-2026-patch-tuesday-fixes-1-235-flaws-outlook-zero-day/"
+        }
+      ]
+    },
+    {
+      "level": "critical",
+      "kind": "vulnerability",
+      "keyword": "Barracuda ESG",
+      "target": "メールGW",
+      "title": "Barracuda Email Security Gatewayの脆弱性が悪用され、root権限の奪取に至る",
+      "what": "Barracudaが、修正済みのESG脆弱性2件（認証回避とコマンドインジェクション）が実際に攻撃で悪用され始めたと警告し、CISAもKEVに追加した。",
+      "who": "Barracuda ESG・ロードバランサ等の未更新環境。",
+      "action": "修正版へ更新し、更新前に侵害されていないか不審な通信・プロセス・設定変更を確認する。",
+      "cves": [
+        "CVE-2026-111560",
+        "CVE-2026-116606"
+      ],
+      "tags": [
+        "KEV",
+        "悪用確認済み"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/hackers-exploit-barracuda-email-security-gateway-flaws-to-get-root-access/"
+        },
+        {
+          "name": "CISA KEV",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-116606"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "incident",
+      "keyword": "ニトリ",
+      "target": "小売・国内",
+      "title": "ニトリで最大3,760万件の顧客情報が流出した可能性",
+      "what": "ニトリグループのシステムが不正アクセスを受け、最大3,760万件の顧客レコードが盗まれた可能性があると公表された。",
+      "who": "ニトリグループの顧客（会員）。",
+      "action": "該当する場合は同一パスワードの使い回しを見直し、フィッシングメールに警戒する。客先が関係する場合は公表内容を確認する。",
+      "cves": [],
+      "tags": [
+        "国内",
+        "情報漏洩"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "Security NEXT",
+          "url": "https://www.security-next.com/192572"
+        },
+        {
+          "name": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/japanese-furniture-giant-nitori-says-hackers-stole-376m-customer-records/"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "vulnerability",
+      "keyword": "SAP 11月パッチ",
+      "target": "業務基幹",
+      "title": "SAPが11月の定例で最大深刻度CVSS 10.0の脆弱性4件を修正",
+      "what": "SAPのパッチデーで認証不要のものを含むCVSS 10.0の脆弱性が4件修正され、ICM2SHELL・PROXYGATEなどの通称も付いた。",
+      "who": "NetWeaver、Web Dispatcherなどを使うSAP環境。",
+      "action": "当該SAPノートを確認して該当コンポーネントへパッチを適用する。インターネット公開部分を優先する。",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/sap-patches-four-cvss-100-flaws.html"
+        },
+        {
+          "name": "SecurityWeek",
+          "url": "https://www.securityweek.com/sap-patches-critical-icm2shell-proxygate-vulnerabilities/"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "vulnerability",
+      "keyword": "Xen Orchestra",
+      "target": "仮想化管理",
+      "title": "Xen Orchestraの認証回避が悪用され、VM管理サーバが乗っ取られる",
+      "what": "Xen Orchestraの重大な認証回避の脆弱性が実際に悪用され、管理者権限の奪取につながっている。",
+      "who": "Xen Orchestraを運用している環境。",
+      "action": "ベンダーの修正版へ更新し、管理画面を外部へ公開していないか確認する。",
+      "cves": [],
+      "tags": [
+        "悪用確認済み"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/critical-xen-orchestra-auth-bypass-flaw-exploited-to-hijack-vm-servers/"
+        },
+        {
+          "name": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/hackers-exploit-critical-xen-orchestra.html"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "vulnerability",
+      "keyword": "AhsayCBS",
+      "target": "バックアップ",
+      "title": "AhsayCBSの脆弱性2件が悪用され、検知回避型のPythonバックドアが設置される",
+      "what": "バックアップ製品AhsayCBSの既に修正済みの脆弱性（うち1件はCVSS 10.0）が悪用され、サンドボックス回避機能を持つバックドアが仕込まれた。",
+      "who": "AhsayCBSの未更新環境。",
+      "action": "最新版へ更新し、侵害の痕跡（不審なPythonプロセス等）がないか確認する。",
+      "cves": [
+        "CVE-2026-105133",
+        "CVE-2026-105134"
+      ],
+      "tags": [
+        "KEV",
+        "悪用確認済み"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/attackers-exploit-ahsaycbs-flaws-to.html"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "vulnerability",
+      "keyword": "iOS サンドボックス",
+      "target": "スマホ",
+      "title": "iOSでアプリ間のファイル読み取りが可能になる脱出手法が公開、同時に定例更新も",
+      "what": "iOS 26/27系でサンドボックス脱出によりほかのアプリのファイルを読める手法がGitHubで公開され、暗号資産事業者が警告している。Appleは別途BluetoothやiMessage関連の修正を含む更新を出した。",
+      "who": "iOS／iPadOSの利用者、特に暗号資産ウォレット利用者。",
+      "action": "最新のiOSへ更新し、不審なアプリを入れない。ウォレットの秘密情報の保管方法を見直す。",
+      "cves": [],
+      "tags": [
+        "PoC公開"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "Security NEXT",
+          "url": "https://www.security-next.com/192567"
+        },
+        {
+          "name": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/binance-warns-of-ios-sandbox-escape.html"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "incident",
+      "keyword": "NTTデータ受託",
+      "target": "保険・国内",
+      "title": "NTTデータ受託の住友生命「Vitality」システムで約8万人の情報が漏えい",
+      "what": "NTTデータが運用する住友生命の健康増進サービス用システムが不正アクセスを受け、利用者約8万人の個人情報が漏れ、新規申込みを停止した。",
+      "who": "「Vitality」体験版・企業型、スマートの利用者と、委託先管理に関わる企業。",
+      "action": "委託先への不正アクセス時の連絡経路と、委託先システムの権限・ログ管理を確認する。",
+      "cves": [],
+      "tags": [
+        "国内",
+        "情報漏洩"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "ITmedia",
+          "url": "https://www.itmedia.co.jp/news/article/2611/10/2000003051/"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "incident",
+      "keyword": "SGLang RCE",
+      "target": "AI推論基盤",
+      "title": "SGLangのRCEが悪用され、NEAR AIの推論サーバから約100ユーザーの情報が窃取",
+      "what": "AI推論エンジンSGLangのリモートコード実行の欠陥が攻撃に使われ、NEAR AIで18のエージェントと約100人のデータが盗まれた。",
+      "who": "SGLangを外部から到達可能な状態で運用している環境。",
+      "action": "SGLangを最新版にし、推論サーバを公開しない・認証を付ける。保存された鍵類のローテーションも検討する。",
+      "cves": [],
+      "tags": [
+        "悪用確認済み"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/sglang-rce-exploit-breaches-near-ai.html"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "incident",
+      "keyword": "Railway",
+      "target": "クラウド基盤",
+      "title": "Railwayの侵害で顧客の認証情報が盗まれ、約74万ドルのAI不正利用",
+      "what": "クラウドホスティングのRailwayでインフラの脆弱性が悪用され、顧客の認証情報が盗まれてAIサービスの不正課金が発生した。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/apple/railway-breach-leads-to-740-000-in-fraudulent-ai-charges/"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "incident",
+      "keyword": "Turla Cereal",
+      "target": "国家支援",
+      "title": "Turlaが新マルウェア「Cereal」で政府機関のExchangeサーバのメールを傍受",
+      "what": "ロシア系のTurlaが、Exchangeサーバ上でメールを傍受する新しいツール群を使っている。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/turla-hackers-use-new-ceral-malware-to-spy-on-govt-exchange-servers/"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "vulnerability",
+      "keyword": "Cisco BroadWorks",
+      "target": "通信基盤",
+      "title": "Cisco BroadWorksのXXE脆弱性がCISA KEVに追加",
+      "what": "認証なしで悪用できうるXXEの脆弱性が悪用確認としてKEVに載った。",
+      "who": "",
+      "action": "",
+      "cves": [
+        "CVE-2026-20320"
+      ],
+      "tags": [
+        "KEV"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "CISA KEV",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-20320"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "incident",
+      "keyword": "Fireworks AI",
+      "target": "AI基盤",
+      "title": "Fireworks AIの侵害が拡大、顧客データセットやモデル重みにも影響",
+      "what": "クラウド事業者経由の侵害が判明し、顧客のデータセットやモデルの重みなどにも影響が及んだと公表された。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/fireworks-ai-discloses-new-breach-after-cloud-provider-hack/"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "incident",
+      "keyword": "偽TikTokアプリ",
+      "target": "国内・詐欺",
+      "title": "偽TikTokアプリでスマホを遠隔操作し不正決済、3道県警が2人を逮捕",
+      "what": "偽アプリで遠隔操作し電子決済を不正に使ったとして、福岡・兵庫・北海道の合同捜査本部が男2人を逮捕した。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [
+        "国内"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "piyolog",
+          "url": "https://piyolog.hatenadiary.jp/entry/2026/11/11/094815"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "incident",
+      "keyword": "冷凍設備攻撃",
+      "target": "産業制御",
+      "title": "米当局が冷凍・コールドチェーン制御機器への攻撃に警告",
+      "what": "産業用冷凍設備の監視機器が世界的に狙われ、火災や在庫損失のおそれがあると注意喚起された。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/us-agencies-warn-refrigeration.html"
+        }
+      ]
+    }
+  ],
+  "source_status": [
+    {
+      "name": "CISA KEV",
+      "ok": true,
+      "count": 10
+    },
+    {
+      "name": "NVD",
+      "ok": true,
+      "count": 38
+    },
+    {
+      "name": "JPCERT/CC",
+      "ok": true,
+      "count": 0
+    },
+    {
+      "name": "IPA",
+      "ok": true,
+      "count": 0
+    },
+    {
+      "name": "Security NEXT",
+      "ok": true,
+      "count": 18
+    },
+    {
+      "name": "piyolog",
+      "ok": true,
+      "count": 5
+    },
+    {
+      "name": "BleepingComputer",
+      "ok": true,
+      "count": 15
+    },
+    {
+      "name": "The Hacker News",
+      "ok": true,
+      "count": 28
+    },
+    {
+      "name": "SecurityWeek",
+      "ok": true,
+      "count": 10
+    },
+    {
+      "name": "JVN",
+      "ok": true,
+      "count": 10
+    },
+    {
+      "name": "ITmedia",
+      "ok": true,
+      "count": 6
+    },
+    {
+      "name": "AWS Health",
+      "ok": true,
+      "count": 0
+    },
+    {
+      "name": "Cloudflare Status",
+      "ok": true,
+      "count": 1
+    },
+    {
+      "name": "GitHub Status",
+      "ok": true,
+      "count": 5
+    },
+    {
+      "name": "EPSS",
+      "ok": true,
+      "count": 24
+    }
+  ],
+  "stats": {
+    "items": 146,
+    "clusters": 128
+  }
+}
