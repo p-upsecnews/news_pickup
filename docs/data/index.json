@@ -1,5 +1,12 @@
 [
  {
+  "date": "2026-11-12",
+  "headline": "ConnectWise ScreenConnect侵害によるMSP経由の攻撃が今日の最優先。AWS東京リージョンの障害、Zoom・Fortinet・Citrix/Ivantiの修正、Maerskのランサム被害も把握を。昨日までに掲載済みの案件は進展のあるものだけ再掲。全情報源の取得に成功。",
+  "critical": 1,
+  "notable": 6,
+  "other": 8
+ },
+ {
   "date": "2026-11-11",
   "headline": "Outlookの悪用ゼロデイを含むMS定例パッチとBarracuda ESGの悪用開始が今日の優先事項。国内ではニトリの最大3,760万件流出の可能性が大きな話題。全情報源の取得に成功。",
   "critical": 2,

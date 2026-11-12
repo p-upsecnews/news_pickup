@@ -1,0 +1,423 @@
+{
+  "date": "2026-11-12",
+  "generated_at": "2026-11-12T10:20:00+09:00",
+  "window_hours": 48,
+  "headline": "ConnectWise ScreenConnect侵害によるMSP経由の攻撃が今日の最優先。AWS東京リージョンの障害、Zoom・Fortinet・Citrix/Ivantiの修正、Maerskのランサム被害も把握を。昨日までに掲載済みの案件は進展のあるものだけ再掲。全情報源の取得に成功。",
+  "items": [
+    {
+      "level": "critical",
+      "kind": "incident",
+      "keyword": "ScreenConnect",
+      "target": "MSP・RMM",
+      "title": "ScreenConnectの侵害環境を悪用、MSP経由で顧客端末に不正な遠隔操作ツールが配布される",
+      "what": "ConnectWiseが調査中の攻撃で、侵害されたScreenConnect環境から不正なリモートアクセスクライアントが顧客端末へ配布され、数十組織に影響が出ている。",
+      "who": "ScreenConnectを運用するMSP事業者と、その管理下にある顧客企業の端末。",
+      "action": "自社・委託先のScreenConnectのログと管理者アカウントを確認し、見覚えのないクライアントやセッションがあれば隔離する。ConnectWiseの案内に従い最新版へ更新する。",
+      "cves": [],
+      "tags": [
+        "サプライチェーン",
+        "悪用確認済み"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/active-screenconnect-attacks-breach-msps-impact-dozens-of-organizations/"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "outage",
+      "keyword": "AWS東京障害",
+      "target": "クラウド",
+      "title": "AWS東京リージョンでAPIエラー増加とインスタンス起動失敗、復旧作業が長時間続く",
+      "what": "AP-NORTHEAST-1でAPIエラー率が上昇し、特定のAZ(apne1-az1)を中心にEC2の起動失敗や新規リソースの接続不良が数時間続いた。復旧の兆しは出ている。",
+      "who": "東京リージョンでEC2・EBS・Auto Scaling等を使うシステム。",
+      "action": "影響AZでのネットワーク構成変更を避け、他のAZで起動する。AWS Healthの最新状況を確認する。",
+      "cves": [],
+      "tags": [
+        "サービス停止",
+        "国内"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "AWS Health",
+          "url": "https://status.aws.amazon.com/"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "incident",
+      "keyword": "Maersk",
+      "target": "物流",
+      "title": "Maersk、買収で引き継いだ旧システムから情報窃取 ランサムウェア「WhiteArmor」が500万ドル要求",
+      "what": "Maerskが、買収で引き継いだ旧システムに不正アクセスがありデータが持ち出されたと認め、ランサムウェアグループが500万ドルを要求している。",
+      "who": "Maerskと取引のある荷主・物流関連企業。",
+      "action": "取引先として通知内容を確認し、メール等でのなりすまし・フィッシングに警戒する。",
+      "cves": [],
+      "tags": [
+        "ランサムウェア",
+        "情報漏洩"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/maersk-confirms-data-breach-as-whitearmor-ransomware-demands-5-million/"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "vulnerability",
+      "keyword": "Zoom Workplace",
+      "target": "Windows",
+      "title": "Windows版Zoom Workplaceに重大な権限昇格の脆弱性、修正版を公開",
+      "what": "Windows版Zoom Workplaceに2件の脆弱性があり、うち1件はCVSS 9台の「クリティカル」で、認証なしの権限昇格につながるとされる。修正済み。",
+      "who": "Windows版Zoom Workplaceの利用者全般。",
+      "action": "最新版へ更新する(管理配布している場合は配布を更新)。",
+      "cves": [
+        "CVE-2026-108186"
+      ],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "Security NEXT",
+          "url": "https://www.security-next.com/192629"
+        },
+        {
+          "name": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/critical-zoom-workplace-flaw-could.html"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "vulnerability",
+      "keyword": "FortiOS",
+      "target": "UTM・FW",
+      "title": "FortiOSに複数の脆弱性、3件が「クリティカル」 Fortinetは約100件を一括修正",
+      "what": "FortinetがFortiOSなど約100件の脆弱性を一括で修正し、うち3件の重要度がクリティカルとされた。現時点で悪用の報告は確認できていない。",
+      "who": "FortiOSを使うUTM/ファイアウォール機器の利用者。",
+      "action": "公開されたアドバイザリで該当バージョンを確認し、修正版へ更新する。管理画面を外部公開している場合は制限する。",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "Security NEXT",
+          "url": "https://www.security-next.com/192635"
+        },
+        {
+          "name": "SecurityWeek",
+          "url": "https://www.securityweek.com/fortinet-patches-nearly-100-vulnerabilities/"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "vulnerability",
+      "keyword": "Citrix/Ivanti",
+      "target": "VPN・ADC",
+      "title": "CitrixとIvantiが重要度の高い脆弱性を修正、証明書改ざんやRCEの恐れ",
+      "what": "CitrixとIvantiが定例パッチを公開した。Ivantiは5製品で13件を修正し、2製品にクリティカルが含まれる。リモートコード実行の恐れがある。",
+      "who": "Citrix製品およびIvantiの該当5製品の利用者。",
+      "action": "アドバイザリで該当製品・バージョンを確認し、速やかに更新する。",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "Security NEXT",
+          "url": "https://www.security-next.com/192727"
+        },
+        {
+          "name": "SecurityWeek",
+          "url": "https://www.securityweek.com/citrix-ivanti-patch-critical-and-high-severity-vulnerabilities/"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "outage",
+      "keyword": "コンビニ交付",
+      "target": "行政サービス",
+      "title": "コンビニ交付で戸籍関連証明書が408自治体で一時発行不能に",
+      "what": "11月10日朝から戸籍・戸籍の附票のコンビニ交付が408自治体で利用できなくなり、16時過ぎに復旧した。",
+      "who": "マイナンバーカードで戸籍関連証明書を取得しようとした住民。",
+      "action": "特になし。必要な場合は復旧後の利用か窓口で対応する。",
+      "cves": [],
+      "tags": [
+        "サービス停止",
+        "国内"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "piyolog",
+          "url": "https://piyolog.hatenadiary.jp/entry/2026/11/11/152720"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "vulnerability",
+      "keyword": "PHP2Shell",
+      "target": "Webサーバ",
+      "title": "PHPの任意コード実行脆弱性にJVNが注意喚起",
+      "what": "PHP Groupのアドバイザリを受けJVNが2件の脆弱性(CVSS 9.2)を日本語で案内した。",
+      "who": "",
+      "action": "",
+      "cves": [
+        "CVE-2026-109618",
+        "CVE-2026-109619"
+      ],
+      "tags": [],
+      "is_update": true,
+      "sources": [
+        {
+          "name": "JVN",
+          "url": "https://jvn.jp/vu/JVNVU99905564/"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "incident",
+      "keyword": "AntiFox",
+      "target": "クラウド",
+      "title": "AIペンテストツール「AntiFox」がAWS認証情報窃取攻撃に悪用される",
+      "what": "エージェント型ペンテスト基盤AntiFoxが、AWS認証情報の窃取と内部での横展開に使われた事例が報告された。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/hackers-use-antifox-ai-agents-in-aws-credential-theft-attacks/"
+        },
+        {
+          "name": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/antifox-ai-pentesting-platform-linked.html"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "incident",
+      "keyword": "teket",
+      "target": "チケット",
+      "title": "電子チケット「teket」で不正アクセス、全サービス停止し顧客情報が流出",
+      "what": "teketが不正アクセスで会員情報の一部が流出したと公表し、サービスを11月5日から停止している。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [
+        "国内",
+        "情報漏洩",
+        "サービス停止"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "piyolog",
+          "url": "https://piyolog.hatenadiary.jp/entry/2026/11/11/075305"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "incident",
+      "keyword": "ドトール通販",
+      "target": "国内EC",
+      "title": "ドトールのオンラインショップに不正アクセス、会員情報流出の可能性",
+      "what": "ドトールコーヒーの通販サイトが不正アクセスを受け、顧客の個人情報が流出した可能性がある。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [
+        "国内",
+        "情報漏洩"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "Security NEXT",
+          "url": "https://www.security-next.com/192495"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "incident",
+      "keyword": "Fireworks AI",
+      "target": "AI基盤",
+      "title": "Fireworks AIの侵害でNotion AIのチャット記録が一部流出",
+      "what": "Fireworks AIの侵害の影響が拡大し、委託先のNotionが一部ワークスペースのAIチャット記録の流出を公表した。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [
+        "情報漏洩",
+        "サプライチェーン"
+      ],
+      "is_update": true,
+      "sources": [
+        {
+          "name": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/notion-says-fireworks-breach-exposed-customer-ai-chat-transcripts/"
+        },
+        {
+          "name": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/fireworks-ai-breach-widens-to-expose.html"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "vulnerability",
+      "keyword": "Firefox 160",
+      "target": "PCブラウザ",
+      "title": "Firefox 160公開、99件の脆弱性を修正",
+      "what": "Mozillaが延長サポート版とあわせて多数の脆弱性を修正した。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "Security NEXT",
+          "url": "https://www.security-next.com/192688"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "vulnerability",
+      "keyword": "Git",
+      "target": "開発基盤",
+      "title": "Gitに再帰クローン時にコード実行される脆弱性、2.56.1で修正",
+      "what": "悪意あるリポジトリをサブモジュールごとクローンするとコードが実行される恐れがあり、修正版が公開された。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/git-patches-flaw-that-lets-malicious.html"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "incident",
+      "keyword": "eMudhra",
+      "target": "証明書",
+      "title": "eMudhra、鍵の不適切な取扱いでさらに中間CA 8件を失効",
+      "what": "10月の鍵漏えい事案の調査で、追加で8つの中間CA証明書が失効された。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [
+        "サプライチェーン"
+      ],
+      "is_update": true,
+      "sources": [
+        {
+          "name": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/emudhra-revokes-8-more-ca-certificates-after-private-key-mishap/"
+        }
+      ]
+    }
+  ],
+  "source_status": [
+    {
+      "name": "CISA KEV",
+      "ok": true,
+      "count": 6
+    },
+    {
+      "name": "NVD",
+      "ok": true,
+      "count": 15
+    },
+    {
+      "name": "JPCERT/CC",
+      "ok": true,
+      "count": 1
+    },
+    {
+      "name": "IPA",
+      "ok": true,
+      "count": 1
+    },
+    {
+      "name": "Security NEXT",
+      "ok": true,
+      "count": 16
+    },
+    {
+      "name": "piyolog",
+      "ok": true,
+      "count": 4
+    },
+    {
+      "name": "BleepingComputer",
+      "ok": true,
+      "count": 15
+    },
+    {
+      "name": "The Hacker News",
+      "ok": true,
+      "count": 27
+    },
+    {
+      "name": "SecurityWeek",
+      "ok": true,
+      "count": 10
+    },
+    {
+      "name": "JVN",
+      "ok": true,
+      "count": 7
+    },
+    {
+      "name": "ITmedia",
+      "ok": true,
+      "count": 5
+    },
+    {
+      "name": "AWS Health",
+      "ok": true,
+      "count": 6
+    },
+    {
+      "name": "Cloudflare Status",
+      "ok": true,
+      "count": 0
+    },
+    {
+      "name": "GitHub Status",
+      "ok": true,
+      "count": 3
+    },
+    {
+      "name": "EPSS",
+      "ok": true,
+      "count": 11
+    }
+  ],
+  "stats": {
+    "items": 116,
+    "clusters": 100
+  }
+}
