@@ -1,0 +1,588 @@
+{
+  "date": "2026-11-13",
+  "generated_at": "2026-11-13T10:12:39+09:00",
+  "window_hours": 48,
+  "headline": "PHP2ShellとHTTP2Shell(Brotli)がKEVに載り、N-centralやScreenConnectの悪用も拡大。GitHub約4,800アカウント乗っ取りによるCIの秘密情報窃取も発生。情報源の取得失敗はなし。",
+  "items": [
+    {
+      "level": "critical",
+      "kind": "vulnerability",
+      "keyword": "PHP2Shell",
+      "target": "Webサーバ",
+      "title": "PHP2Shell（PHPのRCE 2件）がKEV掲載、悪用が確認される",
+      "what": "PHPの任意コード実行脆弱性2件が、米CISAの悪用確認済みリストに載り、悪用の可能性を示す指標も極めて高い水準にある。",
+      "who": "PHPでWebアプリを動かす全サーバ（国内ではJVNも注意喚起）。",
+      "action": "PHPの修正版へ更新し、公開サーバのログに不審なアクセスがないか確認する。",
+      "cves": [
+        "CVE-2026-109618",
+        "CVE-2026-109619"
+      ],
+      "tags": [
+        "KEV",
+        "悪用確認済み",
+        "国内"
+      ],
+      "is_update": true,
+      "sources": [
+        {
+          "name": "JVN",
+          "url": "https://jvn.jp/vu/JVNVU99905564/"
+        }
+      ]
+    },
+    {
+      "level": "critical",
+      "kind": "vulnerability",
+      "keyword": "HTTP2Shell",
+      "target": "HTTP/2等",
+      "title": "Brotliの境界外書き込み「HTTP2Shell／Node2Shell」がKEV掲載",
+      "what": "圧縮ライブラリBrotli(C実装)の境界外書き込み脆弱性が悪用確認済みとして登録され、HTTP/2やNode.js経由で攻撃され得る。",
+      "who": "Brotli(C実装)を組み込む製品全般、Node.jsやHTTP/2対応サーバ。",
+      "action": "Brotliを含むOS・Node.js・各製品の更新を適用し、同梱製品を棚卸しする。",
+      "cves": [
+        "CVE-2026-111497"
+      ],
+      "tags": [
+        "KEV",
+        "悪用確認済み",
+        "国内"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "JVN",
+          "url": "https://jvn.jp/vu/JVNVU97400824/"
+        }
+      ]
+    },
+    {
+      "level": "critical",
+      "kind": "vulnerability",
+      "keyword": "N-central",
+      "target": "IT管理基盤",
+      "title": "N-able N-centralのゼロデイ多数が公開、直後から悪用されマイナー設置",
+      "what": "研究者が30件超のゼロデイを公開し、数時間で悪用が始まった。パッチ適用済みでも通じる新手法の公開も続いている。",
+      "who": "オンプレ版N-centralを使うMSP・IT部門。",
+      "action": "最新修正版を適用し、管理画面を外部から遮断、不審プロセスや暗号資産マイナーの有無を点検する。",
+      "cves": [],
+      "tags": [
+        "悪用確認済み",
+        "PoC公開"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/new-n-able-4everable2shell-zero-day-exploited-hours-after-poc-released/"
+        },
+        {
+          "name": "SecurityWeek",
+          "url": "https://www.securityweek.com/hackers-target-n-central-zero-days-as-n-able-rushes-patches/"
+        },
+        {
+          "name": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/new-n-central-exploits-work-against.html"
+        }
+      ]
+    },
+    {
+      "level": "critical",
+      "kind": "incident",
+      "keyword": "ScreenConnect",
+      "target": "遠隔管理",
+      "title": "ScreenConnect攻撃が拡大、ワーム型マルウェア「SCKit」でMSP顧客へ波及",
+      "what": "既知の修正済み欠陥を突く攻撃で侵害されたMSP環境から、顧客端末へ不正な遠隔操作ツールが配られ、少なくとも48組織・288端末に及ぶ。",
+      "who": "ScreenConnectを使うMSPと、その顧客企業。",
+      "action": "最新版へ更新し、不審なクライアント・セッションの有無を確認、MSP委託先へ状況を照会する。",
+      "cves": [
+        "CVE-2026-84869"
+      ],
+      "tags": [
+        "KEV",
+        "悪用確認済み",
+        "サプライチェーン"
+      ],
+      "is_update": true,
+      "sources": [
+        {
+          "name": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/sckit-malware-targets-screenconnect.html"
+        },
+        {
+          "name": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/active-screenconnect-attacks-breach-msps-impact-dozens-of-organizations/"
+        },
+        {
+          "name": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/screenconnect-attacks-target-at-least.html"
+        }
+      ]
+    },
+    {
+      "level": "critical",
+      "kind": "incident",
+      "keyword": "wfx-loot",
+      "target": "GitHub",
+      "title": "GitHubアカウント約4,800件を乗っ取り、CIの秘密情報窃取マルウェアを多数のリポジトリへ",
+      "what": "盗まれた認証情報で4,837アカウントを悪用し、6万超のリポジトリを探索、1,800超でCI上の秘密情報を盗むコードを実行させた。",
+      "who": "GitHubでCI/CDを使う開発組織、クラウド認証情報を持つリポジトリ。",
+      "action": "直近の不審なPR・ワークフロー変更を確認し、CI上のシークレットを再発行、アカウントに2FAを必須化する。",
+      "cves": [],
+      "tags": [
+        "サプライチェーン",
+        "情報漏洩"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/hackers-compromise-4-800-github-accounts-to-steal-cloud-credentials/"
+        },
+        {
+          "name": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/4837-hijacked-github-accounts-ran-ci.html"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "vulnerability",
+      "keyword": "Apache HTTP/2",
+      "target": "Webサーバ",
+      "title": "Apache HTTP Serverのmod_http2に認証不要RCE、2.4.71で修正",
+      "what": "HTTP/2モジュールの競合状態により、未認証の攻撃者がコードを実行できる。AIによる発見で、現時点で悪用は未確認。",
+      "who": "HTTP/2を有効にした Apache 2.4.55〜2.4.70。",
+      "action": "2.4.71へ更新する。難しければHTTP/2を一時的に無効化する。",
+      "cves": [
+        "CVE-2026-119618"
+      ],
+      "tags": [
+        "国内"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/critical-apache-http2-flaw-could-let.html"
+        },
+        {
+          "name": "SecurityWeek",
+          "url": "https://www.securityweek.com/apache-patches-critical-http-server-rce-found-by-anthropic-google/"
+        },
+        {
+          "name": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/apache-http-server-patches-critical-http-2-remote-code-execution-flaw/"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "vulnerability",
+      "keyword": "Cisco BroadWorks",
+      "target": "通信基盤",
+      "title": "Cisco BroadWorksなど2製品の脆弱性がKEVに追加、修正済みでも悪用",
+      "what": "CISAが悪用を確認し、BroadWorksとOpenwave Messaging Webtopの欠陥を追加した。パッチ未適用の環境が狙われている。",
+      "who": "BroadWorksやOpenwaveを運用する通信事業者・企業。",
+      "action": "修正版が適用済みか確認し、未適用なら直ちに更新する。",
+      "cves": [
+        "CVE-2026-20320"
+      ],
+      "tags": [
+        "KEV",
+        "悪用確認済み"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/cisco-broadworks-and-openwave-flaws.html"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "outage",
+      "keyword": "Microsoft 365",
+      "target": "クラウド",
+      "title": "Microsoft 365で世界的な障害、Outlook・Teams・Copilotが影響",
+      "what": "サーバーのヘルスチェック失敗により、Outlook、Exchange Online、Teamsなどが広範囲で使いにくくなった。攻撃の証拠は出ていない。",
+      "who": "Microsoft 365を利用する世界中の組織。",
+      "action": "MSの障害情報を確認し、復旧までの業務連絡手段を別途用意する。",
+      "cves": [],
+      "tags": [
+        "サービス停止"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/microsoft/massive-microsoft-365-outage-disrupts-outlook-teams-copilot-worldwide/"
+        },
+        {
+          "name": "SecurityWeek",
+          "url": "https://www.securityweek.com/microsoft-365-outage-disrupts-outlook-exchange-online-and-teams/"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "vulnerability",
+      "keyword": "SignDrop",
+      "target": "Windows",
+      "title": "Windows CLFSの新ゼロデイ「SignDrop」のPoCが公開、SYSTEM権限を奪取",
+      "what": "研究者がWindowsのCLFSドライバを悪用する権限昇格コードを公開した。ローカルからSYSTEMになれる。",
+      "who": "Windows端末・サーバ。まず侵入された後の悪用が想定される。",
+      "action": "MSの対応情報を注視し、パッチ公開後すぐ適用、EDRでCLFS関連の異常を監視する。",
+      "cves": [],
+      "tags": [
+        "PoC公開"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/new-windows-signdrop-zero-day-gives-hackers-system-privileges/"
+        },
+        {
+          "name": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/new-signdrop-zero-day-exploit-turns.html"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "vulnerability",
+      "keyword": "Red Hat Quay",
+      "target": "コンテナ基盤",
+      "title": "Red Hat Quayに重大な欠陥、全プライベートイメージの読み書きの恐れ",
+      "what": "レジストリ内の非公開コンテナイメージを閲覧・上書きできる可能性がある。",
+      "who": "Quayを社内レジストリとして使う組織。",
+      "action": "Red Hatの修正版を適用し、イメージの改ざん有無を確認する。",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/critical-red-hat-quay-flaw-lets.html"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "incident",
+      "keyword": "ラクスル",
+      "target": "印刷EC",
+      "title": "ネット印刷「ラクスル」で侵害、個人情報や印刷データが流出か",
+      "what": "同社サービスで不正アクセスがあり、利用者の個人情報や入稿データが流出した可能性が報じられた。",
+      "who": "ラクスルの利用者。",
+      "action": "同社の案内を確認し、同じパスワードを使い回していれば変更する。",
+      "cves": [],
+      "tags": [
+        "国内",
+        "情報漏洩"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "Security NEXT",
+          "url": "https://www.security-next.com/192575"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "incident",
+      "keyword": "eMudhra",
+      "target": "証明書",
+      "title": "eMudhra、秘密鍵の不適切な扱いで中間CA 8件を追加失効",
+      "what": "当初「影響なし」としていた8件も失効され、鍵管理の不備が広がった。",
+      "who": "eMudhra発行の証明書を使う組織。",
+      "action": "自組織の証明書が失効対象か確認し、必要なら再発行する。",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/emudhra-revokes-8-more-ca-certificates-after-private-key-mishap/"
+        },
+        {
+          "name": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/emudhra-revokes-8-more-cas-it.html"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "vulnerability",
+      "keyword": "PTC Windchill",
+      "target": "PLM",
+      "title": "PTC WindchillとFlexPLMに重大なRCE脆弱性",
+      "what": "PLM製品に深刻な欠陥があり修正版が公開された。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/ptc-patches-critical-windchill-and.html"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "vulnerability",
+      "keyword": "MongoDB",
+      "target": "DB",
+      "title": "MongoDB Serverに認証前の重大な欠陥",
+      "what": "フェイルオーバー時にサーバーを落とせる可能性があり修正版が出た。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "Security NEXT",
+          "url": "https://www.security-next.com/192699"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "vulnerability",
+      "keyword": "Chrome/Firefox",
+      "target": "ブラウザ",
+      "title": "Chrome・Firefox 160が更新、計180件超の脆弱性を修正",
+      "what": "両ブラウザが大規模な更新を公開した。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "Security NEXT",
+          "url": "https://www.security-next.com/192688"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "incident",
+      "keyword": "Apify",
+      "target": "開発基盤",
+      "title": "Apifyで侵害、APIトークンの再発行と2FA再設定を要請",
+      "what": "同社が不正アクセス後に利用者へ対応を求めた。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/apify-rotates-api-tokens-prompts-2fa-resets-after-breach/"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "incident",
+      "keyword": "Baker Tilly",
+      "target": "会計",
+      "title": "Baker Tilly、委託先の漏洩で顧客に通知",
+      "what": "第三者提供事業者での侵害により顧客情報が影響を受けた。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/baker-tilly-notifies-clients-of-data-breach-at-third-party-provider/"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "incident",
+      "keyword": "Qlik Sense",
+      "target": "BI基盤",
+      "title": "Qlik Senseを狙う攻撃、ActiveMQやVeeam攻撃も準備",
+      "what": "公開サーバにリバースシェルを仕掛ける攻撃が観測された。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/hackers-target-qlik-sense-servers-with.html"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "incident",
+      "keyword": "GSocket",
+      "target": "Linux",
+      "title": "LinuxサーバにGSocketを仕込み持続的に侵入",
+      "what": "攻撃者が永続アクセス用のバックドアを設置している。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/hackers-plant-gsocket-on-linux-servers-for-persistent-access/"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "vulnerability",
+      "keyword": "AMD Turin",
+      "target": "CPU",
+      "title": "AMD Turin CPUの3件の欠陥でVM内のデータ漏洩の恐れ",
+      "what": "Google Cloudが警告した。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/google-cloud-warns-three-amd-turin-cpu.html"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "vulnerability",
+      "keyword": "Node.js",
+      "target": "開発基盤",
+      "title": "Node.jsが16件の脆弱性を修正",
+      "what": "HTTP/2の不具合でサーバーが落ちる問題などを含む。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/nodejs-fixes-16-flaws-including-http2.html"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "incident",
+      "keyword": "Railway",
+      "target": "クラウド",
+      "title": "Railway、盗まれたAIキーで約74万ドルの不正利用",
+      "what": "顧客のAIキー窃取による被害額を同社が公表した。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/railway-says-stolen-customer-ai-keys.html"
+        }
+      ]
+    }
+  ],
+  "source_status": [
+    {
+      "name": "CISA KEV",
+      "ok": true,
+      "count": 0
+    },
+    {
+      "name": "NVD",
+      "ok": true,
+      "count": 10
+    },
+    {
+      "name": "JPCERT/CC",
+      "ok": true,
+      "count": 1
+    },
+    {
+      "name": "IPA",
+      "ok": true,
+      "count": 0
+    },
+    {
+      "name": "Security NEXT",
+      "ok": true,
+      "count": 15
+    },
+    {
+      "name": "piyolog",
+      "ok": true,
+      "count": 4
+    },
+    {
+      "name": "BleepingComputer",
+      "ok": true,
+      "count": 15
+    },
+    {
+      "name": "The Hacker News",
+      "ok": true,
+      "count": 26
+    },
+    {
+      "name": "SecurityWeek",
+      "ok": true,
+      "count": 10
+    },
+    {
+      "name": "JVN",
+      "ok": true,
+      "count": 10
+    },
+    {
+      "name": "ITmedia",
+      "ok": true,
+      "count": 2
+    },
+    {
+      "name": "AWS Health",
+      "ok": true,
+      "count": 6
+    },
+    {
+      "name": "Cloudflare Status",
+      "ok": true,
+      "count": 0
+    },
+    {
+      "name": "GitHub Status",
+      "ok": true,
+      "count": 4
+    },
+    {
+      "name": "EPSS",
+      "ok": true,
+      "count": 14
+    }
+  ],
+  "stats": {
+    "items": 103,
+    "clusters": 88
+  }
+}

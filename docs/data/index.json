@@ -1,5 +1,12 @@
 [
  {
+  "date": "2026-11-13",
+  "headline": "PHP2ShellとHTTP2Shell(Brotli)がKEVに載り、N-centralやScreenConnectの悪用も拡大。GitHub約4,800アカウント乗っ取りによるCIの秘密情報窃取も発生。情報源の取得失敗はなし。",
+  "critical": 5,
+  "notable": 7,
+  "other": 10
+ },
+ {
   "date": "2026-11-12",
   "headline": "ConnectWise ScreenConnect侵害によるMSP経由の攻撃が今日の最優先。AWS東京リージョンの障害、Zoom・Fortinet・Citrix/Ivantiの修正、Maerskのランサム被害も把握を。昨日までに掲載済みの案件は進展のあるものだけ再掲。全情報源の取得に成功。",
   "critical": 1,
