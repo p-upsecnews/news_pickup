@@ -1,5 +1,12 @@
 [
  {
+  "date": "2026-11-14",
+  "headline": "Check Pointゲートウェイへの破壊型攻撃とN-centralの被害拡大が最優先。国内では良品計画の最大2,726万件の流出の続報とNetScaler等の更新に注意。取得失敗の情報源はなし。",
+  "critical": 2,
+  "notable": 8,
+  "other": 8
+ },
+ {
   "date": "2026-11-13",
   "headline": "PHP2ShellとHTTP2Shell(Brotli)がKEVに載り、N-centralやScreenConnectの悪用も拡大。GitHub約4,800アカウント乗っ取りによるCIの秘密情報窃取も発生。情報源の取得失敗はなし。",
   "critical": 5,

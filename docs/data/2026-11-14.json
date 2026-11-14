@@ -1,0 +1,488 @@
+{
+ "date": "2026-11-14",
+ "generated_at": "2026-11-14T10:20:00+09:00",
+ "window_hours": 48,
+ "headline": "Check Pointゲートウェイへの破壊型攻撃とN-centralの被害拡大が最優先。国内では良品計画の最大2,726万件の流出の続報とNetScaler等の更新に注意。取得失敗の情報源はなし。",
+ "items": [
+  {
+   "level": "critical",
+   "kind": "incident",
+   "keyword": "Check Point GW",
+   "target": "ゲートウェイ",
+   "title": "Check Pointゲートウェイが侵害、PHP2Shellと未公表の権限昇格で破壊型ワイパーも展開",
+   "what": "PHP2Shellで侵入後、Gaia OSの権限昇格の欠陥でroot権限を奪われ、バックドアやVMware ESXiのデータ破壊マルウェアが仕込まれた。10月末から悪用され、緊急の修正が公開された。",
+   "who": "未修正のCheck Point Security Gatewayを使う組織（当初はイスラエル中心だが拡大中）。",
+   "action": "緊急ホットフィックスを適用し、侵害の痕跡（TSGAバックドア、不審なroot操作）を確認する。ESXiのバックアップも隔離保管する。",
+   "cves": [
+    "CVE-2026-123039"
+   ],
+   "tags": [
+    "KEV",
+    "悪用確認済み"
+   ],
+   "is_update": false,
+   "sources": [
+    {
+     "name": "BleepingComputer",
+     "url": "https://www.bleepingcomputer.com/news/security/check-point-gateways-hacked-via-php2shell-to-deploy-vmware-esxi-wiper/"
+    },
+    {
+     "name": "The Hacker News",
+     "url": "https://thehackernews.com/2026/11/hackers-exploit-php2shell-flaws-in.html"
+    },
+    {
+     "name": "SecurityWeek",
+     "url": "https://www.securityweek.com/php2shell-exploited-in-destructive-check-point-gateway-attacks/"
+    }
+   ]
+  },
+  {
+   "level": "critical",
+   "kind": "vulnerability",
+   "keyword": "N-central",
+   "target": "IT管理基盤",
+   "title": "N-able N-central、パッチ適用済みでも21台が侵害、同社が一部機能を制限",
+   "what": "「4EverAble2Shell」などの欠陥が悪用され、21台が侵害された（うち19台は最新の更新適用済み）。N-ableは追加対策として一部機能・連携を制限した。",
+   "who": "N-centralでMSP業務や顧客端末を管理している組織。",
+   "action": "N-ableの最新案内に従い緩和策を適用し、外部公開を止めて、不審なプロセス（マイナー等）がないか確認する。",
+   "cves": [],
+   "tags": [
+    "悪用確認済み",
+    "PoC公開",
+    "サプライチェーン"
+   ],
+   "is_update": true,
+   "sources": [
+    {
+     "name": "The Hacker News",
+     "url": "https://thehackernews.com/2026/11/hackers-exploit-n-central-flaws-to.html"
+    },
+    {
+     "name": "BleepingComputer",
+     "url": "https://www.bleepingcomputer.com/news/security/new-n-able-4everable2shell-zero-day-exploited-hours-after-poc-released/"
+    }
+   ]
+  },
+  {
+   "level": "notable",
+   "kind": "incident",
+   "keyword": "無印良品",
+   "target": "小売・会員",
+   "title": "良品計画で最大約2,726万件の会員情報流出の可能性、対象が段階的に拡大",
+   "what": "MUJIアプリの会員情報流出の公表後、ネットストア会員の氏名・住所やカード番号などへ対象が広がり、第四報で区分が示された。",
+   "who": "MUJIアプリ・ネットストアの会員（退会者を含む）。",
+   "action": "利用者は不審なメール・請求に注意し、カード利用明細を確認する。取引先・関係者は同社の続報を確認する。",
+   "cves": [],
+   "tags": [
+    "国内",
+    "情報漏洩"
+   ],
+   "is_update": false,
+   "sources": [
+    {
+     "name": "piyolog",
+     "url": "https://piyolog.hatenadiary.jp/entry/2026/11/13/162738"
+    },
+    {
+     "name": "Security NEXT",
+     "url": "https://www.security-next.com/192851"
+    }
+   ]
+  },
+  {
+   "level": "notable",
+   "kind": "vulnerability",
+   "keyword": "NetScaler",
+   "target": "ADC/GW",
+   "title": "Citrix NetScaler ADC/Gatewayに「クリティカル」含む複数の脆弱性、認証回避も",
+   "what": "Citrixが10件超の脆弱性を修正し、認証回避やDoSにつながるものが含まれる。悪用は未確認。",
+   "who": "NetScaler ADC / Gatewayおよび Secure Access Clientの利用者。",
+   "action": "修正版へ更新する。NetScalerは過去に悪用されやすいため優先して対応する。",
+   "cves": [],
+   "tags": [],
+   "is_update": false,
+   "sources": [
+    {
+     "name": "Security NEXT",
+     "url": "https://www.security-next.com/192789"
+    },
+    {
+     "name": "SecurityWeek",
+     "url": "https://www.securityweek.com/citrix-patches-10-critical-netscaler-vulnerabilities/"
+    }
+   ]
+  },
+  {
+   "level": "notable",
+   "kind": "vulnerability",
+   "keyword": "UnrealIRCd",
+   "target": "IRCサーバ",
+   "title": "UnrealIRCdの脆弱性がCISA KEVに追加、リンクサーバ経由で任意コマンド注入",
+   "what": "複数サーバをリンクした環境で、ユーザーがサーバ間コマンドを注入し、サーバ権限で実行できる欠陥の悪用が確認された。",
+   "who": "2台以上のサーバをリンクしてUnrealIRCdを運用している環境。",
+   "action": "修正版へ更新する。利用有無を棚卸しし、不要なら停止する。",
+   "cves": [
+    "CVE-2026-114713"
+   ],
+   "tags": [
+    "KEV",
+    "悪用確認済み"
+   ],
+   "is_update": false,
+   "sources": [
+    {
+     "name": "CISA KEV",
+     "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-114713"
+    }
+   ]
+  },
+  {
+   "level": "notable",
+   "kind": "vulnerability",
+   "keyword": "WebSAM WinShare",
+   "target": "遠隔操作SW",
+   "title": "NECのリモート操作ソフト「WebSAM WinShare」にRCE脆弱性",
+   "what": "NECの遠隔操作ソフトに、リモートからコードを実行される脆弱性が見つかった。",
+   "who": "WebSAM WinShareを使う国内の企業・組織。",
+   "action": "NECの案内を確認し、修正版の適用または緩和策を実施する。",
+   "cves": [],
+   "tags": [
+    "国内"
+   ],
+   "is_update": false,
+   "sources": [
+    {
+     "name": "Security NEXT",
+     "url": "https://www.security-next.com/192718"
+    }
+   ]
+  },
+  {
+   "level": "notable",
+   "kind": "vulnerability",
+   "keyword": "Synology DSM",
+   "target": "NAS",
+   "title": "Synology製NAS向けOS「DSM」に脆弱性、「クリティカル」も",
+   "what": "NAS向けOS DSMに複数の脆弱性が公開され、深刻度が最も高いものを含む。",
+   "who": "Synology NASを使う企業・個人。",
+   "action": "DSMを最新版へ更新し、NASを外部公開していないか確認する。",
+   "cves": [],
+   "tags": [],
+   "is_update": false,
+   "sources": [
+    {
+     "name": "Security NEXT",
+     "url": "https://www.security-next.com/192808"
+    }
+   ]
+  },
+  {
+   "level": "notable",
+   "kind": "vulnerability",
+   "keyword": "Chrome 更新",
+   "target": "PCブラウザ",
+   "title": "Chromeが今週2度目の更新、脆弱性83件を修正しクリティカルも",
+   "what": "Chromeが週に2回目のセキュリティ更新を出し、83件の脆弱性を修正した。",
+   "who": "Chrome／Chromium系ブラウザの全利用者。",
+   "action": "ブラウザを最新版に更新して再起動する。",
+   "cves": [],
+   "tags": [],
+   "is_update": false,
+   "sources": [
+    {
+     "name": "Security NEXT",
+     "url": "https://www.security-next.com/192735"
+    }
+   ]
+  },
+  {
+   "level": "notable",
+   "kind": "vulnerability",
+   "keyword": "PostgreSQL",
+   "target": "データベース",
+   "title": "PostgreSQLが52件の欠陥を修正、22年来のバグで認証後RCEも",
+   "what": "定例の更新で52件が修正され、認証済みユーザーによるリモートコード実行につながる長年の欠陥を含む。",
+   "who": "PostgreSQLを運用している環境。",
+   "action": "対応する修正版へ更新する。",
+   "cves": [],
+   "tags": [],
+   "is_update": false,
+   "sources": [
+    {
+     "name": "The Hacker News",
+     "url": "https://thehackernews.com/2026/11/postgresql-patches-52-flaws-including.html"
+    }
+   ]
+  },
+  {
+   "level": "notable",
+   "kind": "incident",
+   "keyword": "CSC開発環境",
+   "target": "セキュリティ企業",
+   "title": "サイバーセキュリティクラウドの開発環境に不正アクセス、従業員の認証情報が悪用",
+   "what": "ソフトウェア開発環境(GitHub)が、流出した従業員の認証情報で不正アクセスされた。",
+   "who": "同社の製品・サービスの利用者（影響範囲は同社の発表を要確認）。",
+   "action": "同社の案内を確認する。自社でもGitHubの認証情報とトークンの棚卸しを行う。",
+   "cves": [],
+   "tags": [
+    "国内",
+    "サプライチェーン"
+   ],
+   "is_update": false,
+   "sources": [
+    {
+     "name": "Security NEXT",
+     "url": "https://www.security-next.com/192847"
+    }
+   ]
+  },
+  {
+   "level": "other",
+   "kind": "incident",
+   "keyword": "Endgame摘発",
+   "target": "マルウェア基盤",
+   "title": "Gootloader・CastleRAT・StealCの基盤を警察が摘発、サーバ235台を押収",
+   "what": "国際捜査で約235台のサーバと257ドメインが押収され、640万件の認証情報が確保された。",
+   "who": "",
+   "action": "",
+   "cves": [],
+   "tags": [],
+   "is_update": false,
+   "sources": [
+    {
+     "name": "SecurityWeek",
+     "url": "https://www.securityweek.com/law-enforcement-disrupts-gootloader-castlerat-and-stealc-infrastructure/"
+    },
+    {
+     "name": "BleepingComputer",
+     "url": "https://www.bleepingcomputer.com/news/security/police-dismantles-gootloader-castlerat-stealc-malware-infrastructure/"
+    }
+   ]
+  },
+  {
+   "level": "other",
+   "kind": "incident",
+   "keyword": "SignDrop",
+   "target": "Windows",
+   "title": "WindowsのCLFSを突くゼロデイPoC「SignDrop」が公開、ローカルでSYSTEM権限に",
+   "what": "研究者がWindowsのローカル権限昇格の実証コードを公開した。修正は未提供とみられる。",
+   "who": "",
+   "action": "",
+   "cves": [],
+   "tags": [
+    "PoC公開"
+   ],
+   "is_update": false,
+   "sources": [
+    {
+     "name": "BleepingComputer",
+     "url": "https://www.bleepingcomputer.com/news/security/new-windows-signdrop-zero-day-gives-hackers-system-privileges/"
+    }
+   ]
+  },
+  {
+   "level": "other",
+   "kind": "incident",
+   "keyword": "FBI 北朝鮮",
+   "target": "暗号資産",
+   "title": "FBI、北朝鮮系がディープフェイク通話で4億ドル超の暗号資産を窃取と発表",
+   "what": "偽の動画通話を使った詐取で、4億ドル超の被害を確認した。",
+   "who": "",
+   "action": "",
+   "cves": [],
+   "tags": [],
+   "is_update": false,
+   "sources": [
+    {
+     "name": "The Hacker News",
+     "url": "https://thehackernews.com/2026/11/fbi-says-north-korean-hackers-stole.html"
+    }
+   ]
+  },
+  {
+   "level": "other",
+   "kind": "incident",
+   "keyword": "Trezor",
+   "target": "ハードウェア財布",
+   "title": "Trezor、再販業者経由の3台に回復フレーズを盗む基板の混入を確認",
+   "what": "特定の再販業者から買ったSafe 5に、追加の回路基板が仕込まれていた。",
+   "who": "",
+   "action": "",
+   "cves": [],
+   "tags": [
+    "サプライチェーン"
+   ],
+   "is_update": false,
+   "sources": [
+    {
+     "name": "BleepingComputer",
+     "url": "https://www.bleepingcomputer.com/news/cryptocurrency/trezor-confirms-crypto-stealing-implants-in-three-wallets-releases-fix/"
+    }
+   ]
+  },
+  {
+   "level": "other",
+   "kind": "incident",
+   "keyword": "SilentAir",
+   "target": "通信事業者",
+   "title": "通信事業者内部の機器を乗っ取りSMS認証コードを傍受する「SilentAir」",
+   "what": "アジアの携帯網内の機器を使い、主に台湾の加入者の通話とSMSを傍受していた。",
+   "who": "",
+   "action": "",
+   "cves": [],
+   "tags": [],
+   "is_update": false,
+   "sources": [
+    {
+     "name": "The Hacker News",
+     "url": "https://thehackernews.com/2026/11/silentair-hijacks-asian-telecom.html"
+    }
+   ]
+  },
+  {
+   "level": "other",
+   "kind": "vulnerability",
+   "keyword": "FortiMail",
+   "target": "メールGW",
+   "title": "「FortiMail」に深刻な脆弱性、10月の更新で修正済み",
+   "what": "Fortinetが10月の更新で修正した脆弱性が改めて報じられた。",
+   "who": "",
+   "action": "",
+   "cves": [],
+   "tags": [],
+   "is_update": false,
+   "sources": [
+    {
+     "name": "Security NEXT",
+     "url": "https://www.security-next.com/192797"
+    }
+   ]
+  },
+  {
+   "level": "other",
+   "kind": "incident",
+   "keyword": "資生堂/日商",
+   "target": "国内漏洩",
+   "title": "資生堂の肌測定システム、日商の試験管理システムで個人情報流出の可能性",
+   "what": "いずれも国内の事業者で、利用者・受験者の情報が流出した可能性が公表された。",
+   "who": "",
+   "action": "",
+   "cves": [],
+   "tags": [
+    "国内",
+    "情報漏洩"
+   ],
+   "is_update": false,
+   "sources": [
+    {
+     "name": "Security NEXT",
+     "url": "https://www.security-next.com/192582"
+    },
+    {
+     "name": "Security NEXT",
+     "url": "https://www.security-next.com/192652"
+    }
+   ]
+  },
+  {
+   "level": "other",
+   "kind": "other",
+   "keyword": "Windows 11月更新",
+   "target": "Windows",
+   "title": "Microsoft、11月の更新で印刷不具合とライセンス認証失敗を確認",
+   "what": "11月のセキュリティ更新後に、印刷の問題とアクティベーション失敗が起きている。",
+   "who": "",
+   "action": "",
+   "cves": [],
+   "tags": [],
+   "is_update": false,
+   "sources": [
+    {
+     "name": "BleepingComputer",
+     "url": "https://www.bleepingcomputer.com/news/microsoft/microsoft-says-november-security-updates-cause-printing-issues/"
+    }
+   ]
+  }
+ ],
+ "source_status": [
+  {
+   "name": "CISA KEV",
+   "ok": true,
+   "count": 2
+  },
+  {
+   "name": "NVD",
+   "ok": true,
+   "count": 10
+  },
+  {
+   "name": "JPCERT/CC",
+   "ok": true,
+   "count": 0
+  },
+  {
+   "name": "IPA",
+   "ok": true,
+   "count": 0
+  },
+  {
+   "name": "Security NEXT",
+   "ok": true,
+   "count": 15
+  },
+  {
+   "name": "piyolog",
+   "ok": true,
+   "count": 4
+  },
+  {
+   "name": "BleepingComputer",
+   "ok": true,
+   "count": 15
+  },
+  {
+   "name": "The Hacker News",
+   "ok": true,
+   "count": 25
+  },
+  {
+   "name": "SecurityWeek",
+   "ok": true,
+   "count": 10
+  },
+  {
+   "name": "JVN",
+   "ok": true,
+   "count": 10
+  },
+  {
+   "name": "ITmedia",
+   "ok": true,
+   "count": 2
+  },
+  {
+   "name": "AWS Health",
+   "ok": true,
+   "count": 0
+  },
+  {
+   "name": "Cloudflare Status",
+   "ok": true,
+   "count": 0
+  },
+  {
+   "name": "GitHub Status",
+   "ok": true,
+   "count": 4
+  },
+  {
+   "name": "EPSS",
+   "ok": true,
+   "count": 15
+  }
+ ],
+ "stats": {
+  "items": 97,
+  "clusters": 86
+ }
+}
