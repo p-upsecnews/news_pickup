@@ -1,0 +1,262 @@
+{
+  "date": "2026-11-15",
+  "generated_at": "2026-11-15T10:10:00+09:00",
+  "window_hours": 48,
+  "headline": "Check Point Gaia OSの権限昇格ゼロデイがKEVに入り、前日までのPHP2Shell侵害と合わせて最優先。開発者向けにはCursorのマーケットプレイス侵害とGitLab更新に注意。取得失敗の情報源はなし。",
+  "items": [
+    {
+      "level": "critical",
+      "kind": "vulnerability",
+      "keyword": "Check Point GW",
+      "target": "ファイアウォール",
+      "title": "Check Point Gaia OSの権限昇格ゼロデイがKEV入り、緊急ホットフィックス公開",
+      "what": "Check Pointが10月下旬から悪用されていたGaia OSのroot権限昇格を修正する緊急ホットフィックスを公開し、CISAもKEVに追加した。前日までのPHP2Shell経由の侵害と組み合わされ、ESXiを破壊するワイパーも確認されている。",
+      "who": "Check Point Security Gateway、管理サーバ等のGaia OS搭載製品を運用している組織。",
+      "action": "ホットフィックスを適用し、管理画面・CLIの外部公開を止め、侵害の痕跡（不審なバックドアやESXi側のファイル消失）を確認する。",
+      "cves": [
+        "CVE-2026-123039"
+      ],
+      "tags": [
+        "KEV",
+        "悪用確認済み"
+      ],
+      "is_update": true,
+      "sources": [
+        {
+          "name": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/check-point-patches-zero-day-that-lets-hackers-get-root-access/"
+        },
+        {
+          "name": "CISA KEV",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-123039"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "incident",
+      "keyword": "Cursor",
+      "target": "開発基盤",
+      "title": "Cursorが侵害を認める、マーケットプレイス経由で悪意あるClaude Code拡張が配布",
+      "what": "AI基盤事業者Fireworks AIから盗まれた認証情報を使われ、Cursorの拡張マーケットプレイスに悪意ある拡張機能が置かれた。",
+      "who": "Cursorの拡張機能を導入している開発者と、その開発端末・認証情報。",
+      "action": "最近導入したClaude Code関連の拡張を確認し、不審なものを削除して端末上のトークン類を再発行する。",
+      "cves": [],
+      "tags": [
+        "サプライチェーン"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/cursor-confirms-security-breach-led-to-malicious-claude-code-extension/"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "vulnerability",
+      "keyword": "GitLab",
+      "target": "開発基盤",
+      "title": "GitLabがクリティカルな脆弱性を修正、2日後にも追加更新",
+      "what": "GitLabが11月10日に深刻な脆弱性の修正版を公開し、その2日後にも追加の更新を出した。",
+      "who": "セルフホストでGitLabを運用している組織。",
+      "action": "最新のパッチリリースへ更新する。",
+      "cves": [],
+      "tags": [
+        "国内"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "Security NEXT",
+          "url": "https://www.security-next.com/192648"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "vulnerability",
+      "keyword": "PromZard",
+      "target": "JS開発",
+      "title": "PromZardにリモートコード実行の脆弱性、JVNが注意喚起",
+      "what": "PromZardにRCEの脆弱性があるとしてJVNが情報を公開した。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [
+        "国内"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "JVN",
+          "url": "https://jvn.jp/vu/JVNVU98641453/"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "vulnerability",
+      "keyword": "TightVNC",
+      "target": "リモート操作",
+      "title": "TightVNC・UltraVNCのWindows Viewerにヒープオーバーフロー",
+      "what": "両製品のViewerにヒープバッファオーバーフローの脆弱性があるとJVNが公表した。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [
+        "国内"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "JVN",
+          "url": "https://jvn.jp/vu/JVNVU92656681/"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "vulnerability",
+      "keyword": "ComfyUI拡張",
+      "target": "AI画像生成",
+      "title": "ComfyUI-Easy-Useに認証不要のパストラバーサル",
+      "what": "ComfyUIの拡張機能に認証なしでファイルへアクセスできる脆弱性が報告された。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [
+        "国内"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "JVN",
+          "url": "https://jvn.jp/vu/JVNVU99429639/"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "outage",
+      "keyword": "FAA地上待機",
+      "target": "航空",
+      "title": "米FAAで全国的な発航停止、サイバー攻撃の兆候はなくソフト更新が原因か",
+      "what": "米国の航空当局で通信障害が起き全国で地上待機となったが、攻撃の証拠はなく更新作業が原因との見方が出ている。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [
+        "サービス停止"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "SecurityWeek",
+          "url": "https://www.securityweek.com/no-signs-of-hacking-in-faa-ground-stop-as-fbi-reportedly-probes-software-update/"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "incident",
+      "keyword": "独軍ドローン",
+      "target": "軍事",
+      "title": "ドイツ軍のドローン運用がサイバー攻撃で一時混乱",
+      "what": "ドイツ軍のドローン運用がサイバー攻撃により妨害されたと報じられた。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/german-military-drone-operations-disrupted-by-cyberattack/"
+        }
+      ]
+    }
+  ],
+  "source_status": [
+    {
+      "name": "CISA KEV",
+      "ok": true,
+      "count": 2
+    },
+    {
+      "name": "NVD",
+      "ok": true,
+      "count": 18
+    },
+    {
+      "name": "JPCERT/CC",
+      "ok": true,
+      "count": 0
+    },
+    {
+      "name": "IPA",
+      "ok": true,
+      "count": 0
+    },
+    {
+      "name": "Security NEXT",
+      "ok": true,
+      "count": 8
+    },
+    {
+      "name": "piyolog",
+      "ok": true,
+      "count": 2
+    },
+    {
+      "name": "BleepingComputer",
+      "ok": true,
+      "count": 10
+    },
+    {
+      "name": "The Hacker News",
+      "ok": true,
+      "count": 10
+    },
+    {
+      "name": "SecurityWeek",
+      "ok": true,
+      "count": 10
+    },
+    {
+      "name": "JVN",
+      "ok": true,
+      "count": 6
+    },
+    {
+      "name": "ITmedia",
+      "ok": true,
+      "count": 1
+    },
+    {
+      "name": "AWS Health",
+      "ok": true,
+      "count": 0
+    },
+    {
+      "name": "Cloudflare Status",
+      "ok": true,
+      "count": 0
+    },
+    {
+      "name": "GitHub Status",
+      "ok": true,
+      "count": 2
+    },
+    {
+      "name": "EPSS",
+      "ok": true,
+      "count": 14
+    }
+  ],
+  "stats": {
+    "items": 69,
+    "clusters": 62
+  }
+}

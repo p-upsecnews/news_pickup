@@ -1,5 +1,12 @@
 [
  {
+  "date": "2026-11-15",
+  "headline": "Check Point Gaia OSの権限昇格ゼロデイがKEVに入り、前日までのPHP2Shell侵害と合わせて最優先。開発者向けにはCursorのマーケットプレイス侵害とGitLab更新に注意。取得失敗の情報源はなし。",
+  "critical": 1,
+  "notable": 2,
+  "other": 5
+ },
+ {
   "date": "2026-11-14",
   "headline": "Check Pointゲートウェイへの破壊型攻撃とN-centralの被害拡大が最優先。国内では良品計画の最大2,726万件の流出の続報とNetScaler等の更新に注意。取得失敗の情報源はなし。",
   "critical": 2,
