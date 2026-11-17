@@ -1,0 +1,462 @@
+{
+ "date": "2026-11-17",
+ "generated_at": "2026-11-17T10:15:00+09:00",
+ "window_hours": 48,
+ "headline": "AI攻撃基盤「ARTEX」がFBI警告やBarracuda侵害で広がり、AI悪用が現実の被害に。国内ではスパコン「富岳」への不正アクセスが公表された。取得失敗した情報源はなし。",
+ "items": [
+  {
+   "level": "critical",
+   "kind": "incident",
+   "keyword": "ARTEX",
+   "target": "AI攻撃基盤",
+   "title": "AI攻撃フレームワークARTEXが世界で悪用拡大、FBIが警告しBarracudaも侵害",
+   "what": "攻撃者が自律型AIの侵入ツール「ARTEX」で攻撃を自動化している。FBIが警告を出し、ConnectWise経由のMicrosoft 365環境侵害やBarracudaのクラウド侵害にも使われた。Googleも同様のAI攻撃基盤の観測を報告した。",
+   "who": "ConnectWise等の外部委託・管理ツールを使う組織、クラウドのアクセスキーを管理する全組織。",
+   "action": "クラウドのアクセスキーを棚卸しして不要なものを失効し、保守ツールの管理画面を外部に公開しない。不審なログインや新規トークンの発行を監視する。",
+   "cves": [],
+   "tags": [
+    "悪用確認済み",
+    "サプライチェーン"
+   ],
+   "is_update": false,
+   "sources": [
+    {
+     "name": "BleepingComputer",
+     "url": "https://www.bleepingcomputer.com/news/security/fbi-warns-artex-ai-hacking-tool-is-powering-global-cyberattacks/"
+    },
+    {
+     "name": "SecurityWeek",
+     "url": "https://www.securityweek.com/barracuda-hacked-amid-surge-in-artex-powered-cyberattacks/"
+    },
+    {
+     "name": "ITmedia",
+     "url": "https://www.itmedia.co.jp/news/article/2611/16/2000003244/"
+    }
+   ]
+  },
+  {
+   "level": "notable",
+   "kind": "incident",
+   "keyword": "富岳",
+   "target": "スパコン/国内",
+   "title": "スパコン「富岳」に不正アクセス、公開ダッシュボードから侵入され情報持ち出しの可能性",
+   "what": "理研は、公開されていた稼働状況ページを足がかりに運用系ネットワークへ侵入され、利用者の認証情報の一部が外部に持ち出された可能性があると公表した。",
+   "who": "「富岳」の利用者と、研究機関・大学の関係者。",
+   "action": "案内メールを確認し、該当する場合はパスワード変更と、同じパスワードを使った他サービスの見直しを行う。",
+   "cves": [],
+   "tags": [
+    "国内",
+    "情報漏洩"
+   ],
+   "is_update": false,
+   "sources": [
+    {
+     "name": "ITmedia",
+     "url": "https://www.itmedia.co.jp/news/article/2611/16/2000003224/"
+    },
+    {
+     "name": "piyolog",
+     "url": "https://piyolog.hatenadiary.jp/entry/2026/11/17/030254"
+    }
+   ]
+  },
+  {
+   "level": "notable",
+   "kind": "incident",
+   "keyword": "LiteLLM/Dify",
+   "target": "AIアプリ",
+   "title": "AIエージェントがLiteLLMやDifyを狙い、AIサービスのAPIキーを窃取する攻撃",
+   "what": "Amazonが、攻撃側のAIエージェントが公開中のAIアプリを探索して保存されたAPIキーを盗み、そのキーで探索を続ける攻撃を確認したと報告した。",
+   "who": "LiteLLM、One API、Dify等をインターネットに公開している組織。",
+   "action": "外部公開を見直し、最新版へ更新する。保管しているAPIキーを再発行する。",
+   "cves": [],
+   "tags": [
+    "悪用確認済み"
+   ],
+   "is_update": false,
+   "sources": [
+    {
+     "name": "The Hacker News",
+     "url": "https://thehackernews.com/2026/11/amazon-uncovers-ai-agent-campaign.html"
+    }
+   ]
+  },
+  {
+   "level": "notable",
+   "kind": "incident",
+   "keyword": "Cursor",
+   "target": "開発基盤",
+   "title": "Cursor拡張の侵害はFireworks AIの鍵流出が原因と判明",
+   "what": "Cursorは、Fireworks AI側で露出したアクセスキーが悪用され、認証情報が盗まれて悪意あるClaude Code拡張が配布されたと説明した。",
+   "who": "Cursorの拡張機能を使う開発者。",
+   "action": "最近導入した拡張を確認して不審なものを削除し、端末上のトークンを再発行する。",
+   "cves": [],
+   "tags": [
+    "サプライチェーン"
+   ],
+   "is_update": true,
+   "sources": [
+    {
+     "name": "The Hacker News",
+     "url": "https://thehackernews.com/2026/11/stolen-fireworks-ai-key-led-to-cursor.html"
+    },
+    {
+     "name": "SecurityWeek",
+     "url": "https://www.securityweek.com/cursor-supply-chain-attack-started-at-fireworks/"
+    }
+   ]
+  },
+  {
+   "level": "notable",
+   "kind": "vulnerability",
+   "keyword": "Copeland XWEB",
+   "target": "産業用制御",
+   "title": "Copeland冷凍機コントローラの脆弱性14件、公開直後から攻撃者が探索",
+   "what": "VulnCheckが公表した14件のうち2件に対し、攻撃者がすぐに探索を始めた。Danfoss製コントローラでも未修正の6件が報告されている。",
+   "who": "冷凍・冷蔵設備を持つ小売・物流・食品関連の事業者。",
+   "action": "コントローラを外部公開せず、ネットワークを分離する。ベンダーの修正情報を確認する。",
+   "cves": [],
+   "tags": [
+    "悪用確認済み"
+   ],
+   "is_update": false,
+   "sources": [
+    {
+     "name": "SecurityWeek",
+     "url": "https://www.securityweek.com/hackers-probe-newly-disclosed-flaws-in-copeland-refrigeration-controllers/"
+    },
+    {
+     "name": "The Hacker News",
+     "url": "https://thehackernews.com/2026/11/six-unpatched-danfoss-refrigeration.html"
+    }
+   ]
+  },
+  {
+   "level": "notable",
+   "kind": "outage",
+   "keyword": "Microsoft 365",
+   "target": "クラウド",
+   "title": "Microsoft 365の世界的障害は7月混入のバグが原因、障害を装うフィッシングも",
+   "what": "Microsoftは、7月に混入したバグで接続の中継サーバの8割超が応答しなくなったと説明した。障害を装い、メール削除をちらつかせるフィッシングも確認された。",
+   "who": "Microsoft 365利用組織の全利用者。",
+   "action": "障害通知を装うメールのリンクを開かず、公式の稼働状況ページで確認するよう周知する。",
+   "cves": [],
+   "tags": [
+    "サービス停止"
+   ],
+   "is_update": false,
+   "sources": [
+    {
+     "name": "BleepingComputer",
+     "url": "https://www.bleepingcomputer.com/news/microsoft/microsoft-says-months-old-bug-caused-global-microsoft-365-outage/"
+    },
+    {
+     "name": "SecurityWeek",
+     "url": "https://www.securityweek.com/microsoft-rules-out-cyberattack-in-outage-warns-of-phishing-campaign/"
+    }
+   ]
+  },
+  {
+   "level": "notable",
+   "kind": "incident",
+   "keyword": "Uber委託先",
+   "target": "委託先経由",
+   "title": "Uber、委託先の侵害で運転免許証番号など15万人分が流出",
+   "what": "第三者のサービス事業者が侵害され、氏名・住所・運転免許証番号が盗まれた。",
+   "who": "Uberの対象ユーザー約15万人。",
+   "action": "通知を受けた人は不審な連絡に注意する。自社の委託先管理も見直す。",
+   "cves": [],
+   "tags": [
+    "情報漏洩",
+    "サプライチェーン"
+   ],
+   "is_update": false,
+   "sources": [
+    {
+     "name": "SecurityWeek",
+     "url": "https://www.securityweek.com/uber-data-breach-impacts-150000-people/"
+    }
+   ]
+  },
+  {
+   "level": "notable",
+   "kind": "incident",
+   "keyword": "TSMC",
+   "target": "委託先/半導体",
+   "title": "TSMC従業員の個人情報が流出、クラウド事業者経由で6.9GBが競売に",
+   "what": "TSMCは、従業員の個人情報が外部のクラウド事業者経由で流出し、攻撃者が6.9GBを競売に出したと確認した。",
+   "who": "TSMCの従業員と関係者。",
+   "action": "自社でも同じクラウド事業者に預けているデータがないか確認する。",
+   "cves": [],
+   "tags": [
+    "情報漏洩",
+    "サプライチェーン"
+   ],
+   "is_update": false,
+   "sources": [
+    {
+     "name": "BleepingComputer",
+     "url": "https://www.bleepingcomputer.com/news/security/tsmc-employee-data-breach-linked-to-cloud-provider/"
+    }
+   ]
+  },
+  {
+   "level": "notable",
+   "kind": "vulnerability",
+   "keyword": "富士電機TELLUS",
+   "target": "産業/国内",
+   "title": "富士電機のTELLUSに複数の脆弱性（JVN）",
+   "what": "富士電機が提供するTELLUSに複数の脆弱性があるとJVNが公表した。",
+   "who": "TELLUSを導入している工場・設備の運用者。",
+   "action": "JVNと富士電機の案内で対象バージョンと対策を確認し、更新する。",
+   "cves": [],
+   "tags": [
+    "国内"
+   ],
+   "is_update": false,
+   "sources": [
+    {
+     "name": "JVN",
+     "url": "https://jvn.jp/vu/JVNVU97628215/"
+    }
+   ]
+  },
+  {
+   "level": "other",
+   "kind": "incident",
+   "keyword": "Fandango",
+   "target": "決済",
+   "title": "Fandango、チェックアウト画面でカード情報が窃取",
+   "what": "チケット販売のFandangoが、決済画面に入力されたカード情報が盗まれたと通知を始めた。",
+   "who": "",
+   "action": "",
+   "cves": [],
+   "tags": [],
+   "is_update": false,
+   "sources": [
+    {
+     "name": "BleepingComputer",
+     "url": "https://www.bleepingcomputer.com/news/security/fandango-says-hackers-stole-payment-card-details-from-checkout-pages/"
+    }
+   ]
+  },
+  {
+   "level": "other",
+   "kind": "other",
+   "keyword": "Project Zero",
+   "target": "開示ポリシー",
+   "title": "Google Project Zero、脆弱性の開示期限を段階的に30日へ短縮",
+   "what": "AIによる脆弱性の発見と悪用の加速を受け、2027年2月に60日、2028年1月に30日の開示期限へ移行する。",
+   "who": "",
+   "action": "",
+   "cves": [],
+   "tags": [],
+   "is_update": false,
+   "sources": [
+    {
+     "name": "BleepingComputer",
+     "url": "https://www.bleepingcomputer.com/news/security/google-project-zero-cuts-bug-disclosure-deadline-to-30-days-amid-ai-threats/"
+    },
+    {
+     "name": "SecurityWeek",
+     "url": "https://www.securityweek.com/google-project-zero-sets-course-for-30-day-disclosure-deadline/"
+    }
+   ]
+  },
+  {
+   "level": "other",
+   "kind": "incident",
+   "keyword": "Telegram Widget",
+   "target": "メッセージ",
+   "title": "Telegramの新ウィジェットにRCEデモ、WebRAT配布の疑い",
+   "what": "Kasperskyは新機能の悪用を疑い、研究者はRCEを実演した。Telegram側は主張に反論している。",
+   "who": "",
+   "action": "",
+   "cves": [],
+   "tags": [],
+   "is_update": false,
+   "sources": [
+    {
+     "name": "SecurityWeek",
+     "url": "https://www.securityweek.com/telegram-widgets-hit-by-rce-demos-malware-warning-days-after-launch/"
+    }
+   ]
+  },
+  {
+   "level": "other",
+   "kind": "vulnerability",
+   "keyword": "NoisyTCP",
+   "target": "Linux",
+   "title": "LinuxカーネルのNoisyTCP脆弱性でサーバをクラッシュさせられる",
+   "what": "攻撃者がLinuxサーバを停止させられる欠陥が公開された。",
+   "who": "",
+   "action": "",
+   "cves": [],
+   "tags": [],
+   "is_update": false,
+   "sources": [
+    {
+     "name": "BleepingComputer",
+     "url": "https://www.bleepingcomputer.com/news/linux/new-noisytcp-linux-kernel-flaw-lets-attackers-crash-servers/"
+    }
+   ]
+  },
+  {
+   "level": "other",
+   "kind": "incident",
+   "keyword": "BO Team",
+   "target": "研究報告",
+   "title": "BO TeamがVMware vCenterのLog4Shellからロシア企業の署名サーバを侵害",
+   "what": "Kasperskyが、開発環境とコード署名サーバの長期侵害を報告した。",
+   "who": "",
+   "action": "",
+   "cves": [],
+   "tags": [],
+   "is_update": false,
+   "sources": [
+    {
+     "name": "The Hacker News",
+     "url": "https://thehackernews.com/2026/11/bo-team-exploits-log4shell-in-vmware.html"
+    }
+   ]
+  },
+  {
+   "level": "other",
+   "kind": "vulnerability",
+   "keyword": "Apache Shiro",
+   "target": "Javaライブラリ",
+   "title": "Apache Shiroに認証回避の脆弱性、8月の更新で修正済み",
+   "what": "認証を回避できる欠陥が公表されたが、すでに修正版が出ている。",
+   "who": "",
+   "action": "",
+   "cves": [],
+   "tags": [],
+   "is_update": false,
+   "sources": [
+    {
+     "name": "Security NEXT",
+     "url": "https://www.security-next.com/192887"
+    }
+   ]
+  },
+  {
+   "level": "other",
+   "kind": "incident",
+   "keyword": "八十二長野銀",
+   "target": "国内金融",
+   "title": "八十二長野銀行、従業員メール不正アクセスで顧客アドレス流出の可能性",
+   "what": "フィッシングで従業員のメールアカウントが侵害され、顧客等のメールアドレスが流出した可能性がある。",
+   "who": "",
+   "action": "",
+   "cves": [],
+   "tags": [],
+   "is_update": false,
+   "sources": [
+    {
+     "name": "Security NEXT",
+     "url": "https://www.security-next.com/192395"
+    }
+   ]
+  },
+  {
+   "level": "other",
+   "kind": "outage",
+   "keyword": "GitHub PR",
+   "target": "開発基盤",
+   "title": "GitHub、プルリクエストとActionsで一時障害（復旧済み）",
+   "what": "マージとActionsの開始遅延が発生したが、負荷軽減で復旧した。",
+   "who": "",
+   "action": "",
+   "cves": [],
+   "tags": [],
+   "is_update": false,
+   "sources": [
+    {
+     "name": "GitHub Status",
+     "url": "https://www.githubstatus.com/incidents/2zfqmghmg3s3"
+    }
+   ]
+  }
+ ],
+ "source_status": [
+  {
+   "name": "CISA KEV",
+   "ok": true,
+   "count": 0
+  },
+  {
+   "name": "NVD",
+   "ok": true,
+   "count": 9
+  },
+  {
+   "name": "JPCERT/CC",
+   "ok": true,
+   "count": 0
+  },
+  {
+   "name": "IPA",
+   "ok": true,
+   "count": 0
+  },
+  {
+   "name": "Security NEXT",
+   "ok": true,
+   "count": 10
+  },
+  {
+   "name": "piyolog",
+   "ok": true,
+   "count": 2
+  },
+  {
+   "name": "BleepingComputer",
+   "ok": true,
+   "count": 15
+  },
+  {
+   "name": "The Hacker News",
+   "ok": true,
+   "count": 9
+  },
+  {
+   "name": "SecurityWeek",
+   "ok": true,
+   "count": 10
+  },
+  {
+   "name": "JVN",
+   "ok": true,
+   "count": 1
+  },
+  {
+   "name": "ITmedia",
+   "ok": true,
+   "count": 3
+  },
+  {
+   "name": "AWS Health",
+   "ok": true,
+   "count": 0
+  },
+  {
+   "name": "Cloudflare Status",
+   "ok": true,
+   "count": 0
+  },
+  {
+   "name": "GitHub Status",
+   "ok": true,
+   "count": 1
+  },
+  {
+   "name": "EPSS",
+   "ok": true,
+   "count": 5
+  }
+ ],
+ "stats": {
+  "items": 60,
+  "clusters": 60
+ }
+}

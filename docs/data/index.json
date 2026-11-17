@@ -1,5 +1,12 @@
 [
  {
+  "date": "2026-11-17",
+  "headline": "AI攻撃基盤「ARTEX」がFBI警告やBarracuda侵害で広がり、AI悪用が現実の被害に。国内ではスパコン「富岳」への不正アクセスが公表された。取得失敗した情報源はなし。",
+  "critical": 1,
+  "notable": 8,
+  "other": 8
+ },
+ {
   "date": "2026-11-15",
   "headline": "Check Point Gaia OSの権限昇格ゼロデイがKEVに入り、前日までのPHP2Shell侵害と合わせて最優先。開発者向けにはCursorのマーケットプレイス侵害とGitLab更新に注意。取得失敗の情報源はなし。",
   "critical": 1,
