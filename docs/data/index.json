@@ -1,5 +1,12 @@
 [
  {
+  "date": "2026-11-18",
+  "headline": "ScreenConnect攻撃の継続とOptimizelyのサプライチェーン攻撃が緊急。AIが脆弱性悪用を自動化した初の観測や、Java4Shell・Check Pointの脆弱性にも注意。取得失敗した情報源はなし。",
+  "critical": 2,
+  "notable": 7,
+  "other": 10
+ },
+ {
   "date": "2026-11-17",
   "headline": "AI攻撃基盤「ARTEX」がFBI警告やBarracuda侵害で広がり、AI悪用が現実の被害に。国内ではスパコン「富岳」への不正アクセスが公表された。取得失敗した情報源はなし。",
   "critical": 1,

@@ -1,0 +1,511 @@
+{
+  "date": "2026-11-18",
+  "generated_at": "2026-11-18T10:15:00+09:00",
+  "window_hours": 48,
+  "headline": "ScreenConnect攻撃の継続とOptimizelyのサプライチェーン攻撃が緊急。AIが脆弱性悪用を自動化した初の観測や、Java4Shell・Check Pointの脆弱性にも注意。取得失敗した情報源はなし。",
+  "items": [
+    {
+      "level": "critical",
+      "kind": "vulnerability",
+      "keyword": "ScreenConnect",
+      "target": "遠隔管理",
+      "title": "ScreenConnectのMSP環境を狙う攻撃が1か月続く、未更新サーバが標的",
+      "what": "リモート管理ツールScreenConnectの重大な脆弱性（CVSS 9.9）がKEVに載り、未更新サーバへの攻撃キャンペーンが約1か月続いている。",
+      "who": "ScreenConnectを自社運用しているMSP・IT管理会社と、その顧客環境。",
+      "action": "最新版へ更新し、管理画面を外部に公開していないか確認する。侵害の兆候（不審な管理者・拡張機能）も点検する。",
+      "cves": [
+        "CVE-2026-84869"
+      ],
+      "tags": [
+        "KEV",
+        "悪用確認済み"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "SecurityWeek",
+          "url": "https://www.securityweek.com/msp-screenconnect-servers-targeted-in-month-long-campaign/"
+        },
+        {
+          "name": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/connectwise-warns-screenconnect-attacks.html"
+        }
+      ]
+    },
+    {
+      "level": "critical",
+      "kind": "incident",
+      "keyword": "Optimizely",
+      "target": "Web配信",
+      "title": "Optimizelyのスクリプトが改ざんされ、CNN・BBCなど大手サイトでマルウェア配信",
+      "what": "Web最適化サービスOptimizelyの脆弱性が悪用され、配信スクリプト経由で大手メディアやSalesforceのサイト訪問者にマルウェア等が配信された。",
+      "who": "Optimizelyのスクリプトを自社サイトに読み込んでいる事業者と、その閲覧者。",
+      "action": "自社サイトでの利用有無を確認し、外部スクリプトの整合性監視を見直す。カード情報窃取の有無も確認する。",
+      "cves": [],
+      "tags": [
+        "サプライチェーン",
+        "悪用確認済み"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/optimizely-supply-chain-attack-delivers-malware-to-cnn-fox-news-bbc-salesforce-sites/"
+        },
+        {
+          "name": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/hijacked-optimizely-scripts-served-card.html"
+        },
+        {
+          "name": "SecurityWeek",
+          "url": "https://www.securityweek.com/optimizely-vulnerability-exploited-to-serve-malware-on-major-websites/"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "vulnerability",
+      "keyword": "N-central",
+      "target": "MSP管理",
+      "title": "N-able N-centralの17件のゼロデイを修正、先行バグ悪用でマイナー設置",
+      "what": "N-ableが17件の脆弱性を修正し旧APIを廃止した。以前の脆弱性を悪用してクリプトマイナーが仕込まれる攻撃も確認されている。",
+      "who": "N-centralを運用するMSP・企業。",
+      "action": "修正版へ更新し、旧API利用の連携を見直す。不審なプロセスがないか確認する。",
+      "cves": [],
+      "tags": [
+        "悪用確認済み"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "SecurityWeek",
+          "url": "https://www.securityweek.com/n-able-kills-legacy-apis-patches-17-n-central-zero-days/"
+        },
+        {
+          "name": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/n-able-patches-17-n-central-flaws-as.html"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "vulnerability",
+      "keyword": "Puppet Ent.",
+      "target": "構成管理",
+      "title": "Perforce Puppet Enterpriseの不正デシリアライズ脆弱性がKEVに追加",
+      "what": "Puppet Enterpriseの信頼できないデータのデシリアライズ脆弱性（CVSS 9.4）が、悪用確認によりCISAのKEVに追加された。",
+      "who": "Puppet Enterpriseを使う構成管理基盤の運用者。",
+      "action": "ベンダーの修正版へ更新し、管理サーバへのアクセスを制限する。",
+      "cves": [
+        "CVE-2026-115731"
+      ],
+      "tags": [
+        "KEV",
+        "悪用確認済み"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "CISA KEV",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115731"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "vulnerability",
+      "keyword": "Check Point",
+      "target": "ゲートウェイ",
+      "title": "Check Point製品に脆弱性、「PHP2Shell」との連鎖でも悪用",
+      "what": "Check Point製品の脆弱性が公表され、PHP2Shellと連鎖させた悪用も報じられている。",
+      "who": "該当のCheck Point製品を使う企業。",
+      "action": "ベンダー情報で対象バージョンを確認し、修正版を適用する。",
+      "cves": [],
+      "tags": [
+        "悪用確認済み",
+        "国内"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "Security NEXT",
+          "url": "https://www.security-next.com/192877"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "vulnerability",
+      "keyword": "Java4Shell",
+      "target": "Javaアプリ",
+      "title": "Java4Shell：主要Javaアプリに影響するRCE、Oracleは定例パッチで対応",
+      "what": "主要なJavaアプリケーションでRCEが可能になる脆弱性「Java4Shell」が報じられ、Oracleは本日の定例で11件のJava脆弱性を修正する。",
+      "who": "Java（OpenJDK等）で動くアプリを運用する組織。",
+      "action": "OracleやOpenJDKの更新を確認して適用し、影響するアプリの有無を棚卸しする。",
+      "cves": [
+        "CVE-2026-114938"
+      ],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/critical-java4shell-flaw-allows-rce-attacks-on-major-java-applications/"
+        },
+        {
+          "name": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/oracle-to-patch-11-java-flaws-today-as.html"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "incident",
+      "keyword": "KARTE",
+      "target": "国内SaaS",
+      "title": "プレイドのCXプラットフォーム「KARTE」に不正アクセス",
+      "what": "CXプラットフォームKARTEへの不正アクセスが公表され、経緯が整理されている。",
+      "who": "KARTEを導入している国内企業とそのサイト利用者。",
+      "action": "ベンダーの公表を確認し、自社の利用状況と影響範囲を把握する。",
+      "cves": [],
+      "tags": [
+        "国内",
+        "情報漏洩"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "piyolog",
+          "url": "https://piyolog.hatenadiary.jp/entry/2026/11/18/010752"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "incident",
+      "keyword": "AIエージェント攻撃",
+      "target": "AI悪用",
+      "title": "Google、AIが脆弱性の発見から悪用まで自動で行う攻撃基盤を初観測",
+      "what": "GoogleのAI脅威レポートで、人の関与なしにパッチ差分から脆弱性を見つけて悪用するAI基盤が確認されたと報告された。",
+      "who": "パッチ適用が遅れている組織全般。",
+      "action": "修正版の適用を迅速化し、公開済み脆弱性の放置期間を短縮する。",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "ITmedia",
+          "url": "https://www.itmedia.co.jp/news/article/2611/16/2000003244/"
+        },
+        {
+          "name": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/google-finds-hackers-using-ai-agents-to.html"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "incident",
+      "keyword": "Docker Hub",
+      "target": "コンテナ",
+      "title": "Docker Hubのイメージに混入したクラウド鍵が数秒で窃取される",
+      "what": "Docker Hubのイメージに含まれたクラウド認証情報が、公開後わずか数秒で攻撃者に盗まれると調査で示された。",
+      "who": "コンテナイメージを公開・利用する開発者。",
+      "action": "イメージに秘密情報を含めない。漏れた鍵は失効・再発行する。",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/cloud-keys-leaked-in-docker-hub-images-are-stolen-within-seconds/"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "incident",
+      "keyword": "Ipsos",
+      "target": "調査会社",
+      "title": "市場調査大手Ipsos、内部システムの侵害を調査",
+      "what": "Ipsosが内部システムへの不正アクセスを調査していると報じられた。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [
+        "情報漏洩"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "SecurityWeek",
+          "url": "https://www.securityweek.com/market-research-giant-ipsos-investigating-breach-of-internal-system/"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "incident",
+      "keyword": "Access Dental",
+      "target": "医療",
+      "title": "Access Dental Management、34万人超の情報漏洩",
+      "what": "歯科管理会社で34万人以上に影響する情報漏洩が発生した。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [
+        "情報漏洩"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "SecurityWeek",
+          "url": "https://www.securityweek.com/access-dental-management-data-breach-impacts-over-340000/"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "incident",
+      "keyword": "楽天証券",
+      "target": "国内金融",
+      "title": "楽天証券への不正アクセス",
+      "what": "楽天証券への不正アクセスについて経緯がまとめられている。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [
+        "国内"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "piyolog",
+          "url": "https://piyolog.hatenadiary.jp/entry/2026/11/18/100525"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "incident",
+      "keyword": "Pokepay",
+      "target": "電子マネー",
+      "title": "電子マネー基盤Pokepayへの不正アクセス",
+      "what": "電子マネー基盤Pokepayへの不正アクセスについて経緯がまとめられている。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [
+        "国内"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "piyolog",
+          "url": "https://piyolog.hatenadiary.jp/entry/2026/11/17/192656"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "vulnerability",
+      "keyword": "Danfoss",
+      "target": "産業機器",
+      "title": "Danfoss冷凍機コントローラに未修正の脆弱性6件",
+      "what": "認証なしで遠隔操作を許す恐れのある脆弱性6件が未修正のまま公表された。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/six-unpatched-danfoss-refrigeration.html"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "incident",
+      "keyword": "Tor",
+      "target": "匿名網",
+      "title": "Tor、DDoS攻撃のさなか緊急アップデートを公開",
+      "what": "Torが継続中のDDoS攻撃を受け、緊急の更新版を公開した。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/tor-releases-emergency-update-amid-ongoing-ddos-attack/"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "vulnerability",
+      "keyword": "エレコム無線LAN",
+      "target": "ルータ",
+      "title": "エレコム製無線LANルータにOSコマンドインジェクション",
+      "what": "エレコム製ルータにOSコマンドインジェクションの脆弱性が公表された。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [
+        "国内"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "JVN",
+          "url": "https://jvn.jp/vu/JVNVU91615135/"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "vulnerability",
+      "keyword": "OpenSSL",
+      "target": "暗号基盤",
+      "title": "OpenSSLの脆弱性に対する更新（11/17）",
+      "what": "OpenSSLの脆弱性への更新がJVNから案内された。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [
+        "国内"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "JVN",
+          "url": "https://jvn.jp/vu/JVNVU96847970/"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "outage",
+      "keyword": "iCloud",
+      "target": "クラウド",
+      "title": "Apple、iCloud MailやAppleCareで障害",
+      "what": "iCloud MailやAppleCareなどで障害が発生した。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [
+        "サービス停止"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/apple/apple-reports-outages-affecting-icloud-mail-applecare-and-more/"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "incident",
+      "keyword": "GitDoor",
+      "target": "マルウェア",
+      "title": "GitHubとSharePointをC2に悪用するバックドアGitDoor/GraphDoor",
+      "what": "正規サービスを隠れた通信路に使うバックドアが報告された。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/new-gitdoor-and-graphdoor-backdoors.html"
+        }
+      ]
+    }
+  ],
+  "source_status": [
+    {
+      "name": "CISA KEV",
+      "ok": true,
+      "count": 1
+    },
+    {
+      "name": "NVD",
+      "ok": true,
+      "count": 42
+    },
+    {
+      "name": "JPCERT/CC",
+      "ok": true,
+      "count": 0
+    },
+    {
+      "name": "IPA",
+      "ok": true,
+      "count": 0
+    },
+    {
+      "name": "Security NEXT",
+      "ok": true,
+      "count": 19
+    },
+    {
+      "name": "piyolog",
+      "ok": true,
+      "count": 5
+    },
+    {
+      "name": "BleepingComputer",
+      "ok": true,
+      "count": 15
+    },
+    {
+      "name": "The Hacker News",
+      "ok": true,
+      "count": 17
+    },
+    {
+      "name": "SecurityWeek",
+      "ok": true,
+      "count": 10
+    },
+    {
+      "name": "JVN",
+      "ok": true,
+      "count": 7
+    },
+    {
+      "name": "ITmedia",
+      "ok": true,
+      "count": 4
+    },
+    {
+      "name": "AWS Health",
+      "ok": true,
+      "count": 0
+    },
+    {
+      "name": "Cloudflare Status",
+      "ok": true,
+      "count": 0
+    },
+    {
+      "name": "GitHub Status",
+      "ok": true,
+      "count": 1
+    },
+    {
+      "name": "EPSS",
+      "ok": true,
+      "count": 5
+    }
+  ],
+  "stats": {
+    "items": 121,
+    "clusters": 117
+  }
+}
