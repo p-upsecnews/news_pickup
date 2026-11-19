@@ -1,0 +1,546 @@
+{
+  "date": "2026-11-19",
+  "generated_at": "2026-11-19T10:05:00+09:00",
+  "window_hours": 48,
+  "headline": "Puppet EnterpriseやApache Rollerなど悪用確認済みの脆弱性と、MicrosoftのPyPIパッケージ改ざんが緊急。Java4ShellはOracleとIPAが対応を案内。取得失敗した情報源はなし。",
+  "items": [
+    {
+      "level": "critical",
+      "kind": "vulnerability",
+      "keyword": "Puppet Ent.",
+      "target": "構成管理",
+      "title": "Puppet EnterpriseのRCE脆弱性が悪用され、CISAが警告（KEV掲載）",
+      "what": "Perforce Puppet Enterpriseの不正デシリアライズによるリモートコード実行が実際に攻撃で悪用され、米CISAが悪用確認済みとして注意喚起した。",
+      "who": "Puppet Enterpriseを運用している企業・客先の構成管理サーバ。",
+      "action": "修正版へ更新し、更新できない場合はPuppetサーバへのアクセスを管理網に限定する。",
+      "cves": [
+        "CVE-2026-115731"
+      ],
+      "tags": [
+        "KEV",
+        "悪用確認済み"
+      ],
+      "is_update": true,
+      "sources": [
+        {
+          "name": "Security NEXT",
+          "url": "https://www.security-next.com/193016"
+        },
+        {
+          "name": "SecurityWeek",
+          "url": "https://www.securityweek.com/critical-perforce-puppet-rce-exploited-in-attacks/"
+        }
+      ]
+    },
+    {
+      "level": "critical",
+      "kind": "vulnerability",
+      "keyword": "Apache Roller",
+      "target": "Webアプリ",
+      "title": "Apache Roller、認証不要のRCEが悪用中",
+      "what": "ブログソフトApache Rollerに認証なしでコードを実行できる重大な脆弱性があり、すでに攻撃で悪用されているとApacheが警告した。",
+      "who": "Apache Rollerをインターネットに公開している組織。",
+      "action": "修正版へ更新し、更新まで公開を止めるかアクセスを制限する。",
+      "cves": [
+        "CVE-2026-129448"
+      ],
+      "tags": [
+        "悪用確認済み"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/critical-apache-roller-rce-flaw-under.html"
+        },
+        {
+          "name": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/apache-warns-of-roller-rce-vulnerability-exploited-in-attacks/"
+        }
+      ]
+    },
+    {
+      "level": "critical",
+      "kind": "vulnerability",
+      "keyword": "LiteLLM",
+      "target": "AIゲートウェイ",
+      "title": "BerriAI LiteLLMの脆弱性が悪用され、CISAがKEVに追加",
+      "what": "AIモデルへの中継基盤LiteLLMの保護されていない代替チャネルの脆弱性が悪用され、CISAのKEVに追加された。",
+      "who": "LiteLLMプロキシを社内・客先で運用している環境（APIキーが集約されている）。",
+      "action": "修正版へ更新し、公開されている場合はアクセス制限とAPIキーの再発行を検討する。",
+      "cves": [
+        "CVE-2026-40217"
+      ],
+      "tags": [
+        "KEV",
+        "悪用確認済み"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "CISA KEV",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40217"
+        }
+      ]
+    },
+    {
+      "level": "critical",
+      "kind": "incident",
+      "keyword": "Agent Framework",
+      "target": "Python環境",
+      "title": "MicrosoftのAgent FrameworkのPyPIパッケージが改ざんされ、クラウド認証情報を窃取",
+      "what": "Microsoft Agent Frameworkの公開パッケージにマルウェアが混入し、インストールした環境から認証情報が盗まれる状態だった。",
+      "who": "該当バージョンをpipで導入した開発端末・CI環境。",
+      "action": "導入履歴を確認し、該当版を入れていれば削除して認証情報を全て再発行する。",
+      "cves": [],
+      "tags": [
+        "サプライチェーン",
+        "情報漏洩"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/microsofts-agent-framework-pypi-package-compromised-to-steal-credentials/"
+        },
+        {
+          "name": "SecurityWeek",
+          "url": "https://www.securityweek.com/microsoft-agent-framework-releases-poisoned-with-credential-stealer/"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "vulnerability",
+      "keyword": "Java4Shell",
+      "target": "Java環境",
+      "title": "Java4Shell、Oracleが定例パッチで修正。IPAも対策を案内",
+      "what": "OpenJDKの重大なRCE（Java4Shell）に対しOracleが11月の定例パッチを公開し、IPAも更新を呼びかけた。",
+      "who": "Javaで業務アプリを動かしている組織。",
+      "action": "Javaを最新版に更新し、主要アプリの対応状況を確認する。",
+      "cves": [
+        "CVE-2026-114938"
+      ],
+      "tags": [
+        "国内"
+      ],
+      "is_update": true,
+      "sources": [
+        {
+          "name": "IPA",
+          "url": "https://www.ipa.go.jp/security/security-alert/2026/1118-jre.html"
+        },
+        {
+          "name": "piyolog",
+          "url": "https://piyolog.hatenadiary.jp/entry/2026/11/19/001205"
+        },
+        {
+          "name": "SecurityWeek",
+          "url": "https://www.securityweek.com/java4shell-vulnerability-puts-many-enterprise-applications-at-risk-of-takeover/"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "vulnerability",
+      "keyword": "Synology DSM",
+      "target": "NAS",
+      "title": "Synology DSMの脆弱性がKEVに追加",
+      "what": "Synology DiskStation Managerの出力エスケープ不備の脆弱性が悪用され、KEVに追加された。",
+      "who": "DSMを使うNAS。",
+      "action": "DSMを最新版へ更新し、外部公開を避ける。",
+      "cves": [
+        "CVE-2024-10441"
+      ],
+      "tags": [
+        "KEV",
+        "悪用確認済み"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "CISA KEV",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-10441"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "vulnerability",
+      "keyword": "NGINX HTTP/2",
+      "target": "Webサーバ",
+      "title": "NGINXのHTTP/2に10年前からのRCE脆弱性",
+      "what": "NGINXのHTTP/2処理に認証不要でコードを実行され得る古い脆弱性が見つかった。悪用は未確認。",
+      "who": "HTTP/2を有効にしたNGINX。",
+      "action": "修正版へ更新する。",
+      "cves": [
+        "CVE-2026-123007"
+      ],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/10-year-old-nginx-http2-flaw-lets.html"
+        },
+        {
+          "name": "piyolog",
+          "url": "https://piyolog.hatenadiary.jp/entry/2026/11/19/065715"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "vulnerability",
+      "keyword": "REDCap",
+      "target": "医療研究",
+      "title": "REDCapのコードインジェクションがKEVに追加",
+      "what": "研究用データ収集基盤REDCapのコードインジェクションが悪用され、KEVに追加された。CVSSは9.8。",
+      "who": "REDCapを運用する大学・研究機関。",
+      "action": "修正版へ更新する。",
+      "cves": [
+        "CVE-2026-90817"
+      ],
+      "tags": [
+        "KEV",
+        "悪用確認済み"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "CISA KEV",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-90817"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "vulnerability",
+      "keyword": "Apache Axis",
+      "target": "Java環境",
+      "title": "Apache Axisの安全でないリフレクションがKEVに追加",
+      "what": "Apache Axisの脆弱性が悪用され、KEVに追加された。CVSSは9.8。",
+      "who": "Axisを使う古いJava系システム。",
+      "action": "更新または移行を行い、使用有無を棚卸しする。",
+      "cves": [
+        "CVE-2026-90436"
+      ],
+      "tags": [
+        "KEV",
+        "悪用確認済み"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "CISA KEV",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-90436"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "vulnerability",
+      "keyword": "F5 BIG-IP",
+      "target": "ADC",
+      "title": "F5がBIG-IPの重大な脆弱性6件を公表",
+      "what": "BIG-IPで特定構成時に通信が停止したりRCEに至る恐れのある脆弱性6件が公表された。",
+      "who": "BIG-IPの利用組織。",
+      "action": "公開された修正版を確認して適用する。",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/f5-warns-6-critical-big-ip-flaws-can.html"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "vulnerability",
+      "keyword": "Chrome 158",
+      "target": "PCブラウザ",
+      "title": "Chrome 158で204件の脆弱性を修正、6件がクリティカル",
+      "what": "Chrome 158のセキュリティ更新で脆弱性204件が修正された。",
+      "who": "ChromeおよびChromium系ブラウザの利用者。",
+      "action": "最新版へ更新する。",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "Security NEXT",
+          "url": "https://www.security-next.com/192998"
+        },
+        {
+          "name": "SecurityWeek",
+          "url": "https://www.securityweek.com/chrome-158-patches-204-vulnerabilities/"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "incident",
+      "keyword": "アイルランド信組",
+      "target": "金融",
+      "title": "IT委託先のハッキングでアイルランドの信用組合40組合に影響か",
+      "what": "IT事業者への侵入により信用組合40組合のデータに影響が出たと報じられた。",
+      "who": "当該委託先を使う信用組合の顧客。",
+      "action": "委託先が同様の事業者なら状況を確認する。",
+      "cves": [],
+      "tags": [
+        "情報漏洩"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/data-breach-impacts-40-irish-credit-unions-in-reported-it-provider-hack/"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "incident",
+      "keyword": "楽天証券",
+      "target": "金融",
+      "title": "楽天証券で不正アクセス、年収・資産情報流出の可能性",
+      "what": "楽天証券で不正アクセスがあり、年収や資産情報が流出した可能性がある。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [
+        "国内",
+        "情報漏洩"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "Security NEXT",
+          "url": "https://www.security-next.com/193015"
+        },
+        {
+          "name": "piyolog",
+          "url": "https://piyolog.hatenadiary.jp/entry/2026/11/18/100525"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "vulnerability",
+      "keyword": "エレコム無線LAN",
+      "target": "ルータ",
+      "title": "エレコム製無線LANルータにOSコマンドインジェクション",
+      "what": "エレコム製無線LANルータにOSコマンドインジェクションの脆弱性がある。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [
+        "国内"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "JVN",
+          "url": "https://jvn.jp/vu/JVNVU91615135/"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "vulnerability",
+      "keyword": "Oracle CSPU",
+      "target": "企業向け製品",
+      "title": "Oracleが11月の定例パッチで多数の脆弱性を修正",
+      "what": "Oracleが11月の定例パッチで数百件の脆弱性を修正した。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "Security NEXT",
+          "url": "https://www.security-next.com/193031"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "vulnerability",
+      "keyword": "GitLab",
+      "target": "開発基盤",
+      "title": "GitLabが37件の脆弱性を修正",
+      "what": "GitLabのセキュリティ更新で37件の脆弱性が修正された。重要度Highが4件。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "Security NEXT",
+          "url": "https://www.security-next.com/192966"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "vulnerability",
+      "keyword": "WordPress 7.1.5",
+      "target": "WordPress",
+      "title": "WordPress 7.1.5が公開、複数の脆弱性を修正",
+      "what": "WordPress 7.1.5で複数の脆弱性が修正された。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "Security NEXT",
+          "url": "https://www.security-next.com/193073"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "incident",
+      "keyword": "Tor DDoS",
+      "target": "匿名通信",
+      "title": "TorがDDoSの最中に緊急アップデートを公開",
+      "what": "Torが継続するDDoS攻撃への対処として緊急更新を公開した。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/tor-releases-emergency-update-amid-ongoing-ddos-attack/"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "outage",
+      "keyword": "iCloud",
+      "target": "クラウド",
+      "title": "AppleのiCloud MailとAppleCareで障害",
+      "what": "iCloud MailやAppleCareなどで障害が発生した。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/apple/apple-reports-outages-affecting-icloud-mail-applecare-and-more/"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "other",
+      "keyword": "Scattered Spider",
+      "target": "犯罪組織",
+      "title": "英国のScattered Spider関係者に禁錮6年",
+      "what": "Scattered Spider関係者の英国人に禁錮6年が言い渡された。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/british-scattered-spider-hacker-sentenced-to-6-years-in-prison/"
+        }
+      ]
+    }
+  ],
+  "source_status": [
+    {
+      "name": "CISA KEV",
+      "ok": true,
+      "count": 5
+    },
+    {
+      "name": "NVD",
+      "ok": true,
+      "count": 30
+    },
+    {
+      "name": "JPCERT/CC",
+      "ok": true,
+      "count": 0
+    },
+    {
+      "name": "IPA",
+      "ok": true,
+      "count": 1
+    },
+    {
+      "name": "Security NEXT",
+      "ok": true,
+      "count": 17
+    },
+    {
+      "name": "piyolog",
+      "ok": true,
+      "count": 5
+    },
+    {
+      "name": "BleepingComputer",
+      "ok": true,
+      "count": 15
+    },
+    {
+      "name": "The Hacker News",
+      "ok": true,
+      "count": 22
+    },
+    {
+      "name": "SecurityWeek",
+      "ok": true,
+      "count": 10
+    },
+    {
+      "name": "JVN",
+      "ok": true,
+      "count": 10
+    },
+    {
+      "name": "ITmedia",
+      "ok": true,
+      "count": 2
+    },
+    {
+      "name": "AWS Health",
+      "ok": true,
+      "count": 0
+    },
+    {
+      "name": "Cloudflare Status",
+      "ok": true,
+      "count": 0
+    },
+    {
+      "name": "GitHub Status",
+      "ok": true,
+      "count": 1
+    },
+    {
+      "name": "EPSS",
+      "ok": true,
+      "count": 19
+    }
+  ],
+  "stats": {
+    "items": 118,
+    "clusters": 102
+  }
+}

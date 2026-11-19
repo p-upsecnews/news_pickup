@@ -1,5 +1,12 @@
 [
  {
+  "date": "2026-11-19",
+  "headline": "Puppet EnterpriseやApache Rollerなど悪用確認済みの脆弱性と、MicrosoftのPyPIパッケージ改ざんが緊急。Java4ShellはOracleとIPAが対応を案内。取得失敗した情報源はなし。",
+  "critical": 4,
+  "notable": 8,
+  "other": 8
+ },
+ {
   "date": "2026-11-18",
   "headline": "ScreenConnect攻撃の継続とOptimizelyのサプライチェーン攻撃が緊急。AIが脆弱性悪用を自動化した初の観測や、Java4Shell・Check Pointの脆弱性にも注意。取得失敗した情報源はなし。",
   "critical": 2,
