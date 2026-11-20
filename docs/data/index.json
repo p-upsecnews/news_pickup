@@ -1,5 +1,12 @@
 [
  {
+  "date": "2026-11-20",
+  "headline": "PHPの全サポート版に及ぶ重大RCE（一部は悪用確認）とVMware vCenterのゼロデイが最優先。Java4Shellは悪用試行が始まりCISAが即時対応を要請。国内ではJETROの漏洩や大崎電気のランサム被害も。",
+  "critical": 3,
+  "notable": 9,
+  "other": 6
+ },
+ {
   "date": "2026-11-19",
   "headline": "Puppet EnterpriseやApache Rollerなど悪用確認済みの脆弱性と、MicrosoftのPyPIパッケージ改ざんが緊急。Java4ShellはOracleとIPAが対応を案内。取得失敗した情報源はなし。",
   "critical": 4,

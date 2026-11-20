@@ -1,0 +1,506 @@
+{
+  "date": "2026-11-20",
+  "generated_at": "2026-11-20T10:15:00+09:00",
+  "window_hours": 48,
+  "headline": "PHPの全サポート版に及ぶ重大RCE（一部は悪用確認）とVMware vCenterのゼロデイが最優先。Java4Shellは悪用試行が始まりCISAが即時対応を要請。国内ではJETROの漏洩や大崎電気のランサム被害も。",
+  "items": [
+    {
+      "level": "critical",
+      "kind": "vulnerability",
+      "keyword": "PHP RCE",
+      "target": "Webサーバ",
+      "title": "PHPに重大なRCE脆弱性が多数、全サポート版が対象で一部は悪用確認",
+      "what": "PHPの全サポートバージョンに影響する重大なリモートコード実行の脆弱性が複数修正され、うち2件はCISA KEVに掲載された。",
+      "who": "PHPでWebアプリケーションを動かしているすべてのサーバ。",
+      "action": "公開された修正版へ更新する。更新できない場合は公開サーバの隔離やWAFでの緩和を検討する。",
+      "cves": [
+        "CVE-2026-109618",
+        "CVE-2026-109619"
+      ],
+      "tags": [
+        "KEV",
+        "悪用確認済み",
+        "国内"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "Security NEXT",
+          "url": "https://www.security-next.com/193143"
+        },
+        {
+          "name": "IPA",
+          "url": "https://www.ipa.go.jp/security/security-alert/2026/pre-alert20261119.html"
+        },
+        {
+          "name": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/php-security-updates-fix-18-flaws-including-critical-rce-bugs/"
+        }
+      ]
+    },
+    {
+      "level": "critical",
+      "kind": "vulnerability",
+      "keyword": "vCenter",
+      "target": "仮想基盤",
+      "title": "VMware vCenterの認証回避ゼロデイ、中国系APTが9月から悪用",
+      "what": "VMware vCenterにCVSS 9.8の認証回避の脆弱性があり、修正前から中国系の攻撃者に悪用されていたことが判明した。",
+      "who": "vCenter Serverを運用している組織。",
+      "action": "パッチを適用し、管理インターフェースを外部に公開していないか確認する。侵害の痕跡も点検する。",
+      "cves": [],
+      "tags": [
+        "悪用確認済み"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "Security NEXT",
+          "url": "https://www.security-next.com/193141"
+        },
+        {
+          "name": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/vmware-patches-vcenter-zero-day-exploited-in-attacks-since-september/"
+        },
+        {
+          "name": "SecurityWeek",
+          "url": "https://www.securityweek.com/newly-patched-vmware-vcenter-flaw-exploited-as-zero-day-by-chinese-apt/"
+        }
+      ]
+    },
+    {
+      "level": "critical",
+      "kind": "vulnerability",
+      "keyword": "Java4Shell",
+      "target": "Java環境",
+      "title": "Java4Shellの悪用試行が始まり、CISAが即時パッチ適用を要請",
+      "what": "Javaの深刻なRCE脆弱性「Java4Shell」で攻撃の試行が観測され、CISAが直ちに更新するよう呼びかけた。",
+      "who": "Javaを利用するアプリケーションやサーバ全般。",
+      "action": "ベンダーの修正版へ更新し、公開サービスで該当バージョンが動いていないか棚卸しする。",
+      "cves": [
+        "CVE-2026-114938"
+      ],
+      "tags": [
+        "悪用確認済み",
+        "国内"
+      ],
+      "is_update": true,
+      "sources": [
+        {
+          "name": "Security NEXT",
+          "url": "https://www.security-next.com/193112"
+        },
+        {
+          "name": "IPA",
+          "url": "https://www.ipa.go.jp/security/security-alert/2026/alert20261119.html"
+        },
+        {
+          "name": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/cisa-urges-immediate-patching-of.html"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "vulnerability",
+      "keyword": "Cisco Expressway",
+      "target": "通信基盤",
+      "title": "Cisco Expresswayの脆弱性、PoC公開直後に悪用",
+      "what": "Cisco Expresswayの脆弱性について、PoCの公開後まもなく悪用が確認された。",
+      "who": "Cisco Expresswayを運用している組織。",
+      "action": "修正版へ更新し、外部公開の有無を確認する。",
+      "cves": [],
+      "tags": [
+        "悪用確認済み",
+        "PoC公開"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "SecurityWeek",
+          "url": "https://www.securityweek.com/hackers-exploit-cisco-expressway-vulnerability-soon-after-poc-release/"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "vulnerability",
+      "keyword": "nginx2root",
+      "target": "Webサーバ",
+      "title": "NGINXの重大な脆弱性群「nginx2root」、PoCが公開",
+      "what": "NGINXの重大な脆弱性群にPoCが公開され、サーバ乗っ取りにつながるおそれがある。",
+      "who": "NGINXおよびF5関連製品を使うサーバ。",
+      "action": "F5・NGINXの修正版へ更新する。",
+      "cves": [],
+      "tags": [
+        "PoC公開"
+      ],
+      "is_update": true,
+      "sources": [
+        {
+          "name": "SecurityWeek",
+          "url": "https://www.securityweek.com/f5-patches-critical-nginx2root-flaws-as-poc-exploits-go-public/"
+        },
+        {
+          "name": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/critical-nginx-nginx2root-bugs-let-attackers-hijack-servers/"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "vulnerability",
+      "keyword": "Drupal",
+      "target": "CMS",
+      "title": "Drupalに重大なRCE脆弱性、早期に悪用される可能性",
+      "what": "Drupalが認証不要で制御を奪われうる重大な脆弱性を修正し、攻撃コードが早く出回る可能性があると警告した。",
+      "who": "Drupalでサイトを運用している組織。",
+      "action": "修正版へ更新する。",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/drupal-patches-critical-rce-flaw-warns-exploits-may-surface-quickly/"
+        },
+        {
+          "name": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/drupal-patches-critical-installer-flaw.html"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "incident",
+      "keyword": "N-able",
+      "target": "SaaS",
+      "title": "N-ableのクラウドサーバに侵入、3リージョンでメールセキュリティ管理に影響",
+      "what": "N-ableのクラウドサーバが侵害され、メールセキュリティ管理機能が3地域で停止・影響を受けた。",
+      "who": "N-ableのメールセキュリティ製品を使う企業・MSP。",
+      "action": "ベンダーの案内を確認し、管理画面の認証情報とログを点検する。",
+      "cves": [],
+      "tags": [
+        "サービス停止"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/n-able-confirms-hackers-accessed-cloud.html"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "incident",
+      "keyword": "SBC Medical",
+      "target": "医療",
+      "title": "SBC Medical Groupで顧客160万人分の情報が流出",
+      "what": "美容医療のSBC Medical Groupがサイバー攻撃を受け、約160万人の顧客データが盗まれた。",
+      "who": "同グループの顧客。",
+      "action": "不審な連絡やフィッシングに注意する。",
+      "cves": [],
+      "tags": [
+        "情報漏洩"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/hackers-steal-data-of-16-million-sbc-medical-group-customers/"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "incident",
+      "keyword": "アイルランド信組",
+      "target": "金融",
+      "title": "IT委託先への攻撃でアイルランドの信用組合40団体に漏洩",
+      "what": "IT委託先がハッキングされ、40のアイルランド信用組合の情報が影響を受けた。",
+      "who": "同国の信用組合の利用者。",
+      "action": "委託先経由の影響範囲を自社環境でも確認する。",
+      "cves": [],
+      "tags": [
+        "情報漏洩",
+        "サプライチェーン"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/data-breach-impacts-40-irish-credit-unions-in-reported-it-provider-hack/"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "incident",
+      "keyword": "JETRO",
+      "target": "国内公的機関",
+      "title": "JETROの一部サイトに不正アクセス、個人情報が流出",
+      "what": "日本貿易振興機構（JETRO）の一部サイトが不正アクセスを受け、個人情報が流出した。",
+      "who": "JETROのサイト利用者・登録者。",
+      "action": "案内に従いパスワード変更やフィッシングへの注意を行う。",
+      "cves": [],
+      "tags": [
+        "国内",
+        "情報漏洩"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "Security NEXT",
+          "url": "https://www.security-next.com/192759"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "incident",
+      "keyword": "大崎電気",
+      "target": "製造",
+      "title": "大崎電気工業がランサム攻撃、生産システム停止・出荷に影響",
+      "what": "大崎電気工業がランサムウェア攻撃を受け、生産関連システムが止まり出荷に影響が出た。",
+      "who": "同社と取引先。",
+      "action": "取引先は納期や連絡窓口の変更を確認する。",
+      "cves": [],
+      "tags": [
+        "国内",
+        "ランサムウェア",
+        "サービス停止"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "Security NEXT",
+          "url": "https://www.security-next.com/193088"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "incident",
+      "keyword": "NVIDIA",
+      "target": "半導体",
+      "title": "NVIDIA、Gentlemenランサムの侵害主張を調査中",
+      "what": "ランサムウェア集団Gentlemenが侵害を主張し、NVIDIAが事実関係を調査している。",
+      "who": "NVIDIAおよびその取引先。",
+      "action": "続報を待ち、取引先は連絡を確認する。",
+      "cves": [],
+      "tags": [
+        "ランサムウェア"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/nvidia-investigating-gentlemen-ransomware-breach-claims/"
+        },
+        {
+          "name": "SecurityWeek",
+          "url": "https://www.securityweek.com/nvidia-responds-to-gentlemen-ransomware-claim/"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "incident",
+      "keyword": "TfL",
+      "target": "公共交通",
+      "title": "ロンドン交通局で26.5万人分のOyster利用者情報が流出",
+      "what": "ロンドン交通局の侵害でOysterカード利用者約26.5万人の情報が流出した。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [
+        "情報漏洩"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/transport-for-london-breach-exposes-265-000-oyster-card-users-data/"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "incident",
+      "keyword": "COLD RELIC",
+      "target": "Google環境",
+      "title": "ロシア系COLD RELICが盗んだGoogle Workspace情報で2組織目に侵入",
+      "what": "盗んだGoogle Workspaceのデータを使い、米国の2つ目の組織への侵入が確認された。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/russian-cold-relic-hackers-use-stolen.html"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "vulnerability",
+      "keyword": "AutoSys",
+      "target": "ジョブ管理",
+      "title": "ジョブ管理製品「AutoSys」に深刻な脆弱性",
+      "what": "ジョブ管理製品AutoSys Workload Automationに深刻な脆弱性が見つかり、修正が公開された。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "Security NEXT",
+          "url": "https://www.security-next.com/193007"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "vulnerability",
+      "keyword": "ASUS Control",
+      "target": "PC管理",
+      "title": "ASUS Control Center Expressにハードコード鍵の重大な脆弱性",
+      "what": "ASUSの管理ツールに、固定の鍵が埋め込まれた重大な脆弱性が見つかった。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/asus-warns-of-critical-hard-coded-key-flaw-in-control-center-express/"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "other",
+      "keyword": "TPM回避",
+      "target": "暗号化",
+      "title": "TPMのロックアウトを回避しWindows Hello等のPINを解読する攻撃",
+      "what": "フラッシュチップを使った攻撃でTPMのロックアウトを回避し、BitLockerなどのPINを数日で解読できると報告された。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/flash-chip-attack-bypasses-tpm-lockout.html"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "incident",
+      "keyword": "日本版DBS",
+      "target": "国内行政",
+      "title": "日本版DBSのシステムで見つかった脆弱性",
+      "what": "日本版DBS関連システムで脆弱性が見つかった件の経緯がまとめられた。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [
+        "国内"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "piyolog",
+          "url": "https://piyolog.hatenadiary.jp/entry/2026/11/19/141704"
+        }
+      ]
+    }
+  ],
+  "source_status": [
+    {
+      "name": "CISA KEV",
+      "ok": true,
+      "count": 4
+    },
+    {
+      "name": "NVD",
+      "ok": true,
+      "count": 13
+    },
+    {
+      "name": "JPCERT/CC",
+      "ok": true,
+      "count": 0
+    },
+    {
+      "name": "IPA",
+      "ok": true,
+      "count": 2
+    },
+    {
+      "name": "Security NEXT",
+      "ok": true,
+      "count": 18
+    },
+    {
+      "name": "piyolog",
+      "ok": true,
+      "count": 5
+    },
+    {
+      "name": "BleepingComputer",
+      "ok": true,
+      "count": 15
+    },
+    {
+      "name": "The Hacker News",
+      "ok": true,
+      "count": 23
+    },
+    {
+      "name": "SecurityWeek",
+      "ok": true,
+      "count": 10
+    },
+    {
+      "name": "JVN",
+      "ok": true,
+      "count": 8
+    },
+    {
+      "name": "ITmedia",
+      "ok": true,
+      "count": 6
+    },
+    {
+      "name": "AWS Health",
+      "ok": true,
+      "count": 0
+    },
+    {
+      "name": "Cloudflare Status",
+      "ok": true,
+      "count": 0
+    },
+    {
+      "name": "GitHub Status",
+      "ok": true,
+      "count": 3
+    },
+    {
+      "name": "EPSS",
+      "ok": true,
+      "count": 21
+    }
+  ],
+  "stats": {
+    "items": 107,
+    "clusters": 76
+  }
+}
