@@ -1,5 +1,12 @@
 [
  {
+  "date": "2026-11-21",
+  "headline": "PHPの重大RCE（一部KEV掲載・JPCERT/CC注意喚起）、vCenterとCisco Expresswayの悪用確認済み脆弱性がKEVに載り、今日は3件が要対応。国内ではデジタル庁GSSの漏えい可能性とSBC Medicalの被害拡大が目立つ。",
+  "critical": 3,
+  "notable": 7,
+  "other": 7
+ },
+ {
   "date": "2026-11-20",
   "headline": "PHPの全サポート版に及ぶ重大RCE（一部は悪用確認）とVMware vCenterのゼロデイが最優先。Java4Shellは悪用試行が始まりCISAが即時対応を要請。国内ではJETROの漏洩や大崎電気のランサム被害も。",
   "critical": 3,

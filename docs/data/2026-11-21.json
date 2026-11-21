@@ -1,0 +1,487 @@
+{
+  "date": "2026-11-21",
+  "generated_at": "2026-11-21T10:05:00+09:00",
+  "window_hours": 48,
+  "headline": "PHPの重大RCE（一部KEV掲載・JPCERT/CC注意喚起）、vCenterとCisco Expresswayの悪用確認済み脆弱性がKEVに載り、今日は3件が要対応。国内ではデジタル庁GSSの漏えい可能性とSBC Medicalの被害拡大が目立つ。",
+  "items": [
+    {
+      "level": "critical",
+      "kind": "vulnerability",
+      "keyword": "PHP RCE",
+      "target": "Webサーバ",
+      "title": "PHP重大RCE脆弱性、JPCERT/CCが注意喚起 一部はKEV掲載",
+      "what": "PHPの全サポート版に認証不要のRCEを含む脆弱性18件が修正され、うち2件は悪用が確認されCISAのKEVにも載った。",
+      "who": "PHPでWebアプリを動かす全サーバ（特にファイルベースのセッション保存を使うもの）。",
+      "action": "修正版へ更新する。更新できない場合は公開範囲の制限やセッション保存方式の見直しを検討する。",
+      "cves": [
+        "CVE-2026-109618",
+        "CVE-2026-109619"
+      ],
+      "tags": [
+        "KEV",
+        "悪用確認済み",
+        "国内"
+      ],
+      "is_update": true,
+      "sources": [
+        {
+          "name": "JPCERT/CC",
+          "url": "https://www.jpcert.or.jp/at/2026/at260033.html"
+        },
+        {
+          "name": "Security NEXT",
+          "url": "https://www.security-next.com/193143"
+        },
+        {
+          "name": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/php-security-updates-fix-18-flaws-including-critical-rce-bugs/"
+        }
+      ]
+    },
+    {
+      "level": "critical",
+      "kind": "vulnerability",
+      "keyword": "vCenter",
+      "target": "仮想化基盤",
+      "title": "VMware vCenterの認証回避ゼロデイがKEV掲載、9月から悪用",
+      "what": "vCenterに認証なしで侵入できる脆弱性が見つかり、中国系とされる攻撃者が9月から悪用していた。修正版は公開済みでCISAもKEVに追加した。",
+      "who": "VMware vCenter Serverを運用する企業。管理ネットワークから到達できる環境は特に危険。",
+      "action": "Broadcomの修正版へ早急に更新し、管理画面への経路制限と侵害の兆候確認を行う。",
+      "cves": [
+        "CVE-2026-123890"
+      ],
+      "tags": [
+        "KEV",
+        "悪用確認済み"
+      ],
+      "is_update": true,
+      "sources": [
+        {
+          "name": "Security NEXT",
+          "url": "https://www.security-next.com/193141"
+        },
+        {
+          "name": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/vmware-patches-vcenter-zero-day-exploited-in-attacks-since-september/"
+        },
+        {
+          "name": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/china-linked-hackers-exploit-critical.html"
+        }
+      ]
+    },
+    {
+      "level": "critical",
+      "kind": "vulnerability",
+      "keyword": "Cisco Expressway",
+      "target": "通信基盤",
+      "title": "Cisco Expresswayのroot権限RCEがKEV掲載、PoC公開直後に悪用",
+      "what": "Cisco Expresswayのハードコード認証情報を使った脆弱性が実際の攻撃で悪用され、ロシアの組織で4台が侵害された。CISAがKEVに追加した。",
+      "who": "クラスタ構成のCisco Expresswayを使う組織。",
+      "action": "Ciscoの修正版を適用し、外部公開の有無とログに不審なアクセスがないか確認する。",
+      "cves": [
+        "CVE-2026-76466"
+      ],
+      "tags": [
+        "KEV",
+        "悪用確認済み",
+        "PoC公開"
+      ],
+      "is_update": true,
+      "sources": [
+        {
+          "name": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/hackers-exploit-critical-cisco.html"
+        },
+        {
+          "name": "CISA KEV",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76466"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "vulnerability",
+      "keyword": "Ruby2Shell",
+      "target": "Ruby環境",
+      "title": "Ruby、文字列処理のRCE脆弱性「Ruby2Shell」など7件を修正",
+      "what": "Rubyの大文字小文字変換と正規表現エンジンにメモリ破壊の脆弱性があり、複数でPoCによりコード実行が示された。",
+      "who": "Ruby・Railsアプリを運用する開発・運用者。",
+      "action": "Rubyの修正版へ更新する。",
+      "cves": [
+        "CVE-2026-132825"
+      ],
+      "tags": [
+        "PoC公開"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "piyolog",
+          "url": "https://piyolog.hatenadiary.jp/entry/2026/11/20/224814"
+        },
+        {
+          "name": "SecurityWeek",
+          "url": "https://www.securityweek.com/ruby-patches-ruby2shell-vulnerability-that-could-lead-to-rce/"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "vulnerability",
+      "keyword": "F5 BIG-IP",
+      "target": "ADC/LB",
+      "title": "F5がBIG-IPの重大RCE・DoS脆弱性5件に緊急パッチ",
+      "what": "F5がBIG-IPの重大な脆弱性5件を緊急パッチで修正した。DoSや任意コード実行につながる。",
+      "who": "BIG-IPを使う企業・事業者（管理画面を外部に出している環境は特に注意）。",
+      "action": "F5の修正版へ更新し、管理インターフェースの公開を避ける。",
+      "cves": [],
+      "tags": [],
+      "is_update": true,
+      "sources": [
+        {
+          "name": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/f5-releases-emergency-patches-for-critical-big-ip-rce-flaws/"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "vulnerability",
+      "keyword": "SAP NetWeaver",
+      "target": "業務基幹",
+      "title": "SAP NetWeaver Enterprise PortalのJNDI注入がKEV掲載",
+      "what": "SAP NetWeaverの脆弱性が悪用されているとしてCISAがKEVに追加した。認証なしで情報の閲覧・改ざんが可能。",
+      "who": "SAP NetWeaver Enterprise Portalを運用する企業。",
+      "action": "SAPの修正パッチを適用し、ポータルの外部公開を見直す。",
+      "cves": [
+        "CVE-2025-42884"
+      ],
+      "tags": [
+        "KEV",
+        "悪用確認済み"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "CISA KEV",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-42884"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "vulnerability",
+      "keyword": "SonicWall Gen6",
+      "target": "ファイアウォール",
+      "title": "SonicWall、Gen 6ファイアウォールは今後パッチなし、買い替えを要請",
+      "what": "SonicWallがGen 6のFWにはもう重大な脆弱性でも修正を出さないと警告し、即時の更新と外部公開の停止を求めた。",
+      "who": "SonicWall Gen 6を境界に置いている企業・拠点。",
+      "action": "後継機種への置き換え計画を立て、それまでは外部公開を止める。",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/sonicwall-warns-gen-6-firewalls-wont.html"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "incident",
+      "keyword": "デジタル庁GSS",
+      "target": "政府機関",
+      "title": "デジタル庁のGSSファイル共有サービスから情報漏えいの可能性",
+      "what": "デジタル庁が運用する政府共通環境のファイル共有サービスで、7月末から第三者がファイルにアクセスした可能性があると公表された。",
+      "who": "GSSを利用する25の政府機関と、資料を共有していた関係者。",
+      "action": "関係する組織は共有した資料の範囲を確認し、デジタル庁の続報を注視する。",
+      "cves": [],
+      "tags": [
+        "国内",
+        "情報漏洩"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "ITmedia",
+          "url": "https://www.itmedia.co.jp/news/article/2611/20/2000003381/"
+        },
+        {
+          "name": "piyolog",
+          "url": "https://piyolog.hatenadiary.jp/entry/2026/11/21/002438"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "incident",
+      "keyword": "SBC Medical",
+      "target": "国内医療",
+      "title": "SBC Medical Groupの漏洩は200万件超に拡大",
+      "what": "SBC Medical Groupが2件の侵害で顧客・従業員情報の流出を認め、報道では被害が200万件超とされた。日本のクリニックのDBが対象。",
+      "who": "同グループの国内クリニックの顧客・従業員。",
+      "action": "当該グループの利用者は不審な連絡・フィッシングに注意する。",
+      "cves": [],
+      "tags": [
+        "国内",
+        "情報漏洩"
+      ],
+      "is_update": true,
+      "sources": [
+        {
+          "name": "SecurityWeek",
+          "url": "https://www.securityweek.com/sbc-medical-group-data-breach-impacts-over-2-million/"
+        },
+        {
+          "name": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/hackers-steal-data-of-16-million-sbc-medical-group-customers/"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "incident",
+      "keyword": "Bell Canada",
+      "target": "通信",
+      "title": "Bell Canada、AI型攻撃者に法人顧客データを盗まれたと発表",
+      "what": "Bell Canadaが11月17日に「エージェント型」の攻撃者に侵害され、回線の発注システムなど法人顧客のデータを盗まれたと認めた。",
+      "who": "同社の法人顧客。",
+      "action": "同社と取引のある組織は通知内容を確認し、回線関連情報の悪用に備える。",
+      "cves": [],
+      "tags": [
+        "情報漏洩"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/bell-canada-says-agentic-hacker-stole-enterprise-customer-data/"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "incident",
+      "keyword": "WhatsApp",
+      "target": "メッセンジャー",
+      "title": "WhatsApp、詐欺対策中に見つかった脆弱性を修正",
+      "what": "WhatsAppが、詐欺メッセージを装う攻撃の調査中に見つかったAndroid版の脆弱性を含む3件を修正した。",
+      "who": "",
+      "action": "",
+      "cves": [
+        "CVE-2026-23871"
+      ],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/whatsapp-patches-3-security-flaws.html"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "incident",
+      "keyword": "Cairn",
+      "target": "AI攻撃",
+      "title": "AI攻撃ツールCairnでゼロデイを発見、サーバ乗っ取り",
+      "what": "攻撃者がオープンソースのAIペンテストツールCairnで医療画像アプリの未知の脆弱性を見つけ、サーバを乗っ取った。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/hackers-use-autonomous-ai-tool-cairn-to-find-zero-day-take-over-server/"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "incident",
+      "keyword": "欧州委員会",
+      "target": "政府機関",
+      "title": "欧州委員会、AI支援型攻撃でサービス停止を確認",
+      "what": "欧州委員会がAI支援型とみられるサイバー攻撃を受け、一部サービスを停止した。情報漏洩の証拠はないとしている。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [
+        "サービス停止"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "SecurityWeek",
+          "url": "https://www.securityweek.com/european-commission-confirms-ai-assisted-cyberattack-disrupted-services/"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "vulnerability",
+      "keyword": "FastUnlock",
+      "target": "Windows",
+      "title": "Windowsに未修正の0-day「FastUnlock」、ロック画面を回避",
+      "what": "ロック中のWindows PCから、サインインなしに制限付き権限でプログラムを起動できる未修正の手法が公開された。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/new-unpatched-windows-0-day-fastunlock.html"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "vulnerability",
+      "keyword": "Splunk SOAR",
+      "target": "SOAR",
+      "title": "Splunk SOARに複数のRCE脆弱性、更新が提供",
+      "what": "Splunk SOARに複数のリモートコード実行の脆弱性が見つかり、更新版が提供された。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [
+        "国内"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "Security NEXT",
+          "url": "https://www.security-next.com/193173"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "vulnerability",
+      "keyword": "WatchGuard",
+      "target": "ログ管理",
+      "title": "WatchGuardのログ管理ソフトに重大な脆弱性",
+      "what": "WatchGuardのログ管理ソフトに、重大度が高いものを含む脆弱性が公表された。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "Security NEXT",
+          "url": "https://www.security-next.com/193154"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "incident",
+      "keyword": "金融の委託先",
+      "target": "金融",
+      "title": "JPMorgan・Visa等、委託先経由の流出を主張するデータ公開に言及",
+      "what": "N0nという恐喝グループが公開したデータについて、大手金融・カード会社が委託先の事案だと説明している。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [
+        "情報漏洩"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "SecurityWeek",
+          "url": "https://www.securityweek.com/jpmorgan-visa-mastercard-cite-third-party-incidents-amid-data-leak/"
+        }
+      ]
+    }
+  ],
+  "source_status": [
+    {
+      "name": "CISA KEV",
+      "ok": true,
+      "count": 4
+    },
+    {
+      "name": "NVD",
+      "ok": true,
+      "count": 2
+    },
+    {
+      "name": "JPCERT/CC",
+      "ok": true,
+      "count": 1
+    },
+    {
+      "name": "IPA",
+      "ok": true,
+      "count": 1
+    },
+    {
+      "name": "Security NEXT",
+      "ok": true,
+      "count": 16
+    },
+    {
+      "name": "piyolog",
+      "ok": true,
+      "count": 7
+    },
+    {
+      "name": "BleepingComputer",
+      "ok": true,
+      "count": 15
+    },
+    {
+      "name": "The Hacker News",
+      "ok": true,
+      "count": 20
+    },
+    {
+      "name": "SecurityWeek",
+      "ok": true,
+      "count": 10
+    },
+    {
+      "name": "JVN",
+      "ok": true,
+      "count": 5
+    },
+    {
+      "name": "ITmedia",
+      "ok": true,
+      "count": 7
+    },
+    {
+      "name": "AWS Health",
+      "ok": true,
+      "count": 0
+    },
+    {
+      "name": "Cloudflare Status",
+      "ok": true,
+      "count": 0
+    },
+    {
+      "name": "GitHub Status",
+      "ok": true,
+      "count": 2
+    },
+    {
+      "name": "EPSS",
+      "ok": true,
+      "count": 27
+    }
+  ],
+  "stats": {
+    "items": 90,
+    "clusters": 68
+  }
+}
