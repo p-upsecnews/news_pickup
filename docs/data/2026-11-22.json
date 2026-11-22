@@ -1,0 +1,290 @@
+{
+ "date": "2026-11-22",
+ "generated_at": "2026-11-22T10:10:00+09:00",
+ "window_hours": 48,
+ "headline": "新規の🔴級はなし。ApacheRollerの認証不要RCEがKEVに載ったほか、Microsoft Entra Connect HealthやRackspace Spotの侵害が報じられた。国内ではGunosyの流出が目立つ。PHP・vCenter・Cisco Expresswayは昨日の対応を継続。",
+ "items": [
+  {
+   "level": "notable",
+   "kind": "vulnerability",
+   "keyword": "Apache Roller",
+   "target": "ブログ基盤",
+   "title": "Apache RollerのXMLデシリアライズRCEがKEV掲載、認証不要で悪用確認",
+   "what": "ブログ基盤Apache RollerのXML-RPCに認証前のデシリアライズ脆弱性があり、悪用が確認されてCISAのKEVに追加された。",
+   "who": "Apache Rollerを自社運用・利用している環境（インターネット公開時は特に）。",
+   "action": "修正版へ更新し、更新まではXML-RPCエンドポイントへのアクセスを遮断する。",
+   "cves": [
+    "CVE-2026-129448",
+    "CVE-2026-82384"
+   ],
+   "tags": [
+    "KEV",
+    "悪用確認済み"
+   ],
+   "is_update": false,
+   "sources": [
+    {
+     "name": "The Hacker News",
+     "url": "https://thehackernews.com/2026/11/hackers-exploit-critical-vmware-cisco.html"
+    },
+    {
+     "name": "CISA KEV",
+     "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-129448"
+    }
+   ]
+  },
+  {
+   "level": "notable",
+   "kind": "incident",
+   "keyword": "Entra Health",
+   "target": "ID基盤",
+   "title": "Microsoft Entra Connect Healthの脆弱性が悪用され、テナント情報が流出",
+   "what": "MicrosoftがEntra Connect Healthの脆弱性を突かれて侵害され、管理者のメールアドレスやテナント設定情報に不正アクセスがあったと通知している。",
+   "who": "Entra Connect Healthを利用するMicrosoft 365/Azureテナントの管理者。",
+   "action": "Microsoftからの通知内容を確認し、管理者宛ての不審なメール（フィッシング）に注意する。管理者アカウントの監査ログを点検する。",
+   "cves": [],
+   "tags": [
+    "悪用確認済み",
+    "情報漏洩"
+   ],
+   "is_update": false,
+   "sources": [
+    {
+     "name": "BleepingComputer",
+     "url": "https://www.bleepingcomputer.com/news/security/microsoft-entra-connect-health-flaw-exploited-to-steal-tenant-data/"
+    }
+   ]
+  },
+  {
+   "level": "notable",
+   "kind": "incident",
+   "keyword": "Rackspace Spot",
+   "target": "クラウド",
+   "title": "Rackspace Spotが侵害され、顧客のKubernetesシークレットに不正アクセス",
+   "what": "Rackspaceのクラウド基盤Rackspace Spotが漏えいした認証情報で侵害され、不正なワークロードの展開や顧客クラスタのシークレット参照が行われた。",
+   "who": "Rackspace Spotを利用している顧客。",
+   "action": "クラスタ内のシークレット・トークンを再発行し、不審なワークロードやアクセスログを確認する。",
+   "cves": [],
+   "tags": [
+    "情報漏洩",
+    "サプライチェーン"
+   ],
+   "is_update": false,
+   "sources": [
+    {
+     "name": "BleepingComputer",
+     "url": "https://www.bleepingcomputer.com/news/security/rackspace-spot-breach-let-hackers-access-customer-kubernetes-secrets/"
+    }
+   ]
+  },
+  {
+   "level": "notable",
+   "kind": "incident",
+   "keyword": "FBI NCIC",
+   "target": "米政府",
+   "title": "FBIの全米犯罪情報データベースNCICに不正アクセスの疑い、2か月で2度目",
+   "what": "FBIが全米の法執行機関が共有するデータベースNCICへの不正アクセスの疑いを調査していると報じられた。",
+   "who": "主に米国の法執行機関。国内企業への直接影響は小さい。",
+   "action": "直接の対応は不要。続報を確認する。",
+   "cves": [],
+   "tags": [],
+   "is_update": false,
+   "sources": [
+    {
+     "name": "SecurityWeek",
+     "url": "https://www.securityweek.com/fbi-investigating-apparent-hack-of-its-key-national-criminal-justice-database-ap-source-says/"
+    },
+    {
+     "name": "BleepingComputer",
+     "url": "https://www.bleepingcomputer.com/news/security/fbi-reportedly-hacked-again-this-time-targeting-nationwide-police-database/"
+    }
+   ]
+  },
+  {
+   "level": "notable",
+   "kind": "incident",
+   "keyword": "Gunosy",
+   "target": "国内メディア",
+   "title": "Gunosyがクラウド環境・業務ツールへの不正アクセスで個人情報流出",
+   "what": "ニュースアプリ運営のGunosyが、クラウド環境や業務ツールへの不正アクセスにより関係者の個人情報が流出したと公表した。",
+   "who": "Gunosyの関係者（取引先・従業員等）。",
+   "action": "該当者は同社の案内を確認し、不審なメール等に注意する。",
+   "cves": [],
+   "tags": [
+    "国内",
+    "情報漏洩"
+   ],
+   "is_update": false,
+   "sources": [
+    {
+     "name": "Security NEXT",
+     "url": "https://www.security-next.com/193094"
+    }
+   ]
+  },
+  {
+   "level": "notable",
+   "kind": "incident",
+   "keyword": "金融の委託先",
+   "target": "金融",
+   "title": "JPMorgan等のカード会社顧客情報が委託先経由で流出",
+   "what": "委託先ベンダーへの攻撃により、JPMorgan ChaseやVisa、Mastercard関連の顧客情報が流出したと報じられ、恐喝グループがデータを公開した。",
+   "who": "対象ベンダーを経由する金融機関の顧客。委託先管理を行う企業全般。",
+   "action": "自社の委託先のインシデント通知体制と権限範囲を点検する。",
+   "cves": [],
+   "tags": [
+    "情報漏洩",
+    "サプライチェーン"
+   ],
+   "is_update": true,
+   "sources": [
+    {
+     "name": "BleepingComputer",
+     "url": "https://www.bleepingcomputer.com/news/security/vendor-data-breach-exposes-chase-visa-mastercard-customer-info/"
+    },
+    {
+     "name": "SecurityWeek",
+     "url": "https://www.securityweek.com/jpmorgan-visa-mastercard-cite-third-party-incidents-amid-data-leak/"
+    }
+   ]
+  },
+  {
+   "level": "other",
+   "kind": "incident",
+   "keyword": "AI攻撃×医療",
+   "target": "医療",
+   "title": "AIエージェントCairnが医用画像ソフトのゼロデイを発見し侵害",
+   "what": "Amazonが、中国系攻撃者がAI攻撃ツールCairnで医用画像ソフトのゼロデイを見つけ、root権限を得たと報告した。",
+   "who": "",
+   "action": "",
+   "cves": [],
+   "tags": [],
+   "is_update": true,
+   "sources": [
+    {
+     "name": "SecurityWeek",
+     "url": "https://www.securityweek.com/amazon-china-linked-hackers-ai-agents-exploited-medical-software-zero-day/"
+    }
+   ]
+  },
+  {
+   "level": "other",
+   "kind": "vulnerability",
+   "keyword": "WhatsApp",
+   "target": "メッセージ",
+   "title": "WhatsAppが3件の脆弱性を修正、詐欺対策中に発見",
+   "what": "WhatsAppが詐欺キャンペーン対策中に見つかったAndroidの不具合を含む3件を修正した。",
+   "who": "",
+   "action": "",
+   "cves": [],
+   "tags": [],
+   "is_update": false,
+   "sources": [
+    {
+     "name": "The Hacker News",
+     "url": "https://thehackernews.com/2026/11/whatsapp-patches-3-security-flaws.html"
+    }
+   ]
+  },
+  {
+   "level": "other",
+   "kind": "incident",
+   "keyword": "BADBOX",
+   "target": "Android TV",
+   "title": "BADBOXボットネットが復活、1日400億の広告リクエスト",
+   "what": "汎用Android TVボックスに仕込まれたBADBOXが広告詐欺で大規模に再稼働した。",
+   "who": "",
+   "action": "",
+   "cves": [],
+   "tags": [],
+   "is_update": false,
+   "sources": [
+    {
+     "name": "BleepingComputer",
+     "url": "https://www.bleepingcomputer.com/news/security/badbox-30-botnet-returns-with-record-breaking-40-billion-daily-ad-requests/"
+    }
+   ]
+  }
+ ],
+ "source_status": [
+  {
+   "name": "CISA KEV",
+   "ok": true,
+   "count": 4
+  },
+  {
+   "name": "NVD",
+   "ok": true,
+   "count": 6
+  },
+  {
+   "name": "JPCERT/CC",
+   "ok": true,
+   "count": 1
+  },
+  {
+   "name": "IPA",
+   "ok": true,
+   "count": 0
+  },
+  {
+   "name": "Security NEXT",
+   "ok": true,
+   "count": 7
+  },
+  {
+   "name": "piyolog",
+   "ok": true,
+   "count": 4
+  },
+  {
+   "name": "BleepingComputer",
+   "ok": true,
+   "count": 12
+  },
+  {
+   "name": "The Hacker News",
+   "ok": true,
+   "count": 14
+  },
+  {
+   "name": "SecurityWeek",
+   "ok": true,
+   "count": 10
+  },
+  {
+   "name": "JVN",
+   "ok": true,
+   "count": 0
+  },
+  {
+   "name": "ITmedia",
+   "ok": true,
+   "count": 2
+  },
+  {
+   "name": "AWS Health",
+   "ok": true,
+   "count": 0
+  },
+  {
+   "name": "Cloudflare Status",
+   "ok": true,
+   "count": 0
+  },
+  {
+   "name": "GitHub Status",
+   "ok": true,
+   "count": 0
+  },
+  {
+   "name": "EPSS",
+   "ok": true,
+   "count": 13
+  }
+ ],
+ "stats": {
+  "items": 60,
+  "clusters": 54
+ }
+}

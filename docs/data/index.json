@@ -1,5 +1,12 @@
 [
  {
+  "date": "2026-11-22",
+  "headline": "新規の🔴級はなし。ApacheRollerの認証不要RCEがKEVに載ったほか、Microsoft Entra Connect HealthやRackspace Spotの侵害が報じられた。国内ではGunosyの流出が目立つ。PHP・vCenter・Cisco Expresswayは昨日の対応を継続。",
+  "critical": 0,
+  "notable": 6,
+  "other": 3
+ },
+ {
   "date": "2026-11-21",
   "headline": "PHPの重大RCE（一部KEV掲載・JPCERT/CC注意喚起）、vCenterとCisco Expresswayの悪用確認済み脆弱性がKEVに載り、今日は3件が要対応。国内ではデジタル庁GSSの漏えい可能性とSBC Medicalの被害拡大が目立つ。",
   "critical": 3,
