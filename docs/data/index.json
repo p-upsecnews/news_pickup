@@ -1,5 +1,12 @@
 [
  {
+  "date": "2026-11-23",
+  "headline": "新規の🔴級はなし。GL.iNet機器へのクラウド経由の感染、決済基盤Cleverbridgeのカード情報流出、AI推論事業者3社のプロンプト窃取が新たに報じられた。Apache RollerやEntra Connect Healthなど前日までの案件に大きな進展はない。",
+  "critical": 0,
+  "notable": 5,
+  "other": 4
+ },
+ {
   "date": "2026-11-22",
   "headline": "新規の🔴級はなし。ApacheRollerの認証不要RCEがKEVに載ったほか、Microsoft Entra Connect HealthやRackspace Spotの侵害が報じられた。国内ではGunosyの流出が目立つ。PHP・vCenter・Cisco Expresswayは昨日の対応を継続。",
   "critical": 0,

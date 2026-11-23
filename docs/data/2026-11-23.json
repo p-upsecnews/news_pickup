@@ -1,0 +1,277 @@
+{
+  "date": "2026-11-23",
+  "generated_at": "2026-11-23T10:15:00+09:00",
+  "window_hours": 48,
+  "headline": "新規の🔴級はなし。GL.iNet機器へのクラウド経由の感染、決済基盤Cleverbridgeのカード情報流出、AI推論事業者3社のプロンプト窃取が新たに報じられた。Apache RollerやEntra Connect Healthなど前日までの案件に大きな進展はない。",
+  "items": [
+    {
+      "level": "notable",
+      "kind": "incident",
+      "keyword": "GL.iNet",
+      "target": "ルータ/KVM",
+      "title": "GL.iNetのクラウド管理の脆弱性が悪用され、ルータとKVMにマルウェアが感染",
+      "what": "GL.iNetは、クラウド遠隔管理サービスの脆弱性が悪用され、顧客のルータやKVM機器にカスタムマルウェアが仕込まれたと認めた。バックドアやリバースシェルも報告されている。",
+      "who": "GL.iNet製のルータ・KVMをクラウド管理機能付きで使っている企業・個人。",
+      "action": "クラウド管理機能の利用状況を確認し、公式の案内に沿って更新・初期化と認証情報の変更を行う。",
+      "cves": [],
+      "tags": [
+        "悪用確認済み"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/hackers-exploit-glinet-cloud-flaw-to-infect-routers-kvm-devices/"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "incident",
+      "keyword": "Cleverbridge",
+      "target": "決済",
+      "title": "決済基盤Cleverbridgeが侵害され、カード番号とCVVが流出",
+      "what": "ECプラットフォームのCleverbridgeが不正アクセスを受け、顧客のカード番号やセキュリティコードが盗まれたと通知した。",
+      "who": "Cleverbridge経由で決済したソフトウェア購入者と、同社を利用する販売事業者。",
+      "action": "利用している販売事業者は影響範囲を同社に確認する。購入者はカード明細を確認し、必要ならカード会社に再発行を相談する。",
+      "cves": [],
+      "tags": [
+        "情報漏洩"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/cleverbridge-warns-hackers-stole-credit-card-numbers-cvvs-in-data-breach/"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "incident",
+      "keyword": "OpenRouter",
+      "target": "AI基盤",
+      "title": "AI推論事業者3社で数か月間プロンプト窃取、OpenRouterが3社を除外",
+      "what": "Dragosの調査で、AI推論を提供する3社の内部から数か月にわたりデータが盗まれていたことが判明した。ゼロデータ保持設定の要求も含まれていた。",
+      "who": "OpenRouter経由で外部のAIホスティング事業者に機密を含むプロンプトを送っていた利用者。",
+      "action": "送信した内容に機密がなかったか棚卸しし、利用する推論事業者の選定と契約条件を見直す。",
+      "cves": [],
+      "tags": [
+        "情報漏洩",
+        "サプライチェーン"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/openrouter-drops-3-providers-after.html"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "vulnerability",
+      "keyword": "GPGME",
+      "target": "ライブラリ",
+      "title": "GnuPGのGPGMEに重大なメモリ不具合、細工したOpenPGP鍵でデータ漏えいの恐れ",
+      "what": "異常に長いユーザIDを含む悪意あるOpenPGP鍵により、GPGMEで重大なメモリ不具合が発生し、アプリのデータが漏れる可能性がある。修正版が公開された。",
+      "who": "GPGME 2.3.0未満を使うソフト（メーラーなどの暗号化連携を含む）。",
+      "action": "GPGME 2.3.0以降に更新する。ディストリビューションの更新を確認する。",
+      "cves": [
+        "CVE-2026-129975"
+      ],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/gnupg-warns-critical-gpgme-flaw-could.html"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "vulnerability",
+      "keyword": "Ghostscript",
+      "target": "Webサーバ",
+      "title": "Ghostscriptのサンドボックス回避でRCE、アップロード機能のあるアプリが標的に",
+      "what": "修正済みのGhostscriptの欠陥により、細工したファイルをアップロードするだけでサンドボックスを抜け、サーバ上でコマンドを実行できることが実証された。",
+      "who": "PDFや画像の変換にGhostscriptを使うWebサーバ・各種アプリ。",
+      "action": "Ghostscriptを最新版に更新し、変換処理を権限の低い隔離環境で動かす。",
+      "cves": [],
+      "tags": [
+        "PoC公開"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/researchers-demonstrate-ghostscript.html"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "vulnerability",
+      "keyword": "Meta Muse",
+      "target": "AIアシスタント",
+      "title": "悪意あるWebページでMeta Museの会話や記憶を抜き取れる研究",
+      "what": "細工したWebページを開くだけで、承認なしにアシスタントの会話履歴や記憶を取り出せることが研究者により示された。実験室での実証で、実被害は報じられていない。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/a-single-malicious-webpage-let.html"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "vulnerability",
+      "keyword": "WP Restrictions",
+      "target": "WordPress",
+      "title": "WordPressプラグインRestrictions for BuddyPressにCVSS9.8のRCE",
+      "what": "1.5.4以前でURLの値がeval()で評価され、認証なしでコード実行が可能になる。",
+      "who": "",
+      "action": "",
+      "cves": [
+        "CVE-2026-120539"
+      ],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "NVD",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-120539"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "vulnerability",
+      "keyword": "Nexter Blocks",
+      "target": "WordPress",
+      "title": "Nexter Blocks Proに権限昇格の脆弱性（CVSS9.8）",
+      "what": "5.0.10以前で、Unicodeの類似文字を使った回避により権限昇格が可能になる。",
+      "who": "",
+      "action": "",
+      "cves": [
+        "CVE-2026-125294"
+      ],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "NVD",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-125294"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "vulnerability",
+      "keyword": "D-Link DIR-600L",
+      "target": "ルータ",
+      "title": "D-Link DIR-600Lにバッファオーバーフロー、PoC公開済み（CVSS9.3）",
+      "what": "2.17b02のgena.cgiで遠隔からスタックバッファオーバーフローを起こせ、攻撃コードが公開されている。",
+      "who": "",
+      "action": "",
+      "cves": [
+        "CVE-2026-133993"
+      ],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "NVD",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-133993"
+        }
+      ]
+    }
+  ],
+  "source_status": [
+    {
+      "name": "CISA KEV",
+      "ok": true,
+      "count": 0
+    },
+    {
+      "name": "NVD",
+      "ok": true,
+      "count": 4
+    },
+    {
+      "name": "JPCERT/CC",
+      "ok": true,
+      "count": 0
+    },
+    {
+      "name": "IPA",
+      "ok": true,
+      "count": 0
+    },
+    {
+      "name": "Security NEXT",
+      "ok": true,
+      "count": 0
+    },
+    {
+      "name": "piyolog",
+      "ok": true,
+      "count": 0
+    },
+    {
+      "name": "BleepingComputer",
+      "ok": true,
+      "count": 7
+    },
+    {
+      "name": "The Hacker News",
+      "ok": true,
+      "count": 7
+    },
+    {
+      "name": "SecurityWeek",
+      "ok": true,
+      "count": 3
+    },
+    {
+      "name": "JVN",
+      "ok": true,
+      "count": 0
+    },
+    {
+      "name": "ITmedia",
+      "ok": true,
+      "count": 0
+    },
+    {
+      "name": "AWS Health",
+      "ok": true,
+      "count": 0
+    },
+    {
+      "name": "Cloudflare Status",
+      "ok": true,
+      "count": 0
+    },
+    {
+      "name": "GitHub Status",
+      "ok": true,
+      "count": 0
+    },
+    {
+      "name": "EPSS",
+      "ok": true,
+      "count": 5
+    }
+  ],
+  "stats": {
+    "items": 21,
+    "clusters": 19
+  }
+}
