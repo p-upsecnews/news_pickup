@@ -1,0 +1,456 @@
+{
+ "date": "2026-11-24",
+ "generated_at": "2026-11-24T10:05:00+09:00",
+ "window_hours": 48,
+ "headline": "ScreenConnect・N-able・ASP.NETのCSRFライブラリと、MSP/Web基盤の悪用確認済み脆弱性が3件。Cisco ExpresswayもCISAが悪用を警告しており、該当環境の確認を。",
+ "items": [
+  {
+   "level": "critical",
+   "kind": "vulnerability",
+   "keyword": "ScreenConnect",
+   "target": "MSP管理ツール",
+   "title": "ConnectWise ScreenConnectの重大脆弱性が悪用、MSP技術者PCが標的に",
+   "what": "ScreenConnectのクライアント側の重大な脆弱性（CVE-2026-84869、CVSS 9.9）が悪用され、MSP事業者の技術者PCが乗っ取られる攻撃が確認された。",
+   "who": "ScreenConnectを利用するMSP事業者と、その管理下にある顧客環境。",
+   "action": "修正版へ更新し、技術者端末への不審な接続やセッションがないか確認する。",
+   "cves": [
+    "CVE-2026-84869"
+   ],
+   "tags": [
+    "KEV",
+    "悪用確認済み",
+    "サプライチェーン"
+   ],
+   "is_update": false,
+   "sources": [
+    {
+     "name": "The Hacker News",
+     "url": "https://thehackernews.com/2026/11/hackers-exploit-critical-screenconnect.html"
+    }
+   ]
+  },
+  {
+   "level": "critical",
+   "kind": "incident",
+   "keyword": "N-able Mail",
+   "target": "メール基盤",
+   "title": "N-ableのメールフィルタ基盤が侵害、調査で見つかった重大脆弱性がKEV掲載",
+   "what": "N-ableのMail Assure/SpamExpertsが攻撃を受け、調査の過程で見つかったSSRFの脆弱性（CVE-2026-134624）が悪用確認済みとしてKEVに載った。",
+   "who": "Mail Assureを使うMSP事業者と、その顧客のメール環境。",
+   "action": "N-ableの案内に従い修正適用と設定確認を行い、不審な通信がないか確認する。",
+   "cves": [
+    "CVE-2026-134624"
+   ],
+   "tags": [
+    "KEV",
+    "悪用確認済み",
+    "サプライチェーン"
+   ],
+   "is_update": false,
+   "sources": [
+    {
+     "name": "SecurityWeek",
+     "url": "https://www.securityweek.com/n-able-patches-critical-flaw-disclosed-after-mail-assure-cyberattack/"
+    },
+    {
+     "name": "The Hacker News",
+     "url": "https://thehackernews.com/2026/11/n-able-discloses-critical-mail-assure.html"
+    }
+   ]
+  },
+  {
+   "level": "critical",
+   "kind": "vulnerability",
+   "keyword": "Idunno.AntiCsrf",
+   "target": "ASP.NET",
+   "title": "ASP.NETの旧CSRF対策ライブラリに認証不要RCE、実際に悪用",
+   "what": "ASP.NET向けライブラリIdunno.AntiCsrfに認証不要でコード実行できる重大な脆弱性（CVE-2026-131914、CVSS 9.3）があり、攻撃に悪用されている。",
+   "who": "このライブラリを組み込んだASP.NETのWebアプリ。",
+   "action": "該当DLLの利用有無を確認し、利用をやめるか代替に置き換える。",
+   "cves": [
+    "CVE-2026-131914"
+   ],
+   "tags": [
+    "悪用確認済み"
+   ],
+   "is_update": false,
+   "sources": [
+    {
+     "name": "The Hacker News",
+     "url": "https://thehackernews.com/2026/11/hackers-exploit-critical-aspnet-anti.html"
+    }
+   ]
+  },
+  {
+   "level": "notable",
+   "kind": "vulnerability",
+   "keyword": "Cisco Expressway",
+   "target": "ビデオ会議基盤",
+   "title": "CISAがCisco ExpresswayのRCEを悪用確認と警告、SAP NetWeaverも悪用",
+   "what": "Cisco Expresswayの重大なRCE脆弱性が実際に悪用されているとしてCISAが警告した。SAP NetWeaverの脆弱性も攻撃で悪用されている。",
+   "who": "Cisco ExpresswayおよびSAP NetWeaverを運用する組織。",
+   "action": "修正版へ更新し、外部公開している場合は優先して対応する。",
+   "cves": [],
+   "tags": [
+    "KEV",
+    "悪用確認済み"
+   ],
+   "is_update": true,
+   "sources": [
+    {
+     "name": "BleepingComputer",
+     "url": "https://www.bleepingcomputer.com/news/security/cisa-flags-critical-cisco-expressway-rce-flaw-as-actively-exploited/"
+    },
+    {
+     "name": "SecurityWeek",
+     "url": "https://www.securityweek.com/sap-netweaver-cisco-expressway-flaws-exploited-in-attacks/"
+    }
+   ]
+  },
+  {
+   "level": "notable",
+   "kind": "vulnerability",
+   "keyword": "Azure APIM",
+   "target": "クラウド",
+   "title": "Azure API Managementの脆弱性が悪用、APIの認証情報が窃取される",
+   "what": "Azure API Management Classic層の脆弱性が悪用され、保存されたAPI認証情報が盗まれた。ノルウェーのエネルギー企業などが標的になった。",
+   "who": "Azure API Management Classic層の利用者。",
+   "action": "Microsoftの案内を確認し、保存しているキーや認証情報を再発行する。",
+   "cves": [],
+   "tags": [
+    "悪用確認済み"
+   ],
+   "is_update": false,
+   "sources": [
+    {
+     "name": "BleepingComputer",
+     "url": "https://www.bleepingcomputer.com/news/security/microsoft-azure-flaw-exploited-to-steal-customers-api-credentials/"
+    },
+    {
+     "name": "SecurityWeek",
+     "url": "https://www.securityweek.com/azure-flaw-exploited-to-target-secrets-at-norwegian-energy-firms/"
+    }
+   ]
+  },
+  {
+   "level": "notable",
+   "kind": "incident",
+   "keyword": "KEPCO",
+   "target": "韓国電力",
+   "title": "韓国電力公社KEPCOで内部網が侵害、約150万件の情報が漏洩",
+   "what": "KEPCOの内部ネットワークが侵害され、顧客・従業員・委託先の情報を含む2システムにアクセスされた（約150万件）。",
+   "who": "KEPCOの顧客・従業員・委託先。",
+   "action": "該当者はフィッシングなど二次被害に注意する。",
+   "cves": [],
+   "tags": [
+    "情報漏洩"
+   ],
+   "is_update": false,
+   "sources": [
+    {
+     "name": "BleepingComputer",
+     "url": "https://www.bleepingcomputer.com/news/security/south-koreas-power-giant-kepco-confirms-data-breach-impacting-15-million/"
+    }
+   ]
+  },
+  {
+   "level": "notable",
+   "kind": "vulnerability",
+   "keyword": "MONAI Label",
+   "target": "医療AI",
+   "title": "医療画像AI基盤MONAI Labelのパストラバーサルが悪用されKEV掲載",
+   "what": "MONAI Labelに認証不要で任意ファイルを書き込め、コード実行に至る脆弱性（CVE-2026-133968、CVSS 9.8）があり、悪用が確認されKEVに載った。",
+   "who": "MONAI Labelを運用する医療・研究環境。",
+   "action": "修正版へ更新し、外部からアクセスできないようにする。",
+   "cves": [
+    "CVE-2026-133968"
+   ],
+   "tags": [
+    "KEV",
+    "悪用確認済み"
+   ],
+   "is_update": false,
+   "sources": [
+    {
+     "name": "CISA KEV",
+     "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-133968"
+    }
+   ]
+  },
+  {
+   "level": "notable",
+   "kind": "vulnerability",
+   "keyword": "Synology DSM",
+   "target": "NAS",
+   "title": "Synology DSMのOAuth APIにコマンドインジェクション（CVSS 9.8）",
+   "what": "DSMのOAuth APIに引数の扱いの不備があり、リモートからコマンドを実行される恐れがある（CVE-2026-120382）。",
+   "who": "DSM 7.1〜7.4の修正前バージョンを使うNAS。",
+   "action": "修正版DSMへ更新し、NASを外部公開していないか確認する。",
+   "cves": [
+    "CVE-2026-120382"
+   ],
+   "tags": [],
+   "is_update": false,
+   "sources": [
+    {
+     "name": "NVD",
+     "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-120382"
+    }
+   ]
+  },
+  {
+   "level": "notable",
+   "kind": "vulnerability",
+   "keyword": "Chrome",
+   "target": "PCブラウザ",
+   "title": "Chromeが更新、クリティカルの脆弱性1件を修正",
+   "what": "Google Chromeの更新で、深刻度クリティカルの脆弱性1件が修正された。",
+   "who": "Chromeの全利用者。",
+   "action": "Chromeを最新版に更新する。",
+   "cves": [],
+   "tags": [
+    "国内"
+   ],
+   "is_update": false,
+   "sources": [
+    {
+     "name": "Security NEXT",
+     "url": "https://www.security-next.com/193218"
+    }
+   ]
+  },
+  {
+   "level": "other",
+   "kind": "incident",
+   "keyword": "LaLiga",
+   "target": "スペインサッカー",
+   "title": "スペインLaLigaでファンの個人情報が流出",
+   "what": "LaLigaが、サービス利用者や一部クラブの利用者の個人情報が流出したと公表した。",
+   "who": "",
+   "action": "",
+   "cves": [],
+   "tags": [],
+   "is_update": false,
+   "sources": [
+    {
+     "name": "BleepingComputer",
+     "url": "https://www.bleepingcomputer.com/news/security/spanish-laliga-confirms-hackers-stole-soccer-fans-personal-data/"
+    }
+   ]
+  },
+  {
+   "level": "other",
+   "kind": "incident",
+   "keyword": "GlobeTopper",
+   "target": "B2B決済",
+   "title": "GlobeTopperがサイバー攻撃で約250万ドルの損失",
+   "what": "B2B向けチャージ事業者GlobeTopperが攻撃で業務停止し、ギフトカード約7万ドル分も不正に使われた。",
+   "who": "",
+   "action": "",
+   "cves": [],
+   "tags": [],
+   "is_update": false,
+   "sources": [
+    {
+     "name": "BleepingComputer",
+     "url": "https://www.bleepingcomputer.com/news/security/globetopper-loses-25-million-after-hackers-steal-70k-in-gift-cards/"
+    }
+   ]
+  },
+  {
+   "level": "other",
+   "kind": "incident",
+   "keyword": "BadBox 3.0",
+   "target": "IoT機器",
+   "title": "広告詐欺基盤BadBox 3.0が摘発、1日400億件の入札を生成",
+   "what": "低価格機器に仕込まれたバックドアで広告詐欺やプロキシ化を行う基盤が無力化された。",
+   "who": "",
+   "action": "",
+   "cves": [],
+   "tags": [],
+   "is_update": false,
+   "sources": [
+    {
+     "name": "SecurityWeek",
+     "url": "https://www.securityweek.com/badbox-3-0-ad-fraud-operation-generating-40-billion-daily-bid-requests-disrupted/"
+    }
+   ]
+  },
+  {
+   "level": "other",
+   "kind": "incident",
+   "keyword": "Webworm",
+   "target": "VPN",
+   "title": "Webwormが改造版SoftEther VPNで検知を回避か",
+   "what": "中国系の攻撃グループが改造版SoftEther VPN Bridgeを使い、遠隔アクセスを隠している疑い。",
+   "who": "",
+   "action": "",
+   "cves": [],
+   "tags": [],
+   "is_update": false,
+   "sources": [
+    {
+     "name": "The Hacker News",
+     "url": "https://thehackernews.com/2026/11/webworm-suspected-of-modifying.html"
+    }
+   ]
+  },
+  {
+   "level": "other",
+   "kind": "vulnerability",
+   "keyword": "phpAfterShell",
+   "target": "Webサーバ",
+   "title": "phpAfterShell脆弱性がPHP2Shellの攻撃経路を再び開く",
+   "what": "PHP2Shellで使われた攻撃経路を再び可能にする脆弱性が見つかった。",
+   "who": "",
+   "action": "",
+   "cves": [],
+   "tags": [],
+   "is_update": false,
+   "sources": [
+    {
+     "name": "SecurityWeek",
+     "url": "https://www.securityweek.com/phpaftershell-vulnerability-revives-php2shells-attack-path/"
+    }
+   ]
+  },
+  {
+   "level": "other",
+   "kind": "vulnerability",
+   "keyword": "Siemens",
+   "target": "産業制御",
+   "title": "Siemens製品に対する2026年11月のアップデート",
+   "what": "Siemensが各製品向けのアドバイザリを公表した。",
+   "who": "",
+   "action": "",
+   "cves": [],
+   "tags": [],
+   "is_update": false,
+   "sources": [
+    {
+     "name": "JVN",
+     "url": "https://jvn.jp/vu/JVNVU98354779/"
+    }
+   ]
+  },
+  {
+   "level": "other",
+   "kind": "vulnerability",
+   "keyword": "Roundcube",
+   "target": "Webメール",
+   "title": "Roundcubeにセキュリティ修正、1.6系は今回が最後",
+   "what": "Roundcubeが修正版を公開し、1.6系のサポートは今回で終了となる。",
+   "who": "",
+   "action": "",
+   "cves": [],
+   "tags": [],
+   "is_update": false,
+   "sources": [
+    {
+     "name": "Security NEXT",
+     "url": "https://www.security-next.com/193210"
+    }
+   ]
+  },
+  {
+   "level": "other",
+   "kind": "vulnerability",
+   "keyword": "binary-parser",
+   "target": "JSライブラリ",
+   "title": "binary-parserに任意コード実行の脆弱性（CVSS 9.2）",
+   "what": "パーサ定義を制御できる攻撃者がJavaScriptを注入できる脆弱性（CVE-2026-134814）。",
+   "who": "",
+   "action": "",
+   "cves": [],
+   "tags": [],
+   "is_update": false,
+   "sources": [
+    {
+     "name": "The Hacker News",
+     "url": "https://thehackernews.com/2026/11/critical-binary-parser-flaw-enables.html"
+    }
+   ]
+  }
+ ],
+ "source_status": [
+  {
+   "name": "CISA KEV",
+   "ok": true,
+   "count": 2
+  },
+  {
+   "name": "NVD",
+   "ok": true,
+   "count": 13
+  },
+  {
+   "name": "JPCERT/CC",
+   "ok": true,
+   "count": 0
+  },
+  {
+   "name": "IPA",
+   "ok": true,
+   "count": 0
+  },
+  {
+   "name": "Security NEXT",
+   "ok": true,
+   "count": 3
+  },
+  {
+   "name": "piyolog",
+   "ok": true,
+   "count": 0
+  },
+  {
+   "name": "BleepingComputer",
+   "ok": true,
+   "count": 13
+  },
+  {
+   "name": "The Hacker News",
+   "ok": true,
+   "count": 10
+  },
+  {
+   "name": "SecurityWeek",
+   "ok": true,
+   "count": 8
+  },
+  {
+   "name": "JVN",
+   "ok": true,
+   "count": 1
+  },
+  {
+   "name": "ITmedia",
+   "ok": true,
+   "count": 0
+  },
+  {
+   "name": "AWS Health",
+   "ok": true,
+   "count": 0
+  },
+  {
+   "name": "Cloudflare Status",
+   "ok": true,
+   "count": 0
+  },
+  {
+   "name": "GitHub Status",
+   "ok": true,
+   "count": 0
+  },
+  {
+   "name": "EPSS",
+   "ok": true,
+   "count": 7
+  }
+ ],
+ "stats": {
+  "items": 50,
+  "clusters": 45
+ }
+}
