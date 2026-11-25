@@ -1,0 +1,468 @@
+{
+  "date": "2026-11-25",
+  "generated_at": "2026-11-25T10:10:00+09:00",
+  "window_hours": 48,
+  "headline": "VMware ESX/vCenterの重大脆弱性とCheck Point管理サーバの侵害が要確認。Drupal・Xen Orchestra・Optimizelyの悪用確認や、マクドナルド日本の情報漏洩も。昨日掲載のScreenConnect等は再掲していない。",
+  "items": [
+    {
+      "level": "critical",
+      "kind": "vulnerability",
+      "keyword": "VMware",
+      "target": "仮想化基盤",
+      "title": "VMware ESX/vCenterの脆弱性23件に修正、認証回避CVSS 9.8や悪用確認済みの欠陥も",
+      "what": "BroadcomがVMware ESXやvCenterなど23件の脆弱性を修正し、vCenterには認証を回避できるCVSS 9.8の重大な欠陥が含まれる。直前にはゼロデイ悪用も報じられ、IPAも注意喚起を出した。",
+      "who": "VMware ESX・vCenter・Workstation・Fusion・Avi Load Balancerを使う組織（国内企業・データセンターに多い）。",
+      "action": "Broadcomの修正版へ更新し、管理インターフェースをインターネットや不要なネットワークに公開しない。",
+      "cves": [
+        "CVE-2026-123890",
+        "CVE-2026-123903"
+      ],
+      "tags": [
+        "KEV",
+        "悪用確認済み",
+        "国内"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "IPA",
+          "url": "https://www.ipa.go.jp/security/security-alert/2026/alert20261124.html"
+        },
+        {
+          "name": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/vmware-vcenter-hit-by-another-critical.html"
+        },
+        {
+          "name": "SecurityWeek",
+          "url": "https://www.securityweek.com/vmware-updates-patch-critical-esx-vcenter-vulnerabilities/"
+        }
+      ]
+    },
+    {
+      "level": "critical",
+      "kind": "incident",
+      "keyword": "Check Point",
+      "target": "セキュリティ製品",
+      "title": "Check Pointの管理サーバが複数の脆弱性を突かれ、22組織で侵害を確認",
+      "what": "攻撃者が複数の脆弱性を悪用してCheck Pointのセキュリティ管理サーバ約24台を侵害し、99のIPから22組織が狙われたと報じられた。AI支援型の攻撃キャンペーンとされる。",
+      "who": "Check Point Security Managementサーバを運用する組織。",
+      "action": "ベンダーの案内に従って修正を適用し、管理サーバの外部公開を止めたうえで侵害の痕跡（不審なログイン・設定変更）を確認する。",
+      "cves": [],
+      "tags": [
+        "悪用確認済み"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/hackers-compromise-check-point-servers-in-22-organizations/"
+        },
+        {
+          "name": "SecurityWeek",
+          "url": "https://www.securityweek.com/check-point-security-management-servers-hacked-in-ai-assisted-campaign/"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "vulnerability",
+      "keyword": "Drupal",
+      "target": "CMS",
+      "title": "Drupalのインストーラ不備が悪用、CISAがKEVに追加",
+      "what": "Drupal Coreでinstall.phpを使いサイトの再インストールを試みられる欠陥が悪用されているとして、CISAが他の脆弱性とあわせて3件を注意喚起した。",
+      "who": "Drupalを運用するサイト（特にinstall.phpに到達できる環境）。",
+      "action": "修正版へ更新し、install.phpへのアクセスを遮断する。",
+      "cves": [
+        "CVE-2026-132165"
+      ],
+      "tags": [
+        "KEV",
+        "悪用確認済み"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "Security NEXT",
+          "url": "https://www.security-next.com/193290"
+        },
+        {
+          "name": "CISA KEV",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-132165"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "vulnerability",
+      "keyword": "Xen Orchestra",
+      "target": "仮想化管理",
+      "title": "仮想化管理ツールXen Orchestraに認証回避の脆弱性、すでに悪用",
+      "what": "Xen Orchestraに認証を回避できる深刻な脆弱性が見つかり、すでに攻撃に悪用されている。修正版が提供されている。",
+      "who": "Xen Orchestraで仮想環境を管理している組織。",
+      "action": "修正版へ更新し、管理画面の公開範囲を制限する。",
+      "cves": [],
+      "tags": [
+        "悪用確認済み"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "Security NEXT",
+          "url": "https://www.security-next.com/193248"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "incident",
+      "keyword": "GL.iNet",
+      "target": "ルータ",
+      "title": "GL.iNetのクラウド管理の欠陥が悪用され、ルータやKVMにマルウェア",
+      "what": "GL.iNetのリモート管理サービスGoodCloudの欠陥を突かれ、一部のルータやKVM機器にマルウェアが仕込まれた。同社は欠陥を修正し攻撃者のアクセスを遮断した。",
+      "who": "GL.iNet製ルータ・KVM機器の利用者。",
+      "action": "公式のセキュリティ告知を確認し、機器を最新ファームウェアへ更新する。感染が疑われる場合は初期化する。",
+      "cves": [],
+      "tags": [
+        "悪用確認済み"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/hackers-exploited-glinet-cloud-flaw-to.html"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "vulnerability",
+      "keyword": "Optimizely",
+      "target": "Web実験基盤",
+      "title": "Optimizely Web Experimentationのサインアップ欠陥が悪用、KEV掲載",
+      "what": "アカウント登録処理の欠陥で既存ユーザーになりすまし、プロジェクトのJavaScriptを書き換えられる。悪意あるスクリプトが配信される恐れがある。",
+      "who": "Optimizely Web Experimentationを自社サイトに組み込んでいる事業者。",
+      "action": "ベンダー情報に従い対処し、配信中のProject JavaScriptに不審な改変がないか確認する。",
+      "cves": [
+        "CVE-2026-132224"
+      ],
+      "tags": [
+        "KEV",
+        "悪用確認済み"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "CISA KEV",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-132224"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "incident",
+      "keyword": "マクドナルド日本",
+      "target": "国内アプリ",
+      "title": "日本マクドナルドの公式アプリのデータベースに不正アクセス、位置情報などが流出",
+      "what": "日本マクドナルドが、公式スマホアプリ利用者の情報を含むデータベースに攻撃者がアクセスし、位置情報などが露出したと公表した。",
+      "who": "同社公式アプリの利用者。",
+      "action": "利用者は同社の案内を確認し、不審な連絡やフィッシングに注意する。",
+      "cves": [],
+      "tags": [
+        "国内",
+        "情報漏洩"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/mcdonalds-japan-data-breach-exposes-customer-location-information/"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "incident",
+      "keyword": "Radware",
+      "target": "セキュリティ",
+      "title": "Radwareで侵害、顧客のクラウドアクセスキーが露出",
+      "what": "Radwareが侵害を公表し、顧客のクラウド向けアクセスキーが露出した可能性が報じられた。",
+      "who": "Radwareのクラウドサービス利用組織。",
+      "action": "連携しているクラウドのアクセスキーを再発行し、不審な利用履歴を確認する。",
+      "cves": [],
+      "tags": [
+        "情報漏洩"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/radware-discloses-breach-exposing-customer-cloud-access-keys/"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "outage",
+      "keyword": "Rackspace Spot",
+      "target": "クラウド",
+      "title": "RackspaceがSpotクラウド基盤を停止、セキュリティ侵害を受け",
+      "what": "Rackspaceがセキュリティ侵害を受けて、Spotクラウドプラットフォームを停止した。",
+      "who": "Rackspace Spotの利用者。",
+      "action": "同社の案内を確認し、移行先の確保と認証情報の入れ替えを検討する。",
+      "cves": [],
+      "tags": [
+        "サービス停止"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/rackspace-shuts-down-spot-cloud-platform-after-security-breach/"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "incident",
+      "keyword": "ミスタードーナツ",
+      "target": "国内EC",
+      "title": "ミスタードーナツのネットオーダーで侵害、サービスを停止",
+      "what": "ミスタードーナツのネットオーダーが不正アクセスを受け、サービスを停止した。",
+      "who": "同サービスの利用者。",
+      "action": "利用者は同社の案内を確認し、パスワードの使い回しがあれば変更する。",
+      "cves": [],
+      "tags": [
+        "国内",
+        "サービス停止"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "Security NEXT",
+          "url": "https://www.security-next.com/193086"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "incident",
+      "keyword": "Cairn",
+      "target": "AI攻撃基盤",
+      "title": "AI侵入テスト基盤Cairnが大学攻撃でゼロデイを発見",
+      "what": "Amazonの調査で、攻撃者がAI基盤Cairnを使い、大学のアプリのゼロデイを突いてサーバーを制御したと判明した（MONAI Labelの件の続報）。",
+      "who": "",
+      "action": "",
+      "cves": [
+        "CVE-2026-133968"
+      ],
+      "tags": [],
+      "is_update": true,
+      "sources": [
+        {
+          "name": "piyolog",
+          "url": "https://piyolog.hatenadiary.jp/entry/2026/11/24/214547"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "incident",
+      "keyword": "INCEPTION",
+      "target": "恐喝グループ",
+      "title": "新たな恐喝集団INCEPTIONが大規模ボイスフィッシングを展開",
+      "what": "ShinyHunters関係とされる新たな集団がビッシングで企業を狙い、リークサイトを開設したとOktaが指摘した。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/new-inception-extortion-gang-launches-large-scale-vishing-campaign/"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "vulnerability",
+      "keyword": "Thunderbird",
+      "target": "メールソフト",
+      "title": "Thunderbirdに署名付きメールの詐称を許す脆弱性",
+      "what": "Thunderbirdに、署名付きメールを偽装できる深刻な脆弱性が見つかった。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "Security NEXT",
+          "url": "https://www.security-next.com/193277"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "vulnerability",
+      "keyword": "Firefox 161",
+      "target": "ブラウザ",
+      "title": "Firefox 161が公開、110件の脆弱性を修正",
+      "what": "Firefox 161で110件の脆弱性が修正された。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "Security NEXT",
+          "url": "https://www.security-next.com/193284"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "incident",
+      "keyword": "タワレコ通販",
+      "target": "国内EC",
+      "title": "タワーレコードの通販サイトで顧客情報が流出",
+      "what": "タワーレコードの通販サイトで顧客情報が流出したと報じられた。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [
+        "国内",
+        "情報漏洩"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "Security NEXT",
+          "url": "https://www.security-next.com/193228"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "incident",
+      "keyword": "Turnitin",
+      "target": "教育SaaS",
+      "title": "Turnitinが顧客向けシステムへのサイバー攻撃を公表",
+      "what": "教育向けサービスのTurnitinが、顧客向けシステムに影響するサイバー攻撃を受けたと公表した。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/turnitin-discloses-cyberattack-affecting-customer-facing-systems/"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "incident",
+      "keyword": "EU Academy",
+      "target": "公的機関",
+      "title": "欧州委員会のEU Academyで情報流出",
+      "what": "欧州委員会が、EU Academy利用者の氏名とメールアドレスが盗まれたと確認した。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [
+        "情報漏洩"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/european-commission-confirms-data-theft-in-eu-academy-breach/"
+        }
+      ]
+    }
+  ],
+  "source_status": [
+    {
+      "name": "CISA KEV",
+      "ok": true,
+      "count": 5
+    },
+    {
+      "name": "NVD",
+      "ok": true,
+      "count": 29
+    },
+    {
+      "name": "JPCERT/CC",
+      "ok": true,
+      "count": 0
+    },
+    {
+      "name": "IPA",
+      "ok": true,
+      "count": 1
+    },
+    {
+      "name": "Security NEXT",
+      "ok": true,
+      "count": 13
+    },
+    {
+      "name": "piyolog",
+      "ok": true,
+      "count": 1
+    },
+    {
+      "name": "BleepingComputer",
+      "ok": true,
+      "count": 15
+    },
+    {
+      "name": "The Hacker News",
+      "ok": true,
+      "count": 18
+    },
+    {
+      "name": "SecurityWeek",
+      "ok": true,
+      "count": 10
+    },
+    {
+      "name": "JVN",
+      "ok": true,
+      "count": 4
+    },
+    {
+      "name": "ITmedia",
+      "ok": true,
+      "count": 1
+    },
+    {
+      "name": "AWS Health",
+      "ok": true,
+      "count": 0
+    },
+    {
+      "name": "Cloudflare Status",
+      "ok": true,
+      "count": 0
+    },
+    {
+      "name": "GitHub Status",
+      "ok": true,
+      "count": 2
+    },
+    {
+      "name": "EPSS",
+      "ok": true,
+      "count": 11
+    }
+  ],
+  "stats": {
+    "items": 99,
+    "clusters": 90
+  }
+}

@@ -1,5 +1,12 @@
 [
  {
+  "date": "2026-11-25",
+  "headline": "VMware ESX/vCenterの重大脆弱性とCheck Point管理サーバの侵害が要確認。Drupal・Xen Orchestra・Optimizelyの悪用確認や、マクドナルド日本の情報漏洩も。昨日掲載のScreenConnect等は再掲していない。",
+  "critical": 2,
+  "notable": 8,
+  "other": 7
+ },
+ {
   "date": "2026-11-24",
   "headline": "ScreenConnect・N-able・ASP.NETのCSRFライブラリと、MSP/Web基盤の悪用確認済み脆弱性が3件。Cisco ExpresswayもCISAが悪用を警告しており、該当環境の確認を。",
   "critical": 3,
