@@ -1,5 +1,12 @@
 [
  {
+  "date": "2026-11-26",
+  "headline": "Drupal・PAN-OS・Mitel MiCollabで悪用が確認され、今日中の影響確認が必要。vCenterやHex.pm等のRCEも注意。1Passwordの顧客情報流出も。全情報源の取得に成功。",
+  "critical": 3,
+  "notable": 9,
+  "other": 7
+ },
+ {
   "date": "2026-11-25",
   "headline": "VMware ESX/vCenterの重大脆弱性とCheck Point管理サーバの侵害が要確認。Drupal・Xen Orchestra・Optimizelyの悪用確認や、マクドナルド日本の情報漏洩も。昨日掲載のScreenConnect等は再掲していない。",
   "critical": 2,

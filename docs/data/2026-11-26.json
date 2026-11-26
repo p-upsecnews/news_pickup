@@ -1,0 +1,537 @@
+{
+  "date": "2026-11-26",
+  "generated_at": "2026-11-26T10:15:00+09:00",
+  "window_hours": 48,
+  "headline": "Drupal・PAN-OS・Mitel MiCollabで悪用が確認され、今日中の影響確認が必要。vCenterやHex.pm等のRCEも注意。1Passwordの顧客情報流出も。全情報源の取得に成功。",
+  "items": [
+    {
+      "level": "critical",
+      "kind": "vulnerability",
+      "keyword": "Drupal",
+      "target": "CMS",
+      "title": "Drupal の重大RCE脆弱性「Fail2Install」が悪用され、サイト乗っ取りが発生",
+      "what": "Drupalの深刻なリモートコード実行の脆弱性で攻撃コードの詳細が出回り、実際の悪用が確認されCISAのKEVにも追加された。",
+      "who": "Drupalで構築された公開Webサイト全般（未修正バージョン）。",
+      "action": "公式の修正版へ直ちに更新し、更新前後でWebシェルや不審な管理者の有無を確認する。",
+      "cves": [
+        "CVE-2026-132165"
+      ],
+      "tags": [
+        "KEV",
+        "悪用確認済み",
+        "PoC公開"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "Security NEXT",
+          "url": "https://www.security-next.com/193360"
+        },
+        {
+          "name": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/hackers-now-exploit-critical-drupal-rce-flaw-to-hijack-sites/"
+        },
+        {
+          "name": "SecurityWeek",
+          "url": "https://www.securityweek.com/drupal-flaw-found-by-anthropic-scanner-exploited-in-attacks/"
+        }
+      ]
+    },
+    {
+      "level": "critical",
+      "kind": "vulnerability",
+      "keyword": "Fragnesia",
+      "target": "ファイアウォール",
+      "title": "Palo Alto の PAN-OS 脆弱性「Fragnesia」が悪用され、FWのroot権限が奪取される",
+      "what": "Palo Alto Networksが、PAN-OSの脆弱性がファイアウォールのroot奪取に悪用されているとして修正版を公開した。",
+      "who": "PAN-OSを使うPalo Alto製ファイアウォール（未更新の機器）。",
+      "action": "修正版PAN-OSへ更新し、更新できない間は管理インターフェースを外部公開しない。",
+      "cves": [],
+      "tags": [
+        "悪用確認済み"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/palo-alto-networks-warns-of-fragnesia-flaw-exploited-in-pan-os-attacks/"
+        },
+        {
+          "name": "SecurityWeek",
+          "url": "https://www.securityweek.com/palo-alto-networks-patches-fragnesia-flaw-used-to-root-firewalls/"
+        }
+      ]
+    },
+    {
+      "level": "critical",
+      "kind": "vulnerability",
+      "keyword": "Mitel MiCollab",
+      "target": "UCサーバ",
+      "title": "Mitel MiCollab の複数脆弱性（CVSS 10.0を含む）がKEVに追加され悪用を確認",
+      "what": "MiCollabのXMLインジェクションやOSコマンドインジェクションなど複数の脆弱性が、悪用確認済みとしてKEVに追加された。",
+      "who": "Mitel MiCollabを運用している企業（特にインターネットに公開している環境）。",
+      "action": "ベンダーの修正版を適用し、公開している場合は外部アクセスを制限して侵害の痕跡を確認する。",
+      "cves": [
+        "CVE-2026-133303",
+        "CVE-2026-133323"
+      ],
+      "tags": [
+        "KEV",
+        "悪用確認済み"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "CISA KEV",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-133303"
+        },
+        {
+          "name": "CISA KEV (OSコマンド)",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-133323"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "vulnerability",
+      "keyword": "Xen Orchestra",
+      "target": "仮想化管理",
+      "title": "仮想化管理ツール Xen Orchestra に重大な脆弱性（CVSS 9.9）、KEV掲載",
+      "what": "Xen Orchestraの入力検証不備がKEVに追加され、悪用が確認された。ベンダーが順次修正を提供している。",
+      "who": "Xen Orchestraで仮想基盤を管理している組織。",
+      "action": "最新版へ更新し、管理画面をインターネットに公開していないか確認する。",
+      "cves": [
+        "CVE-2026-133469"
+      ],
+      "tags": [
+        "KEV",
+        "悪用確認済み",
+        "国内"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "Security NEXT",
+          "url": "https://www.security-next.com/193360"
+        },
+        {
+          "name": "CISA KEV",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-133469"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "vulnerability",
+      "keyword": "HPE Juniper SSR",
+      "target": "ネットワーク機器",
+      "title": "HPE Juniper Session Smart Router/Conductor の重大脆弱性（CVSS 9.8）がKEV入り",
+      "what": "SD-WAN製品の認証関連の重大な脆弱性が、悪用確認済みとしてKEVに追加された。",
+      "who": "Juniper Session Smart Router / Conductor を使うネットワーク運用者。",
+      "action": "ベンダー情報に従い修正版へ更新する。",
+      "cves": [
+        "CVE-2026-103406"
+      ],
+      "tags": [
+        "KEV",
+        "悪用確認済み"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "CISA KEV",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-103406"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "vulnerability",
+      "keyword": "Hex.pm",
+      "target": "パッケージ基盤",
+      "title": "Elixir向けレジストリ Hex.pm のRCE（CVSS 10.0）が悪用され、サーバ6台が侵害",
+      "what": "Hex.pm関連の最大深刻度のRCE脆弱性を悪用され、パッケージレジストリのサーバ6台が侵害された。",
+      "who": "Hex.pmを使うElixir/Erlang開発者と、同じソフトを自前運用する組織。",
+      "action": "ミラーを自前運用している場合は修正版へ更新し、取得済みパッケージの整合性を確認する。",
+      "cves": [],
+      "tags": [
+        "悪用確認済み",
+        "サプライチェーン"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/hackers-exploited-cvss-100-hexpm-rce.html"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "vulnerability",
+      "keyword": "vCenter",
+      "target": "仮想化基盤",
+      "title": "VMware vCenter にさらに認証回避の重大脆弱性（CVSS 9.8）、ゼロデイに続く",
+      "what": "先のゼロデイ悪用に続き、vCenterで別のCVSS 9.8の認証回避脆弱性が公表され、VMwareがESX/vCenterの更新を公開した。",
+      "who": "VMware vCenter Server / ESX を運用している組織。",
+      "action": "最新パッチを適用し、管理ネットワークを分離する。",
+      "cves": [
+        "CVE-2026-123903"
+      ],
+      "tags": [],
+      "is_update": true,
+      "sources": [
+        {
+          "name": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/vmware-vcenter-hit-by-another-critical.html"
+        },
+        {
+          "name": "SecurityWeek",
+          "url": "https://www.securityweek.com/vmware-updates-patch-critical-esx-vcenter-vulnerabilities/"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "incident",
+      "keyword": "1Password",
+      "target": "パスワード管理",
+      "title": "1Password、従業員のGitHub侵害で一部顧客の氏名・メールが流出",
+      "what": "従業員のGitHubアカウントが侵害され、一部顧客の氏名とメールアドレスが盗まれた。保管庫内データへの影響はないとしている。",
+      "who": "1Passwordの一部顧客。",
+      "action": "フィッシングメールに警戒し、公式の案内を確認する。",
+      "cves": [],
+      "tags": [
+        "情報漏洩",
+        "国内"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "ITmedia",
+          "url": "https://www.itmedia.co.jp/news/article/2611/26/2000003466/"
+        },
+        {
+          "name": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/1password-customer-data-stolen-after-employee-github-account-breach/"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "incident",
+      "keyword": "WP Connect",
+      "target": "WordPress",
+      "title": "バックドア入りWordPressプラグイン6件を公開前にブロック",
+      "what": "WP Connect系の6プラグインに悪意あるリリースが仕込まれたが、公開前にWordPress側がブロックした。",
+      "who": "WordPressサイト運営者（当該プラグイン利用者）。",
+      "action": "該当プラグインの導入有無と更新履歴を確認する。",
+      "cves": [],
+      "tags": [
+        "サプライチェーン"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/wordpress-blocks-six-backdoored-wp.html"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "vulnerability",
+      "keyword": "GeoServer",
+      "target": "GISサーバ",
+      "title": "GeoServerの脆弱性2件が悪用され、認証不要RCEの連鎖も警告",
+      "what": "GeoServerの新たな脆弱性2件を狙う攻撃が観測され、認証不要のRCE連鎖の可能性も指摘されている。",
+      "who": "GeoServerを公開運用している組織。",
+      "action": "修正版へ更新し、公開範囲を見直す。",
+      "cves": [
+        "CVE-2026-120705",
+        "CVE-2026-129243"
+      ],
+      "tags": [
+        "悪用確認済み"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/hackers-exploit-two-geoserver-flaws-as.html"
+        },
+        {
+          "name": "SecurityWeek",
+          "url": "https://www.securityweek.com/two-newly-disclosed-geoserver-vulnerabilities-under-attack/"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "incident",
+      "keyword": "CIA",
+      "target": "政府機関",
+      "title": "米CIAの非機密分析システムが不正アクセスを受けたと報道",
+      "what": "米CIAの非機密の情報分析システムが侵害されたとAP通信の情報源が伝えた。",
+      "who": "米政府機関とその関係者。",
+      "action": "日本の利用者の直接対応は不要。続報を把握する。",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/hackers-reportedly-breached-cia-intelligence-analysis-system/"
+        },
+        {
+          "name": "piyolog",
+          "url": "https://piyolog.hatenadiary.jp/entry/2026/11/25/120114"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "vulnerability",
+      "keyword": "Synology NAS",
+      "target": "NAS",
+      "title": "Synology製NASに深刻な脆弱性、修正版を順次提供",
+      "what": "Synology製NASに深刻な脆弱性が見つかり、修正版が順次提供されている。",
+      "who": "Synology NASの利用者（国内の中小企業・個人含む）。",
+      "action": "修正版が出た機種から更新し、外部公開を避ける。",
+      "cves": [],
+      "tags": [
+        "国内"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "Security NEXT",
+          "url": "https://www.security-next.com/193243"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "vulnerability",
+      "keyword": "Joomla",
+      "target": "CMS",
+      "title": "Joomlaに58件の脆弱性、クリティカルは4件",
+      "what": "Joomlaの更新で58件の脆弱性が修正され、うち4件が最高レベル。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "Security NEXT",
+          "url": "https://www.security-next.com/193353"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "vulnerability",
+      "keyword": "AEM",
+      "target": "CMS",
+      "title": "Adobe Experience Managerに多数の脆弱性、3件がクリティカル",
+      "what": "AEMの更新で多数の脆弱性が修正された。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "Security NEXT",
+          "url": "https://www.security-next.com/193325"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "incident",
+      "keyword": "Turnitin",
+      "target": "教育",
+      "title": "論文剽窃チェックのTurnitinがサイバー攻撃を公表",
+      "what": "顧客向けシステムに影響するサイバー攻撃を調査中と公表。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [
+        "情報漏洩"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/turnitin-discloses-cyberattack-affecting-customer-facing-systems/"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "incident",
+      "keyword": "FinCEN",
+      "target": "政府機関",
+      "title": "米財務省FinCENが侵入を受け一部システムを切断",
+      "what": "サイバー侵入を受け、FinCENが一部システムをオフラインにした。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "SecurityWeek",
+          "url": "https://www.securityweek.com/us-treasurys-fincen-disconnects-systems-following-cyber-incident/"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "incident",
+      "keyword": "京王電鉄",
+      "target": "鉄道",
+      "title": "京王電鉄、ランサム攻撃で個人情報流出（パスポート写しも）",
+      "what": "ランサムウェア攻撃で個人情報が流出し、パスポートの写しも含まれる。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [
+        "ランサムウェア",
+        "国内",
+        "情報漏洩"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "Security NEXT",
+          "url": "https://www.security-next.com/193305"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "incident",
+      "keyword": "DHC",
+      "target": "通販",
+      "title": "DHC通販サイトに不正アクセス、会員情報改ざんや不正注文",
+      "what": "会員情報の改ざんや不正注文が確認された。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [
+        "国内",
+        "情報漏洩"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "Security NEXT",
+          "url": "https://www.security-next.com/193316"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "vulnerability",
+      "keyword": "Fx161",
+      "target": "ブラウザ",
+      "title": "Firefox 161が公開、110件の脆弱性に対応",
+      "what": "定例更新で110件の脆弱性が修正された。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "Security NEXT",
+          "url": "https://www.security-next.com/193284"
+        }
+      ]
+    }
+  ],
+  "source_status": [
+    {
+      "name": "CISA KEV",
+      "ok": true,
+      "count": 13
+    },
+    {
+      "name": "NVD",
+      "ok": true,
+      "count": 28
+    },
+    {
+      "name": "JPCERT/CC",
+      "ok": true,
+      "count": 0
+    },
+    {
+      "name": "IPA",
+      "ok": true,
+      "count": 0
+    },
+    {
+      "name": "Security NEXT",
+      "ok": true,
+      "count": 18
+    },
+    {
+      "name": "piyolog",
+      "ok": true,
+      "count": 2
+    },
+    {
+      "name": "BleepingComputer",
+      "ok": true,
+      "count": 15
+    },
+    {
+      "name": "The Hacker News",
+      "ok": true,
+      "count": 19
+    },
+    {
+      "name": "SecurityWeek",
+      "ok": true,
+      "count": 10
+    },
+    {
+      "name": "JVN",
+      "ok": true,
+      "count": 6
+    },
+    {
+      "name": "ITmedia",
+      "ok": true,
+      "count": 3
+    },
+    {
+      "name": "AWS Health",
+      "ok": true,
+      "count": 0
+    },
+    {
+      "name": "Cloudflare Status",
+      "ok": true,
+      "count": 0
+    },
+    {
+      "name": "GitHub Status",
+      "ok": true,
+      "count": 5
+    },
+    {
+      "name": "EPSS",
+      "ok": true,
+      "count": 38
+    }
+  ],
+  "stats": {
+    "items": 119,
+    "clusters": 106
+  }
+}
