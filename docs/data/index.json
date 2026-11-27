@@ -1,5 +1,12 @@
 [
  {
+  "date": "2026-11-27",
+  "headline": "Drupalに新たな悪用中の重大脆弱性が出たほか、Mitel MiCollabはKEV追加とAI支援とみられる攻撃が判明。国内ではENEOS公式アプリの侵害が公表された。",
+  "critical": 2,
+  "notable": 7,
+  "other": 4
+ },
+ {
   "date": "2026-11-26",
   "headline": "Drupal・PAN-OS・Mitel MiCollabで悪用が確認され、今日中の影響確認が必要。vCenterやHex.pm等のRCEも注意。1Passwordの顧客情報流出も。全情報源の取得に成功。",
   "critical": 3,

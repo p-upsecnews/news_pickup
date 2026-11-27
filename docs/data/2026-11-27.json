@@ -1,0 +1,383 @@
+{
+  "date": "2026-11-27",
+  "generated_at": "2026-11-27T10:15:00+09:00",
+  "window_hours": 48,
+  "headline": "Drupalに新たな悪用中の重大脆弱性が出たほか、Mitel MiCollabはKEV追加とAI支援とみられる攻撃が判明。国内ではENEOS公式アプリの侵害が公表された。",
+  "items": [
+    {
+      "level": "critical",
+      "kind": "vulnerability",
+      "keyword": "Drupal",
+      "target": "CMS",
+      "title": "Drupal本体に新たな「highly critical」脆弱性、パッチの不備を突かれ悪用中",
+      "what": "先日のインストーラ脆弱性（Fail2Install）の修正に抜けがあり、新たに追跡された脆弱性で認証なしにサイトを乗っ取れる状態が悪用されている。",
+      "who": "Drupalコアを使うWebサイト（修正未適用のもの）。",
+      "action": "最新の修正版に更新し、更新できない場合はインストーラ関連のパスへのアクセスを遮断する。侵害の痕跡（不審ファイル・管理者追加）も確認する。",
+      "cves": [
+        "CVE-2026-136716",
+        "CVE-2026-132165"
+      ],
+      "tags": [
+        "KEV",
+        "悪用確認済み"
+      ],
+      "is_update": true,
+      "sources": [
+        {
+          "name": "Security NEXT",
+          "url": "https://www.security-next.com/193298"
+        },
+        {
+          "name": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/drupal-warns-of-new-highly-critical.html"
+        },
+        {
+          "name": "SecurityWeek",
+          "url": "https://www.securityweek.com/drupal-installer-patch-left-a-gap-attackers-are-already-exploiting/"
+        }
+      ]
+    },
+    {
+      "level": "critical",
+      "kind": "vulnerability",
+      "keyword": "Mitel MiCollab",
+      "target": "Web会議基盤",
+      "title": "Mitel MiCollabの脆弱性がKEVに追加、公表前からAI支援とみられる攻撃も",
+      "what": "CISAが悪用確認済みとしてMiCollabの脆弱性5件を含む10件をKEVに追加し、Accentureはベンダー公表前の悪用（恐喝目的）を報告した。",
+      "who": "MiCollab（AWVコンポーネント）をインターネットに公開している組織。",
+      "action": "修正版を適用し、管理・会議機能の外部公開を止める。侵害調査（Webシェル・不審なアップロード）を行う。",
+      "cves": [
+        "CVE-2026-133323",
+        "CVE-2026-133303",
+        "CVE-2026-133275"
+      ],
+      "tags": [
+        "KEV",
+        "悪用確認済み"
+      ],
+      "is_update": true,
+      "sources": [
+        {
+          "name": "Security NEXT",
+          "url": "https://www.security-next.com/193360"
+        },
+        {
+          "name": "SecurityWeek",
+          "url": "https://www.securityweek.com/mitel-micollab-zero-days-exploited-in-suspected-ai-assisted-attacks/"
+        },
+        {
+          "name": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/hackers-exploit-10-vulnerabilities.html"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "incident",
+      "keyword": "ENEOS",
+      "target": "公式アプリ",
+      "title": "ENEOS公式アプリのシステムで侵害を検知、サービスを停止",
+      "what": "ENEOSが公式アプリのシステムの侵害を検知し、サービスを停止した。影響範囲は調査中。",
+      "who": "ENEOS公式アプリの利用者。",
+      "action": "続報を確認し、同一パスワードを使い回している場合は変更、不審なメール・SMSに注意する。",
+      "cves": [],
+      "tags": [
+        "国内",
+        "サービス停止",
+        "情報漏洩"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "Security NEXT",
+          "url": "https://www.security-next.com/193377"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "vulnerability",
+      "keyword": "Serv-U",
+      "target": "ファイル転送",
+      "title": "SolarWinds Serv-Uに更新、クリティカルの脆弱性9件を修正",
+      "what": "SolarWindsがファイル転送製品Serv-Uのセキュリティ更新を公開し、重要度クリティカルの脆弱性9件に対処した。",
+      "who": "Serv-Uを運用している組織（外部公開しているもの）。",
+      "action": "最新版へ更新する。",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "Security NEXT",
+          "url": "https://www.security-next.com/193429"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "vulnerability",
+      "keyword": "Danfoss AK-SM",
+      "target": "店舗設備機器",
+      "title": "Danfossの冷蔵設備コントローラに重大な未修正の脆弱性、CISAが警告",
+      "what": "食品小売で冷蔵・空調・照明の管理に使われるDanfoss AK-SM 8xxAシリーズに、未修正の重大な脆弱性があり悪用も確認されている。",
+      "who": "同シリーズを使う小売・食品関連の拠点。",
+      "action": "インターネットからの到達を遮断し、VPN経由などに限定する。ベンダー情報を確認する。",
+      "cves": [
+        "CVE-2023-25915"
+      ],
+      "tags": [
+        "KEV"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/cisa-warns-of-critical-unpatched-flaw-in-danfoss-refrigeration-controllers/"
+        },
+        {
+          "name": "Security NEXT",
+          "url": "https://www.security-next.com/193360"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "other",
+      "keyword": "Windows認証",
+      "target": "Windows",
+      "title": "11月のWindows更新後に認証障害が発生するとMicrosoftが認めた",
+      "what": "RCE脆弱性を修正する11月のセキュリティ更新の適用後、認証で問題が出る場合があるとMicrosoftが確認した。",
+      "who": "11月の更新を適用したWindows環境。",
+      "action": "Microsoftの案内を確認して回避策を検討しつつ、セキュリティ更新自体は外さない。",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/microsoft/microsoft-confirms-authentication-issues-after-november-updates/"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "incident",
+      "keyword": "PolinRider",
+      "target": "GitHub",
+      "title": "北朝鮮系PolinRiderがGitHubのリポジトリ7,600件超にマルウェアローダーを仕込む",
+      "what": "Pythonのユーティリティやconftestにローダーを仕込む手口で、インポート時にマルウェアが動く。2025年2月から始まっていた可能性がある。",
+      "who": "GitHubから依存パッケージやコードを取り込む開発者・CI環境。",
+      "action": "依存ライブラリの出所を確認し、不審な utils や conftest.py がないか点検する。",
+      "cves": [],
+      "tags": [
+        "サプライチェーン"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/north-korea-linked-polinrider-poisons.html"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "incident",
+      "keyword": "Comビッシング",
+      "target": "クラウド",
+      "title": "Com系グループがボイスフィッシングでクラウドアカウントを乗っ取り、情報窃取と恐喝",
+      "what": "Unit 42が、2026年8月以降の複数波のビッシングで、クラウド上のデータ窃取と恐喝が起きていると報告した。",
+      "who": "米英豪の金融・医療・法務など。同手口は他地域にも及び得る。",
+      "action": "ヘルプデスクの本人確認を強化し、SSOやMFAのリセット手順を見直す。",
+      "cves": [],
+      "tags": [
+        "情報漏洩"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/com-affiliated-hackers-hijack-cloud.html"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "vulnerability",
+      "keyword": "Tomcat",
+      "target": "Javaサーバ",
+      "title": "Apache Tomcatに複数の脆弱性（JVNが注意喚起）",
+      "what": "Apache Tomcatの複数の脆弱性についてJVNが情報を公開した。",
+      "who": "Tomcatを使うWebアプリケーション基盤。",
+      "action": "対象バージョンを確認し、修正版へ更新する。",
+      "cves": [],
+      "tags": [
+        "国内"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "JVN",
+          "url": "https://jvn.jp/vu/JVNVU92527429/"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "vulnerability",
+      "keyword": "BusyBox",
+      "target": "組み込み",
+      "title": "組み込みLinux向けBusyBoxに深刻な脆弱性",
+      "what": "BusyBoxに深刻な脆弱性が公表された。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "Security NEXT",
+          "url": "https://www.security-next.com/193294"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "vulnerability",
+      "keyword": "Dell SONiC",
+      "target": "ネットワークOS",
+      "title": "DellのネットワークOS SONiCが約800件の脆弱性に対応",
+      "what": "Dell Enterprise SONiCの更新で、依存ソフトを含め約800件の脆弱性が修正された。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "Security NEXT",
+          "url": "https://www.security-next.com/193319"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "other",
+      "keyword": "InfraTrust",
+      "target": "ネットワーク機器",
+      "title": "悪用された脆弱性の多くは機器に同梱された第三者ソフトにあるとEclypsiumが指摘",
+      "what": "11月の調査で、悪用された脆弱性の多くがベンダー自社ではなく同梱の第三者ソフト由来だった。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/infratrust-warns-of-exploited-supply-chain-flaws-in-network-appliances/"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "incident",
+      "keyword": "FIFA",
+      "target": "スポーツ団体",
+      "title": "FIFAがサイバー攻撃で個人・事業情報にアクセスされたと公表",
+      "what": "FIFAが攻撃を受け個人・事業情報に不正アクセスがあったと発表したが、時期や詳細は不明。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "SecurityWeek",
+          "url": "https://www.securityweek.com/fifa-says-it-has-been-victim-of-a-cyberattack-accessing-personal-and-business-information/"
+        }
+      ]
+    }
+  ],
+  "source_status": [
+    {
+      "name": "CISA KEV",
+      "ok": true,
+      "count": 10
+    },
+    {
+      "name": "NVD",
+      "ok": true,
+      "count": 23
+    },
+    {
+      "name": "JPCERT/CC",
+      "ok": true,
+      "count": 0
+    },
+    {
+      "name": "IPA",
+      "ok": true,
+      "count": 0
+    },
+    {
+      "name": "Security NEXT",
+      "ok": true,
+      "count": 17
+    },
+    {
+      "name": "piyolog",
+      "ok": true,
+      "count": 3
+    },
+    {
+      "name": "BleepingComputer",
+      "ok": true,
+      "count": 15
+    },
+    {
+      "name": "The Hacker News",
+      "ok": true,
+      "count": 16
+    },
+    {
+      "name": "SecurityWeek",
+      "ok": true,
+      "count": 10
+    },
+    {
+      "name": "JVN",
+      "ok": true,
+      "count": 4
+    },
+    {
+      "name": "ITmedia",
+      "ok": true,
+      "count": 3
+    },
+    {
+      "name": "AWS Health",
+      "ok": true,
+      "count": 0
+    },
+    {
+      "name": "Cloudflare Status",
+      "ok": true,
+      "count": 0
+    },
+    {
+      "name": "GitHub Status",
+      "ok": true,
+      "count": 4
+    },
+    {
+      "name": "EPSS",
+      "ok": true,
+      "count": 22
+    }
+  ],
+  "stats": {
+    "items": 105,
+    "clusters": 91
+  }
+}
