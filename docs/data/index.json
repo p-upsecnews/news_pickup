@@ -1,5 +1,12 @@
 [
  {
+  "date": "2026-11-28",
+  "headline": "未修正でPoC公開済みのCacti ゼロデイ（認証不要RCE）が唯一の緊急。GeoServerのKEV追加、SAPのGitHub侵害、Q-Dir等の公式配布物改ざん、国内ではリンベル約72万人の流出が注目。",
+  "critical": 1,
+  "notable": 9,
+  "other": 13
+ },
+ {
   "date": "2026-11-27",
   "headline": "Drupalに新たな悪用中の重大脆弱性が出たほか、Mitel MiCollabはKEV追加とAI支援とみられる攻撃が判明。国内ではENEOS公式アプリの侵害が公表された。",
   "critical": 2,

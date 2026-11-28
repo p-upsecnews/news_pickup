@@ -1,0 +1,559 @@
+{
+  "date": "2026-11-28",
+  "generated_at": "2026-11-28T10:05:00+09:00",
+  "window_hours": 48,
+  "headline": "未修正でPoC公開済みのCacti ゼロデイ（認証不要RCE）が唯一の緊急。GeoServerのKEV追加、SAPのGitHub侵害、Q-Dir等の公式配布物改ざん、国内ではリンベル約72万人の流出が注目。",
+  "items": [
+    {
+      "level": "critical",
+      "kind": "vulnerability",
+      "keyword": "Cacti",
+      "target": "監視基盤",
+      "title": "ネットワーク監視のCactiに未修正のゼロデイ、認証不要でRCEが可能なPoCが公開",
+      "what": "オープンソースの監視ツールCactiで、ゲストアクセス経由でわずか4回のHTTPリクエストによりコマンド実行できる未修正の脆弱性とPoCが公開された。",
+      "who": "インターネットや社内網に公開しているCactiサーバの管理者（特にゲストアクセスを有効にしている環境）。",
+      "action": "ゲストアクセスの無効化とアクセス元の制限を直ちに行い、修正版の公開を確認次第更新する。",
+      "cves": [],
+      "tags": [
+        "PoC公開"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/unpatched-cacti-zero-day-with-public-poc-gives-remote-code-execution/"
+        },
+        {
+          "name": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/unpatched-cacti-zero-day-enables-rce-in.html"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "vulnerability",
+      "keyword": "GeoServer",
+      "target": "地理情報",
+      "title": "GeoServerの脆弱性がKEVに追加、認証不要でファイル読み取りや認可回避",
+      "what": "OSGeo GeoServerのXMLインジェクションと認可不備の脆弱性が、CISAの悪用確認済みリスト（KEV）に追加された。",
+      "who": "GeoServerを公開している組織。認証なしでサーバ上のファイル読み取りや内部URLへのリクエストが可能。",
+      "action": "最新版へ更新し、更新できない場合は外部公開を止める。",
+      "cves": [
+        "CVE-2026-120705",
+        "CVE-2026-129243"
+      ],
+      "tags": [
+        "KEV",
+        "悪用確認済み"
+      ],
+      "is_update": true,
+      "sources": [
+        {
+          "name": "CISA KEV",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-120705"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "vulnerability",
+      "keyword": "NFS2ROOT",
+      "target": "Linux",
+      "title": "LinuxカーネルのNFSサーバに12年前からの脆弱性「NFS2ROOT」、遠隔からroot権限奪取の恐れ",
+      "what": "LinuxカーネルのNFSサーバ機能に長年潜んでいたCVSS 9.8の脆弱性が公表され、リモートからroot権限を得られる可能性がある。悪用は未確認。",
+      "who": "NFSサーバ機能を有効にしているLinuxサーバ。",
+      "action": "ディストリビューションの修正カーネルを確認して更新し、NFSを不要なら無効化、必要なら接続元を制限する。",
+      "cves": [
+        "CVE-2026-99362"
+      ],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/new-nfs2root-linux-flaw-can-let-attackers-gain-root-privileges/"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "incident",
+      "keyword": "SAP",
+      "target": "ベンダー",
+      "title": "SAPが不正アクセスを確認、GitHub上のソースコードが改ざん・複製された可能性",
+      "what": "SAPが自社GitHubで不審な活動を検知し、盗まれた従業員トークンでソースコードが複製・改変されたと報じられている。",
+      "who": "SAP製品の利用企業。製品への影響範囲は今後の続報次第。",
+      "action": "SAPの公式発表と更新プログラムの動向を注視し、不審な更新物がないか確認する。",
+      "cves": [],
+      "tags": [
+        "サプライチェーン"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "SecurityWeek",
+          "url": "https://www.securityweek.com/sap-confirms-cyberattack-source-code-reportedly-compromised/"
+        },
+        {
+          "name": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/sap-confirms-security-incident-after-suspicious-github-activity/"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "incident",
+      "keyword": "Q-Dir改ざん",
+      "target": "配布サイト",
+      "title": "Q-DirとDesktopOKの公式配布ファイルが改ざんされ、遠隔操作マルウェアを配布",
+      "what": "SoftwareOKの公式サイトで配布されていたQ-DirとDesktopOKのインストーラが改ざんされ、リモートアクセス型マルウェアが仕込まれていた。",
+      "who": "該当期間にこれらのソフトを公式サイトから入手したWindowsユーザー。",
+      "action": "該当ソフトを導入済みなら端末を調査・隔離し、入手経路とハッシュ値を確認する。",
+      "cves": [],
+      "tags": [
+        "サプライチェーン"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/hackers-trojanize-official-q-dir-and.html"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "vulnerability",
+      "keyword": "VMware 23件",
+      "target": "仮想基盤",
+      "title": "ESXやvCenterなどVMware製品に23件の脆弱性、修正版が公開",
+      "what": "VMwareのESX・vCenterなど複数製品で計23件の脆弱性が修正された。",
+      "who": "ESX・vCenterを運用している企業や、これらを使うホスティング事業者。",
+      "action": "セキュリティ情報を確認し、該当バージョンに修正版を適用する。",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "Security NEXT",
+          "url": "https://www.security-next.com/193422"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "vulnerability",
+      "keyword": "AirWave",
+      "target": "ネットワーク管理",
+      "title": "HPEのネットワーク管理製品「AirWave」に深刻な脆弱性",
+      "what": "HPEがネットワーク管理製品AirWaveの深刻な脆弱性を公表し、修正版を提供している。",
+      "who": "AirWaveで無線LAN等を管理している組織。",
+      "action": "HPEの案内に従って修正版へ更新する。",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "Security NEXT",
+          "url": "https://www.security-next.com/193437"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "incident",
+      "keyword": "ARTEX",
+      "target": "AI攻撃",
+      "title": "AIペンテストツール「ARTEX」が攻撃に悪用、Amazonなどが観測結果を公表",
+      "what": "AIを用いたペネトレーションテストツールARTEXが実際の侵入に使われていることが判明し、API鍵の大規模窃取などが報告され、被害組織の公表も出ている。",
+      "who": "AI推論APIや公開された管理画面を持つ組織。",
+      "action": "APIキーの棚卸しと漏えい時の再発行、公開管理画面の見直しを行う。",
+      "cves": [
+        "CVE-2025-3248"
+      ],
+      "tags": [
+        "悪用確認済み"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "piyolog",
+          "url": "https://piyolog.hatenadiary.jp/entry/2026/11/27/134842"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "incident",
+      "keyword": "リンベル",
+      "target": "国内EC",
+      "title": "リンベル公式オンラインストアで約72万人分の会員データが流出、QUOカードPayにも影響",
+      "what": "リンベルのオンラインストアが不正アクセスを受け、退会者を含む約72万人の会員データが対象となった。東京都の事業で交換されたQUOカードPayが使えなくなる事象にも波及した。",
+      "who": "リンベルの利用者と、東京都「赤ちゃんファースト」でポイント交換した利用者。",
+      "action": "該当者は公表内容を確認し、同じパスワードを使い回していれば変更する。",
+      "cves": [],
+      "tags": [
+        "国内",
+        "情報漏洩",
+        "サービス停止"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "piyolog",
+          "url": "https://piyolog.hatenadiary.jp/entry/2026/11/27/004031"
+        }
+      ]
+    },
+    {
+      "level": "notable",
+      "kind": "incident",
+      "keyword": "文科省",
+      "target": "政府調達",
+      "title": "政府調達情報システムのサーバから個人情報が流出か、文科省",
+      "what": "文部科学省が、政府調達に関する情報システムのサーバから個人情報が流出した可能性があると公表した。",
+      "who": "同システムに登録した事業者の担当者など。",
+      "action": "該当する場合は文科省の案内を確認し、不審な連絡に注意する。",
+      "cves": [],
+      "tags": [
+        "国内",
+        "情報漏洩"
+      ],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "Security NEXT",
+          "url": "https://www.security-next.com/193439"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "incident",
+      "keyword": "1Password続報",
+      "target": "パスワード管理",
+      "title": "1Password侵害の続報、公表後も顧客への通知が続く",
+      "what": "従業員のGitHubアカウント侵害でバックエンドの顧客情報が取得された件で、顧客への通知が継続している。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [],
+      "is_update": true,
+      "sources": [
+        {
+          "name": "piyolog",
+          "url": "https://piyolog.hatenadiary.jp/entry/2026/11/26/153937"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "incident",
+      "keyword": "pCloud",
+      "target": "クラウド",
+      "title": "pCloudのパスワード管理機能で不正ログイン、侵害を認める",
+      "what": "pCloudが不審なログイン警告の後、パスワード管理機能への侵害を認めた。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/pcloud-confirms-password-manager-hack-after-suspicious-login-alerts/"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "incident",
+      "keyword": "Swiss AI攻撃",
+      "target": "重要インフラ",
+      "title": "スイス当局、AIを使った攻撃で重要インフラ事業者が侵害されたと確認",
+      "what": "スイスのサイバー当局が、AIエージェントによる攻撃5件のうち4件で侵入を確認し、うち3件は重要インフラを狙ったと発表した。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/switzerland-confirms-ai-assisted.html"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "incident",
+      "keyword": "Boston Sci",
+      "target": "医療",
+      "title": "Boston Scientificで情報漏洩、個人情報と医療情報が流出",
+      "what": "同社が攻撃を受け、影響を受けた個人へ通知を送付している。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/new-boston-scientific-data-breach-exposes-personal-medical-info/"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "incident",
+      "keyword": "myColorado",
+      "target": "行政",
+      "title": "米コロラド州のmyColoradoで約10万人に影響する情報漏洩",
+      "what": "デジタルIDと書類保管アプリが侵害され、アップロードされたデータにアクセスされた。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "SecurityWeek",
+          "url": "https://www.securityweek.com/100000-potentially-impacted-by-colorado-data-breach/"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "incident",
+      "keyword": "米空軍Cloud One",
+      "target": "政府",
+      "title": "米空軍のクラウド基盤が侵害されたと報道",
+      "what": "連邦機関への相次ぐ侵害の一環として、Cloud Oneが攻撃を受けたと報じられた。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/us-air-force-cloud-platform-reportedly-hacked-in-latest-federal-breach/"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "incident",
+      "keyword": "東京海上D",
+      "target": "国内金融",
+      "title": "東京海上ダイレクトのマイページに不正アクセス、個人情報が流出",
+      "what": "契約者向けマイページが不正アクセスを受け、個人情報が流出した。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "Security NEXT",
+          "url": "https://www.security-next.com/193168"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "incident",
+      "keyword": "富士ユナイト",
+      "target": "国内",
+      "title": "富士ユナイトHDで個人情報を含むデータが外部に流出",
+      "what": "同社から個人情報を含むデータが外部に流出したことが公表された。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "Security NEXT",
+          "url": "https://www.security-next.com/193313"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "incident",
+      "keyword": "Remus",
+      "target": "Gmail",
+      "title": "Remusマルウェアが偽Google Sheets拡張機能でGmailを盗み見",
+      "what": "情報窃取型マルウェアRemusが悪意あるChrome拡張でGmailの内容を窃取している。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/remus-malware-steals-gmail-messages-via-fake-google-sheets-extension/"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "incident",
+      "keyword": "Vietnam系APT",
+      "target": "政府・軍",
+      "title": "ベトナム系とみられる集団が東南アジアの政府・軍を標的にスパイ活動",
+      "what": "南シナ海の防衛情報を狙う未報告のグループが確認された。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/suspected-vietnam-linked-hackers-target.html"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "vulnerability",
+      "keyword": "マイナアプリ",
+      "target": "国内アプリ",
+      "title": "マイナアプリに入力リストの制限不足に起因する複数の脆弱性（JVN）",
+      "what": "スマートフォンアプリのマイナアプリに複数の脆弱性が公表された。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "JVN",
+          "url": "https://jvn.jp/jp/JVN19729125/"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "vulnerability",
+      "keyword": "baserCMS",
+      "target": "CMS",
+      "title": "国産CMSのbaserCMSに複数の脆弱性（JVN）",
+      "what": "baserCMSに複数の脆弱性が公表された。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "JVN",
+          "url": "https://jvn.jp/jp/JVN25972114/"
+        }
+      ]
+    },
+    {
+      "level": "other",
+      "kind": "incident",
+      "keyword": "第一生命偽装",
+      "target": "フィッシング",
+      "title": "「第一生命」など著名ブランドを騙り不正アプリを入れさせるメールが急増",
+      "what": "スマートフォンに不正アプリを導入させるフィッシングが広いブランドで確認され、フィッシング対策協議会が注意喚起している。",
+      "who": "",
+      "action": "",
+      "cves": [],
+      "tags": [],
+      "is_update": false,
+      "sources": [
+        {
+          "name": "Security NEXT",
+          "url": "https://www.security-next.com/193365"
+        }
+      ]
+    }
+  ],
+  "source_status": [
+    {
+      "name": "CISA KEV",
+      "ok": true,
+      "count": 3
+    },
+    {
+      "name": "NVD",
+      "ok": true,
+      "count": 20
+    },
+    {
+      "name": "JPCERT/CC",
+      "ok": true,
+      "count": 0
+    },
+    {
+      "name": "IPA",
+      "ok": true,
+      "count": 0
+    },
+    {
+      "name": "Security NEXT",
+      "ok": true,
+      "count": 16
+    },
+    {
+      "name": "piyolog",
+      "ok": true,
+      "count": 3
+    },
+    {
+      "name": "BleepingComputer",
+      "ok": true,
+      "count": 15
+    },
+    {
+      "name": "The Hacker News",
+      "ok": true,
+      "count": 13
+    },
+    {
+      "name": "SecurityWeek",
+      "ok": true,
+      "count": 9
+    },
+    {
+      "name": "JVN",
+      "ok": true,
+      "count": 4
+    },
+    {
+      "name": "ITmedia",
+      "ok": true,
+      "count": 3
+    },
+    {
+      "name": "AWS Health",
+      "ok": true,
+      "count": 0
+    },
+    {
+      "name": "Cloudflare Status",
+      "ok": true,
+      "count": 0
+    },
+    {
+      "name": "GitHub Status",
+      "ok": true,
+      "count": 0
+    },
+    {
+      "name": "EPSS",
+      "ok": true,
+      "count": 23
+    }
+  ],
+  "stats": {
+    "items": 86,
+    "clusters": 75
+  }
+}
